@@ -35,6 +35,18 @@ function ClientSideRender() {
         
         <h1>Client Side Render </h1>
         <h3>this page is rendered by the browser</h3>
+        <div>
+            <h2>products list</h2>
+            {products && products.map((product) => {
+return (
+<div key={product.id}>
+    <p>{product.id}</p>
+    <p>{product.description}</p>
+    <p>{product.price}</p>
+</div>)
+            })}
+        </div>
+
         </div>
   )
 }
