@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 
 //when we are using typescript, we can google 'json to typescript', paste our json file and see how the types are transformed
@@ -32,6 +33,16 @@ function ClientSideRender() {
 
   return (
     <div>
+        {/* again, this is what makes a difference Head! and title
+        we'll see this on our page tab
+        */}
+        <Head>
+            <title key="title"> 
+                fake store
+            </title>
+
+        </Head>
+
         
         <h1>Client Side Render </h1>
         <h3>this page is rendered by the browser</h3>
