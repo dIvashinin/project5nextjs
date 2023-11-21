@@ -5,6 +5,7 @@ export const getServerSideProps = async () => {
 const response = await fetch ("https://fakestoreapi.com/products/1");
 const result = await response.json();
 // this console.log is only happening in our server
+// client doesn't have access to here, only to what i am returning here
 console.log("where am I???");
 return {
   props: {product: result},
@@ -19,6 +20,10 @@ function serverSideRender({product}) {
         
         <h1>Server Side Render</h1>
         <h3>this page is rendered in the server</h3>
+        <div>
+          <p>{product.description}</p>
+          <p>{product.title}</p>
+        </div>
     </div>
   )
 }
