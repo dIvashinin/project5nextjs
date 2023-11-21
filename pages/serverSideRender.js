@@ -1,11 +1,19 @@
 import React from 'react';
 
 //here go next functio getServerSideProps. we check the documentation
-export const getServerSideProps = () => {
+export const getServerSideProps = async () => {
+const response = await fetch ("https://fakestoreapi.com/products/1");
+const result = await response.json();
+// this console.log is only happening in our server
+console.log("where am I???");
+return {
+  props: {product: result},
+};
+};
 
-}
-
-function serverSideRender() {
+function serverSideRender({product}) {
+  // this console.log is being displayed in both: server&client
+  console.log('product in my client :>> ', product);
   return (
     <div>
         
