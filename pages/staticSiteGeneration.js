@@ -5,13 +5,17 @@ import Head from "next/head";
 // this item once we deploy our project
 // unless we use some time specific ,which comes later
 export const getStaticProps = async () => {
+    //added +1 to exclude 0 from the result
 const randomId =Math.floor(Math.random()*19)+1;
 
 const response = await fetch (`https://fakestoreapi.com/products/${randomId}`);
 const result = await response.json();
 
 return{
-   props: {product:result},  
+   props: {product:result},
+   //BUT!!! if we want this static site generation to render from time to time, we use revalidate
+   //we have it in seconds
+   revalidate: 30 
 };
 };
 
