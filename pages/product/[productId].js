@@ -4,13 +4,27 @@ import {useRouter} from "next/router";
 
 //in order to be able to understand what i mean by 'id' in my dynamic route
 // we need to use this special next function
-export const getStaticPaths = async () => {
+export const getStaticPaths =  () => {
     //so we specify what things we want to be ready, for example these 4 items,
+    //we can call slug whatever we want, for ex productIds etc
    const slugs = ["1","2","3","4"]
-const paths = slugs
-}
-
-export const getStaticProps = async () => {
+const paths = slugs.map((slug) => {
+    return{
+        params: {
+            productId: slug
+        },
+    };
+});
+console.log('paths :>> ', paths);
+return {
+    paths,
+    fallback: true,
+};
+};
+//we pass 'context' from getStaticPaths to getStaticProps
+export const getStaticProps = async (context) => {
+    console.log('context :>> ', context);
+    const id = context.params.productId;
     const response = await fetch (`https://fakestoreapi.com/products/${id}`);
     const result = await response.json();
 
@@ -18,16 +32,20 @@ export const getStaticProps = async () => {
         props: {product:result},
         //BUT!!! if we want this static site generation to render from time to time, we use revalidate
         //we have it in seconds
-        revalidate: 30 
+        // revalidate: 30 
      };
+
 }
 
-function SingleProduct({}) {
+function SingleProduct({product}) {
     const router = useRouter()
   return (
     <div>
         info about product {router.query.productId}
+        <p>{product.title}</p>
+        <p>{product.price}</p>
     </div>
+    
   )
 }
 
