@@ -1,11 +1,13 @@
-import React from 'react'
-import Link from "next/link"
+import React from 'react';
+import Link from "next/link";
+
+
 
 function NavBar() {
   return (
     <div>
-        <nav>
-            <Link href='/'>home</Link> {} <Link href='/clientSideRender'>clientSideRender</Link>
+        <nav className='navigation-bar'>
+            <Link href='/'>home</Link> {} <Link href='/clientSideRender'>clientSideRender</Link> {} <Link href='/serverSideRender'>serverSideRender</Link>
             
         </nav>
     </div>

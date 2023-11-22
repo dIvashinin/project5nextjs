@@ -1,0 +1,17 @@
+/* NAV BAR */
+
+.navigation-bar {
+    background-color: #e82525;
+    padding: 10px;
+  }
+  
+  .navigation-bar a {
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
+  .navigation-bar a:hover {
+    color: yellow;
+  }
+  
