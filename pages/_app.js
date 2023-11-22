@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import '../styles/globals.css'
+import NavBar from '../components/NavBar';
 
 function MyApp({ Component, pageProps }) {
   
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <p>this one should appear everywhere</p>
+    <NavBar/>
   <Component {...pageProps} />
   </div>
   );
