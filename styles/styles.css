@@ -7,7 +7,7 @@
     top: 0px;
     z-index: 100;
     width: 100%; /* Take up the full width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
   }
   
   .navigation-bar a {
