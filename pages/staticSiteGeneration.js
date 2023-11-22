@@ -26,6 +26,8 @@ function staticSiteGeneration({product}) {
         <div>
           <p>{product.description}</p>
           <p>{product.title}</p>
+         <p>{product.price}</p>
+     
         </div>
         </div>
   )
