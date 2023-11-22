@@ -1,17 +1,24 @@
 /* NAV BAR */
 
 .navigation-bar {
-    background-color: #e82525;
+    background-color: #5f5f5f;
     padding: 10px;
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    width: 100%; /* Take up the full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
   }
   
   .navigation-bar a {
-    color: white;
+    color: rgb(216, 216, 216);
     margin-right: 10px;
     text-decoration: none;
+    font: 18px;
+    
   }
   
   .navigation-bar a:hover {
-    color: yellow;
+    color: rgb(255, 225, 177);
   }
   
