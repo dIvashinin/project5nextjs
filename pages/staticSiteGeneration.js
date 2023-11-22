@@ -5,7 +5,8 @@ import Head from "next/head";
 // this item once we deploy our project
 // unless we use some time specific ,which comes later
 export const getStaticProps = async () => {
-const randomId =Math.floor(Math.random()*19);
+const randomId =Math.floor(Math.random()*19)+1;
+
 const response = await fetch (`https://fakestoreapi.com/products/${randomId}`);
 const result = await response.json();
 
