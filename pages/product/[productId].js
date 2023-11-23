@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {useRouter} from "next/router";
+import ProductCard from '../../components/ProductCard';
 
 //in order to be able to understand what i mean by 'id' in my dynamic route
 // we need to use this special next function
@@ -18,7 +19,9 @@ const paths = slugs.map((slug) => {
 console.log('paths :>> ', paths);
 return {
     paths,
-    fallback: true,
+    // fallback false means: if we try to visit url/path of not existing product, we get 404 screen
+    // if fallback is true, we just get an error which we need to handle, so better: FALSE
+    fallback: false,
 };
 };
 //we pass 'context' from getStaticPaths to getStaticProps
@@ -41,9 +44,11 @@ function SingleProduct({product}) {
     const router = useRouter()
   return (
     <div>
-        info about product {router.query.productId}
+        {/* info about product {router.query.productId}
         <p>{product.title}</p>
-        <p>{product.price}</p>
+        <p>{product.price}</p> */}
+        {/* import here my product card component */}
+        <ProductCard product={product}/>
     </div>
     
   )
