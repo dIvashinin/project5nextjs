@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
+import ProductCard from '../components/ProductCard';
 
 //when we are using typescript, we can google 'json to typescript', paste our json file and see how the types are transformed
 
@@ -51,9 +52,10 @@ function ClientSideRender() {
             {products && products.map((product) => {
 return (
 <div key={product.id}>
-    <p>{product.id}</p>
+    {/* <p>{product.id}</p>
     <p>{product.description}</p>
-    <p>{product.price}</p>
+    <p>{product.price}</p> */}
+    <ProductCard product={product}/>
 </div>)
             })}
         </div>

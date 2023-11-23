@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from "next/head";
+import ProductCard from '../components/ProductCard';
 
 // here the thing is we will get an item always the same (we specify
 // this item once we deploy our project
@@ -29,9 +30,10 @@ function staticSiteGeneration({product}) {
         <h1>check a random product every time</h1>
         <h3>this page is rendered already in the server</h3>
         <div>
-          <p>{product.description}</p>
+          {/* <p>{product.description}</p>
           <p>{product.title}</p>
-         <p>{product.price}</p>
+         <p>{product.price}</p> */}
+         <ProductCard product={product}/>
      
         </div>
         </div>

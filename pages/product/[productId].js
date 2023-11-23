@@ -47,7 +47,7 @@ function SingleProduct({product}) {
         {/* info about product {router.query.productId}
         <p>{product.title}</p>
         <p>{product.price}</p> */}
-        {/* import here my product card component */}
+        {/* import here my product card component, passing props product which we receive above*/}
         <ProductCard product={product}/>
     </div>
     

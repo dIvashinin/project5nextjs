@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductCard from '../components/ProductCard';
 
 //here goes next function getServerSideProps, which gives us a possibility 
 // to pre-render stuff and display it without any useState useEffect as before
@@ -23,10 +24,11 @@ function serverSideRender({product}) {
         
         <h1>Server Side Render</h1>
         <h3>this page is rendered in the server</h3>
-        <div>
+        {/* <div>
           <p>{product.description}</p>
           <p>{product.title}</p>
-        </div>
+        </div> */}
+        <ProductCard product={product}/>
     </div>
   )
 }
