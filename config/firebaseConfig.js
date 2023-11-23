@@ -8,6 +8,7 @@ import { getAnalytics } from "firebase/analytics";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // we can console.log any of these to check if 
 //they are visible. we also need to use our variable 'app' in our _app.js file
+// and of course we must delete these console.logs before we deploy the project
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
