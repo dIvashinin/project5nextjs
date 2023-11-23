@@ -4,7 +4,9 @@ import '../styles/Home.module.css';
 import '../styles/styles.css'
 import NavBar from '../components/NavBar';
 
+
 function MyApp({ Component, pageProps }) {
+  //here we console.log our 'app' variable when checking if any env variables are ok
   
   return (
     <div>
