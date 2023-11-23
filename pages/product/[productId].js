@@ -8,6 +8,9 @@ import ProductCard from '../../components/ProductCard';
 export const getStaticPaths =  () => {
     //so we specify what things we want to be ready, for example these 4 items,
     //we can call slug whatever we want, for ex productIds etc
+    //in this case we know the ids, but we might not know them and
+    // will need to loop through an array and get them in another function
+    // and then use
    const slugs = ["1","2","3","4"]
 const paths = slugs.map((slug) => {
     return{
