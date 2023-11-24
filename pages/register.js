@@ -2,7 +2,7 @@ import React from 'react'
 //need to check the imports, because they can be done automatically wrong
 import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from '../config/firebaseConfig';
+import { app, auth } from '../config/firebaseConfig';
 
 function Register() {
     const [email, setEmail] = useState("");
