@@ -46,7 +46,7 @@ function Login() {
     console.log("email, password :>> ", email, password);
 
     const auth = getAuth();
-    console.log('auth :>> ', auth);
+    // console.log('auth :>> ', auth);
 
     try {
         const userCredential = await signInWithEmailAndPassword(
@@ -57,6 +57,11 @@ function Login() {
           // Signed in
           const user = userCredential.user;
           alert("successfully logged in!");
+          // Reset input fields
+            setEmail(() => "");
+            setPassword(() => "");
+        //   setEmail("");
+        //   setPassword("");
     } catch (error) {
         const errorCode = error.code;
         const errorMessage = error.message; 
@@ -82,6 +87,10 @@ const auth = getAuth();
 //this method will sign us out from firebase not from our app
 signOut(auth).then(() => {
     setUser(null);
+    setEmail(() => "");
+    setPassword(() => "");
+    // setEmail("");
+    // setPassword("");
     alert("you are logged out");
   // Sign-out successful.
 }).catch((error) => {
