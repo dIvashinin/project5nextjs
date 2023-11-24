@@ -4,6 +4,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut
 } from "firebase/auth";
 import { app, auth } from "../config/firebaseConfig";
 
@@ -67,14 +68,27 @@ function Login() {
         checkIfUserIsActive(auth); 
     }, []);
 
-   const handleLogout = () => {
-    console.log('logout :>> ');
-    //reseting states
+//    const handleLogout = () => {
+//     console.log('logout :>> ');
+//     //reseting states
+//     setUser(null);
+//     setEmail("");
+//     setPassword("");
+//     alert("you are logged out");
+//     };
+const handleLogout = () => {
+
+const auth = getAuth();
+//this method will sign us out from firebase not from our app
+signOut(auth).then(() => {
     setUser(null);
-    setEmail("");
-    setPassword("");
     alert("you are logged out");
-    };
+  // Sign-out successful.
+}).catch((error) => {
+    console.log('error signing out :>> ', error);
+  // An error happened.
+});
+}
 
   
 
