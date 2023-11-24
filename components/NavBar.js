@@ -12,7 +12,8 @@ function NavBar() {
             <Link href='/serverSideRender'>serverSideRender</Link> {} 
             <Link href='/staticSiteGeneration'>staticSiteGeneration</Link> {}
             <Link href='/login'>login</Link> {}
-            <Link href='/product'>products</Link>
+            {/* <Link href='/product'>products</Link> */}
+            <Link href='/shop'>shop</Link>
             
         </nav>
     </div>
