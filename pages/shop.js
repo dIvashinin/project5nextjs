@@ -35,7 +35,7 @@ export const getStaticProps = async () => {
     });
 
     return {
-      props: { products,reviews },
+      props: { products, reviews },
       //will change this later, now it's 60 sec
       // revalidate: 60
     };
@@ -54,18 +54,18 @@ function Shop({products, reviews }) {
     <div>
       <h2>shop</h2>
         {/* here we display products */}
-        <div>
-            {products.map((product) => {
+        <div className="products-shop">
+            {products.map((product) => (
                 <div key = {product.id}>
                     <p>{product.type}</p>
                     <p>{product.price}</p>
                     <p>{product.description}</p>
                     {/* <p>{product.image}</p> */}
                 </div>
-            })}
+            ))}
         </div>
 
-    <div>
+    <div className="reviews-shop">
         {/* here go reviews */}
         <h4>what other people say about this shop</h4>
       {/* Map over the reviews and render each one */}
