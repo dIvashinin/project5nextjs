@@ -10,7 +10,7 @@ export const getStaticProps = async () => {
     const productsSnapshot = await getDocs(collection(db, "products"));
     const products = [];
     productsSnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().description}`);
+        // console.log(`${doc.id} => ${doc.data().description}`);
         products.push({
             id: doc.id,
             type: doc.data().type,
@@ -18,14 +18,14 @@ export const getStaticProps = async () => {
             description: doc.data().description,
             image: doc.data().image,
         });
-        console.log('products :>> ', products);
+        // console.log('products :>> ', products);
     });
 
     const reviewsSnapshot = await getDocs(collection(db, "reviews"));
     const reviews = [];
     reviewsSnapshot.forEach((doc) => {
         //we can see our data in console!
-        console.log(`${doc.id} => ${doc.data().review}`);
+        // console.log(`${doc.id} => ${doc.data().review}`);
         // Push each review into the array
         reviews.push({
             id: doc.id,
@@ -68,15 +68,15 @@ function Shop({products, reviews }) {
                 </div>
             ))}
         </div>
-
+        <hr />
     <div className="reviews-shop">
         {/* here go reviews */}
-        <h4>what other people say about this shop</h4>
+        <h2 className="review-title">what other people say about this shop</h2>
       {/* Map over the reviews and render each one */}
       {reviews.map((review) => (
-        <div key={review.id}>
-            <p>{review.review}</p>
-            <p>{review.name}</p>
+        <div key={review.id}className="stuff-inside-reviews-div">
+            <p data-tag="review">who: {review.name}</p> { }
+            {review.review}
         {/* // {product.description} */}
         {/* // {review.name} */}
         {/* // <ProductCard key={review.description} review={review} /> */}
@@ -84,6 +84,7 @@ function Shop({products, reviews }) {
          </div>
     ))}
     </div>
+    <hr />
      </div> 
   );
 }
