@@ -22,9 +22,34 @@
     color: rgb(255, 225, 177);
   }
   
+  /* containers of products and reviews in shop page */
   .products-shop {
-    margin-top: 100px;
+    /* margin-top: 100px; */
+    font: 18px;
+   
+
   }
   .reviews-shop {
-    margin-top: 300px;
+    /* margin-top: 300px; */
+  }
+
+  /* imag */
+  .stuff-inside-products-div{
+    border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  }
+
+
+
+
+  /* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    .product-card {
+      /* Adjust styles for smaller screens */
+      /* For example, reduce padding or margin */
+      padding: 5px;
+      margin: 5px;
+    }
   }
