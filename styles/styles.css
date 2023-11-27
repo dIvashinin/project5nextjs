@@ -24,8 +24,10 @@
   
   /* containers of products and reviews in shop page */
   .products-shop {
+    display: flex;
+  flex-wrap: wrap;
     /* margin-top: 100px; */
-    font: 18px;
+    font-size: 12px;
    
 
   }
@@ -35,10 +37,19 @@
 
   /* imag */
   .stuff-inside-products-div{
-    border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px;
+    width: 100%; /* Set the width of the product card container */
+  max-width: 400px; /* Set a maximum width if needed */
+    /* border: 1px solid #636363; */
+    background-color: rgb(237, 237, 237);
+  padding: 0.5px;
+  margin: 0.5px;
   border-radius: 5px;
+  flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
+  }
+
+  .stuff-inside-products-div img {
+    width: 100%; /* Make sure the image fills the container */
+    height: auto; /* Maintain aspect ratio */
   }
 
 
@@ -51,5 +62,6 @@
       /* For example, reduce padding or margin */
       padding: 5px;
       margin: 5px;
+      flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
     }
   }

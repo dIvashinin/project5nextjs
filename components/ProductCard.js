@@ -11,9 +11,9 @@ function ProductCard({product}) {
 
 <>
 <img src={product.image}></img>
-{product.type}
-{product.price}
-{product.description}
+<p>what: {product.type} { }</p>
+<p>price: {product.price}Eur { }</p>
+<p>{product.description}</p>
 </>
 
   );
