@@ -1,18 +1,21 @@
 import React from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
-import ProductCard from "../components/ProductCard";
+// import ProductCard from "../components/ProductCard";
 
 export const getStaticProps = async () => {
   try {
-    const querySnapshot = await getDocs(collection(db, "products"));
-    const products = querySnapshot.forEach((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
+    const querySnapshot = await getDocs(collection(db, "reviews"));
+    const reviews = querySnapshot.forEach((doc) => {
+        //we can see our data in console!
+        console.log(`${doc.id} => ${doc.data().review}`);
+        // id: doc.id,
+        // ...doc.data(),
+    });
+    console.log('reviews :>> ', reviews);
 
     return {
-      props: { products },
+      props: { reviews },
       //will change this later, now it's 60 sec
       // revalidate: 60
     };
@@ -25,14 +28,15 @@ export const getStaticProps = async () => {
   }
 };
 
-function Shop({ product }) {
+function Shop({  }) {
   return (
     <div>
       <h2>shop</h2>
-      {products.map((product) => (
-        // {product.description}
-        <ProductCard key={product.description} product={product} />
-      ))}
+      {/* {reviews.map((review) => ( */}
+        {/* // {product.description} */}
+        {/* // {review.name} */}
+        {/* // <ProductCard key={review.description} review={review} /> */}
+    {/* //   ))} */}
     </div>
   );
 }
