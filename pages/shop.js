@@ -5,48 +5,82 @@ import { db } from "../config/firebaseConfig";
 
 export const getStaticProps = async () => {
   try {
-    const querySnapshot = await getDocs(collection(db, "reviews"));
+
+    const productsSnapshot = await getDocs(collection(db, "products"));
+    const products = [];
+    productsSnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data().description}`);
+        products.push({
+            id: doc.id,
+            type: doc.data().type,
+            price: doc.data().price,
+            description: doc.data().description,
+        });
+        console.log('products :>> ', products);
+    });
+
+    const reviewsSnapshot = await getDocs(collection(db, "reviews"));
     const reviews = [];
-     querySnapshot.forEach((doc) => {
+    reviewsSnapshot.forEach((doc) => {
         //we can see our data in console!
         console.log(`${doc.id} => ${doc.data().review}`);
+        // Push each review into the array
         reviews.push({
             id: doc.id,
             review: doc.data().review,
+            name: doc.data().name,
+            // date: doc.data().date,
+            //here we add other properties
         })
-        // ...doc.data(),
     });
-    // console.log('reviews :>> ', reviews);
 
     return {
-      props: { reviews },
+      props: { products,reviews },
       //will change this later, now it's 60 sec
       // revalidate: 60
     };
 } catch (error) {
     console.error("error fetching products:", error.message);
     return {
-            props: {reviews: []},
+            props: {products:[], reviews: []},
         //     // revalidate: 60,
         };
     }
 };
 
 
-function Shop({ reviews }) {
+function Shop({products, reviews }) {
   return (
     <div>
       <h2>shop</h2>
+        {/* here we display products */}
+        <div>
+            {products.map((product) => {
+                <div key = {product.id}>
+                    <p>{product.type}</p>
+                    <p>{product.price}</p>
+                    <p>{product.description}</p>
+                    {/* <p>{product.image}</p> */}
+                </div>
+            })}
+        </div>
+
+    <div>
+        {/* here go reviews */}
+        <h4>what other people say about this shop</h4>
+      {/* Map over the reviews and render each one */}
       {reviews.map((review) => (
         <div key={review.id}>
             <p>{review.review}</p>
+            <p>{review.name}</p>
         {/* // {product.description} */}
         {/* // {review.name} */}
         {/* // <ProductCard key={review.description} review={review} /> */}
     {/* //   ))} */}
+         </div>
+    ))}
     </div>
-      ))};
      </div> 
-  )
+  );
 }
 export default Shop;
