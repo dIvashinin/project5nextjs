@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import ProductCard from "../components/ProductCard";
 import Search from "../components/Search";
+
 // import ProductCard from "../components/ProductCard";
 
 export const getStaticProps = async () => {
@@ -40,7 +41,7 @@ export const getStaticProps = async () => {
     return {
       props: { products, reviews },
       //will change this later, now it's 60 sec
-      // revalidate: 60
+      revalidate: 60
     };
 } catch (error) {
     console.error("error fetching products:", error.message);
@@ -53,14 +54,18 @@ export const getStaticProps = async () => {
 
 
 function Shop({products, reviews }) {
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const handleFilterChange = (filteredProducts) => {
+        setFilteredProducts(filteredProducts);
+    }
   return (
     <div>
         {/* we pass products we need to have access to via props */}
-       <Search products={products}/> 
+       <Search products={products} onFilterChange={handleFilterChange}/> 
       <h2>shop</h2>
         {/* here we display products */}
         <div className="products-shop">
-            {products.map((product) => (
+            {(filteredProducts.length > 0 ? filteredProducts: products).map((product) =>(
                 <div key = {product.id} className="stuff-inside-products-div">
                     <ProductCard product={product} />
                     {/* <img className="product-image" src={product.image}></img>

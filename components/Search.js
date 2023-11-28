@@ -2,15 +2,16 @@ import React, { useState } from 'react'
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import ProductCard from './ProductCard';
+import product from '../pages/product';
 
 // we pass products as props
-function Search({}) {
+function Search({products, onFilterChange}) {
     // State to track user input
   const [inputText, setInputText] = useState("");
   console.log('inputText :>> ', inputText);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+//   const [filteredProducts, setFilteredProducts] = useState([]);
 // Function to handle changes in the search input
-const inputChangeHandler = async (e) => {
+const inputChangeHandler =  (e) => {
     // When the user types in the search input, this function updates the 'inputText' state with the text.
     // console.log("event.target.value :>> ", e.target.value);
     const text = e.target.value;
@@ -18,27 +19,33 @@ const inputChangeHandler = async (e) => {
 
     //fetch products from firebase based on input. 
     //Client Side Rendering
-    const querySnapshot = await getDocs(collection(db, 'products'));
-    const products = [];
-    querySnapshot.forEach((doc) => {
-        const product = doc.data();
-        if (
+    // const querySnapshot = await getDocs(collection(db, 'products'));
+    // const filteredProducts = [];
+    // querySnapshot.forEach((doc) => {
+    //     const product = doc.data();
+    //     if (
+        const filteredProducts = products.filter((product) =>
             product.description.toLowerCase().includes(text.toLowerCase()) ||
             product.price.toLowerCase().includes(text.toLowerCase()) ||
             product.type.toLowerCase().includes(text.toLowerCase())
-        ){
-            products.push({
-                id: doc.id,
-                type: product.type,
-                price: product.price,
-                description: product.description,
-                image: product.image,
-            });
-        }
-    });
+        );
+        // Update the parent component (Shop) with the filtered products
+    onFilterChange(filteredProducts);
+    console.log('filteredProducts :>> ', filteredProducts);
+
+        // ){
+        //     filteredProducts.push({
+        //         id: doc.id,
+        //         type: product.type,
+        //         price: product.price,
+        //         description: product.description,
+        //         image: product.image,
+        //     });
+        
+    
     
       // Update the filtered posts
-      setFilteredProducts(products);
+    //   setFilteredProducts(filteredProducts);
       
     };
 
