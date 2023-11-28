@@ -55,7 +55,7 @@ export const getStaticProps = async () => {
 function Shop({products, reviews }) {
   return (
     <div>
-        
+        {/* we pass products we need to have access to via props */}
        <Search products={products}/> 
       <h2>shop</h2>
         {/* here we display products */}
