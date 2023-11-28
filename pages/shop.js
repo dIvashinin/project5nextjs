@@ -2,6 +2,7 @@ import React from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import ProductCard from "../components/ProductCard";
+import Search from "../components/Search";
 // import ProductCard from "../components/ProductCard";
 
 export const getStaticProps = async () => {
@@ -54,6 +55,8 @@ export const getStaticProps = async () => {
 function Shop({products, reviews }) {
   return (
     <div>
+        
+       <Search products={products}/> 
       <h2>shop</h2>
         {/* here we display products */}
         <div className="products-shop">
