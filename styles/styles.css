@@ -1,95 +1,90 @@
 /* NAV BAR */
 
 .navigation-bar {
-    background-color: #5f5f5f;
-    padding: 10px;
-    position: fixed;
-    top: 0px;
-    z-index: 100;
-    width: 100%; /* Take up the full width */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  }
-  
-  .navigation-bar a {
-    color: rgb(216, 216, 216);
-    margin-right: 10px;
-    text-decoration: none;
-    font: 18px;
-    
-  }
-  
-  .navigation-bar a:hover {
-    color: rgb(255, 225, 177);
-  }
-  
-  /* containers of products and reviews in shop page */
-  .products-shop {
-    display: flex;
+  background-color: #5f5f5f;
+  padding: 10px;
+  position: fixed;
+  top: 0px;
+  z-index: 100;
+  width: 100%; /* Take up the full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.navigation-bar a {
+  color: rgb(216, 216, 216);
+  margin-right: 10px;
+  text-decoration: none;
+  font: 18px;
+}
+
+.navigation-bar a:hover {
+  color: rgb(255, 225, 177);
+}
+
+/* containers of products and reviews in shop page */
+.products-shop {
+  display: flex;
   flex-wrap: wrap;
-    /* margin-top: 100px; */
-    font-size: 12px;
-   
-
-  }
-  .reviews-shop {
-    display: flex;
+  /* margin-top: 100px; */
+  font-size: 12px;
+}
+.reviews-shop {
+  display: flex;
   flex-wrap: wrap;
-      /* margin-top: 100px; */
-      font-size: 16px;
-     
-  }
-  p[data-tag="review" ] {
-    font-style: italic;
-    font-size: 10px;
-  }
-  p[data-tag="type"], p[data-tag="description"], p[data-tag="price"] {
-    padding-left: 10px;
-    font-style: italic;
-  }
+  /* margin-top: 100px; */
+  font-size: 16px;
+}
+p[data-tag="review"] {
+  font-style: italic;
+  font-size: 10px;
+}
+p[data-tag="type"],
+p[data-tag="description"],
+p[data-tag="price"] {
+  padding-left: 10px;
+  font-style: italic;
+}
 
-  .review-title{
-    display: inline-block;
-  }
+.review-title {
+  display: inline-block;
+}
 
-  /* imag */
-  .stuff-inside-products-div{
-    width: 100%; /* Set the width of the product card container */
-    max-width: 400px; /* Set a maximum width if needed */
-    /* border: 1px solid #636363; */
-    background-color: rgb(237, 237, 237);
-    padding: 0.5px;
-    margin: 0.5px;
-    border-radius: 5px;
-    flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
-  }
+/* imag */
+.stuff-inside-products-div {
+  width: 100%; /* Set the width of the product card container */
+  max-width: 400px; /* Set a maximum width if needed */
+  /* border: 1px solid #636363; */
+  background-color: rgb(237, 237, 237);
+  padding: 0.5px;
+  margin: 0.5px;
+  border-radius: 5px;
+  flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
+}
 
-  .stuff-inside-products-div img {
-    width: 100%; /* Make sure the image fills the container */
-    height: auto; /* Maintain aspect ratio */
-  }
+.stuff-inside-products-div img {
+  width: 100%; /* Make sure the image fills the container */
+  height: auto; /* Maintain aspect ratio */
+}
 
-  .stuff-inside-reviews-div{
-    width: 100%; /* Set the width of the product card container */
-    max-width: auto; /* Set a maximum width if needed */
-    /* border: 1px solid #636363; */
-    background-color: rgb(226, 223, 160);
-    /* padding: 5px; */
-    padding-left: 20px;
-    margin: 5px;
-    border-radius: 5px;
-    flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
-  }
+.stuff-inside-reviews-div {
+  width: 100%; /* Set the width of the product card container */
+  max-width: auto; /* Set a maximum width if needed */
+  /* border: 1px solid #636363; */
+  background-color: rgb(226, 223, 160);
+  /* padding: 5px; */
+  padding-left: 20px;
+  margin: 5px;
+  border-radius: 5px;
+  flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
+}
 
-
-
-
-  /* Add media queries for responsiveness */
+/* Add media queries for responsiveness */
 @media (max-width: 768px) {
-    .product-card {
-      /* Adjust styles for smaller screens */
-      /* For example, reduce padding or margin */
-      padding: 5px;
-      margin: 5px;
-      flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
-    }
+  .product-card {
+    /* Adjust styles for smaller screens */
+    /* For example, reduce padding or margin */
+    padding: 5px;
+    margin: 5px;
+    flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
   }
+}
