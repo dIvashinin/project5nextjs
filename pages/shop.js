@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import ProductCard from "../components/ProductCard";
@@ -8,92 +8,91 @@ import Search from "../components/Search";
 
 export const getStaticProps = async () => {
   try {
-
     const productsSnapshot = await getDocs(collection(db, "products"));
     const products = [];
     productsSnapshot.forEach((doc) => {
-        // console.log(`${doc.id} => ${doc.data().description}`);
-        products.push({
-            id: doc.id,
-            type: doc.data().type,
-            price: doc.data().price,
-            description: doc.data().description,
-            image: doc.data().image,
-        });
-        // console.log('products :>> ', products);
+      // console.log(`${doc.id} => ${doc.data().description}`);
+      products.push({
+        id: doc.id,
+        type: doc.data().type,
+        price: doc.data().price,
+        description: doc.data().description,
+        image: doc.data().image,
+      });
+      // console.log('products :>> ', products);
     });
 
     const reviewsSnapshot = await getDocs(collection(db, "reviews"));
     const reviews = [];
     reviewsSnapshot.forEach((doc) => {
-        //we can see our data in console!
-        // console.log(`${doc.id} => ${doc.data().review}`);
-        // Push each review into the array
-        reviews.push({
-            id: doc.id,
-            review: doc.data().review,
-            name: doc.data().name,
-            // date: doc.data().date,
-            //here we add other properties
-        })
+      //we can see our data in console!
+      // console.log(`${doc.id} => ${doc.data().review}`);
+      // Push each review into the array
+      reviews.push({
+        id: doc.id,
+        review: doc.data().review,
+        name: doc.data().name,
+        // date: doc.data().date,
+        //here we add other properties
+      });
     });
 
     return {
       props: { products, reviews },
       //will change this later, now it's 60 sec
-      revalidate: 60
+      revalidate: 60,
     };
-} catch (error) {
+  } catch (error) {
     console.error("error fetching products:", error.message);
     return {
-            props: {products:[], reviews: []},
-        //     // revalidate: 60,
-        };
-    }
+      props: { products: [], reviews: [] },
+      //     // revalidate: 60,
+    };
+  }
 };
 
-
-function Shop({products, reviews }) {
-    const [filteredProducts, setFilteredProducts] = useState([]);
-    const handleFilterChange = (filteredProducts) => {
-        setFilteredProducts(filteredProducts);
-    }
+function Shop({ products, reviews }) {
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const handleFilterChange = (filteredProducts) => {
+    setFilteredProducts(filteredProducts);
+  };
   return (
     <div>
-        {/* we pass products we need to have access to via props */}
-       <Search products={products} onFilterChange={handleFilterChange}/> 
+      {/* we pass products we need to have access to via props */}
+      <Search products={products} onFilterChange={handleFilterChange} />
       <h2>shop</h2>
-        {/* here we display products */}
-        <div className="products-shop">
-            {(filteredProducts.length > 0 ? filteredProducts: products).map((product) =>(
-                <div key = {product.id} className="stuff-inside-products-div">
-                    <ProductCard product={product} />
-                    {/* <img className="product-image" src={product.image}></img>
+      {/* here we display products */}
+      <div className="products-shop">
+        {(filteredProducts.length > 0 ? filteredProducts : products).map(
+          (product) => (
+            <div key={product.id} className="stuff-inside-products-div">
+              <ProductCard product={product} />
+              {/* <img className="product-image" src={product.image}></img>
                     <p>{product.type}</p>
                     <p>{product.price}</p>
                     <p>{product.description}</p> */}
-                    
-                </div>
-            ))}
-        </div>
-        <hr />
-    <div className="reviews-shop">
+            </div>
+          )
+        )}
+      </div>
+      <hr />
+      <div className="reviews-shop">
         {/* here go reviews */}
         <h2 className="review-title">what other people say about this shop</h2>
-      {/* Map over the reviews and render each one */}
-      {reviews.map((review) => (
-        <div key={review.id}className="stuff-inside-reviews-div">
-            <p data-tag="review">who: {review.name}</p> { }
+        {/* Map over the reviews and render each one */}
+        {reviews.map((review) => (
+          <div key={review.id} className="stuff-inside-reviews-div">
+            <p data-tag="review">who: {review.name}</p> {}
             {review.review}
-        {/* // {product.description} */}
-        {/* // {review.name} */}
-        {/* // <ProductCard key={review.description} review={review} /> */}
-    {/* //   ))} */}
-         </div>
-    ))}
+            {/* // {product.description} */}
+            {/* // {review.name} */}
+            {/* // <ProductCard key={review.description} review={review} /> */}
+            {/* //   ))} */}
+          </div>
+        ))}
+      </div>
+      <hr />
     </div>
-    <hr />
-     </div> 
   );
 }
 export default Shop;
