@@ -6,6 +6,7 @@
   position: fixed;
   top: 0px;
   z-index: 100;
+  font-size: 24px;
   width: 100%; /* Take up the full width */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
@@ -21,6 +22,10 @@
   color: rgb(255, 225, 177);
 }
 
+.searchbar{
+  margin-top: 30px;
+}
+
 /* making product cart in righ top corner of navbar */
 /* .navigation-bar {
   position: relative;
@@ -29,17 +34,32 @@
   position: absolute;
   top: 0;
   right: 0;
-  margin: 10px;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 4px;
   margin-right: 20px;
   background-color:rgb(84, 188, 188);
   text-decoration: none;
   border-style: none;
+  border-radius: 30px;
 }
 .cart-icon-svg{
-  width: 16px;
-  height: auto;
+  width: 1.8rem;
+  height: 1.8rem;
   display: flex;
   align-items: center;
+  /* position: absolute; */
+}
+.inside-cart-number-products{
+  position: absolute;
+  /* top: 0,4;
+  right: 0,7; */
+  /* border-style: solid  1px; */
+  border-radius: 20px;
+  background-color: red;
+  width: 1rem;
+  height: 1rem;
+  
 }
 /* .cart-icon-svg-add-to{
   width: 12px;
