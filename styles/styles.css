@@ -31,7 +31,9 @@
   right: 0;
   margin: 10px;
   margin-right: 20px;
-  background-color:darkcyan;
+  background-color:rgb(84, 188, 188);
+  text-decoration: none;
+  border-style: none;
 }
 .cart-icon-svg{
   width: 16px;
@@ -80,6 +82,7 @@ p[data-tag="price"] {
 
 .review-title {
   display: inline-block;
+  width: 100%;
 }
 
 /* imag */
@@ -96,7 +99,8 @@ p[data-tag="price"] {
 
 .stuff-inside-products-div img {
   width: 100%; /* Make sure the image fills the container */
-  max-height: 400px;
+  height: 400px;
+  /* max-height: 400px; */
   /* object-fit: entire container is covered by the image, 
   even if it means the image is cropped a bit */
   object-fit: cover;
@@ -104,11 +108,11 @@ p[data-tag="price"] {
 
 .stuff-inside-reviews-div {
   width: 100%; /* Set the width of the product card container */
-  max-width: auto; /* Set a maximum width if needed */
+  max-width: 250px; /* Set a maximum width if needed */
   /* border: 1px solid #636363; */
   background-color: rgb(226, 223, 160);
-  /* padding: 5px; */
-  padding-left: 20px;
+  padding: 5px;
+  /* padding-left: 20px; */
   margin: 5px;
   border-radius: 5px;
   flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
@@ -124,4 +128,7 @@ p[data-tag="price"] {
     margin: 5px;
     flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
   }
+  .stuff-inside-products-div {
+    flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
+}
 }
