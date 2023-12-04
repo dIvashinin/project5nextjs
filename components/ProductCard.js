@@ -1,6 +1,6 @@
 import React from "react";
 
-const cartIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
+// const cartIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
 
 function ProductCard({ product }) {
   return (
@@ -22,7 +22,8 @@ function ProductCard({ product }) {
       <p data-tag="description">{product.description}</p>
       <div>
       <button className="add-to-cart-button">
-      <img className="cart-icon-svg-add-to" src={cartIconLink} alt="Cart" />
+        {/* try again later, now no time */}
+      {/* <img className="cart-icon-svg-add-to" src={cartIconLink} alt="Cart" /> */}
         add to cart</button>
         </div>
     </div>
