@@ -51,14 +51,14 @@ export const getStaticProps = async () => {
 
 function Shop({ products, reviews }) {
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const inputChangeHandler = (filteredProducts) => {
+  const handleFilterChange = (filteredProducts) => {
     setFilteredProducts(filteredProducts);
   };
   return (
     <div>
       {/* we pass products we need to have access to via props */}
-      <Search products={products} onFilterChange={inputChangeHandler} />
-      <h2>shop</h2>
+      <Search products={products} onFilterChange={handleFilterChange} />
+      <h2>Moon Ruby Shop</h2>
       {/* here we display products */}
       <div className="products-shop">
         {(filteredProducts.length > 0 ? filteredProducts : products).map(

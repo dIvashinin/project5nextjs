@@ -63,7 +63,9 @@ p[data-tag="price"] {
 
 .stuff-inside-products-div img {
   width: 100%; /* Make sure the image fills the container */
-  height: auto; /* Maintain aspect ratio */
+  max-height: 400px;
+  object-fit: cover;
+  /* height: auto; Maintain aspect ratio */
 }
 
 .stuff-inside-reviews-div {
