@@ -4,8 +4,6 @@ import { db } from "../config/firebaseConfig";
 import ProductCard from "../components/ProductCard";
 import Search from "../components/Search";
 
-// import ProductCard from "../components/ProductCard";
-
 export const getStaticProps = async () => {
   try {
     const productsSnapshot = await getDocs(collection(db, "products"));
@@ -53,13 +51,13 @@ export const getStaticProps = async () => {
 
 function Shop({ products, reviews }) {
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const handleFilterChange = (filteredProducts) => {
+  const inputChangeHandler = (filteredProducts) => {
     setFilteredProducts(filteredProducts);
   };
   return (
     <div>
       {/* we pass products we need to have access to via props */}
-      <Search products={products} onFilterChange={handleFilterChange} />
+      <Search products={products} onFilterChange={inputChangeHandler} />
       <h2>shop</h2>
       {/* here we display products */}
       <div className="products-shop">

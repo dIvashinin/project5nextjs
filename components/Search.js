@@ -8,6 +8,7 @@ import product from '../pages/product';
 function Search({products, onFilterChange}) {
     // State to track user input
   const [inputText, setInputText] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
   console.log('inputText :>> ', inputText);
 //   const [filteredProducts, setFilteredProducts] = useState([]);
 // Function to handle changes in the search input
@@ -28,10 +29,10 @@ const inputChangeHandler =  (e) => {
             product.description.toLowerCase().includes(text.toLowerCase()) ||
             product.price.toLowerCase().includes(text.toLowerCase()) ||
             product.type.toLowerCase().includes(text.toLowerCase())
-        );
-        // Update the parent component (Shop) with the filtered products
-    onFilterChange(filteredProducts);
-    console.log('filteredProducts :>> ', filteredProducts);
+            );
+            // Update the parent component (Shop) with the filtered products
+            onFilterChange(filteredProducts);
+            // console.log('filteredProducts :>> ', filteredProducts);
 
         // ){
         //     filteredProducts.push({
