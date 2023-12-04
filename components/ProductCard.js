@@ -18,6 +18,7 @@ function ProductCard({ product }) {
         price: {product.price}Eur {}
       </p>
       <p data-tag="description">{product.description}</p>
+      <button>add to cart</button>
     </>
   );
 }

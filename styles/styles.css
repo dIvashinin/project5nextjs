@@ -21,6 +21,17 @@
   color: rgb(255, 225, 177);
 }
 
+/* making product cart in righ top corner of navbar */
+.navigation-bar {
+  position: relative;
+}
+.product-cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
 /* containers of products and reviews in shop page */
 .products-shop {
   display: flex;
@@ -64,8 +75,9 @@ p[data-tag="price"] {
 .stuff-inside-products-div img {
   width: 100%; /* Make sure the image fills the container */
   max-height: 400px;
+  /* object-fit: entire container is covered by the image, 
+  even if it means the image is cropped a bit */
   object-fit: cover;
-  /* height: auto; Maintain aspect ratio */
 }
 
 .stuff-inside-reviews-div {
@@ -78,6 +90,10 @@ p[data-tag="price"] {
   margin: 5px;
   border-radius: 5px;
   flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
+}
+
+.product-cart{
+
 }
 
 /* Add media queries for responsiveness */

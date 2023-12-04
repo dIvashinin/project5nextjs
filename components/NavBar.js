@@ -14,6 +14,9 @@ function NavBar() {
             <Link href='/login'>login</Link> {}
             {/* <Link href='/product'>products</Link> */}
             <Link href='/shop'>shop</Link>
+            <button className="product-cart">cart
+
+            </button>
             
         </nav>
     </div>
