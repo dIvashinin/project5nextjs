@@ -30,7 +30,7 @@ function ProductCard({ product }) {
         <button className="minus-to-cart-button" onClick={() => decreaseCartQuantity(product.id)}>
         {/* try again later, now no time */}
       {/* <img className="cart-icon-svg-add-to" src={cartIconLink} alt="Cart" /> */}
-        - item from cart</button>
+        - remove</button>
         </div>
     </div>
   );
