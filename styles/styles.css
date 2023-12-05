@@ -12,18 +12,19 @@
 }
 
 .navigation-bar a {
-  color: rgb(216, 216, 216);
+  color: rgb(255, 255, 255);
   margin-right: 10px;
   text-decoration: none;
   font: 18px;
 }
 
 .navigation-bar a:hover {
-  color: rgb(255, 225, 177);
+  color: rgb(173, 255, 251);
 }
 
 .searchbar{
   margin-top: 30px;
+  
 }
 
 /* making product cart in righ top corner of navbar */
@@ -101,6 +102,15 @@ p[data-tag="description"],
 p[data-tag="price"] {
   padding-left: 10px;
   font-style: italic;
+}
+.search-input {
+  height: 30px;
+  width: 200px;
+  border-radius: 5px;
+  text-decoration: none;
+  border-style: solid;
+  border-width: 1px;
+  background-color: rgb(241, 253, 253);
 }
 
 .review-title {
