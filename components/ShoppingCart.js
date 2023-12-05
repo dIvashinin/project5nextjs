@@ -1,6 +1,13 @@
-export function ShoppingCart() {
+import {Offcanvas} from "react-bootstrap";
+import { useShoppingCart } from "../context/shoppingCartContext";
+
+export function ShoppingCart({isOpen}) {
+    const {closeCart} = useShoppingCart();
     return (
-    
-    <h3>ShoppingCart</h3>
+    <Offcanvas show={isOpen} onHide={closeCart} placement="end">
+        <Offcanvas.Header closeButton>
+            <Offcanvas.Title>Cart</Offcanvas.Title>  
+        </Offcanvas.Header>
+    </Offcanvas>
     )
 }
