@@ -3,6 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import ProductCard from "../components/ProductCard";
 import Search from "../components/Search";
+import { useShoppingCart } from "../context/shoppingCartContext";
 
 export const getStaticProps = async () => {
   try {
@@ -50,6 +51,8 @@ export const getStaticProps = async () => {
 };
 
 function Shop({ products, reviews }) {
+  // const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
+  // const quantity = getItemQuantity(id)
   const [filteredProducts, setFilteredProducts] = useState([]);
   const handleFilterChange = (filteredProducts) => {
     setFilteredProducts(filteredProducts);
