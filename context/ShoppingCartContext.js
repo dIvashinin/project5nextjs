@@ -12,7 +12,7 @@ export function ShoppingCartProvider ({children}) {
     const [cartItems, setCartItems] = useState([])
 
     const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
-
+    console.log('cartItems :>> ', cartItems);
     const openCart = () => setIsOpen(true)
     const closeCart = () => setIsOpen(false)
     function getItemQuantity(id) {
@@ -22,6 +22,7 @@ export function ShoppingCartProvider ({children}) {
     function increaseCartQuantity (id) {
         //current items are whatever our list of current items are
         setCartItems(currItems => {
+            console.log('currItems :>> ', currItems);
             //and we need to modify the list
             //if we can find an item inside our cart, that means we have this item
             //but if we can't find it, we need to add it to our cart
