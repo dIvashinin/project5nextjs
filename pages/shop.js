@@ -61,7 +61,7 @@ function Shop({ products, reviews }) {
     <div>
       {/* we pass products we need to have access to via props */}
       <Search products={products} onFilterChange={handleFilterChange} />
-      <h2>Moon Ruby Shop</h2>
+      <h2 className="moon-ruby-shop">Moon Ruby Shop</h2>
       {/* here we display products */}
       <div className="products-shop">
         {(filteredProducts.length > 0 ? filteredProducts : products).map(
