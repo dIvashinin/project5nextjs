@@ -3,7 +3,8 @@ import '../styles/globals.css';
 import '../styles/Home.module.css';
 import '../styles/styles.css'
 import NavBar from '../components/NavBar';
-import {ShoppingCartProvider} from '../context/ShoppingCartContext'
+//don't know why but shoppingCartContext needed to start with small letter
+import {ShoppingCartProvider} from '../context/shoppingCartContext.js';
 
 
 function MyApp({ Component, pageProps }) {
