@@ -1,12 +1,14 @@
 import React from 'react';
 import Link from "next/link";
 import Search from "../components/Search";
+import { useShoppingCart } from '../context/shoppingCartContext';
 
 const cartIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
 
 
 
 function NavBar() {
+  const {openCart, cartQuantity} = useShoppingCart()
   return (
     <div>
         <nav className='navigation-bar'>
@@ -17,10 +19,12 @@ function NavBar() {
             <Link href='/login'>login</Link> {}
             {/* <Link href='/product'>products</Link> */}
             <Link href='/shop'>shop</Link>
-            <button className="product-cart">
+            <button className="product-cart" onClick={openCart}>
             
             <img className="cart-icon-svg" src={cartIconLink} alt="Cart" />
-            <div className="inside-cart-number-products">3</div>
+            <div className="inside-cart-number-products">
+              {cartQuantity}
+              </div>
             </button>
             
         </nav>
