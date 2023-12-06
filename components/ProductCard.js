@@ -19,7 +19,7 @@ function ProductCard({ product }) {
         what: {product.type} {}
       </p>
       <p data-tag="price">
-        price: {product.price}Eur {}
+        price: {product.price}&euro; {}
       </p>
       <p data-tag="description">{product.description}</p>
       <div>

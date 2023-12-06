@@ -26,13 +26,27 @@ export function ShoppingCart({isOpen}) {
             {cartItems.map((item) => (
                <div className="added-to-cart-container" key={item.id}>
                 <img src={item.image} style={{width:"125px", height:"75px", objectFit: "cover"}} alt={item.type}></img>
-               <p data-tag="type">what: {item.type}</p>
-               <p data-tag="price">price: {item.price} Eur</p>
-               <p data-tag="quantity">{item.quantity} pcs</p>
-               <p data-tag="total">total: {item.price*item.quantity} Eur</p>
+               <div className="me-auto">
+                <div>
+               {/* <p data-tag="type"> */}
+                {item.type} {item.quantity > 1 && <span className="text-muted" style={{fontSize: "0.8rem"}}>
+                    x{item.quantity}</span>}
+               </div>
+               <div className="text-muted" style={{fontSize: "0.85rem"}}>
+                {item.price}&euro;
+               </div> 
+               <div> 
+               total: {item.price*item.quantity}&euro;
+               <button className="remove-inside-cart" onClick={() => removeFromCart(item.id, products)}>&times;</button>
+               </div>
+                {/* </p> */}
+               {/* <p data-tag="price">price: {item.price} Eur</p> */}
+                {/* <p data-tag="quantity">{item.quantity} pcs</p> */}
+                {/* <p data-tag="total">total: {item.price*item.quantity} Eur</p> */}
+               </div>
                <button className="add-to-inside-cart" onClick={() => increaseCartQuantity(item.id, products)}>+</button>
                <button className="decrease-inside-cart" onClick={() => decreaseCartQuantity(item.id, products)}>-</button>
-               <button className="remove-inside-cart" onClick={() => removeFromCart(item.id, products)}>delete</button>
+               
                {/* other properties */}
            </div>
             // <CartItem key={item.id} {...item} product={product} />
