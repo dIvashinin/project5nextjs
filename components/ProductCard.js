@@ -23,11 +23,11 @@ function ProductCard({ product }) {
       </p>
       <p data-tag="description">{product.description}</p>
       <div>
-      <button className="add-to-cart-button" onClick={() => increaseCartQuantity(product.id)}>
+      <button className="add-to-cart-button" onClick={() => increaseCartQuantity(product.id,product)}>
         {/* try again later, now no time */}
       {/* <img className="cart-icon-svg-add-to" src={cartIconLink} alt="Cart" /> */}
         + add to cart</button>
-        <button className="minus-to-cart-button" onClick={() => decreaseCartQuantity(product.id)}>
+        <button className="minus-to-cart-button" onClick={() => decreaseCartQuantity(product.id, product)}>
         {/* try again later, now no time */}
       {/* <img className="cart-icon-svg-add-to" src={cartIconLink} alt="Cart" /> */}
         - remove</button>

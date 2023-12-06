@@ -7,6 +7,7 @@ export function useProduct() {
 }
 
 export function ProductProvider({children, products}) {
+    console.log('products context :>> ', products);
     return(
         <ProductContext.Provider value={products}>
             {children}
