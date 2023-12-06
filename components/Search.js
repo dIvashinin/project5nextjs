@@ -9,7 +9,7 @@ function Search({products, onFilterChange}) {
     // State to track user input
   const [inputText, setInputText] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
-  console.log('inputText :>> ', inputText);
+  // console.log('inputText :>> ', inputText);
   // console.log('products search :>> ', products);
 //   const [filteredProducts, setFilteredProducts] = useState([]);
 // Function to handle changes in the search input
