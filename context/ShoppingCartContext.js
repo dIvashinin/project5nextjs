@@ -1,5 +1,6 @@
 import {createContext, useContext, useState} from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
+// import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const ShoppingCartContext = createContext({});
 
@@ -9,7 +10,10 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider ({children}) {
     const [isOpen, setIsOpen] = useState(false);
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState([]);
+    //in order to have our items not disappear after refresh we can use 
+    // custom hook - useLocalStorage instead of useState
+    // const [cartItems, setCartItems] = useLocalStorage("shopping-cart",[])
 
     const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
     console.log('cartItems :>> ', cartItems);
@@ -20,7 +24,7 @@ export function ShoppingCartProvider ({children}) {
     }
 //add to cart function
     function increaseCartQuantity (id, productInfo) {
-        //current items are whatever our list of current items are
+        //current items are whatever our list of current items is
         setCartItems((currItems) => {
             console.log('currItems :>> ', currItems);
             // Check if the item is already in the cart

@@ -9,7 +9,8 @@
   position: fixed;
   top: 0px;
   z-index: 100;
-  font-size: 34px;
+  font-size: 36px;
+  font-weight: bold;
   width: 100%; /* Take up the full width */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
@@ -18,7 +19,7 @@
   color: rgb(73, 0, 64);
   margin-right: 10px;
   text-decoration: none;
-  font: 18px;
+  font: 20px;
   padding: 6px;
 }
 

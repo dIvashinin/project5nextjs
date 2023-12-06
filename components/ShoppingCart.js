@@ -1,6 +1,6 @@
 import {Offcanvas, Stack} from "react-bootstrap";
 import { useShoppingCart } from "../context/shoppingCartContext";
-import CartItem from "./CartItem";
+// import CartItem from "./CartItem";
 import { useProduct } from "../context/productContext";
 
 
@@ -10,6 +10,11 @@ export function ShoppingCart({isOpen}) {
     const products = useProduct();
     // console.log('cartItems :>> ', cartItems);
     // console.log('products :>> ', products);
+
+    const totalSum = cartItems.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
     return (
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
         <Offcanvas.Header closeButton>
@@ -31,6 +36,8 @@ export function ShoppingCart({isOpen}) {
                {/* <p data-tag="type"> */}
                 {item.type} {item.quantity > 1 && <span className="text-muted" style={{fontSize: "0.8rem"}}>
                     x{item.quantity}</span>}
+                    <button className="add-to-inside-cart" onClick={() => increaseCartQuantity(item.id, products)}>+</button>
+               <button className="decrease-inside-cart" onClick={() => decreaseCartQuantity(item.id, products)}>-</button>
                </div>
                <div className="text-muted" style={{fontSize: "0.85rem"}}>
                 {item.price}&euro;
@@ -44,14 +51,16 @@ export function ShoppingCart({isOpen}) {
                 {/* <p data-tag="quantity">{item.quantity} pcs</p> */}
                 {/* <p data-tag="total">total: {item.price*item.quantity} Eur</p> */}
                </div>
-               <button className="add-to-inside-cart" onClick={() => increaseCartQuantity(item.id, products)}>+</button>
-               <button className="decrease-inside-cart" onClick={() => decreaseCartQuantity(item.id, products)}>-</button>
+               
                
                {/* other properties */}
            </div>
             // <CartItem key={item.id} {...item} product={product} />
             ))}
-            
+            {/* total sum here */}
+            <div>
+                Total sum: {totalSum}&euro;
+            </div>
             </Stack>
         </Offcanvas.Body>
     </Offcanvas>
