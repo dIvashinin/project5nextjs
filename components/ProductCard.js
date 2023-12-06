@@ -23,7 +23,7 @@ function ProductCard({ product }) {
       </p>
       <p data-tag="description">{product.description}</p>
       <div>
-      <button className="add-to-cart-button" onClick={() => increaseCartQuantity(product.id,product)}>
+      <button className="add-to-cart-button" onClick={() => increaseCartQuantity(product.id, product)}>
         {/* try again later, now no time */}
       {/* <img className="cart-icon-svg-add-to" src={cartIconLink} alt="Cart" /> */}
         + add to cart</button>

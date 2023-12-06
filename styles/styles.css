@@ -114,10 +114,19 @@ p[data-tag="review"] {
 }
 p[data-tag="type"],
 p[data-tag="description"],
-p[data-tag="price"] {
+p[data-tag="price"],
+p[data-tag="quantity"],
+p[data-tag="total"] {
   padding-left: 10px;
   font-style: italic;
+  margin-bottom: 0px;
 }
+.added-to-cart-container{
+  border-style:solid;
+  border-width: 0.5px;
+  border-color: rgb(164, 193, 176);
+}
+
 .search-input {
   height: 35px;
   width: 200px;
