@@ -58,8 +58,11 @@ export function ShoppingCart({isOpen}) {
             // <CartItem key={item.id} {...item} product={product} />
             ))}
             {/* total sum here */}
-            <div>
+            <div style={{fontSize: "1.3rem",fontWeight:"bold"}}>
                 Total sum: {totalSum}&euro;
+            </div>
+            <div>
+                <button className="checkout-shopping-cart">checkout</button>
             </div>
             </Stack>
         </Offcanvas.Body>

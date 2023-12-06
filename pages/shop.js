@@ -79,7 +79,7 @@ function Shop({ products, reviews }) {
       <hr />
       <div className="reviews-shop">
         {/* here go reviews */}
-        <h2 className="review-title">what other people say about this shop</h2>
+        <h2 className="review-title">what other customers say about this shop</h2>
         {/* Map over the reviews and render each one */}
         {reviews.map((review) => (
           <div key={review.id} className="stuff-inside-reviews-div">

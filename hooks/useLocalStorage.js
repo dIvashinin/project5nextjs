@@ -1,14 +1,40 @@
 import { useEffect, useState } from "react";
 
-export function useLocalStorage() {
-    const [value, setValue] = useState(() => {
-        const jsonValue = localStorage.getItem(key)
-        if (jsonValue != null) return JSON.parse(jsonValue)
-    })
+// export function useLocalStorage(key, initialValue) {
+//     const [value, setValue] = useState(() => {
+//         const jsonValue = localStorage.getItem(key);
+//     return jsonValue != null ? JSON.parse(jsonValue) : initialValue;
+//   });
 
-    useEffect(() => {
-        localStorage.setItem(key, JSON.stringify(value))
-    }, [key, value])
+//     useEffect(() => {
+//         localStorage.setItem(key, JSON.stringify(value))
+//     }, [key, value]);
 
-    return [value, setValue]
-}
+//     return [value, setValue];
+
+
+
+    export function useLocalStorage(key, initialValue) {
+        const [value, setValue] = useState(() => {
+          try {
+            const jsonValue = localStorage.getItem(key);
+            return jsonValue != null ? JSON.parse(jsonValue) : initialValue;
+          } catch (error) {
+            // Handle error or fallback to initialValue
+            console.error("Error accessing localStorage:", error);
+            return initialValue;
+          }
+        });
+      
+        useEffect(() => {
+          try {
+            localStorage.setItem(key, JSON.stringify(value));
+          } catch (error) {
+            // Handle error
+            console.error("Error setting localStorage:", error);
+          }
+        }, [key, value]);
+      
+        return [value, setValue];
+      }
+// }

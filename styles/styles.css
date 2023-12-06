@@ -176,7 +176,7 @@ p[data-tag="total"] {
   border-radius: 5px;
   flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
 }
-.add-to-cart-button, .minus-to-cart-button{
+.add-to-cart-button, .minus-to-cart-button, .checkout-shopping-cart{
   
   border-style: solid;
   border-width: 1px;
