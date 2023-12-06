@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import ProductCard from './ProductCard';
-import product from '../pages/product';
+
 
 // we pass products as props
 function Search({products, onFilterChange}) {
