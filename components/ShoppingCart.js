@@ -15,6 +15,22 @@ export function ShoppingCart({isOpen}) {
         (sum, item) => sum + item.price * item.quantity,
         0
       );
+
+      // Calculate total quantity
+  const totalQuantity = cartItems.reduce((quantity, item) => quantity + item.quantity, 0);
+
+        // Determine the message based on the number of items
+  let cartMessage;
+  if (totalQuantity === 0) {
+    cartMessage = "Oops! Your cart is empty. Please add some items.";
+  } else if (totalQuantity === 1) {
+    cartMessage = "Wow! That's a cool and amazing choice. You have 1 item in your cart.";
+  } else if (totalQuantity === 2) {
+    cartMessage = "You have 2 items in your cart. Great choices!";
+  } else {
+    cartMessage = `You have ${totalQuantity} items in your cart. Amazing!`;
+  }
+
     return (
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
         <Offcanvas.Header closeButton>
@@ -23,7 +39,19 @@ export function ShoppingCart({isOpen}) {
             there's gonna be different stuff written like: oops it's empty 
             or wow that's cool amazing choice, or you have 1 item etc
             */}
-            <Offcanvas.Title>Looks good! I like your choice. You can modify your order here. And then proceed to checkout</Offcanvas.Title>  
+            <Offcanvas.Title>
+            {/* {cartItems.map((item) => (
+                <div className="bla" key={item.id}>
+                {item.quantity == 0 && <span className="text-muted"> it's empty, add</span>}
+                {item.quantity == 1 && <span className="text-muted"> looks better</span>}
+                {item.quantity == 2 && <span className="text-muted"> aha great</span>}
+                {item.quantity >= 3 && <span className="text-muted"> amazing!!!</span>}
+                </div>
+            ))} */}
+                
+                {cartMessage} { }
+                {cartItems.length > 0 ? "You can modify your order here. And then proceed to checkout" : " "}
+                  </Offcanvas.Title>  
         </Offcanvas.Header>
         {/* in order to have our added to cart items visible */}
         <Offcanvas.Body>
