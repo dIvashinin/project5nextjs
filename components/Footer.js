@@ -11,14 +11,13 @@ function Footer() {
   return (
     <div>
      <Link href="https://www.etsy.com/shop/MoonRubyShop" passHref><a target="_blank" rel="noopener noreferrer">
-     etsy 
-     {etsyIcon}
+     <img src={etsyIcon} alt="Etsy" style={{ width: '30px', height: '30px' }} />
           {/* <FontAwesomeIcon icon={faEtsy} size="2x" /> */}
-        </a> <img src='{etsyIcon}'/>
+        </a> 
         </Link> 
      <Link href="https://www.instagram.com/moonrubyshop/"passHref>
-     <a target="_blank" rel="noopener noreferrer" > instagram 
-     {/* {instagramIcon} */}
+     <a target="_blank" rel="noopener noreferrer" > 
+     <img src={instagramIcon} alt="Instagram" style={{ width: '30px', height: '30px' }} />
           {/* <FontAwesomeIcon icon={faInstagram} size="2x" /> */}
         </a> 
         </Link> 
