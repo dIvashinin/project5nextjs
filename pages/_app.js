@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //don't know why but shoppingCartContext needed to start with small letter so i changed the name of the file as well
 import {ShoppingCartProvider} from '../context/shoppingCartContext';
 import { ProductProvider } from '../context/productContext';
+import Footer from '../components/Footer';
 
 
 function MyApp({ Component, pageProps, products }) {
@@ -28,6 +29,7 @@ function MyApp({ Component, pageProps, products }) {
     {/* <p>this one should appear everywhere</p> */}
     <NavBar/>
   <Component {...pageProps} />
+  <Footer/>
   </ShoppingCartProvider>
   </ProductProvider>
   </div>
