@@ -12,13 +12,14 @@ function NavBar() {
   return (
     <div>
         <nav className='navigation-bar'>
-            <Link href='/'>home</Link> {} 
             {/* <Link href='/clientSideRender'>clientSideRender</Link> {}  */}
             {/* <Link href='/serverSideRender'>serverSideRender</Link> {}  */}
             {/* <Link href='/staticSiteGeneration'>staticSiteGeneration</Link> {} */}
-            <Link href='/login'>login</Link> {}
-            {/* <Link href='/product'>products</Link> */}
             <Link href='/shop'>shop</Link>
+            {/* <Link href='/product'>products</Link> */}
+            <Link href='/'>home</Link> {} 
+            <Link href='/about'>about</Link> {} 
+            <Link href='/login'>login</Link> {}
             <button className="product-cart" onClick={openCart}>
             
             <img className="cart-icon-svg" src={cartIconLink} alt="Cart" />

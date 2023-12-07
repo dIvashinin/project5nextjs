@@ -10,6 +10,7 @@ import { ProductProvider } from '../context/productContext';
 import Footer from '../components/Footer';
 
 
+
 function MyApp({ Component, pageProps, products }) {
   //here we console.log our 'app', 'db' variable when checking if any env variables are ok
   // console.log('products myApp :>> ', products);

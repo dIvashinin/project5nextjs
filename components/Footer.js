@@ -1,11 +1,27 @@
 import Link from 'next/link';
 import React from 'react';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faEtsy, faInstagram } from '@fortawesome/free-brands-svg-icons';
+// import '@fortawesome/fontawesome-svg-core/styles.css';
 
+const etsyIcon = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701980006/moonrubyshop/h8z81huv3zccge5a5gks.svg"
+const instagramIcon = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701979993/moonrubyshop/waqgyccu5yktbke9tm6a.svg"
 
 function Footer() {
   return (
     <div>
-     <Link href={"https://www.etsy.com"}>etsy</Link>  
+     <Link href="https://www.etsy.com/shop/MoonRubyShop" passHref><a target="_blank" rel="noopener noreferrer">
+     etsy 
+     {etsyIcon}
+          {/* <FontAwesomeIcon icon={faEtsy} size="2x" /> */}
+        </a> <img src='{etsyIcon}'/>
+        </Link> 
+     <Link href="https://www.instagram.com/moonrubyshop/"passHref>
+     <a target="_blank" rel="noopener noreferrer" > instagram 
+     {/* {instagramIcon} */}
+          {/* <FontAwesomeIcon icon={faInstagram} size="2x" /> */}
+        </a> 
+        </Link> 
     </div>
   )
 }
