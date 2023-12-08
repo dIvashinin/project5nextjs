@@ -29,7 +29,7 @@
 }
 
 .searchbar{
-  margin-top: 40px;
+  margin-top: 37px;
   margin-left: 2px;
   font-family: 'Courier New', Courier, monospace;
   
@@ -150,6 +150,7 @@ p[data-tag="total"] {
   border-color: rgb(118, 0, 229);
   border-width: 2px;
   background-color: rgb(252, 224, 252);
+  margin-bottom: 3px;
 }
 
 .review-title {
