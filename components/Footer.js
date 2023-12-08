@@ -11,7 +11,7 @@ const instagramIcon =
 
 function Footer() {
   return (
-    <div>
+    <div className="footer-container">
       <Link href="https://www.etsy.com/shop/MoonRubyShop" passHref>
         <a target="_blank" rel="noopener noreferrer">
           <img

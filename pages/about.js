@@ -1,8 +1,14 @@
 import React from "react";
+const shopBanner = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg"
 
 function about() {
   return (
     <div>
+        <h3 data-tag="top-about-empty-space"></h3>
+        <div className="banner-container">
+        <img src={shopBanner} alt="Etsy" className="banner-image" />
+      </div>
+      {/* <h2 className="moon-ruby-shop">Moon Ruby Shop</h2> */}
       <h2>About this shop</h2>
         <h3>Jewelry winning over anxiety</h3>
       <p>
