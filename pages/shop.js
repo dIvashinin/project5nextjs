@@ -5,6 +5,8 @@ import ProductCard from "../components/ProductCard";
 import Search from "../components/Search";
 import { useShoppingCart } from "../context/shoppingCartContext";
 
+const shopBanner = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg"
+
 export const getStaticProps = async () => {
   try {
     const productsSnapshot = await getDocs(collection(db, "products"));
@@ -61,6 +63,9 @@ function Shop({ products, reviews }) {
     <div>
       {/* we pass products we need to have access to via props */}
       <Search products={products} onFilterChange={handleFilterChange} />
+      <div className="banner-container">
+        <img src={shopBanner} alt="Etsy" className="banner-image" />
+      </div>
       <h2 className="moon-ruby-shop">Moon Ruby Shop</h2>
       {/* here we display products */}
       <div className="products-shop">

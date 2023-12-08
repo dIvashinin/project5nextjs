@@ -40,6 +40,19 @@
   /* font-style: italic; */
 }
 
+.banner-container {
+  position: relative;
+  height: 170px; /* Set the desired height of your banner */
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Make sure the image covers the entire container */
+  object-position: center; /* Center the image */
+}
+
 /* making product cart in righ top corner of navbar */
 /* .navigation-bar {
   position: relative;
@@ -130,7 +143,7 @@ p[data-tag="total"] {
 
 .search-input {
   height: 35px;
-  width: 200px;
+  width: 300px;
   border-radius: 5px;
   text-decoration: none;
   border-style:solid;
