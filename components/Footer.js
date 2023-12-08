@@ -34,7 +34,7 @@ function Footer() {
           {/* <FontAwesomeIcon icon={faInstagram} size="2x" /> */}
         </a>
       </Link>
-      <Link href="/shop" passHref>
+      <Link href="/about#last-p" passHref>
         <a target="_blank" rel="noopener noreferrer">
           <img
             src={FAQ}

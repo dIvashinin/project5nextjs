@@ -54,7 +54,7 @@ function about() {
         vibes and energy.
       </p>
 
-      <p>
+      <p data-tag="last-p">
         🤗 Speaking of vibes, making jewelry helps me a lot as well. It’s a bit
         like meditation, helps me to look inwards and to feel calmer generally.
         So I make my pieces with very positive energy, trying to keep the
