@@ -5,7 +5,8 @@ import ProductCard from "../components/ProductCard";
 import Search from "../components/Search";
 import { useShoppingCart } from "../context/shoppingCartContext";
 
-const shopBanner = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg"
+const shopBanner =
+  "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg";
 
 export const getStaticProps = async () => {
   try {
@@ -84,7 +85,9 @@ function Shop({ products, reviews }) {
       <hr />
       <div className="reviews-shop">
         {/* here go reviews */}
-        <h2 className="review-title">what other customers say about this shop</h2>
+        <h2 className="review-title">
+          what other customers say about this shop
+        </h2>
         {/* Map over the reviews and render each one */}
         {reviews.map((review) => (
           <div key={review.id} className="stuff-inside-reviews-div">
@@ -100,7 +103,7 @@ function Shop({ products, reviews }) {
       <hr />
       <div>
         <p data-tag="faq-section">here goes shop policy</p>
-      </div> 
+      </div>
     </div>
   );
 }
