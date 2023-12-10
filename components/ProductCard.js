@@ -14,7 +14,11 @@ function ProductCard({ product }) {
     // </div>
 
     <div>
+      <Link href={`/product/${productId}`}>
+  <a>
       <img src={product.image}></img>
+      </a>
+</Link>
       <p data-tag="type">
         what: {product.type} {}
       </p>
