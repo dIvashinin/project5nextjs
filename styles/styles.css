@@ -20,7 +20,7 @@
   margin-right: 10px;
   text-decoration: none;
   font: 20px;
-  padding: 6px;
+  padding: 5px;
 }
 
 .navigation-bar a:hover {
@@ -70,21 +70,61 @@
   border-style: none;
   border-radius: 30px;
 }
-.login-container{
-  height: 200px;
-  width: 300px;
-  border-radius: 5px;
-  text-decoration: none;
-  border-style:solid;
-  border-color: rgb(118, 0, 229);
-  border-width: 2px;
-  background-color: rgb(252, 224, 252);
-  margin-bottom: 3px;
-  margin-top: 40px;
-  margin-left: 20px;
-  font-family: 'Courier New', Courier, monospace;
-  padding: 10px;
+.product-cart:hover{
+  background-color: rgb(200, 236, 255);
 }
+.login-container {
+  width: 300px;
+  margin: 10px auto; /* Center the container horizontally */
+  margin-bottom: 50px;
+  padding: 20px;
+  border: 2px solid rgb(118, 0, 229);
+  border-radius: 5px;
+  background-color: rgb(252, 224, 252);
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+}
+h2[data-tag="login"]{
+  text-align: center; /* Center the heading */
+}
+form[data-tag="submit-login-form"]{
+  display: flex;
+  flex-direction: column;
+}
+input[data-tag="input-email"], input[data-tag="input-password"] {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid rgb(118, 0, 229);
+  border-radius: 3px;
+}
+label[data-tag="label-email"], label[data-tag="label-password"] {
+  margin-bottom: 5px;
+  font-size: .9rem;
+}
+button[data-tag="login-button"]{
+  background-color: rgb(176, 91, 255);
+  color: white;
+  padding: 10px;
+  border: solid;
+  border-radius: 3px;
+  cursor: pointer;
+}
+button[data-tag="login-button"]:hover, .add-to-cart-button:hover, .minus-to-cart-button:hover {
+  background-color: rgb(255, 133, 208);
+}
+
+/* Add a style for the logout button */
+button[data-tag="logout-button"] {
+  margin-top: 10px;
+  background-color: #e74c3c; /* Use a red color for logout */
+  color: white;
+  padding: 1px;
+  border-style: solid;
+  border-color: rgb(164, 127, 127);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 .cart-icon-svg{
   width: 2rem;
   height: 1.8rem;
@@ -138,7 +178,7 @@
   font-size: 18px;
 }
 h3[data-tag="top-about-empty-space"]{
-  margin-bottom: 30px;
+  margin-bottom: 34px;
 }
 p[data-tag="review"] {
   font-style: italic;
@@ -223,7 +263,6 @@ p[data-tag="total"] {
   flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
 }
 .add-to-cart-button, .minus-to-cart-button, .checkout-shopping-cart{
-  
   border-style: solid;
   border-width: 1px;
   border-color: rgb(247, 0, 255);

@@ -7,6 +7,7 @@ import {
   signOut
 } from "firebase/auth";
 import { app, auth } from "../config/firebaseConfig";
+const shopBanner = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg"
 
 function Login() {
   const [user, setUser] = useState("");
@@ -102,26 +103,32 @@ signOut(auth).then(() => {
   
 
   return (
+    <div>
+      <h3 data-tag="top-about-empty-space"></h3>
+    <div className="banner-container">
+        <img src={shopBanner} alt="Etsy" className="banner-image" />
+      </div>
     <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
+      <h2 data-tag="login">Login</h2>
+      <form data-tag="submit-login-form" onSubmit={handleLogin}>
+        <input data-tag="input-email"
           type="text"
           id="email"
           placeholder="email"
           onChange={handleEmailChange}
         />
-        <label htmlFor="email">email</label>
-        <input
+        <label data-tag="label-email" htmlFor="email">email</label>
+        <input data-tag="input-password"
           type="password"
           id="password"
           placeholder="password"
           onChange={handlePasswordChange}
         />
-        <label htmlFor="password">password</label>
-        <button type="submit">Login</button>
+        <label data-tag="label-password" htmlFor="password">password</label>
+        <button data-tag="login-button" type="submit">Login</button>
       </form>
-        <button onClick={handleLogout} type="submit">Logout</button>
+        <button data-tag="logout-button" onClick={handleLogout} type="submit">Logout</button>
+    </div>
     </div>
   );
 }
