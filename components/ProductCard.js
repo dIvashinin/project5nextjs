@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { useShoppingCart } from "../context/shoppingCartContext";
 // const cartIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
 
@@ -14,7 +15,7 @@ function ProductCard({ product }) {
     // </div>
 
     <div>
-      <Link href={`/product/${productId}`}>
+      <Link href={`/products/${product.id}`}>
   <a>
       <img src={product.image}></img>
       </a>
