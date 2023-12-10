@@ -70,6 +70,21 @@
   border-style: none;
   border-radius: 30px;
 }
+.login-container{
+  height: 200px;
+  width: 300px;
+  border-radius: 5px;
+  text-decoration: none;
+  border-style:solid;
+  border-color: rgb(118, 0, 229);
+  border-width: 2px;
+  background-color: rgb(252, 224, 252);
+  margin-bottom: 3px;
+  margin-top: 40px;
+  margin-left: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+}
 .cart-icon-svg{
   width: 2rem;
   height: 1.8rem;
