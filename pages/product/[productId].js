@@ -4,6 +4,7 @@ import { db } from "../../config/firebaseConfig";
 import { useProduct } from "../../context/productContext";
 import {useRouter} from "next/router";
 import ProductCard from '../../components/ProductCard';
+import SingleProductComponent from '../../components/SingleProductComponent';
 
 //in order to be able to understand what i mean by 'id' in my dynamic route
 // we need to use this special next function
@@ -164,7 +165,8 @@ function SingleProduct({ product }) {
     return (
         
         <div key={product.id} className="stuff-inside-products-div">
-              <ProductCard product={product} />
+              {/* <ProductCard product={product} /> */}
+              <SingleProductComponent product={product} />
               </div>
 
     //   <div>
