@@ -1,7 +1,7 @@
 import React from 'react';
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../config/firebaseConfig";
-
+import { collection, getDoc, getDocs } from "firebase/firestore";
+import { db } from "../../config/firebaseConfig";
+import { useProduct } from "../../context/productContext";
 import {useRouter} from "next/router";
 import ProductCard from '../../components/ProductCard';
 
@@ -26,7 +26,7 @@ import ProductCard from '../../components/ProductCard';
 // console.log('paths :>> ', paths);
 //here 2nd version
 export const getStaticPaths = async () => {
-    // Fetch product IDs from your database or API
+    // Fetch product IDs from my database or API
     const productsSnapshot = await getDocs(collection(db, "products"));
     const productIds = productsSnapshot.docs.map((doc) => doc.id);
   
@@ -40,6 +40,7 @@ return {
     fallback: false,
 };
 };
+
 //we pass 'context' from getStaticPaths to getStaticProps
 //this was 1st variant for fakestore
 // export const getStaticProps = async (context) => {
@@ -57,44 +58,96 @@ return {
 
 // }
 //here 2nd variant
-export const getStaticProps = async () => {
+
+// export const getStaticProps = async (context) => {
+   
+// try {
+//     const productId = context.params.productId;  // Get the productId from context
+//     const productDoc = await getDoc(doc(db, "products", productId));  // Fetch the specific product document
+//     const productData = productDoc.data();  // Extract the data from the document
+
+//     // Check if the product exists
+//     if (!productData) {
+//       return {
+//         notFound: true,  // Return 404 if the product is not found
+//       };
+//     }
+    
+//     const product = {
+//       id: productId,
+//       type: productData.type,
+//       price: productData.price,
+//       description: productData.description,
+//       image: productData.image,
+//     };
+//     console.log('Product in getStaticProps:', product);
+
+//     return {
+//       props: { product },
+//       // Set revalidation time
+//       revalidate: 60,
+//     };
+//   } catch (error) {
+//     console.error("Error fetching product:", error.message);
+//     return {
+//       props: { product: null },  // You might want to handle this case in your component
+//     };
+//   }
+// };
+//3rd using productContext
+export const getStaticProps = async (context) => {
     try {
-      const productsSnapshot = await getDocs(collection(db, "products"));
-      const products = [];
-      productsSnapshot.forEach((doc) => {
-        // console.log(`${doc.id} => ${doc.data().description}`);
-        products.push({
-          id: doc.id,
-          type: doc.data().type,
-          price: doc.data().price,
-          description: doc.data().description,
-          image: doc.data().image,
-        });
-        // console.log('products :>> ', products);
-      });
+      const productId = context.params.productId;
+      const products = useProduct(); // Use the context to get the products
+  
+      // Fetch the specific product document
+      const productDoc = await getDoc(doc(db, "products", productId));
+      const productData = productDoc.data();
+  
+      if (!productData) {
+        return {
+          notFound: true,
+        };
+      }
+  
+      const product = {
+        id: productId,
+        type: productData.type,
+        price: productData.price,
+        description: productData.description,
+        image: productData.image,
+      };
+  
       return {
-        props: { products },
-        //will change this later, now it's 60 sec
+        props: { product },
         revalidate: 60,
       };
     } catch (error) {
-      console.error("error fetching products:", error.message);
+      console.error("Error fetching product:", error.message);
       return {
-        props: { products: []},
-        //     // revalidate: 60,
+        props: { product: null },
       };
     }
   };
 
 function SingleProduct({product}) {
-    const router = useRouter()
+    const router = useRouter();
+    console.log('Product:', product);
+    if (!product) {
+        // You might want to show a loading spinner or an error message here
+        return <p>Loading...</p>;
+      }
   return (
-    <div>
+    <div 
+    // key={product.id}
+    >
         {/* info about product {router.query.productId}
         <p>{product.title}</p>
         <p>{product.price}</p> */}
         {/* import here my product card component, passing props product which we receive above*/}
-        <ProductCard product={product}/>
+        {/* <div key={product.id} className="stuff-inside-products-div"> */}
+              <ProductCard product={product} />
+        {/* <ProductCard product={product}/> */}
     </div>
     
   )

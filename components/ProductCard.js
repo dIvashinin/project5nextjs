@@ -2,9 +2,18 @@ import React from "react";
 import Link from "next/link";
 import { useShoppingCart } from "../context/shoppingCartContext";
 // const cartIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
+import { useProduct } from "../context/productContext";
+
+
 
 function ProductCard({ product }) {
   const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
+  const products = useProduct();
+  // Check if product is defined
+if (!product) {
+  return <p>Loading...</p>; // or handle the case where product is not available
+}
+  
   const quantity = getItemQuantity(product.id);
   return (
     //i don't use this one made for another fetch
@@ -15,7 +24,7 @@ function ProductCard({ product }) {
     // </div>
 
     <div>
-      <Link href={`/products/${product.id}`}>
+      <Link href={`/product/${product.id}`}>
   <a>
       <img src={product.image}></img>
       </a>
