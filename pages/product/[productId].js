@@ -162,13 +162,18 @@ function SingleProduct({ product }) {
     }
   
     return (
-      <div>
-        {/* Display product details */}
-        <p>{product.type}</p>
-        <p>{product.price}&euro;</p>
-        <p>{product.description}</p>
-        {/* You can add more details as needed */}
-      </div>
+        
+        <div key={product.id} className="stuff-inside-products-div">
+              <ProductCard product={product} />
+              </div>
+
+    //   <div>
+    //     {/* Display product details */}
+    //     <p>{product.type}</p>
+    //     <p>{product.price}&euro;</p>
+    //     <p>{product.description}</p>
+    //     {/* You can add more details as needed */}
+    //   </div>
     );
   }
   
