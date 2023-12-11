@@ -9,6 +9,7 @@ import { useProduct } from "../context/productContext";
 function ProductCard({ product }) {
   const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
   const products = useProduct();
+  console.log('products :>> ', products);
   // Check if product is defined
 if (!product) {
   return <p>Loading...</p>; // or handle the case where product is not available
