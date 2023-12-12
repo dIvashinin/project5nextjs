@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useRouter } from "next/router";
 
 function Checkout() {
 
@@ -10,6 +11,8 @@ function Checkout() {
     const [apartment, setApartment] = useState("");
     const [postcode, setPostcode] = useState("");
     const [city, setCity] = useState("");
+
+    const router = useRouter();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);

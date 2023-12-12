@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useShoppingCart } from "../context/shoppingCartContext";
+import { useRouter } from "next/router";
 
 function SingleProductCard({ product }) {
   const {
@@ -9,6 +10,10 @@ function SingleProductCard({ product }) {
     decreaseCartQuantity,
     removeFromCart,
   } = useShoppingCart();
+
+  const router = useRouter();
+
+  const goBack = "https://res.cloudinary.com/dzghua4dz/image/upload/v1702383208/moonrubyshop/aprr0iiz9cofqotmk7gp.svg"
 
   // Check if product is defined
   if (!product) {
@@ -22,6 +27,14 @@ function SingleProductCard({ product }) {
   return (
     <div className="outer-container-for-single-product">
     <div className="single-product-card">
+    {/* <img src={goBack} alt="go back"/> */}
+      <div className="goback-icon">
+      <Link href='/shop'>
+        <a>
+        <img src={goBack} alt="go back"/>
+        </a>
+         </Link>
+         </div>
       <Link href={`/product/${product.id}`}>
         <a>
           <img src={product.image} alt={product.type} />
@@ -259,6 +272,13 @@ function SingleProductCard({ product }) {
           </ul>
         </div>
       </div>
+      <div className="goback-icon">
+      <Link href='/shop'>
+        <a>
+        <img src={goBack} alt="go back"/>
+        </a>
+         </Link>
+         </div>
     </div>
     </div>
   );

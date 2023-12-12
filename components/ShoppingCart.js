@@ -2,6 +2,7 @@ import { Offcanvas, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../context/shoppingCartContext";
 // import CartItem from "./CartItem";
 import { useProduct } from "../context/productContext";
+import Checkout from "./Checkout";
 
 export function ShoppingCart({ isOpen }) {
   const {
@@ -121,7 +122,7 @@ export function ShoppingCart({ isOpen }) {
             Total sum: {totalSum}&euro;
           </div>
           <div>
-            <button className="checkout-shopping-cart">checkout</button>
+            <button   onClick={() => handleCheckout(item.id, products) } className="checkout-shopping-cart">checkout</button>
           </div>
         </Stack>
       </Offcanvas.Body>

@@ -353,6 +353,17 @@ p[data-tag="total"] {
   padding: 6px;
   /* margin-bottom: 10px; */
 }
+.goback-icon{
+  width: 35px;
+  margin: 2px;
+  margin-bottom: 4px;
+  margin-top: 0px;
+}
+.goback-icon:hover{
+  background-color: rgb(255, 133, 208);
+  border-radius: 20px;
+  
+}
 
 /* Additional styles for the additional images */
 .single-product-card .additional-images {
