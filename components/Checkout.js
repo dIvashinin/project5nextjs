@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from 'react';
+// import { useRouter } from "next/router";
 
-function Checkout({handleCheckout}) {
+
+
+function Checkout({}) {
 
     const [email, setEmail] = useState("");
-    
     const [country, setCountry] = useState("");
     const [name, setName] = useState("");
     const [street, setStreet] = useState("");
@@ -12,7 +13,7 @@ function Checkout({handleCheckout}) {
     const [postcode, setPostcode] = useState("");
     const [city, setCity] = useState("");
 
-    const router = useRouter();
+    // const router = useRouter();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -42,6 +43,12 @@ function Checkout({handleCheckout}) {
         setCity(e.target.value);
         
     };
+    const handleCheckout = (e) => {
+        // console.log("Before setting checkoutOpen:", checkoutOpen);
+      setCheckoutOpen(false);
+    //   console.log("After setting checkoutOpen:", checkoutOpen);
+      closeCart();
+      }
 
     const handleSubmit = (e) => {
         //never forgetting to prevent this refresh default behaviour!
@@ -50,6 +57,11 @@ function Checkout({handleCheckout}) {
 
         // Close the cart after checkout
     handleCheckout();
+    
+    useEffect(() => {
+        console.log("Checkout component rendered!");
+        
+      }, []);
 
   return (
     <div>
@@ -69,7 +81,7 @@ function Checkout({handleCheckout}) {
         <label htmlFor="apartment" >apartment</label>
         <input type="text" id="postcode" placeholder="post code" onChange={handlePostCodeChange}/>
         <label htmlFor="postcode" >post code</label>
-        <input type="text" id="vity" placeholder="city" onChange={handleCityChange}/>
+        <input type="text" id="city" placeholder="city" onChange={handleCityChange}/>
         <label htmlFor="city" >city</label>
         <button type="submit">continue to payment</button>
     </form>

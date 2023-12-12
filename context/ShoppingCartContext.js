@@ -16,7 +16,7 @@ export function ShoppingCartProvider ({children}) {
     // const [cartItems, setCartItems] = useLocalStorage("shopping-cart",[])
 
     const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
-    console.log('cartItems :>> ', cartItems);
+    // console.log('cartItems :>> ', cartItems);
     const openCart = () => setIsOpen(true)
     const closeCart = () => setIsOpen(false)
     function getItemQuantity(id) {
@@ -26,7 +26,7 @@ export function ShoppingCartProvider ({children}) {
     function increaseCartQuantity (id, productInfo) {
         //current items are whatever our list of current items is
         setCartItems((currItems) => {
-            console.log('currItems :>> ', currItems);
+            // console.log('currItems :>> ', currItems);
             // Check if the item is already in the cart
     const existingItem = currItems.find((item) => item.id === id);
     if (!existingItem) {
