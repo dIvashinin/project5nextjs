@@ -17,18 +17,19 @@ function SingleProductCard({ product }) {
 
   const quantity = getItemQuantity(product.id);
   // State to manage the visibility of the FAQ section
-  const [showFAQ, setShowFAQ] = useState(false);
+  const [showFAQ, setShowFAQ] = useState(true);
 
   return (
+    <div className="outer-container-for-single-product">
     <div className="single-product-card">
       <Link href={`/product/${product.id}`}>
         <a>
           <img src={product.image} alt={product.type} />
         </a>
       </Link>
-      <p data-tag="type">what: {product.type}</p>
-      <p data-tag="price">price: {product.price}&euro;</p>
-      <p data-tag="description">{product.description}</p>
+      <h5 >{product.type}</h5>
+      <p >{product.description}</p>
+      <p >price: {product.price}&euro;</p>
 
       {/* Additional options for the single product page */}
       <div>
@@ -258,6 +259,7 @@ function SingleProductCard({ product }) {
           </ul>
         </div>
       </div>
+    </div>
     </div>
   );
 }
