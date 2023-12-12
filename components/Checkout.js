@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from "next/router";
 
-function Checkout() {
+function Checkout({handleCheckout}) {
 
     const [email, setEmail] = useState("");
     
@@ -43,16 +43,19 @@ function Checkout() {
         
     };
 
-    const handleCheckout = (e) => {
+    const handleSubmit = (e) => {
         //never forgetting to prevent this refresh default behaviour!
         e.preventDefault();
         console.log('email, password etc :>> ', email, country, name, street, apartment, postcode, city);
+
+        // Close the cart after checkout
+    handleCheckout();
 
   return (
     <div>
         <h3>Please enter your delivery details</h3>
         <form 
-        onSubmit={handleCheckout}
+        onSubmit={handleSubmit}
         >
         <input type="text" id="email" placeholder="email" onChange={handleEmailChange}/>
         <label htmlFor="email" >email</label>

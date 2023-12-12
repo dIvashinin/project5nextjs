@@ -3,6 +3,7 @@ import { useShoppingCart } from "../context/shoppingCartContext";
 // import CartItem from "./CartItem";
 import { useProduct } from "../context/productContext";
 import Checkout from "./Checkout";
+import { useState } from "react";
 
 export function ShoppingCart({ isOpen }) {
   const {
@@ -15,6 +16,9 @@ export function ShoppingCart({ isOpen }) {
   const products = useProduct();
   // console.log('cartItems :>> ', cartItems);
   // console.log('products :>> ', products);
+
+  // State to manage whether the checkout form is open
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   const totalSum = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -121,9 +125,24 @@ export function ShoppingCart({ isOpen }) {
           <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
             Total sum: {totalSum}&euro;
           </div>
+
+          {/* Checkout button */}
           <div>
-            <button   onClick={() => handleCheckout(item.id, products) } className="checkout-shopping-cart">checkout</button>
+            <button onClick={() => setCheckoutOpen(true)} className="checkout-shopping-cart">
+              Checkout
+            </button>
           </div>
+
+          {/* Checkout form */}
+          {checkoutOpen && (
+            <Checkout
+              handleCheckout={closeCart} // Pass a function to close the cart after checkout
+            />
+          )}
+
+          {/* <div>
+            <button   onClick={() => handleCheckout(item.id, products) } className="checkout-shopping-cart">checkout</button>
+          </div> */}
         </Stack>
       </Offcanvas.Body>
     </Offcanvas>
