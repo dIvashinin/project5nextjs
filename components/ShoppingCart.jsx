@@ -2,8 +2,9 @@ import { Offcanvas, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../context/shoppingCartContext";
 // import CartItem from "./CartItem";
 import { useProduct } from "../context/productContext";
-import Checkout from "../components/Checkout";
+import Checkout from "./Checkout";
 import { useState } from "react";
+
 // import { ShoppingCart } from "../components/ShoppingCart";
 
 export function ShoppingCart({ isOpen }) {
@@ -45,7 +46,12 @@ export function ShoppingCart({ isOpen }) {
     cartMessage = `You have ${totalQuantity} items in your cart. Amazing!`;
   }
 
- 
+  const handleCheckout = () => {
+    // console.log("Before setting checkoutOpen:", checkoutOpen);
+  setCheckoutOpen(false);
+//   console.log("After setting checkoutOpen:", checkoutOpen);
+  closeCart();
+  }
 
   // useEffect(() => {
   //   if (checkoutOpen) {
@@ -131,10 +137,13 @@ export function ShoppingCart({ isOpen }) {
             </button>
           </div>
           </Stack>
+          {/* <Foo/> */}
+          {/* <Checkout/> */}
 
           {/* Checkout form */}
+
           {checkoutOpen && 
-            <Checkout 
+            <Checkout
             handleCheckout={handleCheckout}/>}
               
                 {/* handleCheckout={() => { */}
