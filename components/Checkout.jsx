@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { useRouter } from "next/router";
 
-function Checkout({handleCheckout}) {
+function Checkout({}) {
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [name, setName] = useState("");

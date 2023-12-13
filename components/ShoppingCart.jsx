@@ -47,11 +47,14 @@ export function ShoppingCart({ isOpen }) {
   }
 
   const handleCheckout = () => {
-    // console.log("Before setting checkoutOpen:", checkoutOpen);
-  setCheckoutOpen(false);
-//   console.log("After setting checkoutOpen:", checkoutOpen);
-  closeCart();
-  }
+  setCheckoutOpen(true);
+  };
+  const handleCheckoutClose = () => {
+    setCheckoutOpen(false);
+    closeCart();
+
+  };
+  
 
   // useEffect(() => {
   //   if (checkoutOpen) {
@@ -62,6 +65,7 @@ export function ShoppingCart({ isOpen }) {
   
 
   return (
+    <div> 
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>
@@ -132,19 +136,23 @@ export function ShoppingCart({ isOpen }) {
 
           {/* Checkout button */}
           <div>
-            <button onClick={() => setCheckoutOpen(true)} className="checkout-shopping-cart">
+            <button onClick={handleCheckout} className="checkout-shopping-cart">
               Checkout
             </button>
           </div>
           </Stack>
+          </Offcanvas.Body>
           {/* <Foo/> */}
           {/* <Checkout/> */}
 
           {/* Checkout form */}
 
-          {checkoutOpen && 
+          {/* {checkoutOpen && 
             <Checkout
-            handleCheckout={handleCheckout}/>}
+            handleCheckout={handleCheckout}/>} */}
+
+            {/* Render Checkout component outside Offcanvas.Body */}
+      {checkoutOpen && <Checkout handleCheckoutClose={handleCheckoutClose} />}
               
                 {/* handleCheckout={() => { */}
                   {/* setCheckoutOpen(false); //close checkout form */}
@@ -162,8 +170,8 @@ export function ShoppingCart({ isOpen }) {
           {/* <div>
             <button   onClick={() => handleCheckout(item.id, products) } className="checkout-shopping-cart">checkout</button>
           </div> */}
-      </Offcanvas.Body>
-    </Offcanvas>
-   
+      
+      </Offcanvas>
+    </div>
   );
 }
