@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Offcanvas, Stack } from "react-bootstrap";
+import { useShoppingCart } from "../context/shoppingCartContext";
 // import { useRouter } from "next/router";
 
-function Checkout({}) {
+const Checkout = ({handleCheckoutClose, isOpen}) => {
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [name, setName] = useState("");
@@ -9,6 +11,14 @@ function Checkout({}) {
   const [apartment, setApartment] = useState("");
   const [postcode, setPostcode] = useState("");
   const [city, setCity] = useState("");
+
+  const {
+    closeCart,
+    cartItems,
+    removeFromCart,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+  } = useShoppingCart();
 
   // const router = useRouter();
 
@@ -58,8 +68,18 @@ function Checkout({}) {
     }, []);
 
     return (
-      <div>
+    //   <div 
+    //   style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', padding: '20px', backgroundColor: 'white', zIndex: 999 }}
+    //   >
+        <Offcanvas show={isOpen} onHide={closeCart} placement="end">
+      <Offcanvas.Header closeButton>
+        <Offcanvas.Title>
         <h3>Please enter your delivery details</h3>
+        </Offcanvas.Title>
+      </Offcanvas.Header>
+      {/* in order to have our added to cart items visible */}
+      <Offcanvas.Body>
+        <Stack gap={1}>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -112,7 +132,11 @@ function Checkout({}) {
           <label htmlFor="city">city</label>
           <button type="submit">continue to payment</button>
         </form>
-      </div>
+        <button onClick={handleCheckoutClose}>Close</button>
+        </Stack>
+          </Offcanvas.Body>
+      {/* </div> */}
+      </Offcanvas>
     );
   };
 

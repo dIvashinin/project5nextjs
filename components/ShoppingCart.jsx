@@ -65,7 +65,7 @@ export function ShoppingCart({ isOpen }) {
   
 
   return (
-    <div> 
+     
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>
@@ -172,6 +172,6 @@ export function ShoppingCart({ isOpen }) {
           </div> */}
       
       </Offcanvas>
-    </div>
+    
   );
 }
