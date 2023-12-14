@@ -51,7 +51,7 @@ export function ShoppingCart({ isOpen }) {
   };
   const handleCheckoutClose = () => {
     setCheckoutOpen(false);
-    closeCart();
+    // closeCart();
   };
 
   // useEffect(() => {

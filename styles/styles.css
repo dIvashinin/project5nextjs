@@ -401,6 +401,8 @@ p[data-tag="total"] {
 
 .checkout-form-container{
   position: fixed;
+  /* align-items: center; */
+  
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -408,6 +410,25 @@ p[data-tag="total"] {
   background-color: rgb(255, 133, 208);
   z-index: 999; 
   border-radius: 15px;
+}
+.checkout-close-button{
+  position: fixed;
+  top: 5%;
+  left: 85%;
+  border-style: solid;
+}
+.continue-to-payment-button{
+  border-style: solid;
+  margin-top: 20px;
+}
+.checkout-form-container input{
+  padding: 4px;
+  width: 300px;
+}
+.checkout-form-container label{
+  display: block;
+  padding: 1px;
+  width: 300px;
 }
 
 /* Add media queries for responsiveness */

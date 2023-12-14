@@ -128,9 +128,9 @@ const Checkout = ({handleCheckoutClose, isOpen}) => {
             onChange={handleCityChange}
           />
           <label htmlFor="city">city</label>
-          <button type="submit">continue to payment</button>
+          <button className="continue-to-payment-button" type="submit">continue to payment</button>
         </form>
-        <button onClick={handleCheckoutClose}>X</button>
+        <button className="checkout-close-button" onClick={handleCheckoutClose}>X</button>
         {/* </Stack>
           </Offcanvas.Body> */}
       </div>
