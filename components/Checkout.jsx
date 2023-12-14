@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 // import { Offcanvas, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../context/shoppingCartContext";
+import Alert from 'react-bootstrap/Alert';
+
 // import { useRouter } from "next/router";
 
 const Checkout = ({handleCheckoutClose, isOpen}) => {
@@ -48,6 +50,46 @@ const Checkout = ({handleCheckoutClose, isOpen}) => {
   const handleSubmit = (e) => {
     //never forgetting to prevent this refresh default behaviour!
     e.preventDefault();
+
+    // Validation checks
+  if (!email || !isValidEmail(email)) {
+    alert ("your email is not correct");
+    console.log('Invalid email');
+    return;
+  }
+  if (!country) {
+    <Alert >add country</Alert>
+    // alert ("pls add country");
+    console.log('pls add country');
+    return;
+  }
+//   if (!name) {
+//     Alert ("pls add name");
+//     console.log('pls add name');
+//     return;
+//   }
+//   if (!street) {
+//     Alert ("pls add street");
+//     console.log('pls add street');
+//     return;
+//   }
+//   if (!apartment) {
+//     Alert ("pls add apartment");
+//     console.log('pls add apartment');
+//     return;
+//   }
+//   if (!postcode) {
+//     Alert ("pls add postcode");
+//     console.log('pls add postcode');
+//     return;
+//   }
+//   if (!city) {
+//     Alert ("pls add city");
+//     console.log('pls add city');
+//     return;
+//   }
+
+
     console.log(
       "email, password etc :>> ",
       email,
@@ -58,8 +100,14 @@ const Checkout = ({handleCheckoutClose, isOpen}) => {
       postcode,
       city
     );
-}
+};
 
+// Helper function to check if the email is in a valid format
+const isValidEmail = (email) => {
+    // You can use a regular expression for a basic email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
     // Close the cart after checkout
     // handleCheckout();
 
