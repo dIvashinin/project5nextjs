@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useShoppingCart } from "../context/shoppingCartContext";
 import { useRouter } from "next/router";
@@ -10,6 +10,26 @@ function SingleProductCard({ product }) {
     decreaseCartQuantity,
     removeFromCart,
   } = useShoppingCart();
+
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+
+  const handleColorChange = (e) => {
+    setSelectedColor(e.target.value);
+    //useState is asynchronous, and the state might not have 
+    //been updated yet at the time of logging.
+    //we need to useEffect
+    // console.log('selectedColor :>> ', selectedColor);
+  };
+  const handleSizeChange = (e) => {
+    setSelectedSize(e.target.value);
+    // console.log('selectedSize :>> ', selectedSize);
+  };
+  // Use useEffect to log the updated values
+useEffect(() => {
+  console.log('selectedColor :>> ', selectedColor);
+  console.log('selectedSize :>> ', selectedSize);
+}, [selectedColor, selectedSize]);
 
   const router = useRouter();
 
@@ -48,7 +68,9 @@ function SingleProductCard({ product }) {
       <div>
         <label>
           Color option:
-          <select>
+          <select 
+          onChange={handleColorChange}
+          >
             {/* Add color options based on your data */}
             <option value="option 1">option 1</option>
             <option value="option 2">option 2</option>
@@ -63,7 +85,7 @@ function SingleProductCard({ product }) {
       <div>
         <label>
           Size:
-          <select>
+          <select onChange={handleSizeChange}>
             {/* Add size options based on your data */}
             <option value="small">small</option>
             <option value="medium">medium</option>
@@ -78,13 +100,13 @@ function SingleProductCard({ product }) {
       <div>
         <button
           className="add-to-cart-button"
-          onClick={() => increaseCartQuantity(product.id, product)}
+          onClick={() => increaseCartQuantity(product.id, product,selectedColor, selectedSize)}
         >
           + add to cart
         </button>
         <button
           className="minus-to-cart-button"
-          onClick={() => decreaseCartQuantity(product.id, product)}
+          onClick={() => decreaseCartQuantity(product.id, product, selectedColor, selectedSize)}
         >
           - remove
         </button>

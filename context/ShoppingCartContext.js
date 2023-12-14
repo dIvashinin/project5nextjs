@@ -1,6 +1,7 @@
 import {createContext, useContext, useState} from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import SingleProductCard from "../components/SingleProductComponent";
 
 const ShoppingCartContext = createContext({});
 
@@ -23,7 +24,7 @@ export function ShoppingCartProvider ({children}) {
         return cartItems.find(item => item.id)?.quantity || 0
     }
 //add to cart function
-    function increaseCartQuantity (id, productInfo) {
+    function increaseCartQuantity (id, productInfo, color, size) {
         //current items are whatever our list of current items is
         setCartItems((currItems) => {
             // console.log('currItems :>> ', currItems);
@@ -31,7 +32,7 @@ export function ShoppingCartProvider ({children}) {
     const existingItem = currItems.find((item) => item.id === id);
     if (!existingItem) {
         // If the item is not in the cart, add it with complete product info
-        return [...currItems, { id, quantity: 1, ...productInfo }];
+        return [...currItems, { id, quantity: 1, color, size, ...productInfo }];
             //and we need to modify the list
             //if we can find an item inside our cart, that means we have this item
             //but if we can't find it, we need to add it to our cart
@@ -41,7 +42,7 @@ export function ShoppingCartProvider ({children}) {
             } else {
                 // If the item is already in the cart, update the quantity
                 return currItems.map((item) => 
-                    item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+                    item.id === id ? { ...item, quantity: item.quantity + 1 , color, size} : item
       );
                 }
         });
@@ -87,6 +88,7 @@ export function ShoppingCartProvider ({children}) {
     return (
     <ShoppingCartContext.Provider value={{getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, openCart, closeCart, cartItems, cartQuantity}}> 
     {children}
+    <SingleProductCard/>
     <ShoppingCart isOpen={isOpen}/>    
     </ShoppingCartContext.Provider>
     )

@@ -4,6 +4,7 @@ import { useShoppingCart } from "../context/shoppingCartContext";
 import { useProduct } from "../context/productContext";
 import Checkout from "./Checkout";
 import { useState } from "react";
+import Alert from 'react-bootstrap/Alert';
 
 // import { ShoppingCart } from "../components/ShoppingCart";
 
@@ -21,6 +22,7 @@ export function ShoppingCart({ isOpen }) {
 
   // State to manage whether the checkout form is open
   const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [showAlert, setShowAlert] = useState(false); // State to manage the alert
 
   const totalSum = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -54,6 +56,12 @@ export function ShoppingCart({ isOpen }) {
     // closeCart();
   };
 
+  // if (cartItems.length < 1) {
+  //   setShowAlert(true);
+  //   console.log('cart empty');
+  //   return;
+  // }
+
   // useEffect(() => {
   //   if (checkoutOpen) {
   //     setCheckoutOpen(false);
@@ -74,6 +82,9 @@ export function ShoppingCart({ isOpen }) {
       {/* in order to have our added to cart items visible */}
       <Offcanvas.Body>
         <Stack gap={1}>
+      {/* <Alert variant="warning" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
+            well there are no items in your cart to proceed!
+          </Alert> */}
           {cartItems.map((item) => (
             <div className="added-to-cart-container" key={item.id}>
               <img
@@ -90,9 +101,11 @@ export function ShoppingCart({ isOpen }) {
                       x{item.quantity}
                     </span>
                   )}
+                  {item.color}
+                  {item.size}
                   <button
                     className="add-to-inside-cart"
-                    onClick={() => increaseCartQuantity(item.id, products)}
+                    onClick={() => increaseCartQuantity(item.id, products, selectedColor, selectedSize)}
                   >
                     +
                   </button>
