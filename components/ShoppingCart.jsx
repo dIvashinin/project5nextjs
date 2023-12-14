@@ -47,14 +47,12 @@ export function ShoppingCart({ isOpen }) {
   }
 
   const handleCheckout = () => {
-  setCheckoutOpen(true);
+    setCheckoutOpen(true);
   };
   const handleCheckoutClose = () => {
     setCheckoutOpen(false);
     closeCart();
-
   };
-  
 
   // useEffect(() => {
   //   if (checkoutOpen) {
@@ -62,10 +60,8 @@ export function ShoppingCart({ isOpen }) {
   //     closeCart();
   //   }
   // }, [checkoutOpen]);
-  
 
   return (
-     
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>
@@ -140,38 +136,33 @@ export function ShoppingCart({ isOpen }) {
               Checkout
             </button>
           </div>
-          </Stack>
-          </Offcanvas.Body>
-          {/* <Foo/> */}
-          {/* <Checkout/> */}
+        </Stack>
+      </Offcanvas.Body>
+      {/* <Foo/> */}
+      {/* <Checkout/> */}
 
-          {/* Checkout form */}
+      {/* Checkout form */}
 
-          {/* {checkoutOpen && 
+      {/* {checkoutOpen && 
             <Checkout
             handleCheckout={handleCheckout}/>} */}
 
-            {/* Render Checkout component outside Offcanvas.Body */}
+      {/* Render Checkout component outside Offcanvas.Body */}
       {checkoutOpen && <Checkout handleCheckoutClose={handleCheckoutClose} />}
-              
-                {/* handleCheckout={() => { */}
-                  {/* setCheckoutOpen(false); //close checkout form */}
-                  {/* closeCart(); //close cart after checkout */}
-                {/* }} */}
-                {/* /> */}
-              {/* } */}
-                
-                
-                {/* // <ShoppingCart isOpen={false}/>     */}
-              {/* }}  */}
-            
-          
 
-          {/* <div>
+      {/* handleCheckout={() => { */}
+      {/* setCheckoutOpen(false); //close checkout form */}
+      {/* closeCart(); //close cart after checkout */}
+      {/* }} */}
+      {/* /> */}
+      {/* } */}
+
+      {/* // <ShoppingCart isOpen={false}/>     */}
+      {/* }}  */}
+
+      {/* <div>
             <button   onClick={() => handleCheckout(item.id, products) } className="checkout-shopping-cart">checkout</button>
           </div> */}
-      
-      </Offcanvas>
-    
+    </Offcanvas>
   );
 }
