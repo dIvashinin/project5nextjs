@@ -65,26 +65,26 @@ const Checkout = ({handleCheckoutClose, isOpen}) => {
     console.log('pls add country');
     return;
   }
-//   if (!name) {
-//     Alert ("pls add name");
-//     console.log('pls add name');
-//     return;
-//   }
-//   if (!street) {
-//     Alert ("pls add street");
-//     console.log('pls add street');
-//     return;
-//   }
-//   if (!postcode) {
-//     Alert ("it's important! pls add postcode");
-//     console.log('pls add postcode');
-//     return;
-//   }
-//   if (!city) {
-//     Alert ("pls add city");
-//     console.log('pls add city');
-//     return;
-//   }
+  if (!name) {
+    setShowAlert(true);
+    console.log('pls add name');
+    return;
+  }
+  if (!street) {
+    setShowAlert(true);
+    console.log('pls add street');
+    return;
+  }
+  if (!postcode) {
+    setShowAlert(true);
+    console.log('pls add postcode');
+    return;
+  }
+  if (!city) {
+    setShowAlert(true);
+    console.log('pls add city');
+    return;
+  }
 
 
     console.log(
