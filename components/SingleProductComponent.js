@@ -72,6 +72,7 @@ useEffect(() => {
           onChange={handleColorChange}
           >
             {/* Add color options based on your data */}
+            <option value="select color">pls select color</option>
             <option value="option 1">option 1</option>
             <option value="option 2">option 2</option>
             <option value="option 3">option 3</option>
@@ -87,6 +88,7 @@ useEffect(() => {
           Size:
           <select onChange={handleSizeChange}>
             {/* Add size options based on your data */}
+            <option value="select size">pls select size</option>
             <option value="small">small</option>
             <option value="medium">medium</option>
             <option value="large">large</option>

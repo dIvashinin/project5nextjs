@@ -101,8 +101,6 @@ export function ShoppingCart({ isOpen }) {
                       x{item.quantity}
                     </span>
                   )}
-                  {item.color}
-                  {item.size}
                   <button
                     className="add-to-inside-cart"
                     onClick={() => increaseCartQuantity(item.id, products, selectedColor, selectedSize)}
@@ -115,6 +113,8 @@ export function ShoppingCart({ isOpen }) {
                   >
                     -
                   </button>
+                  <p style={{fontSize: "12px"}}>{ } color{item.color} { }
+                  size: {item.size}</p>
                 </div>
                 <div className="text-muted" style={{ fontSize: "0.85rem" }}>
                   {item.price}&euro;
