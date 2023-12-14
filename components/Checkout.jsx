@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import { Offcanvas, Stack } from "react-bootstrap";
-import { useShoppingCart } from "../context/shoppingCartContext";
+// import { useShoppingCart } from "../context/shoppingCartContext";
 import Alert from 'react-bootstrap/Alert';
 
 // import { useRouter } from "next/router";
@@ -13,14 +13,15 @@ const Checkout = ({handleCheckoutClose, isOpen}) => {
   const [apartment, setApartment] = useState("");
   const [postcode, setPostcode] = useState("");
   const [city, setCity] = useState("");
+  const [showAlert, setShowAlert] = useState(false); // State to manage the alert
 
-  const {
-    closeCart,
-    cartItems,
-    removeFromCart,
-    increaseCartQuantity,
-    decreaseCartQuantity,
-  } = useShoppingCart();
+//   const {
+//     closeCart,
+//     cartItems,
+//     removeFromCart,
+//     increaseCartQuantity,
+//     decreaseCartQuantity,
+//   } = useShoppingCart();
 
   // const router = useRouter();
 
@@ -53,12 +54,13 @@ const Checkout = ({handleCheckoutClose, isOpen}) => {
 
     // Validation checks
   if (!email || !isValidEmail(email)) {
-    alert ("your email is not correct");
+    // alert ("your email is not correct");
+    setShowAlert(true); // Show the alert
     console.log('Invalid email');
     return;
   }
   if (!country) {
-    <Alert >add country</Alert>
+    setShowAlert(true); // Show the alert
     // alert ("pls add country");
     console.log('pls add country');
     return;
@@ -73,13 +75,8 @@ const Checkout = ({handleCheckoutClose, isOpen}) => {
 //     console.log('pls add street');
 //     return;
 //   }
-//   if (!apartment) {
-//     Alert ("pls add apartment");
-//     console.log('pls add apartment');
-//     return;
-//   }
 //   if (!postcode) {
-//     Alert ("pls add postcode");
+//     Alert ("it's important! pls add postcode");
 //     console.log('pls add postcode');
 //     return;
 //   }
@@ -126,6 +123,9 @@ const isValidEmail = (email) => {
       {/* in order to have our added to cart items visible */}
       {/* <Offcanvas.Body>
         <Stack gap={1}> */}
+        <Alert variant="warning" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
+            pls fill in all the fields correctly!
+          </Alert>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -178,6 +178,8 @@ const isValidEmail = (email) => {
           <label htmlFor="city">city</label>
           <button className="continue-to-payment-button" type="submit">continue to payment</button>
         </form>
+        
+
         <button className="checkout-close-button" onClick={handleCheckoutClose}>X</button>
         {/* </Stack>
           </Offcanvas.Body> */}
