@@ -12,11 +12,12 @@ function SingleProductCard({ product }) {
   } = useShoppingCart();
 
   //pls select smth is going to be by default
-  const [selectedColor, setSelectedColor] = useState("pls select color");
-  const [selectedSize, setSelectedSize] = useState("pls select size");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
 
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
+    // console.log('e.target.value :>> ', e.target.value);
     //useState is asynchronous, and the state might not have 
     //been updated yet at the time of logging.
     //we need to useEffect
@@ -32,7 +33,7 @@ useEffect(() => {
   console.log('selectedSize :>> ', selectedSize);
 }, [selectedColor, selectedSize]);
 
-  const router = useRouter();
+  // const router = useRouter();
 
   const goBack = "https://res.cloudinary.com/dzghua4dz/image/upload/v1702383208/moonrubyshop/aprr0iiz9cofqotmk7gp.svg"
 
@@ -70,7 +71,9 @@ useEffect(() => {
         <label>
           Color option:
           <select 
-          onChange={handleColorChange} value={selectedColor}>
+          onChange={handleColorChange} 
+          value={selectedColor}
+          >
             {/* disabled value doesn't count as value! */}
             <option disabled value="pls select color">pls select color</option>
             <option value="option 1">option 1</option>

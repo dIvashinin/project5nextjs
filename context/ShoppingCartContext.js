@@ -30,6 +30,8 @@ export function ShoppingCartProvider ({children}) {
             // console.log('currItems :>> ', currItems);
             // Check if the item is already in the cart
     const existingItem = currItems.find((item) => item.id === id && item.color === color && item.size === size);
+    
+    // const selectedColor = color;
     if (!existingItem) {
         // If the item is not in the cart, add it with complete product info
         return [...currItems, { id, quantity: 1, color, size, ...productInfo }];
@@ -79,9 +81,10 @@ export function ShoppingCartProvider ({children}) {
     //     })
     // }
 
-    function removeFromCart (id) {
+    function removeFromCart (id, color, size) {
         setCartItems(currItems => {
-            return currItems.filter(item => item.id !== id)   
+            return currItems.filter(
+                (item) => !(item.id === id && item.color === color && item.size === size));  
         })
 
     }

@@ -86,7 +86,7 @@ export function ShoppingCart({ isOpen }) {
             well there are no items in your cart to proceed!
           </Alert> */}
           {cartItems.map((item) => (
-            <div className="added-to-cart-container" key={item.id}>
+            <div className="added-to-cart-container" key={`${item.id}-${item.color}-${item.size}`}>
               <img
                 src={item.image}
                 style={{ width: "125px", height: "75px", objectFit: "cover" }}
@@ -103,17 +103,17 @@ export function ShoppingCart({ isOpen }) {
                   )}
                   <button
                     className="add-to-inside-cart"
-                    onClick={() => increaseCartQuantity(item.id, products, selectedColor, selectedSize)}
+                    onClick={() => increaseCartQuantity(item.id, products, item.color, item.size)}
                   >
                     +
                   </button>
                   <button
                     className="decrease-inside-cart"
-                    onClick={() => decreaseCartQuantity(item.id, products)}
+                    onClick={() => decreaseCartQuantity(item.id, products, item.color, item.size)}
                   >
                     -
                   </button>
-                  <p style={{fontSize: "12px"}}>{ } color{item.color} { }
+                  <p style={{fontSize: "12px"}}>{ } color{item.color}; { }
                   size: {item.size}</p>
                 </div>
                 <div className="text-muted" style={{ fontSize: "0.85rem" }}>
@@ -123,7 +123,7 @@ export function ShoppingCart({ isOpen }) {
                   total: {item.price * item.quantity}&euro;
                   <button
                     className="remove-inside-cart"
-                    onClick={() => removeFromCart(item.id, products)}
+                    onClick={() => removeFromCart(item.id, products, item.color, item.size)}
                   >
                     &times;
                   </button>
