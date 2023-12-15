@@ -65,17 +65,17 @@ export function ShoppingCartProvider ({children}) {
             //however i see prev state because it's async
             console.log('currItems decr:', currItems);
             const existingItem = currItems.find((item) => item.id === id && item.color === color && item.size === size);
+            console.log('existingItem :>> ', existingItem);
             // const existingItem = currItems.find((item) => item.id === id);
-            
-            if (existingItem.id)
             
             if (existingItem && existingItem.quantity === 1) {
                 // If the item quantity is 1, remove remove only the item with the specified color and size
                 return currItems.filter((item) => !(item.id === id && item.color ===color && item.size ===size));
               } else {
-                // If the item quantity is more than 1, decrease the quantity
+                console.log("else decrease...-1");
+                // If the item quantity is more than 1, decrease the quantity caring about color and size as well
                 return currItems.map((item) =>
-                  item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+                  (item.id === id && item.color ===color && item.size ===size) ? { ...item, quantity: item.quantity - 1 } : item
                 );
               }
             });
