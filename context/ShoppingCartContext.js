@@ -51,9 +51,14 @@ export function ShoppingCartProvider ({children}) {
         });
     }
 
-    function decreaseCartQuantity (id) {
+    function decreaseCartQuantity (id, color, size) {
+        console.log('id:', id);
+    console.log('color:', color);
+    console.log('size:', size);
         setCartItems((currItems) => {
-            const existingItem = currItems.find((item) => item.id === id);
+            console.log('currItems:', currItems);
+            const existingItem = currItems.find((item) => item.id === id && item.color === color && item.size === size);
+            // const existingItem = currItems.find((item) => item.id === id);
             if (existingItem && existingItem.quantity === 1) {
                 // If the item quantity is 1, remove it from the cart
                 return currItems.filter((item) => item.id !== id);
@@ -82,7 +87,11 @@ export function ShoppingCartProvider ({children}) {
     // }
 
     function removeFromCart (id, color, size) {
+        console.log('id:', id);
+        console.log('color:', color);
+        console.log('size:', size);
         setCartItems(currItems => {
+            console.log('currItems:', currItems);
             return currItems.filter(
                 (item) => !(item.id === id && item.color === color && item.size === size));  
         })

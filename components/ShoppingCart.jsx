@@ -109,7 +109,7 @@ export function ShoppingCart({ isOpen }) {
                   </button>
                   <button
                     className="decrease-inside-cart"
-                    onClick={() => decreaseCartQuantity(item.id, products, item.color, item.size)}
+                    onClick={() => decreaseCartQuantity(item.id, item.color, item.size)}
                   >
                     -
                   </button>
@@ -123,7 +123,7 @@ export function ShoppingCart({ isOpen }) {
                   total: {item.price * item.quantity}&euro;
                   <button
                     className="remove-inside-cart"
-                    onClick={() => removeFromCart(item.id, products, item.color, item.size)}
+                    onClick={() => removeFromCart(item.id, item.color, item.size)}
                   >
                     &times;
                   </button>
