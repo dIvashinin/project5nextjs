@@ -29,7 +29,7 @@ export function ShoppingCartProvider ({children}) {
         setCartItems((currItems) => {
             // console.log('currItems :>> ', currItems);
             // Check if the item is already in the cart
-    const existingItem = currItems.find((item) => item.id === id);
+    const existingItem = currItems.find((item) => item.id === id && item.color === color && item.size === size);
     if (!existingItem) {
         // If the item is not in the cart, add it with complete product info
         return [...currItems, { id, quantity: 1, color, size, ...productInfo }];
@@ -42,7 +42,8 @@ export function ShoppingCartProvider ({children}) {
             } else {
                 // If the item is already in the cart, update the quantity
                 return currItems.map((item) => 
-                    item.id === id ? { ...item, quantity: item.quantity + 1 , color, size} : item
+                    item.id === id && item.color === color && item.size === size 
+                    ? { ...item, quantity: item.quantity + 1 } : item
       );
                 }
         });

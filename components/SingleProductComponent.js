@@ -11,8 +11,9 @@ function SingleProductCard({ product }) {
     removeFromCart,
   } = useShoppingCart();
 
-  const [selectedColor, setSelectedColor] = useState("");
-  const [selectedSize, setSelectedSize] = useState("");
+  //pls select smth is going to be by default
+  const [selectedColor, setSelectedColor] = useState("pls select color");
+  const [selectedSize, setSelectedSize] = useState("pls select size");
 
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
@@ -69,10 +70,9 @@ useEffect(() => {
         <label>
           Color option:
           <select 
-          onChange={handleColorChange}
-          >
-            {/* Add color options based on your data */}
-            <option value="select color">pls select color</option>
+          onChange={handleColorChange} value={selectedColor}>
+            {/* disabled value doesn't count as value! */}
+            <option disabled value="pls select color">pls select color</option>
             <option value="option 1">option 1</option>
             <option value="option 2">option 2</option>
             <option value="option 3">option 3</option>
@@ -86,9 +86,8 @@ useEffect(() => {
       <div>
         <label>
           Size:
-          <select onChange={handleSizeChange}>
-            {/* Add size options based on your data */}
-            <option value="select size">pls select size</option>
+          <select onChange={handleSizeChange} value={selectedSize}>
+            <option disabled value="pls select size">pls select size</option>
             <option value="small">small</option>
             <option value="medium">medium</option>
             <option value="large">large</option>
@@ -103,6 +102,7 @@ useEffect(() => {
         <button
           className="add-to-cart-button"
           onClick={() => increaseCartQuantity(product.id, product,selectedColor, selectedSize)}
+          disabled={!selectedColor || !selectedSize}
         >
           + add to cart
         </button>

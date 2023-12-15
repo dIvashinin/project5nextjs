@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps, products }) {
   //here we console.log our 'app', 'db' variable when checking if any env variables are ok
   console.log('products myApp :>> ', products);
   console.log('pageProps :>> ', pageProps.products);
+  // console.log('Component :>> ', Component);
   
   return (
     <div>
@@ -27,7 +28,7 @@ function MyApp({ Component, pageProps, products }) {
       <ProductProvider products={pageProps.products}>
       {/* then ShoppingCartProvider */}
       <ShoppingCartProvider>
-    {/* <p>this one should appear everywhere</p> */}
+    {/* <p>this p tag should appear everywhere</p> */}
     <NavBar/>
   <Component {...pageProps} />
   <Footer/>
