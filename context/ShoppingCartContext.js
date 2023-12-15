@@ -62,8 +62,8 @@ export function ShoppingCartProvider ({children}) {
     console.log('color decr:', color);
     console.log('size decr:', size);
         setCartItems((currItems) => {
-            console.log('currItems decr:', currItems);
             //however i see prev state because it's async
+            console.log('currItems decr:', currItems);
             const existingItem = currItems.find((item) => item.id === id && item.color === color && item.size === size);
             // const existingItem = currItems.find((item) => item.id === id);
             if (existingItem && existingItem.quantity === 1) {
