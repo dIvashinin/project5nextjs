@@ -66,9 +66,12 @@ export function ShoppingCartProvider ({children}) {
             console.log('currItems decr:', currItems);
             const existingItem = currItems.find((item) => item.id === id && item.color === color && item.size === size);
             // const existingItem = currItems.find((item) => item.id === id);
+            
+            if (existingItem.id)
+            
             if (existingItem && existingItem.quantity === 1) {
-                // If the item quantity is 1, remove it from the cart
-                return currItems.filter((item) => item.id !== id);
+                // If the item quantity is 1, remove remove only the item with the specified color and size
+                return currItems.filter((item) => !(item.id === id && item.color ===color && item.size ===size));
               } else {
                 // If the item quantity is more than 1, decrease the quantity
                 return currItems.map((item) =>
