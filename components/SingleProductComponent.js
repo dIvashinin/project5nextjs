@@ -12,8 +12,8 @@ function SingleProductCard({ product }) {
   } = useShoppingCart();
 
   //pls select smth is going to be by default
-  const [selectedColor, setSelectedColor] = useState("");
-  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState("option 1");
+  const [selectedSize, setSelectedSize] = useState("small");
 
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
@@ -75,7 +75,7 @@ useEffect(() => {
           value={selectedColor}
           >
             {/* disabled value doesn't count as value! */}
-            <option disabled value="pls select color">pls select color</option>
+            {/* <option disabled value="pls select color">pls select color</option> */}
             <option value="option 1">option 1</option>
             <option value="option 2">option 2</option>
             <option value="option 3">option 3</option>
@@ -90,7 +90,7 @@ useEffect(() => {
         <label>
           Size:
           <select onChange={handleSizeChange} value={selectedSize}>
-            <option disabled value="pls select size">pls select size</option>
+            {/* <option disabled value="pls select size">pls select size</option> */}
             <option value="small">small</option>
             <option value="medium">medium</option>
             <option value="large">large</option>
@@ -105,16 +105,17 @@ useEffect(() => {
         <button
           className="add-to-cart-button"
           onClick={() => increaseCartQuantity(product.id, product,selectedColor, selectedSize)}
-          disabled={!selectedColor || !selectedSize}
+          // disabled={!selectedColor || !selectedSize}
+          // disabled={selectedColor === "pls select color" || selectedSize === "pls select size"}
         >
           + add to cart
         </button>
-        <button
+        {/* <button
           className="minus-to-cart-button"
           onClick={() => decreaseCartQuantity(product.id, product, selectedColor, selectedSize)}
         >
           - remove
-        </button>
+        </button> */}
       </div>
 
       {/* Display additional images */}

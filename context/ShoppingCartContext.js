@@ -31,6 +31,7 @@ export function ShoppingCartProvider ({children}) {
         console.log('size incr:', size);
         //current items are whatever our list of current items is
         setCartItems((currItems) => {
+            //however i see prev state because it's async
             console.log('currItems increase:', currItems);
             // console.log('currItems :>> ', currItems);
             // Check if the item is already in the cart
@@ -62,6 +63,7 @@ export function ShoppingCartProvider ({children}) {
     console.log('size decr:', size);
         setCartItems((currItems) => {
             console.log('currItems decr:', currItems);
+            //however i see prev state because it's async
             const existingItem = currItems.find((item) => item.id === id && item.color === color && item.size === size);
             // const existingItem = currItems.find((item) => item.id === id);
             if (existingItem && existingItem.quantity === 1) {
@@ -97,6 +99,7 @@ export function ShoppingCartProvider ({children}) {
         console.log('size rem:', size);
         setCartItems(currItems => {
             console.log('currItems rem:', currItems);
+            //however i see prev state because it's async
             return currItems.filter(
                 (item) => !(item.id === id && item.color === color && item.size === size));  
         })
