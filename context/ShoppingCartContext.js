@@ -25,8 +25,13 @@ export function ShoppingCartProvider ({children}) {
     }
 //add to cart function
     function increaseCartQuantity (id, productInfo, color, size) {
+        console.log('id incr:', id);
+        console.log('productInfo incr :>> ', productInfo);
+        console.log('color incr:', color);
+        console.log('size incr:', size);
         //current items are whatever our list of current items is
         setCartItems((currItems) => {
+            console.log('currItems increase:', currItems);
             // console.log('currItems :>> ', currItems);
             // Check if the item is already in the cart
     const existingItem = currItems.find((item) => item.id === id && item.color === color && item.size === size);
@@ -52,11 +57,11 @@ export function ShoppingCartProvider ({children}) {
     }
 
     function decreaseCartQuantity (id, color, size) {
-        console.log('id:', id);
-    console.log('color:', color);
-    console.log('size:', size);
+        console.log('id decr:', id);
+    console.log('color decr:', color);
+    console.log('size decr:', size);
         setCartItems((currItems) => {
-            console.log('currItems:', currItems);
+            console.log('currItems decr:', currItems);
             const existingItem = currItems.find((item) => item.id === id && item.color === color && item.size === size);
             // const existingItem = currItems.find((item) => item.id === id);
             if (existingItem && existingItem.quantity === 1) {
@@ -87,11 +92,11 @@ export function ShoppingCartProvider ({children}) {
     // }
 
     function removeFromCart (id, color, size) {
-        console.log('id:', id);
-        console.log('color:', color);
-        console.log('size:', size);
+        console.log('id rem:', id);
+        console.log('color rem:', color);
+        console.log('size rem:', size);
         setCartItems(currItems => {
-            console.log('currItems:', currItems);
+            console.log('currItems rem:', currItems);
             return currItems.filter(
                 (item) => !(item.id === id && item.color === color && item.size === size));  
         })
