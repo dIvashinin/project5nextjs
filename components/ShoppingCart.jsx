@@ -4,7 +4,7 @@ import { useShoppingCart } from "../context/shoppingCartContext";
 import { useProduct } from "../context/productContext";
 import Checkout from "./Checkout";
 import { useState } from "react";
-import Alert from 'react-bootstrap/Alert';
+import Alert from "react-bootstrap/Alert";
 
 // import { ShoppingCart } from "../components/ShoppingCart";
 
@@ -82,11 +82,14 @@ export function ShoppingCart({ isOpen }) {
       {/* in order to have our added to cart items visible */}
       <Offcanvas.Body>
         <Stack gap={1}>
-      {/* <Alert variant="warning" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
+          {/* <Alert variant="warning" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
             well there are no items in your cart to proceed!
           </Alert> */}
           {cartItems.map((item) => (
-            <div className="added-to-cart-container" key={`${item.id}-${item.color}-${item.size}`}>
+            <div
+              className="added-to-cart-container"
+              key={`${item.id}-${item.color}-${item.size}`}
+            >
               <img
                 src={item.image}
                 style={{ width: "125px", height: "75px", objectFit: "cover" }}
@@ -103,18 +106,29 @@ export function ShoppingCart({ isOpen }) {
                   )}
                   <button
                     className="add-to-inside-cart"
-                    onClick={() => increaseCartQuantity(item.id, products, item.color, item.size)}
+                    onClick={() =>
+                      increaseCartQuantity(
+                        item.id,
+                        products,
+                        item.color,
+                        item.size
+                      )
+                    }
                   >
                     +
                   </button>
                   <button
                     className="decrease-inside-cart"
-                    onClick={() => decreaseCartQuantity(item.id, item.color, item.size)}
+                    onClick={() =>
+                      decreaseCartQuantity(item.id, item.color, item.size)
+                    }
                   >
                     -
                   </button>
-                  <p style={{fontSize: "12px"}}>{ } color{item.color}; { }
-                  size: {item.size}</p>
+                  <p style={{ fontSize: "12px" }}>
+                    {} color{item.color}; {}
+                    size: {item.size}
+                  </p>
                 </div>
                 <div className="text-muted" style={{ fontSize: "0.85rem" }}>
                   {item.price}&euro;
@@ -123,7 +137,9 @@ export function ShoppingCart({ isOpen }) {
                   total: {item.price * item.quantity}&euro;
                   <button
                     className="remove-inside-cart"
-                    onClick={() => removeFromCart(item.id, item.color, item.size)}
+                    onClick={() =>
+                      removeFromCart(item.id, item.color, item.size)
+                    }
                   >
                     &times;
                   </button>
