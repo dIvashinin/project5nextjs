@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 // import { Offcanvas, Stack } from "react-bootstrap";
 // import { useShoppingCart } from "../context/shoppingCartContext";
-import Alert from 'react-bootstrap/Alert';
+import Alert from "react-bootstrap/Alert";
 
 // import { useRouter } from "next/router";
 
-const Checkout = ({handleCheckoutClose, isOpen}) => {
+const Checkout = ({ handleCheckoutClose, isOpen }) => {
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [name, setName] = useState("");
@@ -15,13 +15,13 @@ const Checkout = ({handleCheckoutClose, isOpen}) => {
   const [city, setCity] = useState("");
   const [showAlert, setShowAlert] = useState(false); // State to manage the alert
 
-//   const {
-//     closeCart,
-//     cartItems,
-//     removeFromCart,
-//     increaseCartQuantity,
-//     decreaseCartQuantity,
-//   } = useShoppingCart();
+  //   const {
+  //     closeCart,
+  //     cartItems,
+  //     removeFromCart,
+  //     increaseCartQuantity,
+  //     decreaseCartQuantity,
+  //   } = useShoppingCart();
 
   // const router = useRouter();
 
@@ -53,39 +53,38 @@ const Checkout = ({handleCheckoutClose, isOpen}) => {
     e.preventDefault();
 
     // Validation checks
-  if (!email || !isValidEmail(email)) {
-    // alert ("your email is not correct");
-    setShowAlert(true); // Show the alert
-    console.log('Invalid email');
-    return;
-  }
-  if (!country) {
-    setShowAlert(true); // Show the alert
-    // alert ("pls add country");
-    console.log('pls add country');
-    return;
-  }
-  if (!name) {
-    setShowAlert(true);
-    console.log('pls add name');
-    return;
-  }
-  if (!street) {
-    setShowAlert(true);
-    console.log('pls add street');
-    return;
-  }
-  if (!postcode) {
-    setShowAlert(true);
-    console.log('pls add postcode');
-    return;
-  }
-  if (!city) {
-    setShowAlert(true);
-    console.log('pls add city');
-    return;
-  }
-
+    if (!email || !isValidEmail(email)) {
+      // alert ("your email is not correct");
+      setShowAlert(true); // Show the alert
+      console.log("Invalid email");
+      return;
+    }
+    if (!country) {
+      setShowAlert(true); // Show the alert
+      // alert ("pls add country");
+      console.log("pls add country");
+      return;
+    }
+    if (!name) {
+      setShowAlert(true);
+      console.log("pls add name");
+      return;
+    }
+    if (!street) {
+      setShowAlert(true);
+      console.log("pls add street");
+      return;
+    }
+    if (!postcode) {
+      setShowAlert(true);
+      console.log("pls add postcode");
+      return;
+    }
+    if (!city) {
+      setShowAlert(true);
+      console.log("pls add city");
+      return;
+    }
 
     console.log(
       "email, password etc :>> ",
@@ -97,95 +96,103 @@ const Checkout = ({handleCheckoutClose, isOpen}) => {
       postcode,
       city
     );
-};
+  };
 
-// Helper function to check if the email is in a valid format
-const isValidEmail = (email) => {
+  // Helper function to check if the email is in a valid format
+  const isValidEmail = (email) => {
     // You can use a regular expression for a basic email format check
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-    // Close the cart after checkout
-    // handleCheckout();
+  // Close the cart after checkout
+  // handleCheckout();
 
-    useEffect(() => {
-      console.log("Checkout component rendered!");
-    }, []);
+  useEffect(() => {
+    console.log("Checkout component rendered!");
+  }, []);
 
-    return (
-      <div className="checkout-form-container">
-        {/* <Offcanvas show={isOpen} onHide={closeCart} placement="end">
+  return (
+    <div className="checkout-form-container">
+      {/* <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title> */}
-        <h3>Please enter your delivery details</h3>
-        {/* </Offcanvas.Title>
+      <h3>Please enter your delivery details</h3>
+      {/* </Offcanvas.Title>
       </Offcanvas.Header> */}
       {/* in order to have our added to cart items visible */}
       {/* <Offcanvas.Body>
         <Stack gap={1}> */}
-        <Alert variant="warning" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
-            pls fill in all the fields correctly!
-          </Alert>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            id="email"
-            placeholder="email"
-            onChange={handleEmailChange}
-          />
-          <label htmlFor="email">email</label>
-          <input
-            type="text"
-            id="country"
-            placeholder="country"
-            onChange={handleCountryChange}
-          />
-          <label htmlFor="country">country</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="full name"
-            onChange={handleNameChange}
-          />
-          <label htmlFor="name">full name</label>
-          <input
-            type="text"
-            id="street"
-            placeholder="street address"
-            onChange={handleStreetChange}
-          />
-          <label htmlFor="street">street address</label>
-          <input
-            type="text"
-            id="apartment"
-            placeholder="apartment"
-            onChange={handleApartmentChange}
-          />
-          <label htmlFor="apartment">apartment</label>
-          <input
-            type="text"
-            id="postcode"
-            placeholder="post code"
-            onChange={handlePostCodeChange}
-          />
-          <label htmlFor="postcode">post code</label>
-          <input
-            type="text"
-            id="city"
-            placeholder="city"
-            onChange={handleCityChange}
-          />
-          <label htmlFor="city">city</label>
-          <button className="continue-to-payment-button" type="submit">continue to payment</button>
-        </form>
-        
+      <Alert
+        variant="warning"
+        show={showAlert}
+        onClose={() => setShowAlert(false)}
+        dismissible
+      >
+        pls fill in all the fields correctly!
+      </Alert>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          id="email"
+          placeholder="email"
+          onChange={handleEmailChange}
+        />
+        <label htmlFor="email">email</label>
+        <input
+          type="text"
+          id="country"
+          placeholder="country"
+          onChange={handleCountryChange}
+        />
+        <label htmlFor="country">country</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="full name"
+          onChange={handleNameChange}
+        />
+        <label htmlFor="name">full name</label>
+        <input
+          type="text"
+          id="street"
+          placeholder="street address"
+          onChange={handleStreetChange}
+        />
+        <label htmlFor="street">street address</label>
+        <input
+          type="text"
+          id="apartment"
+          placeholder="apartment"
+          onChange={handleApartmentChange}
+        />
+        <label htmlFor="apartment">apartment</label>
+        <input
+          type="text"
+          id="postcode"
+          placeholder="post code"
+          onChange={handlePostCodeChange}
+        />
+        <label htmlFor="postcode">post code</label>
+        <input
+          type="text"
+          id="city"
+          placeholder="city"
+          onChange={handleCityChange}
+        />
+        <label htmlFor="city">city</label>
+        <button className="continue-to-payment-button" type="submit">
+          continue to payment
+        </button>
+      </form>
 
-        <button className="checkout-close-button" onClick={handleCheckoutClose}>X</button>
-        {/* </Stack>
+      <button className="checkout-close-button" onClick={handleCheckoutClose}>
+        X
+      </button>
+      {/* </Stack>
           </Offcanvas.Body> */}
-      </div>
+    </div>
     //   </Offcanvas>
-    );
-  };
+  );
+};
 
 export default Checkout;
