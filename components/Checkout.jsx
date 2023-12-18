@@ -10,7 +10,7 @@ import OrderSummaryComponent from "./OrderSummaryComponent";
 // import { useRouter } from "next/router";
 
 const Checkout = ({ handleCheckoutClose, isOpen }) => {
-    const {cartItems} = useShoppingCart();
+  const {cartItems} = useShoppingCart();
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [name, setName] = useState("");
@@ -138,7 +138,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
         // Set the state to indicate that the order has been placed
         setOrderPlaced(true);
         setOrderId(docRef.id); // Store the ID of the created order
-        // Continue with your payment process or redirect to another page
+        // Continue with payment process or redirect to another page
       } catch (error) {
         console.error('Error adding document: ', error);
       }
