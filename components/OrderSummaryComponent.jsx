@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDoc, doc } from 'firebase/firestore';
 import { db } from "../config/firebaseConfig";
 
-const OrderSummaryComponent = ({orderId}) => {
+const OrderSummaryComponent = ({orderId, handleCheckoutClose}) => {
   const [orderData, setOrderData] = useState(null);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const OrderSummaryComponent = ({orderId}) => {
 
     fetchOrderData();
   }, [orderId]); 
-  console.log('orderData :>> ', orderData.email);
+  // console.log('orderData :>> ', orderData.email);
 
   if (!orderData) {
     return null; // Or a loading indicator
@@ -52,6 +52,17 @@ const OrderSummaryComponent = ({orderId}) => {
           <p>Description: {item.description}</p>
         </div>
       ))}
+      <button type="submit" >
+          continue to payment
+        </button>
+      
+      {/* {orderPlaced && (
+        <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />
+      )} */}
+
+      <button className="checkout-close-button" onClick={handleCheckoutClose}>
+        X
+      </button>
     </div>
   );
 };
