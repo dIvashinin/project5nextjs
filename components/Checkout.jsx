@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 // import { Offcanvas, Stack } from "react-bootstrap";
 // import { useShoppingCart } from "../context/shoppingCartContext";
 import Alert from "react-bootstrap/Alert";
+import { useShoppingCart } from "../context/shoppingCartContext";
 
 // import { useRouter } from "next/router";
 
@@ -86,16 +87,21 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
       return;
     }
 
+    
+
+    const {cartItems} = useShoppingCart();
+    console.log('cartItems in checkout :>> ', cartItems);
+
     console.log(
-      "email, password etc :>> ",
-      email,
-      country,
-      name,
-      street,
-      apartment,
-      postcode,
-      city
-    );
+        "delivery details :>> ",
+        email,
+        country,
+        name,
+        street,
+        apartment,
+        postcode,
+        city
+      );
   };
 
   // Helper function to check if the email is in a valid format
@@ -180,7 +186,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
           onChange={handleCityChange}
         />
         <label htmlFor="city">city</label>
-        <button className="continue-to-payment-button" type="submit">
+        <button className="continue-to-payment-button" type="submit" onClick={handleSubmit}>
           continue to payment
         </button>
       </form>
