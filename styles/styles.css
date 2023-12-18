@@ -399,7 +399,7 @@ p[data-tag="total"] {
 /*  */
 /*  */
 
-.checkout-form-container{
+.checkout-form-container, .order-summary-cantainer{
   position: fixed;
   /* align-items: center; */
   
@@ -430,6 +430,8 @@ p[data-tag="total"] {
   padding: 1px;
   width: 300px;
 }
+
+
 
 /* Add media queries for responsiveness */
 @media (max-width: 768px) {

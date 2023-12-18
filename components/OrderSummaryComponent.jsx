@@ -1,30 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDoc, doc } from 'firebase/firestore';
 import { db } from "../config/firebaseConfig";
 
-const OrderSummaryComponent = () => {
-  const [orders, setOrders] = useState([]);
+const OrderSummaryComponent = (orderId) => {
+  const [orderData, setOrderData] = useState(null);
 
   useEffect(() => {
-    // Fetch orders from Firestore
-    const fetchOrders = async () => {
+    // Fetch 1 order from Firestore
+    const fetchOrderData = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'orders'));
-        const ordersData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setOrders(ordersData);
+        const orderDoc = await getDoc(doc(db, 'orders', orderId));
+        if (orderDoc.exists()) {
+          setOrderData(orderDoc.data());
+        } else {
+          console.error('Order not found');
+        }
       } catch (error) {
-        console.error('Error fetching orders: ', error);
+        console.error('Error fetching order data: ', error);
       }
     };
 
-    fetchOrders();
-  }, []); // Empty dependency array ensures the effect runs once when the component mounts
+    fetchOrderData();
+  }, [orderId]); 
+
+  if (!orderData) {
+    return null; // Or a loading indicator
+  }
 
   return (
-    <div>
+    <div className='order-summary-cantainer'>
       <h2>Order Summary</h2>
       <ul>
         {orders.map((order) => (

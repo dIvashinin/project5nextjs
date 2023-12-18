@@ -5,6 +5,7 @@ import { db } from "../config/firebaseConfig";
 // import { useShoppingCart } from "../context/shoppingCartContext";
 import Alert from "react-bootstrap/Alert";
 import { useShoppingCart } from "../context/shoppingCartContext";
+import OrderSummaryComponent from "./OrderSummaryComponent";
 
 // import { useRouter } from "next/router";
 
@@ -18,7 +19,8 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
   const [postcode, setPostcode] = useState("");
   const [city, setCity] = useState("");
   const [showAlert, setShowAlert] = useState(false); // State to manage the alert
-
+  const [orderPlaced, setOrderPlaced] = useState(false);
+  const [orderId, setOrderId] = useState(null); // to store the ID of the created order
   //   const {
   //     closeCart,
   //     cartItems,
@@ -132,7 +134,10 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
           cartItems,
         });
         console.log('Document written with ID: ', docRef.id);
-    
+        
+        // Set the state to indicate that the order has been placed
+        setOrderPlaced(true);
+        setOrderId(docRef.id); // Store the ID of the created order
         // Continue with your payment process or redirect to another page
       } catch (error) {
         console.error('Error adding document: ', error);
@@ -155,6 +160,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
 
   return (
     <div className="checkout-form-container">
+      {orderPlaced && <OrderSummaryComponent orderId={orderId} />}
       {/* <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title> */}
@@ -226,6 +232,9 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
           continue to payment
         </button>
       </form>
+      {/* {orderPlaced && (
+        <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />
+      )} */}
 
       <button className="checkout-close-button" onClick={handleCheckoutClose}>
         X
