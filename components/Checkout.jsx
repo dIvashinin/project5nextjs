@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { collection, getDocs, addDoc } from "firebase/firestore";
+import { db } from "../config/firebaseConfig";
 // import { Offcanvas, Stack } from "react-bootstrap";
 // import { useShoppingCart } from "../context/shoppingCartContext";
 import Alert from "react-bootstrap/Alert";
@@ -50,7 +52,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
     setCity(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async  (e) => {
     //never forgetting to prevent this refresh default behaviour!
     e.preventDefault();
 
@@ -98,21 +100,45 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
         postcode,
         city
       );
-      const orderData = {
-        email,
-        country,
-        name,
-        street,
-        apartment,
-        postcode,
-        city,
-        cartItems,
-      };
+      // An option to save the data to local storage
+      // better not to use it
+    //   const orderData = {
+    //     email,
+    //     country,
+    //     name,
+    //     street,
+    //     apartment,
+    //     postcode,
+    //     city,
+    //     cartItems,
+    //   };
     
-      localStorage.setItem("orderData", JSON.stringify(orderData));
+    //   localStorage.setItem("orderData", JSON.stringify(orderData));
 
-      console.log('orderData :>> ', orderData);
-  };
+    //   console.log('orderData :>> ', orderData);
+    // we better save data to firebase
+      try {
+        // Save the order data to Firestore
+        // in this case we create a collection 'orders' in db with all these fields
+        // using addDoc from Firebase
+        const docRef = await addDoc(collection(db, 'orders'), {
+          email,
+          country,
+          name,
+          street,
+          apartment,
+          postcode,
+          city,
+          cartItems,
+        });
+        console.log('Document written with ID: ', docRef.id);
+    
+        // Continue with your payment process or redirect to another page
+      } catch (error) {
+        console.error('Error adding document: ', error);
+      }
+    };
+  
 
   // Helper function to check if the email is in a valid format
   const isValidEmail = (email) => {
