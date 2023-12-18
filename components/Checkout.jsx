@@ -7,6 +7,7 @@ import { useShoppingCart } from "../context/shoppingCartContext";
 // import { useRouter } from "next/router";
 
 const Checkout = ({ handleCheckoutClose, isOpen }) => {
+    const {cartItems} = useShoppingCart();
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [name, setName] = useState("");
@@ -89,7 +90,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
 
     
 
-    const {cartItems} = useShoppingCart();
+    
     console.log('cartItems in checkout :>> ', cartItems);
 
     console.log(
