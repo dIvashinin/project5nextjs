@@ -33,19 +33,23 @@ const OrderSummaryComponent = ({orderId}) => {
   }
   
   return (
-    <div className='order-summary-cantainer'>
+    <div className='order-summary-container'>
       <h2>Order Summary</h2>
       <p>Email: {orderData.email}</p>
       <p>Name: {orderData.name}</p>
       <p>Country: {orderData.country}</p>
-      {/* Add more details as needed */}
+      <p>City: {orderData.city}</p>
+      <p>Postcode: {orderData.postcode}</p>
+      <p>Street: {orderData.street}</p>
       
       <h3>Ordered Items</h3>
       {orderData.cartItems.map((item) => (
         <div key={item.id}>
-          <p>Product: {item.name}</p>
+          <p>Product: {item.type}</p>
           <p>Quantity: {item.quantity}</p>
-          {/* Add more details about each item */}
+          <p>Size: {item.size}</p>
+          <p>Price: {item.price}</p>
+          <p>Description: {item.description}</p>
         </div>
       ))}
     </div>
