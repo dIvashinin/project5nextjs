@@ -87,12 +87,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
       console.log("pls add city");
       return;
     }
-
-    
-
-    
     console.log('cartItems in checkout :>> ', cartItems);
-
     console.log(
         "delivery details :>> ",
         email,
@@ -103,6 +98,20 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
         postcode,
         city
       );
+      const orderData = {
+        email,
+        country,
+        name,
+        street,
+        apartment,
+        postcode,
+        city,
+        cartItems,
+      };
+    
+      localStorage.setItem("orderData", JSON.stringify(orderData));
+
+      console.log('orderData :>> ', orderData);
   };
 
   // Helper function to check if the email is in a valid format
