@@ -41,7 +41,7 @@ const OrderSummaryComponent = ({orderId, handleCheckoutClose}) => {
       <p>City: {orderData.city}</p>
       <p>Postcode: {orderData.postcode}</p>
       <p>Street: {orderData.street}</p>
-      
+      <hr/>
       <h3>Ordered Items</h3>
       {orderData.cartItems.map((item) => (
         <div key={item.id}>

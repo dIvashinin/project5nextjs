@@ -3,12 +3,13 @@ const shopBanner = "https://res.cloudinary.com/dzghua4dz/image/upload/v170198673
 
 function about() {
   return (
-    <div>
+    <div >
         <h3 data-tag="top-about-empty-space"></h3>
         <div className="banner-container">
         <img src={shopBanner} alt="Etsy" className="banner-image" />
       </div>
       {/* <h2 className="moon-ruby-shop">Moon Ruby Shop</h2> */}
+      <div className="about-main-container">
       <h2>About this shop</h2>
         <h3>Jewelry winning over anxiety</h3>
       <p>
@@ -40,7 +41,7 @@ function about() {
       </p>
 
       <p>
-        Why do I call my jewelry anti-anxiety?🤍 😌 All the jewellery is perfect
+        Why do I call my jewelry anti-anxiety? 😌 All the jewellery is perfect
         for fidgeting, especially the rings. I found that playing with the stone
         beads helps me to concentrate and relax, especially in stressful
         situations. I love how gems are changing their temperature, how they
@@ -60,6 +61,7 @@ function about() {
         So I make my pieces with very positive energy, trying to keep the
         process stress free.
       </p>
+      </div>
     </div>
   );
 }

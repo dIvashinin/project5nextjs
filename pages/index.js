@@ -20,7 +20,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1>index page</h1>
+        <h1>Still work in progress</h1>
+        <p>more content soon</p>
 
              </main>
 

@@ -52,6 +52,11 @@
   object-fit: cover; /* Make sure the image covers the entire container */
   object-position: center; /* Center the image */
 }
+.about-main-container{
+  padding: 20px;
+  text-align:justify;
+  font-size: 20px;
+}
 
 /* making product cart in righ top corner of navbar */
 /* .navigation-bar {
