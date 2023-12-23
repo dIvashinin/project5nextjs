@@ -10,7 +10,7 @@ import OrderSummaryComponent from "./OrderSummaryComponent";
 // import { useRouter } from "next/router";
 
 const Checkout = ({ handleCheckoutClose, isOpen }) => {
-  const {cartItems} = useShoppingCart();
+  const { cartItems } = useShoppingCart();
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [name, setName] = useState("");
@@ -54,7 +54,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
     setCity(e.target.value);
   };
 
-  const handleSubmit = async  (e) => {
+  const handleSubmit = async (e) => {
     //never forgetting to prevent this refresh default behaviour!
     e.preventDefault();
 
@@ -91,19 +91,19 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
       console.log("pls add city");
       return;
     }
-    console.log('cartItems in checkout :>> ', cartItems);
+    console.log("cartItems in checkout :>> ", cartItems);
     console.log(
-        "delivery details :>> ",
-        email,
-        country,
-        name,
-        street,
-        apartment,
-        postcode,
-        city
-      );
-      // An option to save the data to local storage
-      // better not to use it
+      "delivery details :>> ",
+      email,
+      country,
+      name,
+      street,
+      apartment,
+      postcode,
+      city
+    );
+    // An option to save the data to local storage
+    // better not to use it
     //   const orderData = {
     //     email,
     //     country,
@@ -114,36 +114,35 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
     //     city,
     //     cartItems,
     //   };
-    
+
     //   localStorage.setItem("orderData", JSON.stringify(orderData));
 
     //   console.log('orderData :>> ', orderData);
     // we better save data to firebase
-      try {
-        // Save the order data to Firestore
-        // in this case we create a collection 'orders' in db with all these fields
-        // using addDoc from Firebase
-        const docRef = await addDoc(collection(db, 'orders'), {
-          email,
-          country,
-          name,
-          street,
-          apartment,
-          postcode,
-          city,
-          cartItems,
-        });
-        console.log('Document written with ID: ', docRef.id);
-        
-        // Set the state to indicate that the order has been placed
-        setOrderPlaced(true);
-        setOrderId(docRef.id); // Store the ID of the created order
-        // Continue with payment process or redirect to another page
-      } catch (error) {
-        console.error('Error adding document: ', error);
-      }
-    };
-  
+    try {
+      // Save the order data to Firestore
+      // in this case we create a collection 'orders' in db with all these fields
+      // using addDoc from Firebase
+      const docRef = await addDoc(collection(db, "orders"), {
+        email,
+        country,
+        name,
+        street,
+        apartment,
+        postcode,
+        city,
+        cartItems,
+      });
+      console.log("Document written with ID: ", docRef.id);
+
+      // Set the state to indicate that the order has been placed
+      setOrderPlaced(true);
+      setOrderId(docRef.id); // Store the ID of the created order
+      // Continue with payment process or redirect to another page
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
+  };
 
   // Helper function to check if the email is in a valid format
   const isValidEmail = (email) => {
@@ -228,7 +227,11 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
           onChange={handleCityChange}
         />
         <label htmlFor="city">city</label>
-        <button className="continue-to-payment-button" type="submit" onClick={handleSubmit}>
+        <button
+          className="continue-to-payment-button"
+          type="submit"
+          onClick={handleSubmit}
+        >
           continue to payment
         </button>
       </form>
