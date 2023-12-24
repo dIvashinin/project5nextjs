@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { collection, getDoc, doc } from 'firebase/firestore';
+import React, { useEffect, useState } from "react";
+import { collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 
-const OrderSummaryComponent = ({orderId, handleCheckoutClose}) => {
+const OrderSummaryComponent = ({ orderId, handleCheckoutClose }) => {
   const [orderData, setOrderData] = useState(null);
 
   useEffect(() => {
@@ -10,30 +10,30 @@ const OrderSummaryComponent = ({orderId, handleCheckoutClose}) => {
     const fetchOrderData = async () => {
       try {
         if (!orderId) {
-          console.error('Order ID is undefined');
+          console.error("Order ID is undefined");
           return;
         }
-        const orderDoc = await getDoc(doc(db, 'orders', orderId));
+        const orderDoc = await getDoc(doc(db, "orders", orderId));
         if (orderDoc.exists()) {
           setOrderData(orderDoc.data());
         } else {
-          console.error('Order not found');
+          console.error("Order not found");
         }
       } catch (error) {
-        console.error('Error fetching order data: ', error);
+        console.error("Error fetching order data: ", error);
       }
     };
 
     fetchOrderData();
-  }, [orderId]); 
+  }, [orderId]);
   // console.log('orderData :>> ', orderData.email);
 
   if (!orderData) {
     return null; // Or a loading indicator
   }
-  
+
   return (
-    <div className='order-summary-container'>
+    <div className="order-summary-container">
       <h2>Order Summary</h2>
       <p>Email: {orderData.email}</p>
       <p>Name: {orderData.name}</p>
@@ -41,7 +41,7 @@ const OrderSummaryComponent = ({orderId, handleCheckoutClose}) => {
       <p>City: {orderData.city}</p>
       <p>Postcode: {orderData.postcode}</p>
       <p>Street: {orderData.street}</p>
-      <hr/>
+      <hr />
       <h3>Ordered Items</h3>
       {orderData.cartItems.map((item) => (
         <div key={item.id}>
@@ -52,10 +52,8 @@ const OrderSummaryComponent = ({orderId, handleCheckoutClose}) => {
           <p>Description: {item.description}</p>
         </div>
       ))}
-      <button type="submit" >
-          continue to payment
-        </button>
-      
+      <button type="submit">continue to payment</button>
+
       {/* {orderPlaced && (
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />
       )} */}
