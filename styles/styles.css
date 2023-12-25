@@ -411,7 +411,7 @@ p[data-tag="total"] {
   /* align-items: center; */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-20%, -50%);
   padding: 60px;
   /* height: 800px; */
   background-color: rgb(255, 133, 208);
@@ -420,7 +420,7 @@ p[data-tag="total"] {
   overflow-y: auto; /* Add a vertical scrollbar if content overflows */
 }
 .order-summary-container {
-  /* position: fixed; */
+  position: fixed;
   /* align-items: center; */
   top: 50%;
   left: 50%;
@@ -474,7 +474,7 @@ p[data-tag="total"] {
 }
 @media (max-width: 768px) {
   .checkout-form-container {
-    /* padding: 20px; */
+    padding: 20px;
     
     
   }
