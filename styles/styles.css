@@ -411,15 +411,15 @@ p[data-tag="total"] {
   /* margin: 0 auto; Center the container */
   /* position: fixed; */
   /* align-items: center; */
-  top: 50%;
-  left: 50%;
-  transform: translate(-20%, -50%);
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-20%, -50%); */
   padding: 60px;
   /* height: 800px; */
   background-color: rgb(255, 133, 208);
   /* z-index: 999; */
   border-radius: 15px;
-  overflow-y: auto; /* Add a vertical scrollbar if content overflows */
+  /* overflow-y: auto; Add a vertical scrollbar if content overflows */
 }
 .order-summary-container {
   position: relative;
@@ -444,15 +444,15 @@ p[data-tag="total"] {
   margin: 8px 0; /* Adjust the margin between lines */
   line-height: 1; /* Adjust the line height for better spacing */
 }
-.checkout-close-button {
+/* .checkout-close-button {
   position: fixed;
-  top: 3%;
-  left: 88%;
+  top: 15%;
+  left: 80%;
   
   border-style: solid;
   border-color: #e74c3c;
   border-radius: 25px;
-}
+} */
 .continue-to-payment-button {
   border-style: solid;
   margin-top: 20px;

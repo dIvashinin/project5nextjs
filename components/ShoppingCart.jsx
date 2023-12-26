@@ -5,6 +5,7 @@ import { useProduct } from "../context/productContext";
 import Checkout from "./Checkout";
 import { useState } from "react";
 import Alert from "react-bootstrap/Alert";
+import Link from "next/link";
 
 // import { ShoppingCart } from "../components/ShoppingCart";
 
@@ -162,6 +163,9 @@ export function ShoppingCart({ isOpen }) {
           {/* Checkout button */}
           <div>
             <button onClick={handleCheckout} className="checkout-shopping-cart">
+             <Link href="/checkout">
+             <a>Go to Checkout</a>
+             </Link>
               Checkout
             </button>
           </div>
@@ -177,7 +181,8 @@ export function ShoppingCart({ isOpen }) {
             handleCheckout={handleCheckout}/>} */}
 
       {/* Render Checkout component outside Offcanvas.Body */}
-      {checkoutOpen && <Checkout handleCheckoutClose={handleCheckoutClose} />}
+      {/* {checkoutOpen && <Checkout handleCheckoutClose={handleCheckoutClose} />} */}
+
 
       {/* handleCheckout={() => { */}
       {/* setCheckoutOpen(false); //close checkout form */}

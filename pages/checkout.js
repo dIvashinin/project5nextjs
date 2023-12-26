@@ -4,7 +4,7 @@ import Checkout from '../components/Checkout'
 function checkout() {
   return (
     <div>
-        <h3>checkout</h3>
+        {/* <h3>checkout</h3> */}
     <Checkout/>
     </div>
   )

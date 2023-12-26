@@ -239,9 +239,9 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />
       )} */}
 
-      <button className="checkout-close-button" onClick={handleCheckoutClose}>
+      {/* <button className="checkout-close-button" onClick={handleCheckoutClose}>
         X
-      </button>
+      </button> */}
       {/* </Stack>
           </Offcanvas.Body> */}
     </div>
