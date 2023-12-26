@@ -164,9 +164,9 @@ export function ShoppingCart({ isOpen }) {
           <div>
             <button onClick={handleCheckout} className="checkout-shopping-cart">
              <Link href="/checkout">
-             <a>Go to Checkout</a>
+             <a>checkout</a>
              </Link>
-              Checkout
+              
             </button>
           </div>
         </Stack>

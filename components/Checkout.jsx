@@ -228,11 +228,11 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
         />
         <label htmlFor="city">city</label>
         <button
-          className="continue-to-payment-button"
+          className="submit-delivery-details-button"
           type="submit"
           onClick={handleSubmit}
         >
-          continue to payment
+          submit delivery details
         </button>
       </form>
       {/* {orderPlaced && (

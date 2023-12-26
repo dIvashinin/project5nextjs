@@ -35,6 +35,7 @@ const OrderSummaryComponent = ({ orderId, handleCheckoutClose }) => {
   return (
     <div className="order-summary-container">
       <h2>Order Summary</h2>
+      <h6>please check, update if you need and proceed to payment</h6>
       <p>Email: {orderData.email}</p>
       <p>Name: {orderData.name}</p>
       <p>Country: {orderData.country}</p>
@@ -58,9 +59,9 @@ const OrderSummaryComponent = ({ orderId, handleCheckoutClose }) => {
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />
       )} */}
 
-      <button className="checkout-close-button" onClick={handleCheckoutClose}>
+      {/* <button className="checkout-close-button" onClick={handleCheckoutClose}>
         X
-      </button>
+      </button> */}
     </div>
   );
 };
