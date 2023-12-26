@@ -407,6 +407,7 @@ p[data-tag="total"] {
 /*  */
 
 .checkout-form-container {
+  margin-top: 30px;
   /* position: relative; */
   /* margin: 0 auto; Center the container */
   /* position: fixed; */
@@ -418,10 +419,11 @@ p[data-tag="total"] {
   /* height: 800px; */
   background-color: rgb(255, 133, 208);
   /* z-index: 999; */
-  border-radius: 15px;
+  border-radius: 45px;
   /* overflow-y: auto; Add a vertical scrollbar if content overflows */
 }
 .order-summary-container {
+  margin-top: 6px;
   /* position: relative; */
   /* margin: 0 auto; Center the container */
   /* position: fixed; */
@@ -437,12 +439,15 @@ p[data-tag="total"] {
   /* padding-right: 20px; */
   background-color: rgb(255, 202, 133);
   /* z-index: 999; */
-  /* border-radius: 15px; */
+  border-radius: 55px;
   /* overflow-y: auto; Add a vertical scrollbar if content overflows */
 }
 .order-summary-container p {
   margin: 8px 0; /* Adjust the margin between lines */
   line-height: 1; /* Adjust the line height for better spacing */
+}
+.order-summary-container h5 {
+color:  rgb(38, 66, 251);
 }
 /* .checkout-close-button {
   position: fixed;
@@ -456,18 +461,27 @@ p[data-tag="total"] {
 .continue-to-payment-button {
   border-style: solid;
   margin-top: 20px;
+  padding: 6px;
+  border-radius: 10px;
+  background-color: rgb(38, 66, 251);
+  color: white;
 }
 .submit-delivery-details-button{
   border-style: solid;
   margin-top: 20px;
   padding: 6px;
   border-radius: 10px;
+  background-color: rgb(38, 66, 251);
+  color: white;
 }
 .checkout-form-container input {
   padding: 4px;
   width: 300px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(131, 0, 81);
 
-  border-radius: 6px;
+  border-radius: 14px;
 }
 .checkout-form-container label {
   display: block;

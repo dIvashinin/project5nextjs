@@ -35,7 +35,7 @@ const OrderSummaryComponent = ({ orderId, handleCheckoutClose }) => {
   return (
     <div className="order-summary-container">
       <h2>Order Summary</h2>
-      <h6>please check, update if you need and proceed to payment</h6>
+      <h5>please check, update if you need and proceed to payment</h5>
       <p>Email: {orderData.email}</p>
       <p>Name: {orderData.name}</p>
       <p>Country: {orderData.country}</p>
@@ -53,7 +53,7 @@ const OrderSummaryComponent = ({ orderId, handleCheckoutClose }) => {
           <p>Description: {item.description}</p>
         </div>
       ))}
-      <button type="submit">continue to payment</button>
+      <button className="continue-to-payment-button" type="submit">continue to payment</button>
 
       {/* {orderPlaced && (
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />
