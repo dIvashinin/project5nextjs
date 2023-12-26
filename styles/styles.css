@@ -486,13 +486,10 @@ margin-top: 7px;
 @media (max-width: 768px) {
   .checkout-form-container {
     padding: 30px;
-    
-    
-  }
-
+  } 
   .order-summary-container {
-    width: 100%;
-    max-width: none; /* Reset the maximum width */
-    padding: 10px;
+    /* width: 100%; */
+    /* max-width: none; Reset the maximum width */
+    /* padding: 10px; */
   }
 }
