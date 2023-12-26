@@ -438,6 +438,9 @@ p[data-tag="total"] {
   font-size: 20px;
   /* padding-right: 20px; */
   background-color: rgb(255, 202, 133);
+  border-color: #e74c3c;
+  border-width: 34px;
+  border-style: solid;
   /* z-index: 999; */
   border-radius: 55px;
   /* overflow-y: auto; Add a vertical scrollbar if content overflows */
