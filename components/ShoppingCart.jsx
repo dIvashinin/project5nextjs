@@ -156,9 +156,9 @@ export function ShoppingCart({ isOpen }) {
             // <CartItem key={item.id} {...item} product={product} />
           ))}
           {/* total sum here */}
-          <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
-            Total sum: {totalSum}&euro;
-          </div>
+            <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
+              Total sum: {totalSum}&euro;
+            </div>
 
           {/* Checkout button */}
           <div>

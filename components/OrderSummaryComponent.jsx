@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 
-const OrderSummaryComponent = ({ orderId, handleCheckoutClose }) => {
+const OrderSummaryComponent = ({ orderId, handleCheckoutClose, totalSum }) => {
   const [orderData, setOrderData] = useState(null);
 
   useEffect(() => {
@@ -51,6 +51,9 @@ const OrderSummaryComponent = ({ orderId, handleCheckoutClose }) => {
           <p>Size: {item.size}</p>
           <p>Price: {item.price}</p>
           <p>Description: {item.description}</p>
+          <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
+            Total sum: {totalSum}&euro;
+          </div>
         </div>
       ))}
       <button className="continue-to-payment-button" type="submit">continue to payment</button>
