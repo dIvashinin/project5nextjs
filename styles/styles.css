@@ -1,11 +1,9 @@
 /* NAV BAR */
-
 .navigation-bar {
   background-color: #ff9494;
   opacity: 75%;
   /* padding: 4px; */
   /* padding-right: 20px; */
-
   position: fixed;
   top: 0px;
   z-index: 100;
@@ -14,7 +12,6 @@
   width: 100%; /* Take up the full width */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
-
 .navigation-bar a {
   color: rgb(73, 0, 64);
   margin-right: 10px;
@@ -22,46 +19,11 @@
   font: 20px;
   padding: 5px;
 }
-
 .navigation-bar a:hover {
   color: rgb(255, 255, 255);
   /* opacity: 70%; */
 }
-
-.searchbar {
-  margin-top: 37px;
-  margin-left: 2px;
-  font-family: "Courier New", Courier, monospace;
-}
-.moon-ruby-shop {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 40px;
-  /* font-style: italic; */
-}
-
-.banner-container {
-  position: relative;
-  height: 230px; /* Set the desired height of your banner */
-  overflow: hidden;
-}
-
-.banner-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Make sure the image covers the entire container */
-  object-position: center; /* Center the image */
-}
-.about-main-container {
-  padding: 20px;
-  text-align: justify;
-  font-size: 20px;
-}
-
-/* making product cart in righ top corner of navbar */
-/* .navigation-bar {
-  position: relative;
-} */
-.product-cart {
+.navigation-bar button{
   position: absolute;
   top: 0;
   right: 0;
@@ -74,9 +36,74 @@
   border-style: none;
   border-radius: 30px;
 }
-.product-cart:hover {
+.navigation-bar button:hover{
   background-color: rgb(200, 236, 255);
 }
+.cart-icon-svg {
+  width: 2rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  margin-bottom: 5px;
+  padding-bottom: 2px;
+}
+.inside-cart-number-products {
+  position: relative;
+  top: 3;
+  /* left: 0; */
+  /* border-style: solid  1px; */
+  border-radius: 20px;
+  background-color: red;
+  opacity: 95%;
+  width: 1.3rem;
+  height: 1.3rem;
+  transform: translate(-5%, -35%);
+  font-size: 15px;
+}
+
+/* SEARCH */
+.searchbar {
+  margin-top: 37px;
+  margin-left: 2px;
+  font-family: "Courier New", Courier, monospace;
+}
+.search-input {
+  height: 35px;
+  width: 300px;
+  border-radius: 5px;
+  text-decoration: none;
+  border-style: solid;
+  border-color: rgb(118, 0, 229);
+  border-width: 2px;
+  background-color: rgb(252, 224, 252);
+  margin-bottom: 3px;
+}
+
+/* BANNER */
+.moon-ruby-shop {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 40px;
+  /* font-style: italic; */
+}
+.banner-container {
+  position: relative;
+  height: 230px; /* Set the desired height of your banner */
+  overflow: hidden;
+}
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Make sure the image covers the entire container */
+  object-position: center; /* Center the image */
+}
+.about-main-container {
+  padding: 20px;
+  text-align: justify;
+  font-size: 20px;
+}
+
+/* LOGIN */
 .login-container {
   width: 300px;
   margin: 10px auto; /* Center the container horizontally */
@@ -120,8 +147,6 @@ button[data-tag="login-button"]:hover,
 .minus-to-cart-button:hover {
   background-color: rgb(255, 133, 208);
 }
-
-/* Add a style for the logout button */
 button[data-tag="logout-button"] {
   margin-top: 10px;
   background-color: #e74c3c; /* Use a red color for logout */
@@ -133,44 +158,7 @@ button[data-tag="logout-button"] {
   cursor: pointer;
 }
 
-.cart-icon-svg {
-  width: 2rem;
-  height: 1.8rem;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  margin-bottom: 5px;
-  padding-bottom: 2px;
-}
-.inside-cart-number-products {
-  position: relative;
-  top: 3;
-  /* left: 0; */
-  /* border-style: solid  1px; */
-  border-radius: 20px;
-  background-color: red;
-  opacity: 95%;
-  width: 1.3rem;
-  height: 1.3rem;
-  transform: translate(-5%, -35%);
-  font-size: 15px;
-}
-/* .cart-icon-svg-add-to{
-  width: 12px;
-  height: 12px;
-  margin-right: 4px;
-  /* display: flex; */
-/* align-items: center;  */
-/* } */
-
-/* .add-to-cart-button {
-  width: 200px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-} */
-
-/* containers of products and reviews in shop page */
+/* PRODUCTS & REVIEWS in shop page */
 .products-shop {
   display: flex;
   flex-wrap: wrap;
@@ -184,59 +172,10 @@ button[data-tag="logout-button"] {
   /* margin-top: 100px; */
   font-size: 18px;
 }
-h3[data-tag="top-about-empty-space"] {
-  margin-bottom: 34px;
-}
 p[data-tag="review"] {
   font-style: italic;
   font-size: 14px;
 }
-p[data-tag="type"],
-p[data-tag="description"],
-p[data-tag="price"],
-p[data-tag="quantity"],
-p[data-tag="total"] {
-  padding-left: 10px;
-  font-style: italic;
-  margin-bottom: 0px;
-}
-.added-to-cart-container {
-  border-style: solid;
-  border-width: 0.5px;
-  border-color: rgb(164, 193, 176);
-}
-
-.search-input {
-  height: 35px;
-  width: 300px;
-  border-radius: 5px;
-  text-decoration: none;
-  border-style: solid;
-  border-color: rgb(118, 0, 229);
-  border-width: 2px;
-  background-color: rgb(252, 224, 252);
-  margin-bottom: 3px;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40px; /* Adjust the height as needed */
-  background-color: rgb(252, 224, 252);
-  border-top: 1px solid #ccc; /* Add a border at the top for separation */
-}
-
-.review-title {
-  display: inline-block;
-  width: 100%;
-}
-
-/* imag */
 .stuff-inside-products-div {
   width: 100%; /* Set the width of the product card container */
   max-width: 100%; /* Set a maximum width if needed */
@@ -256,7 +195,6 @@ p[data-tag="total"] {
   even if it means the image is cropped a bit */
   object-fit: cover;
 }
-
 .stuff-inside-reviews-div {
   width: 100%; /* Set the width of the product card container */
   max-width: 250px; /* Set a maximum width if needed */
@@ -268,6 +206,49 @@ p[data-tag="total"] {
   border-radius: 5px;
   flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
 }
+.review-title {
+  display: inline-block;
+  width: 100%;
+}
+
+/* ABOUT PAGE */
+h3[data-tag="top-about-empty-space"] {
+  margin-bottom: 34px;
+}
+
+p[data-tag="type"],
+p[data-tag="description"],
+p[data-tag="price"],
+p[data-tag="quantity"],
+p[data-tag="total"] {
+  padding-left: 10px;
+  font-style: italic;
+  margin-bottom: 0px;
+}
+.added-to-cart-container {
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: rgb(164, 193, 176);
+}
+
+
+/* FOOTER */
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px; /* Adjust the height as needed */
+  background-color: rgb(252, 224, 252);
+  border-top: 1px solid #ccc; /* Add a border at the top for separation */
+}
+
+
+
+
 .add-to-cart-button,
 .minus-to-cart-button,
 .checkout-shopping-cart {
@@ -417,7 +398,7 @@ p[data-tag="total"] {
   /* transform: translate(-20%, -50%); */
   padding: 60px;
   /* height: 800px; */
-  background-color: rgb(255, 133, 208);
+  background-color: rgb(255, 223, 243);
   /* z-index: 999; */
   border-radius: 45px;
   /* overflow-y: auto; Add a vertical scrollbar if content overflows */
