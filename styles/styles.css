@@ -231,7 +231,6 @@ p[data-tag="total"] {
   border-color: rgb(164, 193, 176);
 }
 
-
 /* FOOTER */
 .footer-container {
   display: flex;
@@ -245,8 +244,6 @@ p[data-tag="total"] {
   background-color: rgb(252, 224, 252);
   border-top: 1px solid #ccc; /* Add a border at the top for separation */
 }
-
-
 
 
 .add-to-cart-button,
@@ -271,7 +268,6 @@ p[data-tag="total"] {
   font-size: 12px;
   background-color: rgb(255, 223, 240);
 }
-
 /*  */
 /*  */
 /* styling for the single product card */
@@ -318,14 +314,12 @@ p[data-tag="total"] {
   width: 150px;
   cursor: pointer;
   border-radius: 4px;
-
   border-style: solid;
   border-width: 1px;
   border-color: rgb(247, 0, 255);
   /* margin: 6px; */
   background-color: rgb(255, 223, 240);
 }
-
 .single-product-card button:hover {
   background-color: rgb(255, 133, 208);
 }
@@ -337,7 +331,6 @@ p[data-tag="total"] {
   margin-bottom: 10px;
   width: 150px;
 }
-
 .single-product-card select {
   width: 100%;
   padding: 6px;
@@ -379,14 +372,12 @@ p[data-tag="total"] {
   .single-product-card {
     max-width: 100%;
   }
-
   .single-product-card .additional-images img {
     max-width: 100%;
   }
 }
 /*  */
 /*  */
-
 .checkout-form-container {
   margin-top: 30px;
   /* position: relative; */
@@ -413,6 +404,7 @@ p[data-tag="total"] {
   left: 50%;
   transform: translate(-50%, -50%); */
   padding: 60px;
+  padding-top: 10px;
   /* width: 80%; */
   /* max-width: 600px; Set a maximum width */
   /* height: 600px; */
@@ -437,7 +429,6 @@ color:  rgb(38, 66, 251);
   position: fixed;
   top: 15%;
   left: 80%;
-  
   border-style: solid;
   border-color: #e74c3c;
   border-radius: 25px;
@@ -464,7 +455,6 @@ color:  rgb(38, 66, 251);
   border-style: solid;
   border-width: 5px;
   border-color: rgb(131, 0, 81);
-
   border-radius: 14px;
 }
 .checkout-form-container label {
