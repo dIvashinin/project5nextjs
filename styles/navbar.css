@@ -1,0 +1,63 @@
+/* NAV BAR */
+.navigation-bar {
+    background-color: #ff9494;
+    opacity: 75%;
+    /* padding: 4px; */
+    /* padding-right: 20px; */
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    font-size: 36px;
+    font-weight: bold;
+    width: 100%; /* Take up the full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+  .navigation-bar a {
+    color: rgb(73, 0, 64);
+    margin-right: 10px;
+    text-decoration: none;
+    font: 20px;
+    padding: 5px;
+  }
+  .navigation-bar a:hover {
+    color: rgb(255, 255, 255);
+    /* opacity: 70%; */
+  }
+  .navigation-bar button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 4px;
+    margin-right: 20px;
+    background-color: rgb(220, 236, 255);
+    text-decoration: none;
+    border-style: none;
+    border-radius: 30px;
+  }
+  .navigation-bar button:hover{
+    background-color: rgb(200, 236, 255);
+  }
+  .cart-icon-svg {
+    width: 2rem;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+  }
+  .inside-cart-number-products {
+    position: relative;
+    top: 3;
+    /* left: 0; */
+    /* border-style: solid  1px; */
+    border-radius: 20px;
+    background-color: red;
+    opacity: 95%;
+    width: 1.3rem;
+    height: 1.3rem;
+    transform: translate(-5%, -35%);
+    font-size: 15px;
+  }

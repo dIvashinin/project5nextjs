@@ -1,0 +1,17 @@
+/* SEARCH */
+.searchbar {
+    margin-top: 37px;
+    margin-left: 2px;
+    font-family: "Courier New", Courier, monospace;
+  }
+  .search-input {
+    height: 35px;
+    width: 300px;
+    border-radius: 5px;
+    text-decoration: none;
+    border-style: solid;
+    border-color: rgb(118, 0, 229);
+    border-width: 2px;
+    background-color: rgb(252, 224, 252);
+    margin-bottom: 3px;
+  }

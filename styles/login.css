@@ -1,0 +1,54 @@
+/* LOGIN */
+.login-container {
+    width: 300px;
+    margin: 10px auto; /* Center the container horizontally */
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 2px solid rgb(118, 0, 229);
+    border-radius: 5px;
+    background-color: rgb(252, 224, 252);
+    font-family: "Courier New", Courier, monospace;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+  }
+  h2[data-tag="login"] {
+    text-align: center; /* Center the heading */
+  }
+  form[data-tag="submit-login-form"] {
+    display: flex;
+    flex-direction: column;
+  }
+  input[data-tag="input-email"],
+  input[data-tag="input-password"] {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid rgb(118, 0, 229);
+    border-radius: 3px;
+  }
+  label[data-tag="label-email"],
+  label[data-tag="label-password"] {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+  }
+  button[data-tag="login-button"] {
+    background-color: rgb(176, 91, 255);
+    color: white;
+    padding: 10px;
+    border: solid;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  button[data-tag="login-button"]:hover,
+  .add-to-cart-button:hover,
+  .minus-to-cart-button:hover {
+    background-color: rgb(255, 133, 208);
+  }
+  button[data-tag="logout-button"] {
+    margin-top: 10px;
+    background-color: #e74c3c; /* Use a red color for logout */
+    color: white;
+    padding: 1px;
+    border-style: solid;
+    border-color: rgb(164, 127, 127);
+    border-radius: 3px;
+    cursor: pointer;
+  }
