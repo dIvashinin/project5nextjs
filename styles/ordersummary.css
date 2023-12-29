@@ -1,0 +1,48 @@
+/* ORDER SUMMARY */
+.order-summary-container {
+    margin-top: 6px;
+    /* position: relative; */
+    /* margin: 0 auto; Center the container */
+    /* position: fixed; */
+    /* align-items: center; */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    padding: 60px;
+    padding-top: 10px;
+    /* width: 80%; */
+    /* max-width: 600px; Set a maximum width */
+    /* height: 600px; */
+    font-size: 20px;
+    /* padding-right: 20px; */
+    background-color: rgb(255, 202, 133);
+    border-color: #e74c3c;
+    border-width: 34px;
+    border-style: solid;
+    /* z-index: 999; */
+    border-radius: 55px;
+    /* overflow-y: auto; Add a vertical scrollbar if content overflows */
+  }
+  .order-summary-container p {
+    margin: 8px 0; /* Adjust the margin between lines */
+    line-height: 1; /* Adjust the line height for better spacing */
+  }
+  .order-summary-container h5 {
+  color:  rgb(38, 66, 251);
+  }
+  
+  .continue-to-payment-button {
+    border-style: solid;
+    margin-top: 20px;
+    padding: 6px;
+    border-radius: 10px;
+    background-color: rgb(38, 66, 251);
+    color: white;
+  }
+  @media (max-width: 768px) {
+    .order-summary-container {
+      /* width: 100%; */
+      /* max-width: none; Reset the maximum width */
+      padding: 10px;
+    }
+  }
