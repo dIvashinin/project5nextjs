@@ -56,7 +56,9 @@ const OrderSummaryComponent = ({ orderId, handleCheckoutClose, totalSum }) => {
           </div>
         </div>
       ))}
-      <button className="continue-to-payment-button" type="submit">continue to payment</button>
+      <button className="continue-to-payment-button" type="submit">
+        continue to payment
+      </button>
 
       {/* {orderPlaced && (
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />

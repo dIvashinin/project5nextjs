@@ -1,14 +1,13 @@
-@import url('navbar.css');
-@import url('search.css');
-@import url('banner.css');
-@import url('login.css');
-@import url('productsreviews.css');
-@import url('footer.css');
-@import url('about.css');
-@import url('singleproduct.css');
-@import url('checkout.css');
-@import url('ordersummary.css');
-
+@import url("navbar.css");
+@import url("search.css");
+@import url("banner.css");
+@import url("login.css");
+@import url("productsreviews.css");
+@import url("footer.css");
+@import url("about.css");
+@import url("singleproduct.css");
+@import url("checkout.css");
+@import url("ordersummary.css");
 
 p[data-tag="type"],
 p[data-tag="description"],
@@ -24,7 +23,6 @@ p[data-tag="total"] {
   border-width: 0.5px;
   border-color: rgb(164, 193, 176);
 }
-
 
 .add-to-cart-button,
 .minus-to-cart-button,
@@ -49,12 +47,6 @@ p[data-tag="total"] {
   background-color: rgb(255, 223, 240);
 }
 
-
-
-
-
-
-
 /* Add media queries for responsiveness */
 @media (max-width: 768px) {
   .product-card {
@@ -68,4 +60,3 @@ p[data-tag="total"] {
     flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
   }
 }
-
