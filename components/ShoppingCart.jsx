@@ -156,17 +156,16 @@ export function ShoppingCart({ isOpen }) {
             // <CartItem key={item.id} {...item} product={product} />
           ))}
           {/* total sum here */}
-            <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
-              Total sum: {totalSum}&euro;
-            </div>
+          <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
+            Total sum: {totalSum}&euro;
+          </div>
 
           {/* Checkout button */}
           <div>
             <button onClick={handleCheckout} className="checkout-shopping-cart">
-             <Link href="/checkout">
-             <a>checkout</a>
-             </Link>
-              
+              <Link href="/checkout">
+                <a>checkout</a>
+              </Link>
             </button>
           </div>
         </Stack>
@@ -182,7 +181,6 @@ export function ShoppingCart({ isOpen }) {
 
       {/* Render Checkout component outside Offcanvas.Body */}
       {/* {checkoutOpen && <Checkout handleCheckoutClose={handleCheckoutClose} />} */}
-
 
       {/* handleCheckout={() => { */}
       {/* setCheckoutOpen(false); //close checkout form */}
