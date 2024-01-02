@@ -40,7 +40,7 @@ function SingleProductCard({ product }) {
 
   // Check if product is defined
   if (!product) {
-    return <p>Loading...</p>; // or handle the case where product is not available
+    return <p></p>; // or handle the case where product is not available
   }
 
   const quantity = getItemQuantity(product.id);
