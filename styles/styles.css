@@ -47,7 +47,10 @@ p[data-tag="total"] {
   font-size: 16px;
   cursor: pointer;
 }
-.checkout-shopping-cart:hover {
+.checkout-shopping-cart:hover, .add-to-cart-button:hover,
+.minus-to-cart-button:hover, .add-to-inside-cart:hover,
+.decrease-inside-cart:hover,
+.remove-inside-cart:hover  {
   background-color: rgb(255, 133, 208);
 }
 .add-to-inside-cart,

@@ -209,7 +209,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
         <input
           type="text"
           id="apartment"
-          placeholder="apartment"
+          placeholder="apartment (optional)"
           onChange={handleApartmentChange}
         />
         <label htmlFor="apartment">apartment</label>
