@@ -101,9 +101,7 @@ function Shop({ products, reviews }) {
         ))}
       </div>
       <hr />
-      <div>
-        {/* <p data-tag="faq-section">here goes shop policy</p> */}
-      </div>
+      <div>{/* <p data-tag="faq-section">here goes shop policy</p> */}</div>
     </div>
   );
 }
