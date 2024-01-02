@@ -50,7 +50,7 @@ export function ShoppingCart({ isOpen }) {
   }
 
   const handleCheckout = () => {
-    setCheckoutOpen(true);
+    setCheckoutOpen(false);
   };
   const handleCheckoutClose = () => {
     setCheckoutOpen(false);
@@ -162,11 +162,11 @@ export function ShoppingCart({ isOpen }) {
 
           {/* Checkout button */}
           <div>
-            <button onClick={handleCheckout} className="checkout-shopping-cart">
-              <Link href="/checkout">
-                <a>checkout</a>
+            {/* <button onClick={handleCheckout} className="checkout-shopping-cart"> */}
+              <Link  href="/checkout">
+                <a className="checkout-shopping-cart">checkout</a>
               </Link>
-            </button>
+            {/* </button> */}
           </div>
         </Stack>
       </Offcanvas.Body>

@@ -25,13 +25,30 @@ p[data-tag="total"] {
 }
 
 .add-to-cart-button,
-.minus-to-cart-button,
+.minus-to-cart-button {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(247, 0, 255);
+  margin: 6px;
+  background-color: rgb(255, 223, 240);
+}
 .checkout-shopping-cart {
   border-style: solid;
   border-width: 1px;
   border-color: rgb(247, 0, 255);
   margin: 6px;
   background-color: rgb(255, 223, 240);
+  display: inline-block;
+  padding: 3px 8px;
+  /* background-color: rgb(38, 66, 251); */
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.checkout-shopping-cart:hover {
+  background-color: rgb(255, 133, 208);
 }
 .add-to-inside-cart,
 .decrease-inside-cart,
