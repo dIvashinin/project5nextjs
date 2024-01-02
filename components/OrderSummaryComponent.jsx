@@ -51,11 +51,11 @@ const OrderSummaryComponent = ({ orderId, handleCheckoutClose, totalSum }) => {
           <p>Size: {item.size}</p>
           <p>Price: {item.price}</p>
           <p>Description: {item.description}</p>
+          </div>
+      ))}
           <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
             Total sum: {totalSum}&euro;
-          </div>
         </div>
-      ))}
       <button className="continue-to-payment-button" type="submit">
         continue to payment
       </button>

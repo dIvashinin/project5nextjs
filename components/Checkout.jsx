@@ -159,7 +159,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
 
   return (
     <div className="checkout-form-container">
-      {orderPlaced && <OrderSummaryComponent orderId={orderId} />}
+      {/* {orderPlaced && <OrderSummaryComponent orderId={orderId} />} */}
       {/* <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title> */}
@@ -235,6 +235,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
           submit delivery details
         </button>
       </form>
+      {orderPlaced && <OrderSummaryComponent orderId={orderId} />}
       {/* {orderPlaced && (
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />
       )} */}
