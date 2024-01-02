@@ -1,3 +1,21 @@
+.add-to-inside-cart,
+.decrease-inside-cart,
+.remove-inside-cart {
+  border-style: solid;
+  border-width: 0.3px;
+  border-color: rgb(247, 0, 255);
+  margin: 3px;
+  padding: 0px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  background-color: rgb(255, 223, 240);
+}
+.added-to-cart-container {
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: rgb(164, 193, 176);
+}
 .checkout-shopping-cart {
     border-style: solid;
     border-width: 1px;

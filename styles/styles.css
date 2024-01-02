@@ -19,38 +19,6 @@ p[data-tag="total"] {
   font-style: italic;
   margin-bottom: 0px;
 }
-.added-to-cart-container {
-  border-style: solid;
-  border-width: 0.5px;
-  border-color: rgb(164, 193, 176);
-}
-
-.add-to-cart-button,
-.minus-to-cart-button {
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgb(247, 0, 255);
-  margin: 6px;
-  background-color: rgb(255, 223, 240);
-}
-.add-to-cart-button:hover,
-.minus-to-cart-button:hover{
-  background-color: rgb(255, 133, 208);
-}
-
-.add-to-inside-cart,
-.decrease-inside-cart,
-.remove-inside-cart {
-  border-style: solid;
-  border-width: 0.3px;
-  border-color: rgb(247, 0, 255);
-  margin: 3px;
-  padding: 0px;
-  width: 20px;
-  height: 20px;
-  font-size: 12px;
-  background-color: rgb(255, 223, 240);
-}
 
 /* Add media queries for responsiveness */
 @media (max-width: 768px) {
