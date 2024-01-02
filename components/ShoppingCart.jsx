@@ -164,7 +164,12 @@ export function ShoppingCart({ isOpen }) {
           <div>
             {/* <button onClick={handleCheckout} className="checkout-shopping-cart"> */}
               <Link  href="/checkout">
-                <a className="checkout-shopping-cart">checkout</a>
+                <a className="checkout-shopping-cart"
+                onClick={() => {
+                  // handleCheckout();
+                  closeCart(); // Close the Offcanvas modal
+                }}
+                >checkout</a>
               </Link>
             {/* </button> */}
           </div>
