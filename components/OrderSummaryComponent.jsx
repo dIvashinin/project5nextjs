@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 
+
 const OrderSummaryComponent = ({ orderId, handleCheckoutClose, totalSum }) => {
   const [orderData, setOrderData] = useState(null);
 

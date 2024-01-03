@@ -235,7 +235,9 @@ const Checkout = ({ handleCheckoutClose, isOpen, totalSum }) => {
           submit delivery details
         </button>
       </form>
-      {orderPlaced && <OrderSummaryComponent orderId={orderId} totalSum={totalSum} />}
+      {orderPlaced && <OrderSummaryComponent orderId={orderId} 
+      // totalSum={totalSum} 
+      />}
       {/* {orderPlaced && (
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />
       )} */}
