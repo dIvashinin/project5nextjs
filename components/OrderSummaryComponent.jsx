@@ -46,7 +46,8 @@ const OrderSummaryComponent = ({ orderId, handleCheckoutClose, totalSum }) => {
       <hr />
       <h3>Ordered Items</h3>
       {orderData.cartItems.map((item) => (
-        <div key={item.id}>
+        // <div key={item.id}>
+        <div  key={`${item.id}-${item.color}-${item.size}`}>
           <p>Product: {item.type}</p>
           <p>Quantity: {item.quantity}</p>
           <p>Size: {item.size}</p>
