@@ -20,6 +20,17 @@ export function ShoppingCartProvider({ children }) {
     (quantity, item) => item.quantity + quantity,
     0
   );
+
+  const totalSum = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+  // Calculate total quantity
+  const totalQuantity = cartItems.reduce(
+    (quantity, item) => quantity + item.quantity,
+    0
+  );
+
   // console.log('cartItems :>> ', cartItems);
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
@@ -134,6 +145,8 @@ export function ShoppingCartProvider({ children }) {
         closeCart,
         cartItems,
         cartQuantity,
+        totalSum,
+        totalQuantity,
       }}
     >
       {children}

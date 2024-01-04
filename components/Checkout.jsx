@@ -9,8 +9,8 @@ import OrderSummaryComponent from "./OrderSummaryComponent";
 
 // import { useRouter } from "next/router";
 
-const Checkout = ({ handleCheckoutClose, isOpen, totalSum }) => {
-  const { cartItems } = useShoppingCart();
+const Checkout = ({ handleCheckoutClose, isOpen }) => {
+  const { cartItems, totalSum } = useShoppingCart();
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [name, setName] = useState("");
@@ -238,7 +238,7 @@ const Checkout = ({ handleCheckoutClose, isOpen, totalSum }) => {
       </form>
       
       {orderPlaced && <OrderSummaryComponent orderId={orderId} 
-      totalSum={100} 
+      totalSum={totalSum} 
       />}
       {/* {orderPlaced && (
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />

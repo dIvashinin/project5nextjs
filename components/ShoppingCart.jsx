@@ -13,6 +13,8 @@ export function ShoppingCart({ isOpen }) {
   const {
     closeCart,
     cartItems,
+    totalSum,
+    totalQuantity,
     removeFromCart,
     increaseCartQuantity,
     decreaseCartQuantity,
@@ -25,16 +27,16 @@ export function ShoppingCart({ isOpen }) {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [showAlert, setShowAlert] = useState(false); // State to manage the alert
 
-  const totalSum = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+  // const totalSum = cartItems.reduce(
+  //   (sum, item) => sum + item.price * item.quantity,
+  //   0
+  // );
 
-  // Calculate total quantity
-  const totalQuantity = cartItems.reduce(
-    (quantity, item) => quantity + item.quantity,
-    0
-  );
+  // // Calculate total quantity
+  // const totalQuantity = cartItems.reduce(
+  //   (quantity, item) => quantity + item.quantity,
+  //   0
+  // );
 
   // Determine the message based on the number of items
   let cartMessage;
@@ -69,7 +71,7 @@ export function ShoppingCart({ isOpen }) {
   //     closeCart();
   //   }
   // }, [checkoutOpen]);
-  console.log("Total Sum in ShoppingCart Component: ", totalSum);
+  // console.log("Total Sum in ShoppingCart Component: ", totalSum);
   return (
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
