@@ -30,6 +30,7 @@ const Checkout = ({ handleCheckoutClose, isOpen, totalSum }) => {
   //   } = useShoppingCart();
 
   // const router = useRouter();
+  
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -235,8 +236,9 @@ const Checkout = ({ handleCheckoutClose, isOpen, totalSum }) => {
           submit delivery details
         </button>
       </form>
+      
       {orderPlaced && <OrderSummaryComponent orderId={orderId} 
-      totalSum={totalSum} 
+      totalSum={100} 
       />}
       {/* {orderPlaced && (
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />
