@@ -1,22 +1,22 @@
 /* BANNER */
 .moon-ruby-shop {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 40px;
-    /* font-style: italic; */
-  }
-  .banner-container {
-    position: relative;
-    height: 230px; /* Set the desired height of your banner */
-    overflow: hidden;
-  }
-  .banner-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Make sure the image covers the entire container */
-    object-position: center; /* Center the image */
-  }
-  .about-main-container {
-    padding: 20px;
-    text-align: justify;
-    font-size: 20px;
-  }
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 40px;
+  /* font-style: italic; */
+}
+.banner-container {
+  position: relative;
+  height: 230px; /* Set the desired height of your banner */
+  overflow: hidden;
+}
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Make sure the image covers the entire container */
+  object-position: center; /* Center the image */
+}
+.about-main-container {
+  padding: 20px;
+  text-align: justify;
+  font-size: 20px;
+}

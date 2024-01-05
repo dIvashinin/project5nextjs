@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 
-
 const OrderSummaryComponent = ({ orderId, handleCheckoutClose, totalSum }) => {
   const [orderData, setOrderData] = useState(null);
 
@@ -47,7 +46,7 @@ const OrderSummaryComponent = ({ orderId, handleCheckoutClose, totalSum }) => {
       <h3>Ordered Items</h3>
       {orderData.cartItems.map((item) => (
         // <div key={item.id}>
-        <div  key={`${item.id}-${item.color}-${item.size}`}>
+        <div key={`${item.id}-${item.color}-${item.size}`}>
           <p>Product: {item.type}</p>
           <p>Quantity: {item.quantity}</p>
           <p>Size: {item.size}</p>
