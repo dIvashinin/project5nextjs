@@ -36,3 +36,10 @@
   .remove-inside-cart:hover  {
     background-color: rgb(255, 133, 208);
   }
+
+  p[data-tag="quantity"],
+p[data-tag="total"] {
+  padding-left: 10px;
+  font-style: italic;
+  margin-bottom: 0px;
+}

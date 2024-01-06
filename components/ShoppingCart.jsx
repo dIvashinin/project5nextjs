@@ -181,7 +181,7 @@ export function ShoppingCart({ isOpen }) {
           </div>
         </Stack>
       </Offcanvas.Body>
-      {/* <Foo/> */}
+    
       {/* <Checkout/> */}
 
       {/* Checkout form */}
