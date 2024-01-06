@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import SingleProductCard from "../components/SingleProductComponent";
@@ -15,6 +15,23 @@ export function ShoppingCartProvider({ children }) {
   //in order to have our items not disappear after refresh we can use
   // custom hook - useLocalStorage instead of useState
   // const [cartItems, setCartItems] = useLocalStorage("shopping-cart",[])
+
+
+  useEffect(() => {
+    // Retrieve data from local storage when the component mounts
+    const storedCart = localStorage.getItem('shoppingCart');
+    if (storedCart) {
+      const initialCart = JSON.parse(storedCart);
+      // Use context function to set the initial cart state
+      setCartItems(initialCart);
+    }
+  }, []); // Empty dependency array means this effect runs once on mount
+
+  useEffect(() => {
+    // Save data to local storage whenever the cart items change
+    localStorage.setItem('shoppingCart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,

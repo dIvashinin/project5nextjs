@@ -27,20 +27,7 @@ export function ShoppingCart({ isOpen }) {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [showAlert, setShowAlert] = useState(false); // State to manage the alert
 
-  useEffect(() => {
-    // Retrieve data from local storage when the component mounts
-    const storedCart = localStorage.getItem('shoppingCart');
-    if (storedCart) {
-      const initialCart = JSON.parse(storedCart);
-      // Use your context function to set the initial cart state
-      // For example: setInitialCart(initialCart);
-    }
-  }, []); // Empty dependency array means this effect runs once on mount
-
-  useEffect(() => {
-    // Save data to local storage whenever the cart items change
-    localStorage.setItem('shoppingCart', JSON.stringify(cartItems));
-  }, [cartItems]);
+  
 
 
   // i have totalSum and Quantity in context now
