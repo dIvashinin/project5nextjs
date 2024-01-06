@@ -50,3 +50,17 @@
     display: inline-block;
     width: 100%;
   }
+
+  /* Add media queries for responsiveness */
+@media (max-width: 768px) {
+  .product-card {
+    /* Adjust styles for smaller screens */
+    /* For example, reduce padding or margin */
+    padding: 5px;
+    margin: 5px;
+    flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
+  }
+  .stuff-inside-products-div {
+    flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
+  }
+}

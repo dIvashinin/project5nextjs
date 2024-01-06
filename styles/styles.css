@@ -9,10 +9,9 @@
 @import url("checkout.css");
 @import url("ordersummary.css");
 @import url("shoppingcart.css");
+@import url("productcard.css");
 
-p[data-tag="type"],
-p[data-tag="description"],
-p[data-tag="price"],
+
 p[data-tag="quantity"],
 p[data-tag="total"] {
   padding-left: 10px;
@@ -20,16 +19,6 @@ p[data-tag="total"] {
   margin-bottom: 0px;
 }
 
-/* Add media queries for responsiveness */
-@media (max-width: 768px) {
-  .product-card {
-    /* Adjust styles for smaller screens */
-    /* For example, reduce padding or margin */
-    padding: 5px;
-    margin: 5px;
-    flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
-  }
-  .stuff-inside-products-div {
-    flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
-  }
-}
+
+
+
