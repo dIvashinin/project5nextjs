@@ -27,9 +27,6 @@ export function ShoppingCart({ isOpen }) {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [showAlert, setShowAlert] = useState(false); // State to manage the alert
 
-  
-
-
   // i have totalSum and Quantity in context now
   // const totalSum = cartItems.reduce(
   //   (sum, item) => sum + item.price * item.quantity,
@@ -169,19 +166,22 @@ export function ShoppingCart({ isOpen }) {
           {/* Checkout button */}
           <div>
             {/* <button onClick={handleCheckout} className="checkout-shopping-cart"> */}
-              <Link  href="/checkout">
-                <a className="checkout-shopping-cart"
+            <Link href="/checkout">
+              <a
+                className="checkout-shopping-cart"
                 onClick={() => {
                   // handleCheckout();
                   closeCart(); // Close the Offcanvas modal
                 }}
-                >checkout</a>
-              </Link>
+              >
+                checkout
+              </a>
+            </Link>
             {/* </button> */}
           </div>
         </Stack>
       </Offcanvas.Body>
-    
+
       {/* <Checkout/> */}
 
       {/* Checkout form */}

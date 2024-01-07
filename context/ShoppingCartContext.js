@@ -16,10 +16,9 @@ export function ShoppingCartProvider({ children }) {
   // custom hook - useLocalStorage instead of useState
   // const [cartItems, setCartItems] = useLocalStorage("shopping-cart",[])
 
-
   useEffect(() => {
     // Retrieve data from local storage when the component mounts
-    const storedCart = localStorage.getItem('shoppingCart');
+    const storedCart = localStorage.getItem("shoppingCart");
     if (storedCart) {
       const initialCart = JSON.parse(storedCart);
       // Use context function to set the initial cart state
@@ -29,9 +28,8 @@ export function ShoppingCartProvider({ children }) {
 
   useEffect(() => {
     // Save data to local storage whenever the cart items change
-    localStorage.setItem('shoppingCart', JSON.stringify(cartItems));
+    localStorage.setItem("shoppingCart", JSON.stringify(cartItems));
   }, [cartItems]);
-
 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
