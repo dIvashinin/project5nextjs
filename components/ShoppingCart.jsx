@@ -14,6 +14,7 @@ export function ShoppingCart({ isOpen }) {
     closeCart,
     cartItems,
     totalSum,
+    createCheckoutSession,
     totalQuantity,
     removeFromCart,
     increaseCartQuantity,
@@ -52,13 +53,16 @@ export function ShoppingCart({ isOpen }) {
     cartMessage = `You have ${totalQuantity} items in your cart. Amazing!`;
   }
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     setCheckoutOpen(false);
+    await createCheckoutSession();
   };
   const handleCheckoutClose = () => {
     setCheckoutOpen(false);
     // closeCart();
   };
+
+  
 
   // if (cartItems.length < 1) {
   //   setShowAlert(true);
@@ -170,7 +174,7 @@ export function ShoppingCart({ isOpen }) {
               <a
                 className="checkout-shopping-cart"
                 onClick={() => {
-                  // handleCheckout();
+                  handleCheckout();
                   closeCart(); // Close the Offcanvas modal
                 }}
               >

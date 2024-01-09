@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+// import { useLocalStorage } from "../hooks/useLocalStorage";
 import SingleProductCard from "../components/SingleProductComponent";
 
 const ShoppingCartContext = createContext({});
@@ -45,6 +45,12 @@ export function ShoppingCartProvider({ children }) {
     (quantity, item) => quantity + item.quantity,
     0
   );
+
+  const createCheckoutSession = async () => {
+    const response = await fetch ("api/checkout_sessions");
+const result = await response.json();
+    // post('api/checkout_sessions', {cartItem})
+  }
 
   // console.log('cartItems :>> ', cartItems);
   const openCart = () => setIsOpen(true);
@@ -158,6 +164,7 @@ export function ShoppingCartProvider({ children }) {
         removeFromCart,
         openCart,
         closeCart,
+        createCheckoutSession,
         cartItems,
         cartQuantity,
         totalSum,
