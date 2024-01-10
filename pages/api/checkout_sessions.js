@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       });
       res.status(200).json({"sessionURL": session.url});
     } catch (err) {
-        console.err('Error creating Checkout session:', err);
+        console.error('Error creating Checkout session:', err);
       res.status(err.statusCode || 500).json(err.message);
     }
   } else {
@@ -42,3 +42,38 @@ export default async function handler(req, res) {
     res.status(405).end('Method Not Allowed');
   }
 }
+
+// api/checkout_sessions.js
+// to test - hardcoded values
+// export default async function handler(req, res) {
+//     if (req.method === 'POST') {
+//       try {
+//         // Hardcoded values for testing
+//         const session = await stripe.checkout.sessions.create({
+//           payment_method_types: ['card'],
+//           line_items: [{
+//             price_data: {
+//               currency: 'usd',
+//               product_data: {
+//                 name: 'T-shirt',
+//               },
+//               unit_amount: 2000, // $20.00
+//             },
+//             quantity: 1,
+//           }],
+//           mode: 'payment',
+//           success_url: `${req.headers.origin}/success`,
+//           cancel_url: 'https://example.com/cancel',
+//         });
+  
+//         res.status(200).json({ sessionURL: session.url });
+//       } catch (error) {
+//         console.error('Error creating Checkout session:', error);
+//         res.status(500).json({ error: 'Internal Server Error' });
+//       }
+//     } else {
+//       res.setHeader('Allow', ['POST']);
+//       res.status(405).end('Method Not Allowed');
+//     }
+//   }
+  
