@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
+import { useShoppingCart } from "../context/shoppingCartContext";
 
-const OrderSummaryComponent = ({ orderId, handleCheckout, totalSum }) => {
+const OrderSummaryComponent = ({ orderId, totalSum }) => {
   const [orderData, setOrderData] = useState(null);
+  const {createCheckoutSession} = useShoppingCart();
 
   useEffect(() => {
     // Fetch 1 order from Firestore
@@ -27,6 +29,17 @@ const OrderSummaryComponent = ({ orderId, handleCheckout, totalSum }) => {
     fetchOrderData();
   }, [orderId]);
   // console.log('orderData :>> ', orderData.email);
+
+  const handleContinueToPayment = async () => {
+    try {
+      // Create the Stripe Checkout session
+      await createCheckoutSession();
+
+      // You might also want to close the order summary component or do other UI changes
+    } catch (error) {
+      console.error("Error creating Stripe Checkout session: ", error);
+    }
+  };
 
   if (!orderData) {
     return null; // Or a loading indicator
@@ -57,7 +70,7 @@ const OrderSummaryComponent = ({ orderId, handleCheckout, totalSum }) => {
       <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
         Total sum: {totalSum}&euro;
       </div>
-      <button className="continue-to-payment-button" type="submit">
+      <button className="continue-to-payment-button" type="submit" onClick={handleContinueToPayment}>
         continue to payment
       </button>
 

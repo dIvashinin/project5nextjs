@@ -53,9 +53,9 @@ export function ShoppingCart({ isOpen }) {
     cartMessage = `You have ${totalQuantity} items in your cart. Amazing!`;
   }
 
-  const handleCheckout = async () => {
+  const handleCheckout =  () => {
     setCheckoutOpen(false);
-    await createCheckoutSession();
+   
   };
   const handleCheckoutClose = () => {
     setCheckoutOpen(false);
@@ -174,7 +174,7 @@ export function ShoppingCart({ isOpen }) {
               <a
                 className="checkout-shopping-cart"
                 onClick={() => {
-                  handleCheckout();
+                  // handleCheckout();
                   closeCart(); // Close the Offcanvas modal
                 }}
               >

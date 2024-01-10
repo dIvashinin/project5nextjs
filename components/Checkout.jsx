@@ -10,7 +10,7 @@ import OrderSummaryComponent from "./OrderSummaryComponent";
 // import { useRouter } from "next/router";
 
 const Checkout = ({ handleCheckoutClose, isOpen }) => {
-  const { cartItems, totalSum } = useShoppingCart();
+  const { cartItems, totalSum, createCheckoutSession } = useShoppingCart();
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [name, setName] = useState("");
