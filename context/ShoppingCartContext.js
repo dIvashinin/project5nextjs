@@ -47,9 +47,28 @@ export function ShoppingCartProvider({ children }) {
   );
 
   const createCheckoutSession = async () => {
-    const response = await fetch ("api/checkout_sessions");
-const result = await response.json();
-    // post('api/checkout_sessions', {cartItem})
+    try {
+      const response = await fetch("api/checkout_sessions", {
+        method: 'POST', // Use POST method
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}), // Adjust the payload if needed
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to create checkout session');
+      }
+  
+      const result = await response.json();
+      console.log('Checkout session URL:', result.sessionURL);
+  
+      // You might want to return or process the session URL
+      return result.sessionURL;
+    } catch (error) {
+      console.error('Error creating checkout session:', error);
+      throw error; // Rethrow the error to be caught by the caller
+    }
   }
 
   // console.log('cartItems :>> ', cartItems);
