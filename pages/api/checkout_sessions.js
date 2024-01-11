@@ -10,15 +10,15 @@ export default async function handler(req, res) {
         if (!Array.isArray(items)) {
             return res.status(400).json({ error: 'Invalid request. Items must be an array.' });
           }
-
+        
         const transformedItems = items.map((item) => ({
             price_data: {
                 currency: "eur",
                 product_data:{
-                 name: item.name,
-                 images: [req.headers.origin+item.image],   
+                 name: item.type,
+                 images: [`${req.headers.origin}/${item.image}`],   
                 },
-                unit_amount: item.price*100, 
+                unit_amount: item.price*100, // Convert to cents
             },
             quantity: item.quantity,
         }));
