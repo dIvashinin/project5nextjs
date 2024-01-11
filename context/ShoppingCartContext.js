@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
 // import { useLocalStorage } from "../hooks/useLocalStorage";
 import SingleProductCard from "../components/SingleProductComponent";
+import {useRouter} from "next/router";
 
 const ShoppingCartContext = createContext({});
 
@@ -45,6 +46,7 @@ export function ShoppingCartProvider({ children }) {
     (quantity, item) => quantity + item.quantity,
     0
   );
+  const router = useRouter();
 
   const createCheckoutSession = async () => {
     try {
@@ -62,6 +64,7 @@ export function ShoppingCartProvider({ children }) {
   
       const result = await response.json();
       console.log('Checkout session URL:', result.sessionURL);
+      router.push(result.sessionURL);
   
       // You might want to return or process the session URL
       return result.sessionURL;

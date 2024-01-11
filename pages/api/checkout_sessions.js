@@ -3,7 +3,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
-            console.log('req :>> ', req);
+            // console.log('req :>> ', req);
         const items = req.body.cartItem;
         console.log('items :>> ', items);
         // Check if items is defined and is an array
@@ -16,8 +16,10 @@ export default async function handler(req, res) {
                 currency: "eur",
                 product_data:{
                  name: item.type,
-                 images: [`${req.headers.origin}/${item.image}`],   
+                 description: `${item.color} ${item.size}`,
+                 images: [item.image],   
                 },
+                
                 unit_amount: item.price*100, // Convert to cents
             },
             quantity: item.quantity,
@@ -32,6 +34,7 @@ export default async function handler(req, res) {
         success_url: `${req.headers.origin}/success`,
         cancel_url: `${req.headers.origin}/shop`,
       });
+    //   res.redirect(303, session.url);
       res.status(200).json({"sessionURL": session.url});
     } catch (err) {
         console.error('Error creating Checkout session:', err);
