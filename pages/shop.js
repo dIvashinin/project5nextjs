@@ -4,6 +4,7 @@ import { db } from "../config/firebaseConfig";
 import ProductCard from "../components/ProductCard";
 import Search from "../components/Search";
 import { useShoppingCart } from "../context/shoppingCartContext";
+import { useRouter } from "next/router";
 
 const shopBanner =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg";
@@ -60,10 +61,18 @@ function Shop({ products, reviews }) {
   const handleFilterChange = (filteredProducts) => {
     setFilteredProducts(filteredProducts);
   };
+  const router =useRouter();
+  const {cancel} = router.query;
   return (
     <div>
       {/* we pass products we need to have access to via props */}
       <Search products={products} onFilterChange={handleFilterChange} />
+      {/* an alert when user goes back during Stripe session */}
+      {cancel && (
+        <div className="alert alert-danger" role="alert">
+          Don't worry. You can come back to payment session anytime you are ready
+        </div>
+      )}
       <div className="banner-container">
         <img src={shopBanner} alt="Etsy" className="banner-image" />
       </div>

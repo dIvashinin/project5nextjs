@@ -32,7 +32,11 @@ export default async function handler(req, res) {
         line_items: transformedItems,
         mode: 'payment',
         success_url: `${req.headers.origin}/success`,
-        cancel_url: `${req.headers.origin}/shop`,
+        // actually this cancel is when user clicks back during payment session!
+        // with the additional query parameter cancel=true. 
+        // This way, i can use the presence of this query parameter on /shop page 
+        // to conditionally display an alert indicating payment was canceled.
+        cancel_url: `${req.headers.origin}/shop?cancel=true`,
       });
     //   res.redirect(303, session.url);
       res.status(200).json({"sessionURL": session.url});
