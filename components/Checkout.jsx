@@ -5,12 +5,14 @@ import { db } from "../config/firebaseConfig";
 // import { useShoppingCart } from "../context/shoppingCartContext";
 import Alert from "react-bootstrap/Alert";
 import { useShoppingCart } from "../context/shoppingCartContext";
+import { useCheckout } from "../context/checkoutContext";
 import OrderSummaryComponent from "./OrderSummaryComponent";
 
 // import { useRouter } from "next/router";
 
 const Checkout = ({ handleCheckoutClose, isOpen }) => {
   const { cartItems, totalSum, createCheckoutSession } = useShoppingCart();
+  const { checkoutDetails, setDetails } = useCheckout();
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [name, setName] = useState("");
@@ -139,6 +141,17 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
       // Set the state to indicate that the order has been placed
       setOrderPlaced(true);
       setOrderId(docRef.id); // Store the ID of the created order
+      setDetails({
+        email,
+        country,
+        name,
+        street,
+        apartment,
+        postcode,
+        city,
+        cartItems,
+        totalSum,
+      });
       // Continue with payment process or redirect to another page
     } catch (error) {
       console.error("Error adding document: ", error);

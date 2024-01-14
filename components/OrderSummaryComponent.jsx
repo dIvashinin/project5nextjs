@@ -18,7 +18,7 @@ const OrderSummaryComponent = ({ orderId, totalSum }) => {
           return;
         }
         const orderDoc = await getDoc(doc(db, "orders", orderId));
-        console.log('orderDoc :>> ', orderDoc);
+        console.log('orderDoc :>> ', orderDoc); 
         if (orderDoc.exists()) {
           setOrderData(orderDoc.data());
         } else {
