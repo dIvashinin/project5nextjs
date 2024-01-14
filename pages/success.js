@@ -12,10 +12,10 @@ function success() {
     const orderDetails = router.query.orderId;;
     const toEmail = router.query.totalSum;
     // Check if the values are available
-    if (orderId && totalSum) {
+    if (orderDetails && toEmail) {
     //   // Now you can use orderId and totalSum as needed
-      console.log('Order ID:', orderId);
-      console.log('Total Sum:', totalSum);
+      console.log('orderDetails:', orderDetails);
+      console.log('toEmail:', toEmail);
     // sendConfirmationEmail(toEmail, orderDetails);
     // Make API request to send email
     fetch('/api/sendEmail', {
