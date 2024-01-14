@@ -7,14 +7,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //don't know why but shoppingCartContext needed to start with small letter so i changed the name of the file as well
 import {ShoppingCartProvider} from '../context/shoppingCartContext';
 import { ProductProvider } from '../context/productContext';
+import { CheckoutProvider } from '../context/checkoutContext';
 import Footer from '../components/Footer';
 
 
 
 function MyApp({ Component, pageProps, products }) {
   //here we console.log our 'app', 'db' variable when checking if any env variables are ok
-  console.log('products myApp :>> ', products);
-  console.log('pageProps :>> ', pageProps.products);
+  // console.log('products myApp :>> ', products);
+  // console.log('pageProps :>> ', pageProps.products);
   // console.log('Component :>> ', Component);
   
   return (
@@ -28,10 +29,12 @@ function MyApp({ Component, pageProps, products }) {
       <ProductProvider products={pageProps.products}>
       {/* then ShoppingCartProvider */}
       <ShoppingCartProvider>
+        <CheckoutProvider>
     {/* <p>this p tag should appear everywhere</p> */}
     <NavBar/>
   <Component {...pageProps} />
   <Footer/>
+  </CheckoutProvider>
   </ShoppingCartProvider>
   </ProductProvider>
   </div>
