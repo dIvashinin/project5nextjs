@@ -1,15 +1,23 @@
 import React from 'react';
 // Import necessary dependencies and the sendConfirmationEmail function
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { sendConfirmationEmail } from '/utils/emailUtil';
 
-function success(docRef) {
+function success() {
+  const router = useRouter();
 
     // Trigger sendConfirmationEmail on component mount
   useEffect(() => {
-    const orderDetails = docRef.id;
-    const toEmail = docRef.id;
+    const orderDetails = router.query.orderId;;
+    const toEmail = router.query.totalSum;
+    // Check if the values are available
+    if (orderId && totalSum) {
+      // Now you can use orderId and totalSum as needed
+      console.log('Order ID:', orderId);
+      console.log('Total Sum:', totalSum);
     sendConfirmationEmail(toEmail, orderDetails);
+    }
   }, []); // Empty dependency array ensures the effect runs only once after mount
 
   return (

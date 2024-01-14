@@ -17,11 +17,13 @@ const sendConfirmationEmail = (toEmail, orderDetails) => {
   const mailOptions = {
     from: process.env.NODEMAILER_EMAIL,
     to: toEmail,
-    subject: 'Order Confirmation',
-    html: `<p>Thank you for your purchase! Here are your order details:</p>
-           <p>Order ID: ${orderDetails.orderId}</p>
-           <p>Total Amount: ${orderDetails.totalAmount}</p>`,
+    subject: 'Your order confirmation',
+    html: `<p>Thanks for your purchase! Here are your order details:</p>
+           
+           <p>Total Sum: ${totalSum}</p>`,
   };
+
+  // <p>Order ID: ${orderDetails.orderId}</p>
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
