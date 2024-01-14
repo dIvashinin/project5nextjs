@@ -2,7 +2,7 @@ import React from 'react';
 // Import necessary dependencies and the sendConfirmationEmail function
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { sendConfirmationEmail } from '/utils/emailUtil';
+// import { sendConfirmationEmail } from '/utils/emailUtil';
 
 function success() {
   const router = useRouter();
@@ -13,11 +13,19 @@ function success() {
     const toEmail = router.query.totalSum;
     // Check if the values are available
     if (orderId && totalSum) {
-      // Now you can use orderId and totalSum as needed
+    //   // Now you can use orderId and totalSum as needed
       console.log('Order ID:', orderId);
       console.log('Total Sum:', totalSum);
-    sendConfirmationEmail(toEmail, orderDetails);
-    }
+    // sendConfirmationEmail(toEmail, orderDetails);
+    // Make API request to send email
+    fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ toEmail, orderDetails }),
+    });
+  }
   }, []); // Empty dependency array ensures the effect runs only once after mount
 
   return (
