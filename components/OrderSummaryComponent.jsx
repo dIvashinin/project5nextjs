@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import { useShoppingCart } from "../context/shoppingCartContext";
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 const OrderSummaryComponent = ({ orderId, totalSum }) => {
   const [orderData, setOrderData] = useState(null);
   const {createCheckoutSession} = useShoppingCart();
-  const router = useRouter();
+  // const router = useRouter();
 
   useEffect(() => {
     // Fetch 1 order from Firestore
@@ -38,7 +38,7 @@ const OrderSummaryComponent = ({ orderId, totalSum }) => {
       // Create the Stripe Checkout session
       await createCheckoutSession();
       // Redirect to the /success page with order details as query parameters
-      router.push(`/success?orderId=${orderId}&totalSum=${totalSum}`);
+      // router.push(`/success?orderId=${orderId}&totalSum=${totalSum}`);
 
       // You might also want to close the order summary component or do other UI changes
     } catch (error) {

@@ -141,6 +141,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
       // Set the state to indicate that the order has been placed
       setOrderPlaced(true);
       setOrderId(docRef.id); // Store the ID of the created order
+      //i could use these setDetails for sending confirmation email but i don't
       setDetails({
         email,
         country,

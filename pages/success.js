@@ -1,33 +1,33 @@
 import React from 'react';
 // Import necessary dependencies and the sendConfirmationEmail function
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+// import { useEffect } from 'react';
+// import { useRouter } from 'next/router';
 // import { sendConfirmationEmail } from '/utils/emailUtil';
 const successBackground = "https://res.cloudinary.com/dzghua4dz/image/upload/v1705325724/moonrubyshop/nygvgkwzp5zvfijgvmbo.jpg"
 
 function success() {
-  const router = useRouter();
+  // const router = useRouter();
 
-    // Trigger sendConfirmationEmail on component mount
-  useEffect(() => {
-    const orderDetails = router.query.orderId;;
-    const toEmail = router.query.totalSum;
-    // Check if the values are available
-    if (orderDetails && toEmail) {
-    //   // Now you can use orderId and totalSum as needed
-      console.log('orderDetails:', orderDetails);
-      console.log('toEmail:', toEmail);
-    // sendConfirmationEmail(toEmail, orderDetails);
-    // Make API request to send email
-    fetch('/api/sendEmail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ toEmail, orderDetails }),
-    });
-  }
-  }, []); // Empty dependency array ensures the effect runs only once after mount
+  //   // Trigger sendConfirmationEmail on component mount
+  // useEffect(() => {
+  //   const orderDetails = router.query.orderId;;
+  //   const toEmail = router.query.totalSum;
+  //   // Check if the values are available
+  //   if (orderDetails && toEmail) {
+  //   //   // Now you can use orderId and totalSum as needed
+  //     console.log('orderDetails:', orderDetails);
+  //     console.log('toEmail:', toEmail);
+  //   // sendConfirmationEmail(toEmail, orderDetails);
+  //   // Make API request to send email
+  //   fetch('/api/sendEmail', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({ toEmail, orderDetails }),
+  //   });
+  // }
+  // }, []); // Empty dependency array ensures the effect runs only once after mount
 
   return (
     <div className='success-container'>
