@@ -1,13 +1,14 @@
 import nodemailer from 'nodemailer';
+import { useCheckout } from '../../context/checkoutContext';
 
-export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).end(); // Method Not Allowed
-      }
+export default async function handler(toEmail, orderDetails, checkoutDetails) {
+//     if (req.method !== 'POST') {
+//         return res.status(405).end(); // Method Not Allowed
+//       }
 
-      const { toEmail, orderDetails } = req.body;
+//       const { toEmail, orderDetails } = req.body;
 
-  try {
+//   try {
     // Your email sending logic here
   // Create a Nodemailer transporter
 const transporter = nodemailer.createTransport({
@@ -17,7 +18,9 @@ const transporter = nodemailer.createTransport({
       pass: process.env.NODEMAILER_PASS,
     },
   });
-  
+  // Access checkout details from the global state
+//   const { checkoutDetails } = useCheckout();
+  try {
   // Function to send a confirmation email
     const mailOptions = {
       from: process.env.NODEMAILER_EMAIL,
@@ -29,10 +32,10 @@ const transporter = nodemailer.createTransport({
              <p>Total Sum: ${totalSum}</p>`,
     };
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ success: true });
+    return { success: true };
 
 } catch (error) {
     console.error('Error sending email:', error);
-    res.status(500).json({ success: false, error: 'Internal Server Error' });
+    return { success: false, error: 'Internal Server Error' };
   }
 }

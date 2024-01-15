@@ -3,6 +3,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 // import { sendConfirmationEmail } from '/utils/emailUtil';
+const successBackground = "https://res.cloudinary.com/dzghua4dz/image/upload/v1705325724/moonrubyshop/nygvgkwzp5zvfijgvmbo.jpg"
 
 function success() {
   const router = useRouter();
@@ -30,6 +31,9 @@ function success() {
 
   return (
     <div className='success-container'>
+      <div className="success-background-container">
+        <img src={successBackground} alt="Etsy" className="success-image" />
+      </div>
         <h2 className="moon-ruby-shop">Thanks and hugs from Moon Ruby Shop</h2>
         <h2>You did it</h2>
         <h2>successfull success!</h2>

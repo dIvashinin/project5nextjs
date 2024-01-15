@@ -1,6 +1,8 @@
 // Install nodemailer using npm
 // npm install nodemailer
 
+// i moved all of it to backend...
+
 import nodemailer from 'nodemailer';
 
 // Create a Nodemailer transporter
