@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps, products }) {
   <Head>
         <title>MoonRubyShop</title>
         <meta name="description" content="Handmade anti-anxiety jewelry made in Berlin from natural stones and noble metals" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
       </Head>
       {/* first productProvider */}
       <ProductProvider products={pageProps.products}>

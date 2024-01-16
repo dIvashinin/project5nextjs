@@ -61,6 +61,8 @@ export function ShoppingCartProvider({ children }) {
       if (!response.ok) {
         throw new Error('Failed to create checkout session');
       }
+      // Empty the shopping cart
+    setCartItems([]);
   
       const result = await response.json();
       console.log('Checkout session URL:', result.sessionURL);

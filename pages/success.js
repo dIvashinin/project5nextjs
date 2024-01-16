@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
-import { useShoppingCart } from '../context/shoppingCartContext';
+import React 
+// { useEffect } 
+from 'react';
+// import { useShoppingCart } from '../context/shoppingCartContext';
 // Import necessary dependencies and the sendConfirmationEmail function
 // import { useEffect } from 'react';
 // import { useRouter } from 'next/router';
@@ -7,18 +9,18 @@ import { useShoppingCart } from '../context/shoppingCartContext';
 const successBackground = "https://res.cloudinary.com/dzghua4dz/image/upload/v1705325724/moonrubyshop/nygvgkwzp5zvfijgvmbo.jpg"
 
 function Success() {
-  const {cartItems, setCartItems} = useShoppingCart();
+  // const {cartItems, setCartItems} = useShoppingCart();
   // const router = useRouter();
   // useEffect is used to perform an action (emptying the cart)
-  useEffect(() => {
-    const handleEmptyingShoppingCart = () => {
-      // Empty the shopping cart
-      setCartItems([]);
-    };
+  // useEffect(() => {
+  //   const handleEmptyingShoppingCart = () => {
+  //     // Empty the shopping cart
+  //     setCartItems([]);
+  //   };
 
-    // Call the function when the component mounts
-    handleEmptyingShoppingCart();
-  }, [setCartItems]); // Ensure to include setCartItems in the dependency array
+  //   // Call the function when the component mounts
+  //   handleEmptyingShoppingCart();
+  // }, [setCartItems]); // Ensure to include setCartItems in the dependency array
 
   //   // Trigger sendConfirmationEmail on component mount
   // useEffect(() => {
@@ -51,7 +53,7 @@ function Success() {
         <h2>successfull success!</h2>
         <h4>check your e-mail with order details</h4>
         </div>
-  )
+  );
 }
 
 export default Success
