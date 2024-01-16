@@ -187,6 +187,7 @@ export function ShoppingCartProvider({ children }) {
         openCart,
         closeCart,
         createCheckoutSession,
+        setCartItems,
         cartItems,
         cartQuantity,
         totalSum,

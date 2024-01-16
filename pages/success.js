@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useShoppingCart } from '../context/shoppingCartContext';
 // Import necessary dependencies and the sendConfirmationEmail function
 // import { useEffect } from 'react';
 // import { useRouter } from 'next/router';
 // import { sendConfirmationEmail } from '/utils/emailUtil';
 const successBackground = "https://res.cloudinary.com/dzghua4dz/image/upload/v1705325724/moonrubyshop/nygvgkwzp5zvfijgvmbo.jpg"
 
-function success() {
+function Success() {
+  const {cartItems, setCartItems} = useShoppingCart();
   // const router = useRouter();
+  // useEffect is used to perform an action (emptying the cart)
+  useEffect(() => {
+    const handleEmptyingShoppingCart = () => {
+      // Empty the shopping cart
+      setCartItems([]);
+    };
+
+    // Call the function when the component mounts
+    handleEmptyingShoppingCart();
+  }, [setCartItems]); // Ensure to include setCartItems in the dependency array
 
   //   // Trigger sendConfirmationEmail on component mount
   // useEffect(() => {
@@ -42,4 +54,4 @@ function success() {
   )
 }
 
-export default success
+export default Success
