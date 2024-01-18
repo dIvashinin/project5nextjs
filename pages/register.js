@@ -3,6 +3,7 @@ import React from 'react'
 import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app, auth } from '../config/firebaseConfig';
+import ProtectedRoute from '../components/ProtectedRoute';
 
 function Register() {
     const [email, setEmail] = useState("");
@@ -39,6 +40,7 @@ function Register() {
         };
 
   return (
+    <ProtectedRoute>
     <div>
     <h2>Register</h2>
     <form onSubmit={handleRegister}>
@@ -49,6 +51,7 @@ function Register() {
         <button type="submit">Register</button>
     </form>
     </div>
+    </ProtectedRoute>
   );
 }
 
