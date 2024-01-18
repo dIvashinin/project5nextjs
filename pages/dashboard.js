@@ -3,7 +3,13 @@ import ProtectedRoute from '../components/ProtectedRoute';
 
 function dashboard() {
   return (
-    <div>dashboard</div>
+    <ProtectedRoute>
+    <div>
+        
+        dashboard
+        
+    </div>
+    </ProtectedRoute>
   )
 }
 

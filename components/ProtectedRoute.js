@@ -1,6 +1,7 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { auth } from '../config/firebaseConfig';
 
 const ProtectedRoute = ({children}) => {
 const [user, setUser] = useState(null);
