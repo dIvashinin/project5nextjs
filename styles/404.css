@@ -23,6 +23,8 @@
     width: 100%;
     height: 100%;
     z-index: -1; /* Place it behind other elements */
+    border-radius: 8px; /* Add border-radius to match the container */
+    overflow: hidden; /* Hide overflowing content */
   }
   .not-found-image {
     width: 100%;

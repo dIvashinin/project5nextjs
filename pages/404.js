@@ -5,8 +5,8 @@ const notFoundPageBackground = "https://res.cloudinary.com/dzghua4dz/image/uploa
 
 function NotFoundPage() {
   return (
-    <div className='not-found-container'>
-      <div className='not-found-background-container'>
+    <div className="not-found-container">
+      <div className="not-found-background-container">
       <img src={notFoundPageBackground} alt="Etsy" className="not-found-image" />
       </div>
     <h2>it seems like there's an oops happening</h2>
