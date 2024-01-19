@@ -3,9 +3,13 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import { auth } from '../config/firebaseConfig';
 
-// const SHOP_OWNER_UID=process.env.USER_UID;
-// appId: process.env.NEXT_PUBLIC_APP_ID,
-const SHOP_OWNER_UID ='VRsq623ztSPYtY0xr7quFv8Heyx2';
+//important! Next.js environment variables with the NEXT_PUBLIC_ prefix 
+//are accessible in the browser at runtime. So, if you want to use 
+//an environment variable in the browser (client-side), 
+//make sure it's prefixed with NEXT_PUBLIC_
+const SHOP_OWNER_UID=process.env.NEXT_PUBLIC_USER_UID;
+
+// const SHOP_OWNER_UID ='VRsq623ztSPYtY0xr7quFv8Heyx2';
 // console.log('SHOP_OWNER_UID :>> ', SHOP_OWNER_UID);
 
 const ProtectedRoute = ({children}) => {
@@ -25,14 +29,17 @@ useEffect(() => {
         // redirect (in login case 'replace', because we replace the prev link and can't go back)
         router.replace('/login');
     }
-    return () => unsubscribe();
-    }, []);
-    
-    if (!user) {
-        //here loading spinner later
-        return null;
-    }
 });
+return () => unsubscribe();
+}, [router]);
+
+if (!user) {
+    //here loading spinner later
+    return null;
+    //i was returning null here and it was complaining about it
+    // so i change to 'nothing'
+    // return;
+}
   
 return <>{children}</>;
 };
