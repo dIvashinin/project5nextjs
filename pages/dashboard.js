@@ -6,7 +6,7 @@ function dashboard() {
     <ProtectedRoute>
     <div>
         
-        dashboard
+        <h1>dashboard</h1>
         
     </div>
     </ProtectedRoute>
