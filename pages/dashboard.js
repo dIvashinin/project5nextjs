@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../components/ProtectedRoute';
+import { db } from '../config/firebaseConfig';
 
-function dashboard() {
+function Dashboard() {
+
+
+  
   return (
     <ProtectedRoute>
     <div>
         
-        <h1>dashboard</h1>
+        <h1>Good to see you!</h1>
         
     </div>
     </ProtectedRoute>
   )
 }
 
-export default dashboard
+export default Dashboard;

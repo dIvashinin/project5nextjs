@@ -1,3 +1,7 @@
+import { db } from '../config/firebaseConfig';
+import { onAuthStateChanged } from 'firebase/auth';
+import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
@@ -25,13 +29,19 @@ export default async function handler(req, res) {
             quantity: item.quantity,
         }));
 
+        // Create an order document in Firestore
+      const orderDocRef = await addDoc(collection(db, 'orders'), {
+        items: transformedItems,
+        timestamp: serverTimestamp(),
+        // Add more details as needed
+      });
     
     // try {
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create({
         line_items: transformedItems,
         mode: 'payment',
-        success_url: `${req.headers.origin}/success`,
+        success_url: `${req.headers.origin}/success?orderId=${orderDocRef.id}`,
         // actually this cancel is when user clicks back during payment session!
         // with the additional query parameter cancel=true. 
         // This way, i can use the presence of this query parameter on /shop page 
