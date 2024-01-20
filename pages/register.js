@@ -42,6 +42,8 @@ function Register() {
   return (
     <ProtectedRoute>
     <div>
+    <h3 data-tag="top-about-empty-space"></h3>
+    <div className="register-container">
     <h2>Register</h2>
     <form onSubmit={handleRegister}>
         <input type="text" id="email" placeholder="email" onChange={handleEmailChange}/>
@@ -50,6 +52,7 @@ function Register() {
         <label htmlFor="password" >password</label>
         <button type="submit">Register</button>
     </form>
+    </div>
     </div>
     </ProtectedRoute>
   );
