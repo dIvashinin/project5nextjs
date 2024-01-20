@@ -1,4 +1,4 @@
-import { db } from '../config/firebaseConfig';
+import { db } from '../../config/firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         }));
 
         // Create an order document in Firestore
-      const orderDocRef = await addDoc(collection(db, 'orders'), {
+      const orderDocRef = await addDoc(collection(db, 'paid orders'), {
         items: transformedItems,
         timestamp: serverTimestamp(),
         // Add more details as needed
