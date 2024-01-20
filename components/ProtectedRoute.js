@@ -65,19 +65,20 @@ const router = useRouter();
 useEffect(() => {
     const checkIfUserIsShopOwner = () => {
       onAuthStateChanged(auth, (authUser) => {
-        if (authUser && authUser.uid === SHOP_OWNER_UID) {
+        if (authUser && authUser.uid === SHOP_OWNER_UID && !user) {
+            // console.log('authUser :>> ', authUser);
           setUser(authUser);
           router.replace('/dashboard');
-        } else {
-        //   setUser(null);
-        console.log('no!');
+        } else if (authUser && authUser.uid !== SHOP_OWNER_UID && !user) {
+          setUser(null);
+        // console.log('no!');
           router.replace('/login');
         }
       });
     };
 
     checkIfUserIsShopOwner();
-  }, [router]);
+  }, [router, user]);
 
   if (!user) {
     // Loading spinner or any other loading indication can be placed here
