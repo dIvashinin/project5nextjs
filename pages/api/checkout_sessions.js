@@ -14,7 +14,11 @@ export default async function handler(req, res) {
     try {
       // console.log('req :>> ', req);
       const items = req.body.cartItem;
+      const deliveryDetails = req.body.deliveryDetails;
+      const totalSum = req.body.totalSum;
       console.log("items checkout session :>> ", items);
+      console.log('deliveryDetails :>> ', deliveryDetails);
+      console.log('totalSum :>> ', totalSum);
       // Check if items is defined and is an array
       if (!Array.isArray(items)) {
         return res
@@ -39,7 +43,7 @@ export default async function handler(req, res) {
       // Create an order document in Firestore
       const orderDocRef = await addDoc(collection(db, "paid orders"), {
         items: req.body.cartItem,
-        body: req.body,
+        // body: req.body,
         timestamp: serverTimestamp(),
         // Add more details as needed
       });
@@ -49,12 +53,17 @@ export default async function handler(req, res) {
       const session = await stripe.checkout.sessions.create({
         line_items: transformedItems,
         mode: "payment",
+        //i included the id of freshly made order, though it's not necessary in my case
         success_url: `${req.headers.origin}/success?orderId=${orderDocRef.id}`,
         // actually this cancel is when user clicks back during payment session!
         // with the additional query parameter cancel=true.
         // This way, i can use the presence of this query parameter on /shop page
         // to conditionally display an alert indicating payment was canceled.
         cancel_url: `${req.headers.origin}/shop?cancel=true`,
+        metadata: {
+          deliveryDetails,
+          totalSum,
+        },
       });
       //   res.redirect(303, session.url);
       res.status(200).json({ sessionURL: session.url });
