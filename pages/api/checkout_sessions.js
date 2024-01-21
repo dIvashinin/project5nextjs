@@ -43,6 +43,8 @@ export default async function handler(req, res) {
       // Create an order document in Firestore
       const orderDocRef = await addDoc(collection(db, "paid orders"), {
         items: req.body.cartItem,
+        deliveryDetails:req.body.deliveryDetails,
+       totalSum:req.body.totalSum,
         // body: req.body,
         timestamp: serverTimestamp(),
         // Add more details as needed

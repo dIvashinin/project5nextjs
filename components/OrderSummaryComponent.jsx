@@ -36,7 +36,10 @@ const OrderSummaryComponent = ({ orderId, totalSum }) => {
   const handleContinueToPayment = async () => {
     try {
       // Create the Stripe Checkout session
-      await createCheckoutSession();
+      await createCheckoutSession({
+        deliveryDeatails: orderData.deliveryDeatails,
+        totalSum: totalSum,
+      });
       // Redirect to the /success page with order details as query parameters
       // router.push(`/success?orderId=${orderId}&totalSum=${totalSum}`);
 
