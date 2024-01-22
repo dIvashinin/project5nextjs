@@ -15,6 +15,7 @@ export default async function handler(req, res) {
     try {
       // console.log('req :>> ', req);
       const items = req.body.cartItem;
+      // const orderId = orderDocRef.id;
       // const {checkoutDetails, setDetails} = useCheckout();
       // const deliveryDetails = req.body.deliveryDetails;
       // const totalSum = req.body.totalSum;

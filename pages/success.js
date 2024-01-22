@@ -1,7 +1,5 @@
-import { doc } from 'firebase/firestore';
-import React 
-// { useEffect } 
-from 'react';
+import { doc, updateDoc } from 'firebase/firestore';
+import React, { useEffect }from 'react';
 import { db } from '../config/firebaseConfig';
 // import { useShoppingCart } from '../context/shoppingCartContext';
 // Import necessary dependencies and the sendConfirmationEmail function
@@ -11,11 +9,15 @@ import { db } from '../config/firebaseConfig';
 const successBackground = "https://res.cloudinary.com/dzghua4dz/image/upload/v1705325724/moonrubyshop/nygvgkwzp5zvfijgvmbo.jpg"
 
 // function Success() {
-  const Success = async ({ orderId, totalSum }) => {
+  const Success = ({ orderId, totalSum }) => {
+    useEffect (() => {
+      const updateOrder = async () => {
   // Assuming you have the order ID
-const orderRef = doc(db, "orders", orderId);
+const orderRef = doc (db, "orders", orderId);
 await updateDoc(orderRef, { paid: true });
-
+};
+updateOrder();
+    }, [orderId]);
 
   // const {cartItems, setCartItems} = useShoppingCart();
   // const router = useRouter();
@@ -64,4 +66,4 @@ await updateDoc(orderRef, { paid: true });
   );
 }
 
-export default Success
+export default Success;

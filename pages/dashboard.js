@@ -43,7 +43,7 @@ useEffect(() => {
         {orders.map((order) => (
           <li key={order.id}>
             <p>Order ID: {order.id}</p>
-            <p>{order} </p>
+            {/* <p>{order} </p> */}
             {/* Display other order details as needed */}
           </li>
         ))}
