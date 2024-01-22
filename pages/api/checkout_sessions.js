@@ -6,6 +6,7 @@ import {
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
+import { useCheckout } from "../../context/checkoutContext";
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -14,11 +15,13 @@ export default async function handler(req, res) {
     try {
       // console.log('req :>> ', req);
       const items = req.body.cartItem;
-      const deliveryDetails = req.body.deliveryDetails;
-      const totalSum = req.body.totalSum;
+      const {checkoutDetails, setDetails} = useCheckout();
+      // const deliveryDetails = req.body.deliveryDetails;
+      // const totalSum = req.body.totalSum;
       console.log("items checkout session :>> ", items);
-      console.log('deliveryDetails :>> ', deliveryDetails);
-      console.log('totalSum :>> ', totalSum);
+      console.log('checkoutDetails :>> ', checkoutDetails);
+      // console.log('deliveryDetails :>> ', deliveryDetails);
+      // console.log('totalSum :>> ', totalSum);
       // Check if items is defined and is an array
       if (!Array.isArray(items)) {
         return res
@@ -43,8 +46,9 @@ export default async function handler(req, res) {
       // Create an order document in Firestore
       const orderDocRef = await addDoc(collection(db, "paid orders"), {
         items: req.body.cartItem,
-        deliveryDetails:req.body.deliveryDetails,
-       totalSum:req.body.totalSum,
+
+        checkoutDetails: checkoutDetails,
+       totalSum:checkoutDetails.totalSum,
         // body: req.body,
         timestamp: serverTimestamp(),
         // Add more details as needed
@@ -62,10 +66,10 @@ export default async function handler(req, res) {
         // This way, i can use the presence of this query parameter on /shop page
         // to conditionally display an alert indicating payment was canceled.
         cancel_url: `${req.headers.origin}/shop?cancel=true`,
-        metadata: {
-          deliveryDetails,
-          totalSum,
-        },
+        // metadata: {
+        //   deliveryDetails,
+        //   totalSum,
+        // },
       });
       //   res.redirect(303, session.url);
       res.status(200).json({ sessionURL: session.url });

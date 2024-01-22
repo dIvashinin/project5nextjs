@@ -3,10 +3,12 @@ import { collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import { useShoppingCart } from "../context/shoppingCartContext";
 // import { useRouter } from 'next/router';
+import { useCheckout } from "../context/checkoutContext";
 
 const OrderSummaryComponent = ({ orderId, totalSum }) => {
   const [orderData, setOrderData] = useState(null);
   const {createCheckoutSession} = useShoppingCart();
+  const {checkoutDetails, setDetails} = useCheckout();
   // const router = useRouter();
 
   useEffect(() => {
@@ -36,10 +38,12 @@ const OrderSummaryComponent = ({ orderId, totalSum }) => {
   const handleContinueToPayment = async () => {
     try {
       // Create the Stripe Checkout session
-      await createCheckoutSession({
-        deliveryDeatails: orderData.deliveryDeatails,
-        totalSum: totalSum,
-      });
+      await createCheckoutSession(
+        {
+        deliveryDetails: checkoutDetails.deliveryDetails,
+        totalSum: checkoutDetails.totalSum,
+      }
+      );
       // Redirect to the /success page with order details as query parameters
       // router.push(`/success?orderId=${orderId}&totalSum=${totalSum}`);
 
