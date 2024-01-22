@@ -1,6 +1,8 @@
+import { doc } from 'firebase/firestore';
 import React 
 // { useEffect } 
 from 'react';
+import { db } from '../config/firebaseConfig';
 // import { useShoppingCart } from '../context/shoppingCartContext';
 // Import necessary dependencies and the sendConfirmationEmail function
 // import { useEffect } from 'react';
@@ -8,7 +10,13 @@ from 'react';
 // import { sendConfirmationEmail } from '/utils/emailUtil';
 const successBackground = "https://res.cloudinary.com/dzghua4dz/image/upload/v1705325724/moonrubyshop/nygvgkwzp5zvfijgvmbo.jpg"
 
-function Success() {
+// function Success() {
+  const Success = async ({ orderId, totalSum }) => {
+  // Assuming you have the order ID
+const orderRef = doc(db, "orders", orderId);
+await updateDoc(orderRef, { paid: true });
+
+
   // const {cartItems, setCartItems} = useShoppingCart();
   // const router = useRouter();
   // useEffect is used to perform an action (emptying the cart)

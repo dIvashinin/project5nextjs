@@ -1,25 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../components/ProtectedRoute';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '../config/firebaseConfig';
 
-function Dashboard() {
+// function Dashboard() {
+  const Dashboard = () => {
 const [orders, setOrders] = useState([]);
 
 useEffect(() => {
-  // fetching all orders from firestore
   const fetchOrders = async () => {
-    const ordersCollectionRef = collection(db, 'paid orders');
-    const ordersSnapshot = await getDocs(ordersCollectionRef);
-    const ordersData = ordersSnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ... doc.data(),
-    }));
-    setOrders(ordersData);
-    console.log('ordersData :>> ', ordersData);
+    const querySnapshot = await getDocs(query(collection(db, 'orders'), where('paid', '==', true)));
+    const paidOrders = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    setOrders(paidOrders);
   };
+
   fetchOrders();
-}, [])
+}, []); // Empty dependency array means this effect runs once when the component mounts
+
+
+
+// useEffect(() => {
+//   // fetching all orders from firestore
+//   const fetchOrders = async () => {
+//     const ordersCollectionRef = collection(db, 'orders');
+//     const ordersSnapshot = await getDocs(ordersCollectionRef);
+//     const ordersData = ordersSnapshot.docs.map((doc) => ({
+//       id: doc.id,
+//       ... doc.data(),
+//     }));
+//     setOrders(ordersData);
+//     console.log('ordersData :>> ', ordersData);
+//   };
+//   fetchOrders();
+// }, [])
 
 
   return (
@@ -30,7 +43,7 @@ useEffect(() => {
         {orders.map((order) => (
           <li key={order.id}>
             <p>Order ID: {order.id}</p>
-            <p>{order.id.cartItems} </p>
+            <p>{order} </p>
             {/* Display other order details as needed */}
           </li>
         ))}

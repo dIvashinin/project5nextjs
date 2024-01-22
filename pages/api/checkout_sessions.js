@@ -6,7 +6,7 @@ import {
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
-import { useCheckout } from "../../context/checkoutContext";
+// import { useCheckout } from "../../context/checkoutContext";
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -15,11 +15,11 @@ export default async function handler(req, res) {
     try {
       // console.log('req :>> ', req);
       const items = req.body.cartItem;
-      const {checkoutDetails, setDetails} = useCheckout();
+      // const {checkoutDetails, setDetails} = useCheckout();
       // const deliveryDetails = req.body.deliveryDetails;
       // const totalSum = req.body.totalSum;
-      console.log("items checkout session :>> ", items);
-      console.log('checkoutDetails :>> ', checkoutDetails);
+      // console.log("items checkout session :>> ", items);
+      // console.log('checkoutDetails :>> ', checkoutDetails);
       // console.log('deliveryDetails :>> ', deliveryDetails);
       // console.log('totalSum :>> ', totalSum);
       // Check if items is defined and is an array
@@ -47,8 +47,8 @@ export default async function handler(req, res) {
       const orderDocRef = await addDoc(collection(db, "paid orders"), {
         items: req.body.cartItem,
 
-        checkoutDetails: checkoutDetails,
-       totalSum:checkoutDetails.totalSum,
+      //   checkoutDetails: checkoutDetails,
+      //  totalSum:checkoutDetails.totalSum,
         // body: req.body,
         timestamp: serverTimestamp(),
         // Add more details as needed

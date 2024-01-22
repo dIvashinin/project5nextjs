@@ -39,10 +39,10 @@ const OrderSummaryComponent = ({ orderId, totalSum }) => {
     try {
       // Create the Stripe Checkout session
       await createCheckoutSession(
-        {
-        deliveryDetails: checkoutDetails.deliveryDetails,
-        totalSum: checkoutDetails.totalSum,
-      }
+      //   {
+      //   deliveryDetails: checkoutDetails.deliveryDetails,
+      //   totalSum: checkoutDetails.totalSum,
+      // }
       );
       // Redirect to the /success page with order details as query parameters
       // router.push(`/success?orderId=${orderId}&totalSum=${totalSum}`);
