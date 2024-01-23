@@ -7,16 +7,21 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 // import { useCheckout } from "../../context/checkoutContext";
+const {checkoutDetails, setDetails} = useCheckout();
+import { useCheckout } from "../../context/checkoutContext";
+
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
+  const { email } = checkoutDetails.email;
   if (req.method === "POST") {
     try {
-      // console.log('req :>> ', req);
+      console.log('req :>> ', req);
       const items = req.body.cartItem;
       // const orderId = orderDocRef.id;
-      // const {checkoutDetails, setDetails} = useCheckout();
+      // const email = checkoutDetails.email;
+      console.log('email :>> ', email);
       // const deliveryDetails = req.body.deliveryDetails;
       // const totalSum = req.body.totalSum;
       // console.log("items checkout session :>> ", items);
@@ -46,8 +51,10 @@ export default async function handler(req, res) {
 
       // Create an order document in Firestore
       const orderDocRef = await addDoc(collection(db, "paid orders"), {
-        items: req.body.cartItem,
-
+        // items: req.body.cartItem,
+        items,
+        email,
+        // email: checkoutDetails.email,
       //   checkoutDetails: checkoutDetails,
       //  totalSum:checkoutDetails.totalSum,
         // body: req.body,
