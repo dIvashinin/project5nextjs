@@ -20,7 +20,7 @@ const [orders, setOrders] = useState([]);
 
 
 useEffect(() => {
-  // fetching all orders from firestore
+  // fetching all paid orders from firestore
   const fetchOrders = async () => {
     const ordersCollectionRef = collection(db, 'paid orders');
     const ordersSnapshot = await getDocs(ordersCollectionRef);
@@ -30,6 +30,7 @@ useEffect(() => {
     }));
     setOrders(ordersData);
     console.log('ordersData :>> ', ordersData);
+    
   };
   fetchOrders();
 }, [])
@@ -43,6 +44,7 @@ useEffect(() => {
         {orders.map((order) => (
           <li key={order.id}>
             <p>Order ID: {order.id}</p>
+            <p>Timestamp: {order.timestamp.toDate().toString()}</p>
             {/* <p>{order} </p> */}
             {/* Display other order details as needed */}
           </li>
