@@ -8,16 +8,16 @@ import { db } from '../config/firebaseConfig';
 // import { sendConfirmationEmail } from '/utils/emailUtil';
 const successBackground = "https://res.cloudinary.com/dzghua4dz/image/upload/v1705325724/moonrubyshop/nygvgkwzp5zvfijgvmbo.jpg"
 
-// function Success() {
-  const Success = ({ orderId, totalSum }) => {
-    useEffect (() => {
-      const updateOrder = async () => {
-  // Assuming you have the order ID
-const orderRef = doc (db, "orders", orderId);
-await updateDoc(orderRef, { paid: true });
-};
-updateOrder();
-    }, [orderId]);
+function Success() {
+//   const Success = ({ orderId, totalSum }) => {
+//     useEffect (() => {
+//       const updateOrder = async () => {
+//   // Assuming you have the order ID
+// const orderDocRef = doc (db, "orders", orderId);
+// await updateDoc(orderDocRef, { paid: true });
+// };
+// updateOrder();
+//     }, [orderId]);
 
   // const {cartItems, setCartItems} = useShoppingCart();
   // const router = useRouter();
