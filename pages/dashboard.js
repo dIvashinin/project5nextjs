@@ -45,8 +45,8 @@ useEffect(() => {
           <li key={order.id}>
             <p>Order ID: {order.id}</p>
             <p>Timestamp: {order.timestamp.toDate().toString()}</p>
-            {/* <p>{order} </p> */}
-            {/* Display other order details as needed */}
+            <p>{}</p>
+            
           </li>
         ))}
       </ul>

@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       }));
 
       // Create an order document in Firestore
-      const orderDocRef = await addDoc(collection(db, "orders"), {
+      const orderDocRef = await addDoc(collection(db, "paid orders"), {
         items: req.body.cartItem,
 
       //   checkoutDetails: checkoutDetails,
@@ -61,7 +61,8 @@ export default async function handler(req, res) {
         line_items: transformedItems,
         mode: "payment",
         //i included the id of freshly made order, though it's not necessary in my case
-        success_url: `${req.headers.origin}/success?orderId=${orderDocRef.id}`,
+        // success_url: `${req.headers.origin}/success?orderId=${orderDocRef.id}`,
+        success_url: `${req.headers.origin}/success`,
         // actually this cancel is when user clicks back during payment session!
         // with the additional query parameter cancel=true.
         // This way, i can use the presence of this query parameter on /shop page

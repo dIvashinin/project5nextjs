@@ -1,18 +1,18 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 const CheckoutContext = createContext();
 
 export const CheckoutProvider = ({ children }) => {
   const [checkoutDetails, setCheckoutDetails] = useState({
-    email: '',
-    country: '',
-    name: '',
-        street: '',
-        apartment: '',
-        postcode: '',
-        city: '',
-        cartItems: '',
-        totalSum: ''
+    email: "",
+    country: "",
+    name: "",
+    street: "",
+    apartment: "",
+    postcode: "",
+    city: "",
+    cartItems: "",
+    totalSum: "",
   });
 
   const setDetails = (details) => {
