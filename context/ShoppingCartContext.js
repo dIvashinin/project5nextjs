@@ -55,7 +55,7 @@ export function ShoppingCartProvider({ children }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({cartItem: cartItems}), // Adjust the payload if needed
+        body: JSON.stringify({cartItem: cartItems, totalSum: totalSum}), // Adjust the payload if needed
       });
   
       if (!response.ok) {
