@@ -28,14 +28,15 @@ function MyApp({ Component, pageProps, products }) {
       {/* first productProvider */}
       <ProductProvider products={pageProps.products}>
       {/* then ShoppingCartProvider */}
-      <ShoppingCartProvider>
         <CheckoutProvider>
+          {/* the order is important to have right things available in right place */}
+      <ShoppingCartProvider>
     {/* <p>this p tag should appear everywhere</p> */}
     <NavBar/>
   <Component {...pageProps} />
   <Footer/>
-  </CheckoutProvider>
   </ShoppingCartProvider>
+  </CheckoutProvider>
   </ProductProvider>
   </div>
   );

@@ -8,25 +8,33 @@ import {
 } from "firebase/firestore";
 // import { useCheckout } from "../../context/checkoutContext";
 // const {checkoutDetails, setDetails} = useCheckout();
-// import { useCheckout } from "../../context/checkoutContext";
 
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-  // const { email } = checkoutDetails.email;
+  
   if (req.method === "POST") {
     try {
-      console.log('req :>> ', req);
+      // console.log('req :>> ', req);
+      //in order to have it available here in backend, we need to
+      // include it in body in frontend. in my case in shoppingCartContext!
+      // here: body: JSON.stringify({cartItem: cartItems, totalSum: totalSum})
       const items = req.body.cartItem;
       const totalSum = req.body.totalSum;
       // const orderId = orderDocRef.id;
-      // const email = checkoutDetails.email;
-      // console.log('email :>> ', email);
+      const email = req.body.email;
+      const name = req.body.name;
+      const country = req.body.country;
+      const street = req.body.street;
+      const apartment = req.body.apartment;
+      const postcode = req.body.postcode;
+      const city = req.body.city;
+      console.log('email :>> ', email);
       console.log('totalSum :>> ', totalSum);
       // const deliveryDetails = req.body.deliveryDetails;
       // const totalSum = req.body.totalSum;
-      // console.log("items checkout session :>> ", items);
+      console.log("items checkout session :>> ", items);
       // console.log('checkoutDetails :>> ', checkoutDetails);
       // console.log('deliveryDetails :>> ', deliveryDetails);
       // console.log('totalSum :>> ', totalSum);
@@ -56,7 +64,14 @@ export default async function handler(req, res) {
         // items: req.body.cartItem,
         items,
         totalSum,
-        // email: checkoutDetails.email,
+        email,
+        name,
+        country,
+        street,
+        apartment,
+        postcode,
+        city,
+
       //   checkoutDetails: checkoutDetails,
       //  totalSum:checkoutDetails.totalSum,
         // body: req.body,

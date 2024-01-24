@@ -3,16 +3,21 @@ import { ShoppingCart } from "../components/ShoppingCart";
 // import { useLocalStorage } from "../hooks/useLocalStorage";
 import SingleProductCard from "../components/SingleProductComponent";
 import {useRouter} from "next/router";
+import { useCheckout } from "./checkoutContext";
 
 const ShoppingCartContext = createContext({});
 
 export function useShoppingCart() {
+  
   return useContext(ShoppingCartContext);
 }
+
 
 export function ShoppingCartProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const {checkoutDetails} = useCheckout();
+  
   //in order to have our items not disappear after refresh we can use
   // custom hook - useLocalStorage instead of useState
   // const [cartItems, setCartItems] = useLocalStorage("shopping-cart",[])
@@ -48,14 +53,27 @@ export function ShoppingCartProvider({ children }) {
   );
   const router = useRouter();
 
+  
+
   const createCheckoutSession = async () => {
     try {
+      const { email, name, country, street, apartment, postcode, city } = checkoutDetails;
       const response = await fetch("api/checkout_sessions", {
         method: 'POST', // Use POST method
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({cartItem: cartItems, totalSum: totalSum}), // Adjust the payload if needed
+        body: JSON.stringify({cartItem: cartItems, 
+          totalSum: totalSum, 
+          email: email,
+          name: name,
+          country: country,
+          street: street,
+          apartment: apartment,
+          postcode: postcode,
+          city: city,
+// here i adjust the payload if needed
+        }), 
       });
   
       if (!response.ok) {
