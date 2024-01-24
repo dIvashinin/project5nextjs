@@ -45,8 +45,14 @@ useEffect(() => {
           <li key={order.id}>
             <p>Order ID: {order.id}</p>
             <p>Timestamp: {order.timestamp.toDate().toString()}</p>
-            <p>{}</p>
-            
+            <p>Email: {order.email}</p>
+            <p>Name: {order.name}</p>
+            <p>Country: {order.country}</p>
+            <p>Postcode: {order.postcode}</p>
+            <p>City: {order.city}</p>
+            <p>Street: {order.street}</p>
+            <p>Apartment: {order.apartment}</p>
+            <p>Total: {order.totalSum}&euro;</p>
           </li>
         ))}
       </ul>
