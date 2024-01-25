@@ -53,6 +53,7 @@ useEffect(() => {
             <p>Street: {order.street}</p>
             <p>Apartment: {order.apartment}</p>
             <p>Total: {order.totalSum}&euro;</p>
+            {/* <p>Status: {order.paid}</p> */}
           </li>
         ))}
       </ul>

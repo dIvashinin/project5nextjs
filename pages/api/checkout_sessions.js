@@ -71,6 +71,8 @@ export default async function handler(req, res) {
         apartment,
         postcode,
         city,
+       // need to check what's wrong with 'where'
+        // paid: true, // This is where you mark the order as paid
 
       //   checkoutDetails: checkoutDetails,
       //  totalSum:checkoutDetails.totalSum,
