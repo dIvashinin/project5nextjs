@@ -9,11 +9,9 @@ import {
 // import { useCheckout } from "../../context/checkoutContext";
 // const {checkoutDetails, setDetails} = useCheckout();
 
-
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-  
   if (req.method === "POST") {
     try {
       // console.log('req :>> ', req);
@@ -30,8 +28,8 @@ export default async function handler(req, res) {
       const apartment = req.body.apartment;
       const postcode = req.body.postcode;
       const city = req.body.city;
-      console.log('email :>> ', email);
-      console.log('totalSum :>> ', totalSum);
+      console.log("email :>> ", email);
+      console.log("totalSum :>> ", totalSum);
       // const deliveryDetails = req.body.deliveryDetails;
       // const totalSum = req.body.totalSum;
       console.log("items checkout session :>> ", items);
@@ -71,11 +69,11 @@ export default async function handler(req, res) {
         apartment,
         postcode,
         city,
-       // need to check what's wrong with 'where'
+        // need to check what's wrong with 'where'
         // paid: true, // This is where you mark the order as paid
 
-      //   checkoutDetails: checkoutDetails,
-      //  totalSum:checkoutDetails.totalSum,
+        //   checkoutDetails: checkoutDetails,
+        //  totalSum:checkoutDetails.totalSum,
         // body: req.body,
         timestamp: serverTimestamp(),
         // Add more details as needed
@@ -94,15 +92,16 @@ export default async function handler(req, res) {
         // This way, i can use the presence of this query parameter on /shop page
         // to conditionally display an alert indicating payment was canceled.
         cancel_url: `${req.headers.origin}/shop?cancel=true`,
-        metadata: {
-          email,
-          name,
-          country,
-        street,
-        apartment,
-        postcode,
-        city,
-        },
+        // we don't include sensitive info in metadata. we have customer_details for that
+        // metadata: {
+        //   email,
+        //   name,
+        //   country,
+        //   street,
+        //   apartment,
+        //   postcode,
+        //   city,
+        // },
       });
       //   res.redirect(303, session.url);
       res.status(200).json({ sessionURL: session.url });
