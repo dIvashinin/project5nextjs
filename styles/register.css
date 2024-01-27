@@ -1,16 +1,15 @@
 /* LOGIN */
 .register-container {
-    width: 300px;
-    margin: 10px auto; /* Center the container horizontally */
-    margin-bottom: 50px;
-    padding: 20px;
-    border: 2px solid rgb(118, 0, 229);
-    border-radius: 5px;
-    background-color: rgb(252, 224, 252);
-    font-family: "Courier New", Courier, monospace;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
-  }
-  .register-container h2 {
-    text-align: center; /* Center the heading */
-  }
-  
+  width: 300px;
+  margin: 10px auto; /* Center the container horizontally */
+  margin-bottom: 50px;
+  padding: 20px;
+  border: 2px solid rgb(118, 0, 229);
+  border-radius: 5px;
+  background-color: rgb(252, 224, 252);
+  font-family: "Courier New", Courier, monospace;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+}
+.register-container h2 {
+  text-align: center; /* Center the heading */
+}

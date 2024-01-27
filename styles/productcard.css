@@ -1,6 +1,6 @@
 p[data-tag="type"],
 p[data-tag="description"],
-p[data-tag="price"]{
+p[data-tag="price"] {
   padding-left: 10px;
   font-style: italic;
   margin-bottom: 0px;
