@@ -28,6 +28,7 @@ export default async function handler(req, res) {
       const apartment = req.body.apartment;
       const postcode = req.body.postcode;
       const city = req.body.city;
+      const comment = req.body.comment;
       console.log("email :>> ", email);
       console.log("totalSum :>> ", totalSum);
       // const deliveryDetails = req.body.deliveryDetails;
@@ -69,6 +70,7 @@ export default async function handler(req, res) {
         apartment,
         postcode,
         city,
+        comment,
         // need to check what's wrong with 'where'
         // paid: true, // This is where you mark the order as paid
 

@@ -57,7 +57,7 @@ export function ShoppingCartProvider({ children }) {
 
   const createCheckoutSession = async () => {
     try {
-      const { email, name, country, street, apartment, postcode, city } = checkoutDetails;
+      const { email, name, country, street, apartment, postcode, city, comment } = checkoutDetails;
       const response = await fetch("api/checkout_sessions", {
         method: 'POST', // Use POST method
         headers: {
@@ -72,6 +72,7 @@ export function ShoppingCartProvider({ children }) {
           apartment: apartment,
           postcode: postcode,
           city: city,
+          comment: comment,
 // here i adjust the payload if needed
         }), 
       });

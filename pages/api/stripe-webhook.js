@@ -1,4 +1,5 @@
-// This will be the endpoint where Stripe will send events.
+// This will be the endpoint where Stripe will send events
+// in test mode i should download and install stripe CLI to use this webhook
 import { buffer } from "micro";
 // buffer is a function from the micro library. It's used to buffer the incoming request body.
 import { verifySignature } from "../../util/stripe";

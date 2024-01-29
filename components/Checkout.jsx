@@ -20,6 +20,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
   const [apartment, setApartment] = useState("");
   const [postcode, setPostcode] = useState("");
   const [city, setCity] = useState("");
+  const [comment, setComment] = useState("");
   const [showAlert, setShowAlert] = useState(false); // State to manage the alert
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderId, setOrderId] = useState(null); // to store the ID of the created order
@@ -55,6 +56,9 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
   };
   const handleCityChange = (e) => {
     setCity(e.target.value);
+  };
+  const handleCommentChange = (e) => {
+    setComment(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -103,7 +107,8 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
       street,
       apartment,
       postcode,
-      city
+      city,
+      comment,
     );
     // An option to save the data to local storage
     // better not to use it
@@ -134,6 +139,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
         apartment,
         postcode,
         city,
+        comment,
         cartItems,
       });
       console.log("Document written with ID: ", docRef.id);
@@ -150,6 +156,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
         apartment,
         postcode,
         city,
+        comment,
         cartItems,
         totalSum,
       });
@@ -242,6 +249,13 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
           onChange={handleCityChange}
         />
         <label htmlFor="city">city</label>
+        <input
+          type="text"
+          id="comment"
+          placeholder="comment"
+          onChange={handleCommentChange}
+        />
+        <label htmlFor="comment">comment</label>
         <button
           className="submit-delivery-details-button"
           type="submit"

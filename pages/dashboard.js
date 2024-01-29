@@ -52,6 +52,7 @@ useEffect(() => {
             <p>City: {order.city}</p>
             <p>Street: {order.street}</p>
             <p>Apartment: {order.apartment}</p>
+            <p>Comment: {order.comment}</p>
             <p>Total: {order.totalSum}&euro;</p>
             {/* <p>Status: {order.paid}</p> */}
           </li>

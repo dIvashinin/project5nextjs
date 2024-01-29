@@ -11,6 +11,7 @@ export const CheckoutProvider = ({ children }) => {
     apartment: "",
     postcode: "",
     city: "",
+    comment: "",
     cartItems: "",
     totalSum: "",
   });

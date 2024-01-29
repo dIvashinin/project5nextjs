@@ -67,6 +67,7 @@ const OrderSummaryComponent = ({ orderId, totalSum }) => {
       <p>City: {orderData.city}</p>
       <p>Postcode: {orderData.postcode}</p>
       <p>Street: {orderData.street}</p>
+      <p>Comment: {orderData.comment}</p>
       <hr />
       <h3>Ordered Items</h3>
       {orderData.cartItems.map((item) => (
