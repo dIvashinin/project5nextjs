@@ -13,6 +13,7 @@ cloudinary.config({
         });
     
         res.status(200).json(result);
+        console.log('upload success');
       } else {
         res.status(405).json({ message: 'Method Not Allowed' });
       }
