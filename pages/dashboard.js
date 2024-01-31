@@ -31,11 +31,20 @@ const addNewProduct = async () => {
        image: image, 
       }),
     });
-    
+    if (!response.ok) {
+      throw new Error('Failed to add new product');
+    }
+    // If successful, you might want to handle the response
+    const result = await response.json();
+    console.log('New product added:', result.productId);
+
+    // Optionally, you can update your UI or take other actions
+
   } catch (error) {
-    
+    console.error('Error adding new product:', error);
+    throw error;
   }
-}
+};
 
 
 useEffect(() => {
