@@ -6,6 +6,10 @@ import { db } from '../config/firebaseConfig';
 function Dashboard() {
 //   const Dashboard = () => {
 const [orders, setOrders] = useState([]);
+const [type, setType] = useState('');
+const [price, setPrice] = useState('');
+const [description, setDescription] = useState('');
+const [image, setImage] = useState('');
 
 // useEffect(() => {
 //   const fetchOrders = async () => {
