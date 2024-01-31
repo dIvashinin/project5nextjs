@@ -6,13 +6,13 @@ export default async function handleAddProduct(req, res) {
   if (req.method === "POST") {
     try {
       // Extract product data from the request body
-      const { type, price, description, imageUrl } = req.body;
+      const { type, price, description, image } = req.body;
 
       // Validate that required fields are present
-      if (!type || !price || !imageUrl) {
+      if (!type || !price || !description || !image) {
         return res
           .status(400)
-          .json({ error: "Type, price, and imageUrl are required fields." });
+          .json({ error: "Type, price, description and image are required fields." });
       }
 
       // Add the product to Firestore
@@ -20,7 +20,7 @@ export default async function handleAddProduct(req, res) {
         type,
         price,
         description,
-        imageUrl,
+        image,
         // Add other fields as needed
       });
 
