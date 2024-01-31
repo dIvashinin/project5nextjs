@@ -8,10 +8,8 @@ import { useCheckout } from "./checkoutContext";
 const ShoppingCartContext = createContext({});
 
 export function useShoppingCart() {
-  
   return useContext(ShoppingCartContext);
 }
-
 
 export function ShoppingCartProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +52,6 @@ export function ShoppingCartProvider({ children }) {
   const router = useRouter();
 
   
-
   const createCheckoutSession = async () => {
     try {
       const { email, name, country, street, apartment, postcode, city, comment } = checkoutDetails;

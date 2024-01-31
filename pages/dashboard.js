@@ -17,6 +17,25 @@ const [orders, setOrders] = useState([]);
 //   fetchOrders();
 // }, []); // Empty dependency array means this effect runs once when the component mounts
 
+const addNewProduct = async () => {
+  try {
+    const response = await fetch ("api/products", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+       type: type,
+       price: price,
+       description: description,
+       image: image, 
+      }),
+    });
+    
+  } catch (error) {
+    
+  }
+}
 
 
 useEffect(() => {
