@@ -1,4 +1,6 @@
-// Import necessary Firebase modules
+// This is a common flow for creating resources (in this case, a new product) 
+// in a web application. The frontend collects and sends data, and the backend 
+// validates, processes, and stores that data.
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../config/firebaseConfig";
 

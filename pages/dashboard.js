@@ -17,6 +17,11 @@ const [orders, setOrders] = useState([]);
 //   fetchOrders();
 // }, []); // Empty dependency array means this effect runs once when the component mounts
 
+
+// This is a common flow for creating resources (in this case, a new product) 
+// in a web application. The frontend collects and sends data, and the backend 
+// validates, processes, and stores that data.
+
 const addNewProduct = async () => {
   try {
     const response = await fetch ("api/products", {
