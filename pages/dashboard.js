@@ -78,6 +78,7 @@ useEffect(() => {
     <div>
         <h1>Good to see you!</h1>
         <ul>
+          {/* displaying paid orders */}
         {orders.map((order) => (
           <li key={order.id}>
             <p>Order ID: {order.id}</p>
@@ -95,6 +96,18 @@ useEffect(() => {
           </li>
         ))}
       </ul>
+      {/* Form for adding a new product */}
+      <form onSubmit={handleFormSubmit}>
+          {/* form inputs */}
+          <input type="text" value={type} onChange={(e) => setType(e.target.value)} placeholder="Type" />
+          <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Price" />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" />
+          <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder="Image URL" />
+          {/* Additional fields if needed */}
+
+          {/* Submit button */}
+          <button type="submit">Add Product</button>
+        </form>
     </div>
     </ProtectedRoute>
   );
