@@ -55,7 +55,6 @@ const addNewProduct = async () => {
   }
 };
 
-
 useEffect(() => {
   // fetching all paid orders from firestore
   const fetchOrders = async () => {
@@ -66,12 +65,10 @@ useEffect(() => {
       ... doc.data(),
     }));
     setOrders(ordersData);
-    console.log('ordersData :>> ', ordersData);
-    
+    console.log('ordersData :>> ', ordersData); 
   };
   fetchOrders();
 }, [])
-
 
   return (
     <ProtectedRoute>

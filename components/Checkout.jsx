@@ -33,7 +33,6 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
   //   } = useShoppingCart();
 
   // const router = useRouter();
-  
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -108,7 +107,7 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
       apartment,
       postcode,
       city,
-      comment,
+      comment
     );
     // An option to save the data to local storage
     // better not to use it
@@ -264,10 +263,10 @@ const Checkout = ({ handleCheckoutClose, isOpen }) => {
           submit delivery details
         </button>
       </form>
-      
-      {orderPlaced && <OrderSummaryComponent orderId={orderId} 
-      totalSum={totalSum} 
-      />}
+
+      {orderPlaced && (
+        <OrderSummaryComponent orderId={orderId} totalSum={totalSum} />
+      )}
       {/* {orderPlaced && (
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />
       )} */}
