@@ -11,6 +11,20 @@ const [price, setPrice] = useState('');
 const [description, setDescription] = useState('');
 const [image, setImage] = useState('');
 
+const handleTypeChange = (e) => {
+  setType (e.target.value);
+};
+const handlePriceChange = (e) => {
+  setPrice (e.target.value);
+};
+const handleDescriptionChange = (e) => {
+  setDescription (e.target.value);
+};
+const handleImageChange = (e) => {
+  setImage (e.target.value);
+};
+
+
 // useEffect(() => {
 //   const fetchOrders = async () => {
 //     const querySnapshot = await getDocs(query(collection(db, 'paid orders'), where('paid', '==', true)));
@@ -55,6 +69,8 @@ const addNewProduct = async () => {
   }
 };
 
+
+
 useEffect(() => {
   // fetching all paid orders from firestore
   const fetchOrders = async () => {
@@ -96,10 +112,10 @@ useEffect(() => {
       {/* Form for adding a new product */}
       <form onSubmit={handleFormSubmit}>
           {/* form inputs */}
-          <input type="text" value={type} onChange={(e) => setType(e.target.value)} placeholder="Type" />
-          <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Price" />
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" />
-          <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder="Image URL" />
+          <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
+          <input type="text" value={price} onChange={handlePriceChange} placeholder="Price" />
+          <textarea value={description} onChange={handleDescriptionChange} placeholder="Description" />
+          <input type="text" value={image} onChange={handleImageChange} placeholder="Image URL" />
           {/* Additional fields if needed */}
 
           {/* Submit button */}
