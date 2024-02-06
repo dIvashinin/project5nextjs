@@ -11,7 +11,7 @@ const [orders, setOrders] = useState([]);
 const [type, setType] = useState('');
 const [price, setPrice] = useState('');
 const [description, setDescription] = useState('');
-// const [image, setImage] = useState('');
+const [image, setImage] = useState('');
 
 const handleTypeChange = (e) => {
   setType (e.target.value);
@@ -131,7 +131,7 @@ const handleFormSubmit = (event) => {
           <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
           <input type="text" value={price} onChange={handlePriceChange} placeholder="Price" />
           <textarea value={description} onChange={handleDescriptionChange} placeholder="Description" />
-          <input type="file" 
+          <input type="file" value={image}
           onChange={handleImageChange}
           />
           {/* Additional fields if needed */}
