@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../components/ProtectedRoute';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../config/firebaseConfig';
-import handleUpload from './api/upload';
+// import handleUpload from './api/upload';
+
 
 function Dashboard() {
 //   const Dashboard = () => {
@@ -10,7 +11,7 @@ const [orders, setOrders] = useState([]);
 const [type, setType] = useState('');
 const [price, setPrice] = useState('');
 const [description, setDescription] = useState('');
-const [image, setImage] = useState('');
+// const [image, setImage] = useState('');
 
 const handleTypeChange = (e) => {
   setType (e.target.value);
@@ -21,16 +22,16 @@ const handlePriceChange = (e) => {
 const handleDescriptionChange = (e) => {
   setDescription (e.target.value);
 };
-const handleImageChange = async (e) => {
-  try {
-  // setImage (e.target.value);
-  const imageUrl = await handleUpload (e.target.files[0]);
-  setImage(imageUrl);
-  console.log('image uploaded successfully');
-  } catch (error) {
-    console.error ('error with image upload', error);
-  }
-};
+// const handleImageChange = async (e) => {
+//   try {
+//   // setImage (e.target.value);
+//   const image = await handleUpload (e.target.files[0]);
+//   setImage(image);
+//   console.log('image uploaded successfully');
+//   } catch (error) {
+//     console.error ('error with image upload', error);
+//   }
+// };
 
 
 // useEffect(() => {
@@ -59,7 +60,7 @@ const addNewProduct = async () => {
        type: type,
        price: price,
        description: description,
-       image: image, 
+      //  image: image, 
       }),
     });
     if (!response.ok) {
@@ -94,6 +95,13 @@ useEffect(() => {
   fetchOrders();
 }, [])
 
+// Function to handle form submission
+const handleFormSubmit = (event) => {
+  event.preventDefault();
+  // Call your addNewProduct function when the form is submitted
+  addNewProduct();
+};
+
   return (
     <ProtectedRoute>
     <div>
@@ -123,7 +131,7 @@ useEffect(() => {
           <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
           <input type="text" value={price} onChange={handlePriceChange} placeholder="Price" />
           <textarea value={description} onChange={handleDescriptionChange} placeholder="Description" />
-          <input type="text" value={image} onChange={handleImageChange} placeholder="Image URL" />
+          {/* <input type="file" onChange={handleImageChange} /> */}
           {/* Additional fields if needed */}
 
           {/* Submit button */}
