@@ -22,16 +22,16 @@ const handlePriceChange = (e) => {
 const handleDescriptionChange = (e) => {
   setDescription (e.target.value);
 };
-// const handleImageChange = async (e) => {
-//   try {
-//   // setImage (e.target.value);
-//   const image = await handleUpload (e.target.files[0]);
-//   setImage(image);
-//   console.log('image uploaded successfully');
-//   } catch (error) {
-//     console.error ('error with image upload', error);
-//   }
-// };
+const handleImageChange = async (e) => {
+  try {
+  // setImage (e.target.value);
+  const image = await handleUpload (e.target.files[0]);
+  setImage(image);
+  console.log('image uploaded successfully');
+  } catch (error) {
+    console.error ('error with image upload', error);
+  }
+};
 
 
 // useEffect(() => {
@@ -60,7 +60,7 @@ const addNewProduct = async () => {
        type: type,
        price: price,
        description: description,
-      //  image: image, 
+       image: image, 
       }),
     });
     if (!response.ok) {
@@ -131,7 +131,9 @@ const handleFormSubmit = (event) => {
           <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
           <input type="text" value={price} onChange={handlePriceChange} placeholder="Price" />
           <textarea value={description} onChange={handleDescriptionChange} placeholder="Description" />
-          {/* <input type="file" onChange={handleImageChange} /> */}
+          <input type="file" 
+          onChange={handleImageChange}
+          />
           {/* Additional fields if needed */}
 
           {/* Submit button */}
