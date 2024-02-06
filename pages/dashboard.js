@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../components/ProtectedRoute';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../config/firebaseConfig';
-// import handleUpload from './api/upload';
+import handleUpload from './api/upload';
+import handleAddProduct from './api/products';
 
 
 function Dashboard() {
@@ -32,6 +33,7 @@ const handleImageChange = async (e) => {
     console.error ('error with image upload', error);
   }
 };
+
 
 
 // useEffect(() => {
