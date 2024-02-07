@@ -5,9 +5,8 @@ import { db } from '../config/firebaseConfig';
 import handleUpload from './api/upload';
 import handleAddProduct from './api/products';
 
-
 function Dashboard() {
-//   const Dashboard = () => {
+
 const [orders, setOrders] = useState([]);
 const [type, setType] = useState('');
 const [price, setPrice] = useState('');
@@ -33,8 +32,6 @@ const handleImageChange = async (e) => {
     console.error ('error with image upload', error);
   }
 };
-
-
 
 // useEffect(() => {
 //   const fetchOrders = async () => {
@@ -80,8 +77,6 @@ const addNewProduct = async () => {
   }
 };
 
-
-
 useEffect(() => {
   // fetching all paid orders from firestore
   const fetchOrders = async () => {
@@ -98,8 +93,8 @@ useEffect(() => {
 }, [])
 
 // Function to handle form submission
-const handleFormSubmit = (event) => {
-  event.preventDefault();
+const handleFormSubmit = (e) => {
+  e.preventDefault();
   // Call your addNewProduct function when the form is submitted
   addNewProduct();
 };
