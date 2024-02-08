@@ -1,5 +1,5 @@
-// This is a common flow for creating resources (in this case, a new product) 
-// in a web application. The frontend collects and sends data, and the backend 
+// This is a common flow for creating resources (in this case, a new product)
+// in a web application. The frontend collects and sends data, and the backend
 // validates, processes, and stores that data.
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../config/firebaseConfig";
@@ -14,7 +14,9 @@ export default async function handleAddProduct(req, res) {
       if (!type || !price || !description || !image) {
         return res
           .status(400)
-          .json({ error: "Type, price, description and image are required fields." });
+          .json({
+            error: "Type, price, description and image are required fields.",
+          });
       }
 
       // Add the product to Firestore

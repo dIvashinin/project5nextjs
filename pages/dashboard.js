@@ -6,7 +6,6 @@ import handleUpload from './api/upload';
 import handleAddProduct from './api/products';
 
 function Dashboard() {
-
 const [orders, setOrders] = useState([]);
 const [type, setType] = useState('');
 const [price, setPrice] = useState('');
@@ -42,7 +41,6 @@ const handleImageChange = async (e) => {
 
 //   fetchOrders();
 // }, []); // Empty dependency array means this effect runs once when the component mounts
-
 
 // This is a common flow for creating resources (in this case, a new product) 
 // in a web application. The frontend collects and sends data, and the backend 
@@ -132,7 +130,6 @@ const handleFormSubmit = (e) => {
           onChange={handleImageChange}
           />
           {/* Additional fields if needed */}
-
           {/* Submit button */}
           <button type="submit">Add Product</button>
         </form>
@@ -140,5 +137,4 @@ const handleFormSubmit = (e) => {
     </ProtectedRoute>
   );
 }
-
 export default Dashboard;
