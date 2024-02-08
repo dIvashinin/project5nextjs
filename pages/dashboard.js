@@ -48,17 +48,17 @@ const handleImageChange = async (e) => {
 
 const addNewProduct = async () => {
   try {
+
+    const formData = new FormData();
+    formData.append('type', type);
+    formData.append('price', price);
+    formData.append('description', description);
+    formData.append('image', image);
+
+
     const response = await fetch ("api/products", {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-       type: type,
-       price: price,
-       description: description,
-       image: image, 
-      }),
+      body: formData,
     });
     if (!response.ok) {
       throw new Error('Failed to add new product');
