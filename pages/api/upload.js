@@ -17,6 +17,8 @@ const storage = multer.diskStorage({
     cb(null, file.originalname); // Use the original file name for the uploaded file
   }
 });
+// Initialize Multer with storage options
+const upload = multer({ storage: storage });
 
 export default async function handleUpload(req, res) {
   if (req.method === "POST") {
