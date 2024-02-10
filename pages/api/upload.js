@@ -1,6 +1,6 @@
 import { v2 as cloudinary } from "cloudinary";
 import multer from 'multer';
-import { NextApiRequest, NextApiResponse } from 'next';
+
 
 // here cloudinary config
 cloudinary.config({
@@ -24,16 +24,40 @@ const storage = multer.diskStorage({
 // Initialize Multer with storage options
 const upload = multer({ storage: storage }); //Initializes Multer with the specified storage options.
 
-
-export default async function handleUpload(req, res) {
-  if (req.method === "POST") {
-    const result = await cloudinary.uploader.upload(req.body.image, {
-      folder: "moonrubyshop", // specify a folder in Cloudinary
+// Define your API route handler
+export default function handler (req, res) {
+  if (req.method === 'POST') {
+    // Use the upload middleware to handle file upload
+    upload.single('file')(req, res, function (err) {
+      if (err instanceof multer.MulterError) {
+        // A Multer error occurred when uploading
+        console.error('Multer error:', err);
+        res.status(500).json({ error: 'File upload failed' });
+      } else if (err) {
+        // An unknown error occurred
+        console.error('Unknown error:', err);
+        res.status(500).json({ error: 'An unknown error occurred' });
+      } else {
+        // File upload was successful
+        res.status(200).json({ message: 'File uploaded successfully' });
+      }
     });
-
-    res.status(200).json(result);
-    console.log("upload success");
   } else {
-    res.status(405).json({ message: "Method Not Allowed" });
+    // Method not allowed
+    res.status(405).json({ error: 'Method not allowed' });
   }
 }
+
+
+// export default async function handleUpload(req, res) {
+//   if (req.method === "POST") {
+//     const result = await cloudinary.uploader.upload(req.body.image, {
+//       folder: "moonrubyshop", // specify a folder in Cloudinary
+//     });
+
+//     res.status(200).json(result);
+//     console.log("upload success");
+//   } else {
+//     res.status(405).json({ message: "Method Not Allowed" });
+//   }
+// }
