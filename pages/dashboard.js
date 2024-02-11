@@ -21,16 +21,23 @@ const handlePriceChange = (e) => {
 const handleDescriptionChange = (e) => {
   setDescription (e.target.value);
 };
-const handleImageChange = async (e) => {
-  try {
-  // setImage (e.target.value);
-  const image = await handleUpload (e.target.files[0]);
-  setImage(image);
-  console.log('image uploaded successfully');
-  } catch (error) {
-    console.error ('error with image upload', error);
-  }
+// const handleImageChange = async (e) => {
+//   try {
+//   // setImage (e.target.value);
+//   const image = await handleUpload (e.target.files[0]);
+//   setImage(image);
+//   console.log('image uploaded successfully');
+//   } catch (error) {
+//     console.error ('error with image upload', error);
+//   }
+// };
+// Since i'm using Multer to handle file uploads on the server side, 
+//no need to use the handleUpload function in the client-side code. 
+//Instead, -directly set the image state with the selected file.
+const handleImageChange = (e) => {
+  setImage(e.target.files[0]);
 };
+
 
 // useEffect(() => {
 //   const fetchOrders = async () => {
