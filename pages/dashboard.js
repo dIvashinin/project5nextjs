@@ -128,6 +128,7 @@ const handleFormSubmit = (e) => {
         ))}
       </ul>
       {/* Form for adding a new product */}
+      <h3>Add new listing</h3>
       <form className="product-form" onSubmit={handleFormSubmit}>
           {/* form inputs */}
           <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
