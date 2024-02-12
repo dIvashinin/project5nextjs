@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../components/ProtectedRoute';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../config/firebaseConfig';
+
 // import handleUpload from './api/upload';
 // import handleAddProduct from './api/products';
 
 function Dashboard() {
 const [orders, setOrders] = useState([]);
-const [type, setType] = useState('');
-const [price, setPrice] = useState('');
-const [description, setDescription] = useState('');
+// const [type, setType] = useState('');
+// const [price, setPrice] = useState('');
+// const [description, setDescription] = useState('');
 const [image, setImage] = useState('');
 
 const handleTypeChange = (e) => {
@@ -36,35 +37,69 @@ const handleDescriptionChange = (e) => {
 //Instead, -directly set the image state with the selected file.
 const handleImageChange = (e) => {
   setImage(e.target.files[0]);
+  console.log('e.target.files[0] :>> ', e.target.files[0]);
 };
 
-//taken from https://cloudinary.com/documentation/client_side_uploading
-const url = "https://api.cloudinary.com/v1_1/process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME/image/upload";
-const form = document.querySelector("form");
+useEffect(() => {
+  // Wrap the code inside useEffect to ensure it runs only on the client side
+  const url = "https://api.cloudinary.com/v1_1/dzghua4dz/image/upload";
+  const form = document.querySelector("form");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  const files = document.querySelector("[type=file]").files;
-  const formData = new FormData();
+    const files = document.querySelector("[type=file]").files;
+    const formData = new FormData();
 
-  for (let i = 0; i < files.length; i++) {
-    let file = files[i];
-    formData.append("file", file);
-    formData.append("upload_preset", "my-moonrubyshop-2");
-
-    fetch(url, {
-      method: "POST",
-      body: formData
-    })
+    for (let i = 0; i < files.length; i++) {
+      let file = files[i];
+      formData.append("file", file);
+      formData.append("upload_preset", "my-moonrubyshop-2");
+console.log('file :>> ', file);
+      fetch(url, {
+        method: "POST",
+        body: formData
+      })
       .then((response) => {
         return response.text();
       })
       .then((data) => {
         document.getElementById("data").innerHTML += data;
-      });
-  }
-});
+        
+          console.log('document :>> ', document);
+        });
+    }
+  });
+}, []); // Empty dependency array ensures this runs only once on component mount
+
+
+//taken from https://cloudinary.com/documentation/client_side_uploading
+// const url = "https://api.cloudinary.com/v1_1/dzghua4dz/image/upload";
+// const form = document.querySelector("form");
+
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+
+//   const files = document.querySelector("[type=file]").files;
+//   const formData = new FormData();
+
+//   for (let i = 0; i < files.length; i++) {
+//     let file = files[i];
+//     formData.append("file", file);
+//     formData.append("upload_preset", "my-moonrubyshop-2");
+
+//     fetch(url, {
+//       method: "POST",
+//       body: formData
+//     })
+//       .then((response) => {
+//         return response.text();
+//       })
+//       .then((data) => {
+//         document.getElementById("data").innerHTML += data;
+//       });
+//   }
+// });
 
 
 // useEffect(() => {
@@ -81,34 +116,34 @@ form.addEventListener("submit", (e) => {
 // in a web application. The frontend collects and sends data, and the backend 
 // validates, processes, and stores that data.
 
-const addNewProduct = async () => {
-  try {
+// const addNewProduct = async () => {
+//   try {
 
-    const formData = new FormData();
-    formData.append('type', type);
-    formData.append('price', price);
-    formData.append('description', description);
-    formData.append('image', image);
+//     const formData = new FormData();
+//     formData.append('type', type);
+//     formData.append('price', price);
+//     formData.append('description', description);
+//     formData.append('image', image);
 
 
-    const response = await fetch ("api/products", {
-      method: 'POST',
-      body: formData,
-    });
-    if (!response.ok) {
-      throw new Error('Failed to add new product');
-    }
-    // If successful, you might want to handle the response
-    const result = await response.json();
-    console.log('New product added:', result.productId);
+//     const response = await fetch ("api/products", {
+//       method: 'POST',
+//       body: formData,
+//     });
+//     if (!response.ok) {
+//       throw new Error('Failed to add new product');
+//     }
+//     // If successful, you might want to handle the response
+//     const result = await response.json();
+//     console.log('New product added:', result.productId);
 
-    // Optionally, you can update your UI or take other actions
+//     // Optionally, you can update your UI or take other actions
 
-  } catch (error) {
-    console.error('Error adding new product:', error);
-    throw error;
-  }
-};
+//   } catch (error) {
+//     console.error('Error adding new product:', error);
+//     throw error;
+//   }
+// };
 
 useEffect(() => {
   // fetching all paid orders from firestore
@@ -129,11 +164,11 @@ useEffect(() => {
 const handleFormSubmit = (e) => {
   e.preventDefault();
   // Call your addNewProduct function when the form is submitted
-  addNewProduct();
+  // addNewProduct();
 };
 
   return (
-    <ProtectedRoute>
+    // <ProtectedRoute>
     <div className="dashboard-container">
         <h1>Good to see you!</h1>
         <ul className="order-list">
@@ -159,10 +194,10 @@ const handleFormSubmit = (e) => {
       <h3>Add new listing</h3>
       <form className="product-form" onSubmit={handleFormSubmit}>
           {/* form inputs */}
-          <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
+          {/* <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
           <input type="text" value={price} onChange={handlePriceChange} placeholder="Price" />
-          <textarea value={description} onChange={handleDescriptionChange} placeholder="Description" />
-          <input type="file" 
+          <textarea value={description} onChange={handleDescriptionChange} placeholder="Description" /> */}
+          <input type="file" id='data'
           onChange={handleImageChange}
           />
           {/* Additional fields if needed */}
@@ -170,7 +205,7 @@ const handleFormSubmit = (e) => {
           <button type="submit">Add Product</button>
         </form>
     </div>
-    </ProtectedRoute>
+    // </ProtectedRoute>
   );
 }
 export default Dashboard;
