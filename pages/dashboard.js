@@ -51,7 +51,7 @@ form.addEventListener("submit", (e) => {
   for (let i = 0; i < files.length; i++) {
     let file = files[i];
     formData.append("file", file);
-    formData.append("upload_preset", "docs_upload_example_us_preset");
+    formData.append("upload_preset", "my-moonrubyshop-2");
 
     fetch(url, {
       method: "POST",
