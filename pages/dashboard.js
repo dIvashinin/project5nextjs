@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../components/ProtectedRoute';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../config/firebaseConfig';
-import handleUpload from './api/upload';
-import handleAddProduct from './api/products';
+// import handleUpload from './api/upload';
+// import handleAddProduct from './api/products';
 
 function Dashboard() {
 const [orders, setOrders] = useState([]);
@@ -106,12 +106,12 @@ const handleFormSubmit = (e) => {
 
   return (
     <ProtectedRoute>
-    <div>
+    <div className="dashboard-container">
         <h1>Good to see you!</h1>
-        <ul>
+        <ul className="order-list">
           {/* displaying paid orders */}
         {orders.map((order) => (
-          <li key={order.id}>
+          <li key={order.id} className="order-item">
             <p>Order ID: {order.id}</p>
             <p>Timestamp: {order.timestamp.toDate().toString()}</p>
             <p>Email: {order.email}</p>
@@ -128,12 +128,12 @@ const handleFormSubmit = (e) => {
         ))}
       </ul>
       {/* Form for adding a new product */}
-      <form onSubmit={handleFormSubmit}>
+      <form className="product-form" onSubmit={handleFormSubmit}>
           {/* form inputs */}
           <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
           <input type="text" value={price} onChange={handlePriceChange} placeholder="Price" />
           <textarea value={description} onChange={handleDescriptionChange} placeholder="Description" />
-          <input type="file" value={image}
+          <input type="file" 
           onChange={handleImageChange}
           />
           {/* Additional fields if needed */}
