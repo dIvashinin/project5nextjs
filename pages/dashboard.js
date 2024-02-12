@@ -8,9 +8,9 @@ import { db } from '../config/firebaseConfig';
 
 function Dashboard() {
 const [orders, setOrders] = useState([]);
-// const [type, setType] = useState('');
-// const [price, setPrice] = useState('');
-// const [description, setDescription] = useState('');
+const [type, setType] = useState('');
+const [price, setPrice] = useState('');
+const [description, setDescription] = useState('');
 const [image, setImage] = useState('');
 
 const handleTypeChange = (e) => {
@@ -42,8 +42,10 @@ const handleImageChange = (e) => {
 
 useEffect(() => {
   // Wrap the code inside useEffect to ensure it runs only on the client side
-  const url = "https://api.cloudinary.com/v1_1/dzghua4dz/image/upload";
-  const form = document.querySelector("form");
+  //taken from https://cloudinary.com/documentation/client_side_uploading
+  const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+const url = `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`;
+const form = document.querySelector("form");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -66,7 +68,7 @@ console.log('file :>> ', file);
       .then((data) => {
         document.getElementById("data").innerHTML += data;
         
-          console.log('document :>> ', document);
+          // console.log('document :>> ', document);
         });
     }
   });
@@ -194,12 +196,13 @@ const handleFormSubmit = (e) => {
       <h3>Add new listing</h3>
       <form className="product-form" onSubmit={handleFormSubmit}>
           {/* form inputs */}
-          {/* <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
+          <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
           <input type="text" value={price} onChange={handlePriceChange} placeholder="Price" />
-          <textarea value={description} onChange={handleDescriptionChange} placeholder="Description" /> */}
-          <input type="file" id='data'
+          <textarea value={description} onChange={handleDescriptionChange} placeholder="Description" />
+          <input type="file" 
           onChange={handleImageChange}
           />
+          <div id="data"></div>
           {/* Additional fields if needed */}
           {/* Submit button */}
           <button type="submit">Add Product</button>
