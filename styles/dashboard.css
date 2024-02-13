@@ -3,7 +3,6 @@
   margin: 0 auto;
   padding: 20px;
 }
-
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -13,13 +12,11 @@ h1 {
   list-style-type: none;
   padding: 0;
 }
-
 h3 {
   font-size: 20px;
   /* margin-bottom: 20px; */
   margin-top: 45px;
 }
-
 .order-item {
   margin-bottom: 20px;
 }
@@ -34,7 +31,6 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 button {
   padding: 10px 20px;
   background-color: #ff00f2;
@@ -43,7 +39,6 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-
 button:hover {
   background-color: #fc50ff;
 }

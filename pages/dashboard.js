@@ -74,7 +74,6 @@ console.log('file :>> ', file);
   });
 }, []); // Empty dependency array ensures this runs only once on component mount
 
-
 //taken from https://cloudinary.com/documentation/client_side_uploading
 // const url = "https://api.cloudinary.com/v1_1/dzghua4dz/image/upload";
 // const form = document.querySelector("form");
@@ -103,7 +102,6 @@ console.log('file :>> ', file);
 //   }
 // });
 
-
 // useEffect(() => {
 //   const fetchOrders = async () => {
 //     const querySnapshot = await getDocs(query(collection(db, 'paid orders'), where('paid', '==', true)));
@@ -120,13 +118,11 @@ console.log('file :>> ', file);
 
 // const addNewProduct = async () => {
 //   try {
-
 //     const formData = new FormData();
 //     formData.append('type', type);
 //     formData.append('price', price);
 //     formData.append('description', description);
 //     formData.append('image', image);
-
 
 //     const response = await fetch ("api/products", {
 //       method: 'POST',
