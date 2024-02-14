@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../components/ProtectedRoute';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../config/firebaseConfig';
+import Alert from "react-bootstrap/Alert";
 
 // import handleUpload from './api/upload';
 // import handleAddProduct from './api/products';
@@ -15,6 +16,7 @@ const [description, setDescription] = useState('');
 const [imageFile, setImageFile] = useState('');
 //this one is URL of the file
 const [image, setImage] = useState('');
+const [showAlert, setShowAlert] = useState(false); // State to manage the alert
 
 const handleTypeChange = (e) => {
   setType (e.target.value);
@@ -167,8 +169,17 @@ const handleFormSubmit = async (e) => {
   e.preventDefault();
   // Call your addNewProduct function when the form is submitted
   // addNewProduct();
+
+  // Validation checks
+  // if (!email || !isValidEmail(email)) {
+  //   setShowAlert(true); // Show the alert
+  //   console.log("Invalid email");
+  //   return;
+
+
   // Check if any of the required fields are empty
   if (!type || !price || !description || !image) {
+    setShowAlert(true);
     console.log('Please fill in all required fields.');
     return; // Exit early if any required field is empty
   }
@@ -227,6 +238,24 @@ const handleFormSubmit = async (e) => {
       </ul>
       {/* Form for adding a new product */}
       <h3>Add new listing</h3>
+      {/* <Alert
+        variant="warning"
+        show={showAlert}
+        onClose={() => setShowAlert(false)}
+        dismissible
+      >
+        pls fill in all the fields correctly!
+      </Alert> */}
+
+      <Alert 
+      variant='warning'
+      show={showAlert}
+      onClose={() => setShowAlert(false)}
+      dismissible
+      >
+        pls fill in all the fields correctly!
+      </Alert>
+
       <form className="product-form" onSubmit={handleFormSubmit}>
           {/* form inputs */}
           <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
