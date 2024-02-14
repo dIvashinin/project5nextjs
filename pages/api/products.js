@@ -13,11 +13,12 @@ export default async function handleAddProduct(req, res) {
 
       // Validate that required fields are present
       if (!type || !price || !description || !image) {
-        return res
-          .status(400)
-          .json({
-            error: "Type, price, description and imageUrl are required fields.",
-          });
+        console.log('u need to fill in all :>> ');
+        // return res
+        //   .status(400)
+        //   .json({
+        //     error: "Type, price, description and imageUrl are required fields.",
+        //   });
       }
 
       // Add the product to Firestore

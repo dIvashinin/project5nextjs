@@ -167,6 +167,11 @@ const handleFormSubmit = async (e) => {
   e.preventDefault();
   // Call your addNewProduct function when the form is submitted
   // addNewProduct();
+  // Check if any of the required fields are empty
+  if (!type || !price || !description || !image) {
+    console.log('Please fill in all required fields.');
+    return; // Exit early if any required field is empty
+  }
   try {
     //sending data to /products endpoint in backend
     const response = await fetch ("/api/products", {
