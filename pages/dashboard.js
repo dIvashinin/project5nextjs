@@ -12,6 +12,7 @@ const [type, setType] = useState('');
 const [price, setPrice] = useState('');
 const [description, setDescription] = useState('');
 const [image, setImage] = useState('');
+const [imageUrl, setImageUrl] = useState('');
 
 const handleTypeChange = (e) => {
   setType (e.target.value);
@@ -63,11 +64,12 @@ console.log('file :>> ', file);
         body: formData
       })
       .then((response) => {
-        return response.text();
+        return response.json();
       })
       .then((data) => {
-        document.getElementById("data").innerHTML += data;
-        
+        // document.getElementById("data").innerHTML += data;
+        setImageUrl(data.secure_url);
+        console.log('data.secure_url :>> ', data.secure_url);
           // console.log('document :>> ', document);
         });
     }
