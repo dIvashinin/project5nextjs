@@ -167,7 +167,7 @@ useEffect(() => {
 // Function to handle form submission
 const handleFormSubmit = async (e) => {
   e.preventDefault();
-  // Call your addNewProduct function when the form is submitted
+  // Call addNewProduct function when the form is submitted
   // addNewProduct();
 
   // Check if any of the required fields are empty
@@ -195,14 +195,18 @@ const handleFormSubmit = async (e) => {
       throw new Error('Failed to add new product');
     }
     
+    if (response.ok) {
   // If successful, you might want to handle the response
   const result = await response.json();
   console.log('New product added:', result.productId);
+  setShowAlert (true);
+}
 
   // Optionally, you can update your UI or take other actions
 } catch (error) {
   console.error('Error adding new product:', error);
   // Handle error gracefully
+  setShowAlert (false);
 }
 };
 
@@ -232,12 +236,13 @@ const handleFormSubmit = async (e) => {
       {/* Form for adding a new product */}
       <h3>Add new listing</h3>
       <Alert 
-      variant='warning'
+      // the alert content changes dynamically based on the condition
+      variant={showAlert ? 'success' : 'warning'} // variant based on condition
       show={showAlert}
       onClose={() => setShowAlert(false)}
       dismissible
       >
-        pls fill in all the fields correctly!
+        {showAlert ? 'Congrats! Product added successfully!' : 'Please fill in all the fields correctly!'}
       </Alert>
       <form className="product-form" onSubmit={handleFormSubmit}>
           {/* form inputs */}
