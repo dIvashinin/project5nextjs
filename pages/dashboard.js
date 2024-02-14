@@ -170,13 +170,6 @@ const handleFormSubmit = async (e) => {
   // Call your addNewProduct function when the form is submitted
   // addNewProduct();
 
-  // Validation checks
-  // if (!email || !isValidEmail(email)) {
-  //   setShowAlert(true); // Show the alert
-  //   console.log("Invalid email");
-  //   return;
-
-
   // Check if any of the required fields are empty
   if (!type || !price || !description || !image) {
     setShowAlert(true);
@@ -238,15 +231,6 @@ const handleFormSubmit = async (e) => {
       </ul>
       {/* Form for adding a new product */}
       <h3>Add new listing</h3>
-      {/* <Alert
-        variant="warning"
-        show={showAlert}
-        onClose={() => setShowAlert(false)}
-        dismissible
-      >
-        pls fill in all the fields correctly!
-      </Alert> */}
-
       <Alert 
       variant='warning'
       show={showAlert}
@@ -255,7 +239,6 @@ const handleFormSubmit = async (e) => {
       >
         pls fill in all the fields correctly!
       </Alert>
-
       <form className="product-form" onSubmit={handleFormSubmit}>
           {/* form inputs */}
           <input type="text" value={type} onChange={handleTypeChange} placeholder="Type" />
