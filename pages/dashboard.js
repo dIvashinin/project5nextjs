@@ -11,8 +11,10 @@ const [orders, setOrders] = useState([]);
 const [type, setType] = useState('');
 const [price, setPrice] = useState('');
 const [description, setDescription] = useState('');
+//this one is file itself
+const [imageFile, setImageFile] = useState('');
+//this one is URL of the file
 const [image, setImage] = useState('');
-const [imageUrl, setImageUrl] = useState('');
 
 const handleTypeChange = (e) => {
   setType (e.target.value);
@@ -37,7 +39,7 @@ const handleDescriptionChange = (e) => {
 //no need to use the handleUpload function in the client-side code. 
 //Instead, -directly set the image state with the selected file.
 const handleImageChange = (e) => {
-  setImage(e.target.files[0]);
+  setImageFile(e.target.files[0]);
   // console.log('e.target.files[0] :>> ', e.target.files[0]);
 };
 
@@ -68,7 +70,7 @@ const form = document.querySelector("form");
       })
       .then((data) => {
         // document.getElementById("data").innerHTML += data;
-        setImageUrl(data.secure_url);
+        setImage(data.secure_url);
         // console.log('data.secure_url :>> ', data.secure_url);
           // console.log('document :>> ', document);
         });
@@ -176,7 +178,7 @@ const handleFormSubmit = async (e) => {
         type,
         price,
         description,
-        imageUrl,
+        image,
       }),
     });
 

@@ -8,10 +8,11 @@ export default async function handleAddProduct(req, res) {
   if (req.method === "POST") {
     try {
       // Extract product data from the request body
-      const { type, price, description, imageUrl } = req.body;
+      const { type, price, description, image } = req.body;
+      console.log('type :>> ', type);
 
       // Validate that required fields are present
-      if (!type || !price || !description || !imageUrl) {
+      if (!type || !price || !description || !image) {
         return res
           .status(400)
           .json({
@@ -24,7 +25,7 @@ export default async function handleAddProduct(req, res) {
         type,
         price,
         description,
-        imageUrl,
+        image,
         // Add other fields as needed
       });
 
