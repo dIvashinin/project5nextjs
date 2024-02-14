@@ -38,7 +38,7 @@ const handleDescriptionChange = (e) => {
 //Instead, -directly set the image state with the selected file.
 const handleImageChange = (e) => {
   setImage(e.target.files[0]);
-  console.log('e.target.files[0] :>> ', e.target.files[0]);
+  // console.log('e.target.files[0] :>> ', e.target.files[0]);
 };
 
 useEffect(() => {
@@ -58,7 +58,7 @@ const form = document.querySelector("form");
       let file = files[i];
       formData.append("file", file);
       formData.append("upload_preset", "my-moonrubyshop-2");
-console.log('file :>> ', file);
+// console.log('file :>> ', file);
       fetch(url, {
         method: "POST",
         body: formData
@@ -69,7 +69,7 @@ console.log('file :>> ', file);
       .then((data) => {
         // document.getElementById("data").innerHTML += data;
         setImageUrl(data.secure_url);
-        console.log('data.secure_url :>> ', data.secure_url);
+        // console.log('data.secure_url :>> ', data.secure_url);
           // console.log('document :>> ', document);
         });
     }
