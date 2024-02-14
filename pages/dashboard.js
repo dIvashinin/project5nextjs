@@ -161,10 +161,38 @@ useEffect(() => {
 }, [])
 
 // Function to handle form submission
-const handleFormSubmit = (e) => {
+const handleFormSubmit = async (e) => {
   e.preventDefault();
   // Call your addNewProduct function when the form is submitted
   // addNewProduct();
+  try {
+    //sending data to /products endpoint in backend
+    const response = await fetch ("/api/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        type,
+        price,
+        description,
+        imageUrl,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to add new product');
+    }
+    
+  // If successful, you might want to handle the response
+  const result = await response.json();
+  console.log('New product added:', result.productId);
+
+  // Optionally, you can update your UI or take other actions
+} catch (error) {
+  console.error('Error adding new product:', error);
+  // Handle error gracefully
+}
 };
 
   return (
