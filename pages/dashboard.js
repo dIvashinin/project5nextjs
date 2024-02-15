@@ -46,6 +46,8 @@ const handleImageChange = (e) => {
   // console.log('e.target.files[0] :>> ', e.target.files[0]);
 };
 
+// i had 2 separate submits which caused issues
+// now everything is in one function!
 // useEffect(() => {
 //   // Wrap the code inside useEffect to ensure it runs only on the client side
 //   //taken from https://cloudinary.com/documentation/client_side_uploading
@@ -231,8 +233,6 @@ const handleFormSubmit = async (e) => {
     }
   };
 
-
-
 //     //sending data to /products endpoint in backend
 //     const response = await fetch ("/api/products", {
 //       method: "POST",
@@ -251,12 +251,10 @@ const handleFormSubmit = async (e) => {
 //       throw new Error('Failed to add new product');
 //     }
     
-
 //   // If successful, you might want to handle the response
 //   const result = await response.json();
 //   console.log('New product added:', result.productId);
 //   setShowAlert2(true);
-
 
 //   // Optionally, you can update your UI or take other actions
 // } catch (error) {
@@ -294,10 +292,8 @@ const handleFormSubmit = async (e) => {
       {/* <Alert 
       // the alert content changes dynamically based on the condition
       variant=
-     
         'warning'  
-
-      show={showAlert1}
+show={showAlert1}
       onClose={() => setShowAlert1(false)}
       dismissible
       >
