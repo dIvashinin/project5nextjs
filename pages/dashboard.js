@@ -172,6 +172,7 @@ const handleFormSubmit = async (e) => {
   // addNewProduct();
 
   // Check if any of the required fields are empty
+  // commented out as it's causing issues and we can work without it!
   // if (!type || !price || !description || !image) {
   //   setShowAlert1(true);
   //   console.log('Please fill in all required fields.');
@@ -290,20 +291,18 @@ const handleFormSubmit = async (e) => {
       </ul>
       {/* Form for adding a new product */}
       <h3>Add new listing</h3>
-      <Alert 
+      {/* <Alert 
       // the alert content changes dynamically based on the condition
       variant=
-      // {showAlert1 ?  
+     
         'warning'  
-        // :'success'} 
-      // variant based on condition
+
       show={showAlert1}
       onClose={() => setShowAlert1(false)}
       dismissible
       >
-        {/* {showAlert ?  'Please fill in all the fields correctly!' : 'Congrats! Product added successfully!'} */}
         Please fill in all the fields correctly!
-      </Alert>
+      </Alert> */}
       <Alert 
       // the alert content changes dynamically based on the condition
       variant=
