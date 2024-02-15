@@ -16,7 +16,8 @@ const [description, setDescription] = useState('');
 const [imageFile, setImageFile] = useState('');
 //this one is URL of the file
 const [image, setImage] = useState('');
-const [showAlert, setShowAlert] = useState(false); // State to manage the alert
+const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
+const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
 const handleTypeChange = (e) => {
   setType (e.target.value);
@@ -172,7 +173,7 @@ const handleFormSubmit = async (e) => {
 
   // Check if any of the required fields are empty
   if (!type || !price || !description || !image) {
-    setShowAlert(true);
+    setShowAlert1(true);
     console.log('Please fill in all required fields.');
     return; // Exit early if any required field is empty
   }
@@ -195,18 +196,18 @@ const handleFormSubmit = async (e) => {
       throw new Error('Failed to add new product');
     }
     
-    if (response.ok) {
+
   // If successful, you might want to handle the response
   const result = await response.json();
   console.log('New product added:', result.productId);
-  setShowAlert (true);
-}
+  setShowAlert2(true);
+
 
   // Optionally, you can update your UI or take other actions
 } catch (error) {
   console.error('Error adding new product:', error);
   // Handle error gracefully
-  setShowAlert (false);
+  setShowAlert2(false);
 }
 };
 
@@ -237,12 +238,30 @@ const handleFormSubmit = async (e) => {
       <h3>Add new listing</h3>
       <Alert 
       // the alert content changes dynamically based on the condition
-      variant={showAlert ? 'success' : 'warning'} // variant based on condition
-      show={showAlert}
-      onClose={() => setShowAlert(false)}
+      variant=
+      // {showAlert1 ?  
+        'warning'  
+        // :'success'} 
+      // variant based on condition
+      show={showAlert1}
+      onClose={() => setShowAlert1(false)}
       dismissible
       >
-        {showAlert ? 'Congrats! Product added successfully!' : 'Please fill in all the fields correctly!'}
+        {/* {showAlert ?  'Please fill in all the fields correctly!' : 'Congrats! Product added successfully!'} */}
+        Please fill in all the fields correctly!
+      </Alert>
+      <Alert 
+      // the alert content changes dynamically based on the condition
+      variant=
+      // {showAlert2 ?  
+        'success' 
+        // : 'warning'} // variant based on condition
+      show={showAlert2}
+      onClose={() => setShowAlert2(false)}
+      dismissible
+      >
+        {/* {showAlert ?  'Please fill in all the fields correctly!' : 'Congrats! Product added successfully!'} */}
+        Congrats! Product added successfully!
       </Alert>
       <form className="product-form" onSubmit={handleFormSubmit}>
           {/* form inputs */}
