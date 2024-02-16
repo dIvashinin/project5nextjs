@@ -265,7 +265,7 @@ const handleFormSubmit = async (e) => {
 // };
 
   return (
-    // <ProtectedRoute>
+    <ProtectedRoute>
     <div className="dashboard-container">
         <h1>Good to see you!</h1>
         <ul className="order-list">
@@ -326,7 +326,7 @@ show={showAlert1}
           <button type="submit">Add Product</button>
         </form>
     </div>
-    // </ProtectedRoute>
+    </ProtectedRoute>
   );
 }
 export default Dashboard;
