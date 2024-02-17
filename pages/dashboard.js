@@ -270,6 +270,7 @@ function Dashboard() {
   return (
     <ProtectedRoute>
       <div className="dashboard-container">
+       <div className="dashboard-order-container">
         <h1>Good to see you!</h1>
         <ul className="order-list">
           {/* displaying paid orders */}
@@ -290,7 +291,9 @@ function Dashboard() {
             </li>
           ))}
         </ul>
+        </div>
         {/* Form for adding a new product */}
+        <div className="dashboard-add-new-container">
         <h3>Add new listing</h3>
         {/* <Alert 
       // the alert content changes dynamically based on the condition
@@ -339,6 +342,7 @@ show={showAlert1}
           {/* Submit button */}
           <button type="submit">Add Product</button>
         </form>
+        </div>
       </div>
     </ProtectedRoute>
   );

@@ -3,6 +3,10 @@
   margin: 0 auto;
   padding: 20px;
 }
+.dashboard-order-container, .dashboard-add-new-container{
+  border: 1px solid #c88888;
+  margin: 2px;
+}
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
