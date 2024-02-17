@@ -325,6 +325,23 @@ show={showAlert1}
             onChange={handleTypeChange}
             placeholder="Type"
           />
+
+<label>
+            Type
+            <select 
+            // onChange={handleTypeChange} value={type}
+            >
+              {/* disabled value doesn't count as value! */}
+              {/* <option disabled value="pls select color">pls select color</option> */}
+              <option value="ring">ring</option>
+              <option value="earring">earring</option>
+              <option value="bracelet">bracelet</option>
+              <option value="necklace">necklace</option>
+              <option value="option 5">option 5</option>
+              <option value="option 6">option 6</option>
+            </select>
+          </label>
+
           <input
             type="text"
             value={price}
