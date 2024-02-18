@@ -320,20 +320,22 @@ show={showAlert1}
           </Alert>
           <form className="product-form" onSubmit={handleFormSubmit}>
             {/* form inputs */}
-            <input
+            {/* <input
               type="text"
               value={type}
               onChange={handleTypeChange}
               placeholder="Type"
-            />
+            /> */}
 
             <label>
               Type
               <select
-              // onChange={handleTypeChange} value={type}
+              onChange={handleTypeChange} 
+              // value={type}
               >
                 {/* disabled value doesn't count as value! */}
                 {/* <option disabled value="pls select color">pls select color</option> */}
+                {/* i decided to hardcode the types and its values to easily choose from the list */}
                 <option value="ring">ring</option>
                 <option value="earring">earring</option>
                 <option value="bracelet">bracelet</option>

@@ -68,7 +68,7 @@ useEffect(() => {
         if (authUser && authUser.uid === SHOP_OWNER_UID && !user) {
             // console.log('authUser :>> ', authUser);
           setUser(authUser);
-          router.replace('/dashboard');
+          // router.replace('/dashboard');
         } else if (authUser && authUser.uid !== SHOP_OWNER_UID && !user) {
           setUser(null);
         // console.log('no!');

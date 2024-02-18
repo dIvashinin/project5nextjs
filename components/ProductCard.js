@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useShoppingCart } from "../context/shoppingCartContext";
 // const cartIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
 import { useProduct } from "../context/productContext";
+import ProtectedRoute from "./ProtectedRoute";
 
 function ProductCard({ product }) {
   const {
@@ -40,6 +41,9 @@ function ProductCard({ product }) {
         price: {product.price}&euro; {}
       </p>
       <p data-tag="description">{product.description}</p>
+      <ProtectedRoute>
+        <button>update</button>
+      </ProtectedRoute>
       {/* <div> */}
       {/* <button className="add-to-cart-button" onClick={() => increaseCartQuantity(product.id, product)}> */}
       {/* try again later, now no time */}
