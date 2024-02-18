@@ -270,34 +270,34 @@ function Dashboard() {
   return (
     <ProtectedRoute>
       <div className="dashboard-container">
-       <div className="dashboard-order-container">
-        <h1>Good to see you!</h1>
-        <ul className="order-list">
-          {/* displaying paid orders */}
-          {orders.map((order) => (
-            <div className="dashboard-inner-separate-order-container">
-            <li key={order.id} className="order-item">
-              <p>Order ID: {order.id}</p>
-              <p>Timestamp: {order.timestamp.toDate().toString()}</p>
-              <p>Email: {order.email}</p>
-              <p>Name: {order.name}</p>
-              <p>Country: {order.country}</p>
-              <p>Postcode: {order.postcode}</p>
-              <p>City: {order.city}</p>
-              <p>Street: {order.street}</p>
-              <p>Apartment: {order.apartment}</p>
-              <p>Comment: {order.comment}</p>
-              <p>Total: {order.totalSum}&euro;</p>
-              {/* <p>Status: {order.paid}</p> */}
-            </li>
-            </div>
-          ))}
-        </ul>
+        <div className="dashboard-order-container">
+          <h1>Good to see you!</h1>
+          <ul className="order-list">
+            {/* displaying paid orders */}
+            {orders.map((order) => (
+              <div className="dashboard-inner-separate-order-container">
+                <li key={order.id} className="order-item">
+                  <p>Order ID: {order.id}</p>
+                  <p>Timestamp: {order.timestamp.toDate().toString()}</p>
+                  <p>Email: {order.email}</p>
+                  <p>Name: {order.name}</p>
+                  <p>Country: {order.country}</p>
+                  <p>Postcode: {order.postcode}</p>
+                  <p>City: {order.city}</p>
+                  <p>Street: {order.street}</p>
+                  <p>Apartment: {order.apartment}</p>
+                  <p>Comment: {order.comment}</p>
+                  <p>Total: {order.totalSum}&euro;</p>
+                  {/* <p>Status: {order.paid}</p> */}
+                </li>
+              </div>
+            ))}
+          </ul>
         </div>
         {/* Form for adding a new product */}
-        <div className="dashboard-add-new-container">
         <h3>Add new listing</h3>
-        {/* <Alert 
+        <div className="dashboard-add-new-container">
+          {/* <Alert 
       // the alert content changes dynamically based on the condition
       variant=
         'warning'  
@@ -307,60 +307,59 @@ show={showAlert1}
       >
         Please fill in all the fields correctly!
       </Alert> */}
-        <Alert
-          // the alert content changes dynamically based on the condition
-          variant=// {showAlert2 ?
-          "success"
-          // : 'warning'} // variant based on condition
-          show={showAlert2}
-          onClose={() => setShowAlert2(false)}
-          dismissible
-        >
-          {/* {showAlert ?  'Please fill in all the fields correctly!' : 'Congrats! Product added successfully!'} */}
-          Congrats! Product added successfully!
-        </Alert>
-        <form className="product-form" onSubmit={handleFormSubmit}>
-          {/* form inputs */}
-          <input
-            type="text"
-            value={type}
-            onChange={handleTypeChange}
-            placeholder="Type"
-          />
+          <Alert
+            // the alert content changes dynamically based on the condition
+            variant="success" // {showAlert2 ?
+            // : 'warning'} // variant based on condition
+            show={showAlert2}
+            onClose={() => setShowAlert2(false)}
+            dismissible
+          >
+            {/* {showAlert ?  'Please fill in all the fields correctly!' : 'Congrats! Product added successfully!'} */}
+            Congrats! Product added successfully!
+          </Alert>
+          <form className="product-form" onSubmit={handleFormSubmit}>
+            {/* form inputs */}
+            <input
+              type="text"
+              value={type}
+              onChange={handleTypeChange}
+              placeholder="Type"
+            />
 
-<label>
-            Type
-            <select 
-            // onChange={handleTypeChange} value={type}
-            >
-              {/* disabled value doesn't count as value! */}
-              {/* <option disabled value="pls select color">pls select color</option> */}
-              <option value="ring">ring</option>
-              <option value="earring">earring</option>
-              <option value="bracelet">bracelet</option>
-              <option value="necklace">necklace</option>
-              <option value="option 5">option 5</option>
-              <option value="option 6">option 6</option>
-            </select>
-          </label>
+            <label>
+              Type
+              <select
+              // onChange={handleTypeChange} value={type}
+              >
+                {/* disabled value doesn't count as value! */}
+                {/* <option disabled value="pls select color">pls select color</option> */}
+                <option value="ring">ring</option>
+                <option value="earring">earring</option>
+                <option value="bracelet">bracelet</option>
+                <option value="necklace">necklace</option>
+                <option value="option 5">option 5</option>
+                <option value="option 6">option 6</option>
+              </select>
+            </label>
 
-          <input
-            type="text"
-            value={price}
-            onChange={handlePriceChange}
-            placeholder="Price"
-          />
-          <textarea
-            value={description}
-            onChange={handleDescriptionChange}
-            placeholder="Description"
-          />
-          <input type="file" onChange={handleImageChange} />
-          <div id="data"></div>
-          {/* Additional fields if needed */}
-          {/* Submit button */}
-          <button type="submit">Add Product</button>
-        </form>
+            <input
+              type="text"
+              value={price}
+              onChange={handlePriceChange}
+              placeholder="Price"
+            />
+            <textarea
+              value={description}
+              onChange={handleDescriptionChange}
+              placeholder="Description"
+            />
+            <input type="file" onChange={handleImageChange} />
+            <div id="data"></div>
+            {/* Additional fields if needed */}
+            {/* Submit button */}
+            <button type="submit">Add Product</button>
+          </form>
         </div>
       </div>
     </ProtectedRoute>
