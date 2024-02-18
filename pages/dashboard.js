@@ -275,6 +275,7 @@ function Dashboard() {
         <ul className="order-list">
           {/* displaying paid orders */}
           {orders.map((order) => (
+            <div className="dashboard-inner-separate-order-container">
             <li key={order.id} className="order-item">
               <p>Order ID: {order.id}</p>
               <p>Timestamp: {order.timestamp.toDate().toString()}</p>
@@ -289,6 +290,7 @@ function Dashboard() {
               <p>Total: {order.totalSum}&euro;</p>
               {/* <p>Status: {order.paid}</p> */}
             </li>
+            </div>
           ))}
         </ul>
         </div>
