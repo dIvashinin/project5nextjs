@@ -14,13 +14,21 @@ function SingleProductCard({ product }) {
 
   //adding EDIT state here
   const [editing, setEditing] = useState(false);
+  //i reuse state variables from dashboard (type, price, descr, image etc.)
+  const [type, setType] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  //this one is file itself
+  const [imageFile, setImageFile] = useState("");
+  //this one is URL of the file
+  const [image, setImage] = useState("");
 
   //pls select smth is going to be by default
   const [selectedColor, setSelectedColor] = useState("option 1");
   const [selectedSize, setSelectedSize] = useState("small");
 
   // function for editing
-  const handleEditClick = () => {
+  const handleEdit = () => {
     setEditing(true);
     // You can navigate to the edit page or display an edit form directly in this component
   };
@@ -30,9 +38,41 @@ function SingleProductCard({ product }) {
     return (
       <div>
         {/* Render an edit form here */}
-        {/* Example:
-        <EditForm product={product} onCancel={() => setEditing(false)} />
-        */}
+      
+      <form className="product-form" onSubmit={handleEdit}>
+            <label> Type
+              <select
+              onChange={handleTypeChange} 
+              >
+                <option value="ring">ring</option>
+                <option value="earring">earring</option>
+                <option value="bracelet">bracelet</option>
+                <option value="necklace">necklace</option>
+                <option value="option 5">option 5</option>
+                <option value="option 6">option 6</option>
+              </select>
+            </label>
+
+            <input
+              type="text"
+              value={price}
+              // onChange={handlePriceChange}
+              placeholder="Price"
+            />
+            <textarea
+              value={description}
+              // onChange={handleDescriptionChange}
+              placeholder="Description"
+            />
+            <input type="file" 
+            // onChange={handleImageChange}
+             />
+            {/* <div id="data"></div> */}
+            {/* Additional fields if needed */}
+            
+          </form>
+
+
       </div>
     );
   }
@@ -140,7 +180,7 @@ function SingleProductCard({ product }) {
             + add to cart
           </button>
           <ProtectedRoute>
-        <button>edit</button>
+        <button onClick={handleEdit}>edit</button>
         <button>delete</button>
       </ProtectedRoute>
           {/* <button
