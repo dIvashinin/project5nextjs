@@ -12,9 +12,32 @@ function SingleProductCard({ product }) {
     removeFromCart,
   } = useShoppingCart();
 
+  //adding EDIT state here
+  const [editing, setEditing] = useState(false);
+
   //pls select smth is going to be by default
   const [selectedColor, setSelectedColor] = useState("option 1");
   const [selectedSize, setSelectedSize] = useState("small");
+
+  // function for editing
+  const handleEditClick = () => {
+    setEditing(true);
+    // You can navigate to the edit page or display an edit form directly in this component
+  };
+
+  // If editing mode is enabled, render an edit form
+  if (editing) {
+    return (
+      <div>
+        {/* Render an edit form here */}
+        {/* Example:
+        <EditForm product={product} onCancel={() => setEditing(false)} />
+        */}
+      </div>
+    );
+  }
+
+
 
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
