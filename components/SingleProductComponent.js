@@ -27,8 +27,23 @@ function SingleProductCard({ product }) {
   const [selectedColor, setSelectedColor] = useState("option 1");
   const [selectedSize, setSelectedSize] = useState("small");
 
+  //reuse from dashboard
+  const handleTypeChange = (e) => {
+    setType(e.target.value);
+  };
+  const handlePriceChange = (e) => {
+    setPrice(e.target.value);
+  };
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
+  };
+  const handleImageChange = (e) => {
+    setImageFile(e.target.files[0]);
+  };
+
   // function for editing
   const handleEdit = () => {
+    e.preventDefault();
     setEditing(true);
     // You can navigate to the edit page or display an edit form directly in this component
   };
