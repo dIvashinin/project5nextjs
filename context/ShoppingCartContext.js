@@ -51,7 +51,6 @@ export function ShoppingCartProvider({ children }) {
   );
   const router = useRouter();
 
-  
   const createCheckoutSession = async () => {
     try {
       const { email, name, country, street, apartment, postcode, city, comment } = checkoutDetails;
@@ -180,7 +179,6 @@ export function ShoppingCartProvider({ children }) {
   //         }
   //     })
   // }
-
   function removeFromCart(id, color, size) {
     console.log("id rem:", id);
     console.log("color rem:", color);

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useShoppingCart } from "../context/shoppingCartContext";
 import { useRouter } from "next/router";
+import ProtectedRoute from "./ProtectedRoute";
 
 function SingleProductCard({ product }) {
   const {
@@ -115,6 +116,10 @@ function SingleProductCard({ product }) {
           >
             + add to cart
           </button>
+          <ProtectedRoute>
+        <button>edit</button>
+        <button>delete</button>
+      </ProtectedRoute>
           {/* <button
           className="minus-to-cart-button"
           onClick={() => decreaseCartQuantity(product.id, product, selectedColor, selectedSize)}
