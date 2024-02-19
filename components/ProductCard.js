@@ -42,7 +42,8 @@ function ProductCard({ product }) {
       </p>
       <p data-tag="description">{product.description}</p>
       <ProtectedRoute>
-        <button>update</button>
+        <button>edit</button>
+        <button>delete</button>
       </ProtectedRoute>
       {/* <div> */}
       {/* <button className="add-to-cart-button" onClick={() => increaseCartQuantity(product.id, product)}> */}
