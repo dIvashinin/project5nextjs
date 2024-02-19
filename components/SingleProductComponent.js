@@ -42,9 +42,10 @@ function SingleProductCard({ product }) {
   };
 
   // function for editing
-  const handleEdit = () => {
+  const handleEdit = (e) => {
     e.preventDefault();
     setEditing(true);
+    console.log('editing');
     // You can navigate to the edit page or display an edit form directly in this component
   };
 
