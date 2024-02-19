@@ -49,6 +49,7 @@ function SingleProductCard({ product }) {
   };
 
   // If editing mode is enabled, render an edit form
+  //it's a common approach for conditionally rendering different parts of a component based on its state
   if (editing) {
     return (
       <div>
@@ -71,23 +72,20 @@ function SingleProductCard({ product }) {
             <input
               type="text"
               value={price}
-              // onChange={handlePriceChange}
+              onChange={handlePriceChange}
               placeholder="Price"
             />
             <textarea
               value={description}
-              // onChange={handleDescriptionChange}
+              onChange={handleDescriptionChange}
               placeholder="Description"
             />
             <input type="file" 
-            // onChange={handleImageChange}
+            onChange={handleImageChange}
              />
-            {/* <div id="data"></div> */}
             {/* Additional fields if needed */}
             
           </form>
-
-
       </div>
     );
   }
