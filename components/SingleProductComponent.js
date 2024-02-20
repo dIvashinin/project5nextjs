@@ -41,12 +41,25 @@ function SingleProductCard({ product }) {
     setImageFile(e.target.files[0]);
   };
 
-  // function for editing
-  const handleEdit = (e) => {
-    e.preventDefault();
+  // function to handle editing
+  const handleEdit = () => {
     setEditing(true);
-    console.log('editing');
+    console.log('editing now true');
+  }
+
+  // Function to handle form submission for editing
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    console.log('editing form');
     // You can navigate to the edit page or display an edit form directly in this component
+    try {
+
+    }catch (error) {
+    console.error("Error editing product:", error);
+    // Handle error
+  }
+};
+  
   };
 
   // If editing mode is enabled, render an edit form
