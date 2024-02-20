@@ -23,6 +23,7 @@ function SingleProductCard({ product }) {
   //this one is URL of the file
   const [image, setImage] = useState("");
 
+  //We initialize a state variable showEditForm to false, indicating that the edit form should be hidden initially.
   const [showEditForm, setShowEditForm] = useState(false);
 
   //pls select smth is going to be by default
@@ -50,6 +51,7 @@ function SingleProductCard({ product }) {
   //   console.log('editing now true');
   // }
   
+  //We define a function handleEditToggle that toggles the value of showEditForm between true and false when called.
   const handleEditToggle = () => {
     setShowEditForm(!showEditForm);
   };
@@ -227,9 +229,11 @@ function SingleProductCard({ product }) {
         </div>
 <ProtectedRoute>
         <div className="edit-listing">
+          {/* We apply handleEditToggle as an onClick event handler to the "Edit listing" header (<h4> element) */}
           <h4 onClick={handleEditToggle} style={{ cursor: "pointer" }}
           >Edit listing</h4>
         {/* Render an edit form here */}
+        {/* We conditionally render the edit form (<form>) based on the value of showEditForm. It will only be rendered if showEditForm is true. */}
         {showEditForm && (
       <form className="product-form" onSubmit={handleFormSubmit}>
       <div className="form-group">
