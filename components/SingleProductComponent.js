@@ -60,7 +60,7 @@ function SingleProductCard({ product }) {
   }
 };
   
-  };
+  
 
   // If editing mode is enabled, render an edit form
   //it's a common approach for conditionally rendering different parts of a component based on its state
@@ -69,7 +69,7 @@ function SingleProductCard({ product }) {
       <div>
         {/* Render an edit form here */}
       
-      <form className="product-form" onSubmit={handleEdit}>
+      <form className="product-form" onSubmit={handleFormSubmit}>
             <label> Type
               <select
               onChange={handleTypeChange} 
