@@ -295,6 +295,7 @@ function Dashboard() {
           </ul>
         </div>
         {/* Form for adding a new product */}
+        
         <h3>Add new listing</h3>
         <div className="dashboard-add-new-container">
           {/* <Alert 
@@ -326,10 +327,11 @@ show={showAlert1}
               onChange={handleTypeChange}
               placeholder="Type"
             /> */}
-
-            <label>
-              Type
+            <div className="form-group">
+            <label htmlFor="type">
+              Type: </label>
               <select
+              id="type"
               onChange={handleTypeChange} 
               // value={type}
               >
@@ -343,20 +345,38 @@ show={showAlert1}
                 <option value="option 5">option 5</option>
                 <option value="option 6">option 6</option>
               </select>
-            </label>
-
+              </div>
+            
+              <div className="form-group">
+              <label htmlFor="price">Price:</label>
             <input
+            id="price"
               type="text"
               value={price}
               onChange={handlePriceChange}
               placeholder="Price"
             />
+            </div>
+
+            <div className="form-group">
+      <label htmlFor="description">Description:</label>
             <textarea
+            id="description"
               value={description}
               onChange={handleDescriptionChange}
               placeholder="Description"
             />
-            <input type="file" onChange={handleImageChange} />
+            </div>
+
+            <div className="form-group">
+      <label htmlFor="image">Image:</label>
+            <input 
+            id="image"
+            type="file" 
+            onChange={handleImageChange} 
+            />
+            </div>
+
             <div id="data"></div>
             {/* Additional fields if needed */}
             {/* Submit button */}

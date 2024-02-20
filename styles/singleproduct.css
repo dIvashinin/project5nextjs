@@ -74,20 +74,17 @@
 
 /* EDIT FORM */
 .edit-listing {
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
-
 label {
   display: block;
   margin-bottom: 5px;
 }
-
 input[type="text"],
 textarea,
 select {
@@ -97,8 +94,7 @@ select {
   border-radius: 5px;
   font-size: 16px;
 }
-
-button {
+/* button {
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
@@ -106,11 +102,9 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-
 button:hover {
   background-color: #0056b3;
-}
-
+} */
 
 
 
