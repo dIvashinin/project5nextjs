@@ -23,6 +23,8 @@ function SingleProductCard({ product }) {
   //this one is URL of the file
   const [image, setImage] = useState("");
 
+  const [showEditForm, setShowEditForm] = useState(false);
+
   //pls select smth is going to be by default
   const [selectedColor, setSelectedColor] = useState("option 1");
   const [selectedSize, setSelectedSize] = useState("small");
@@ -48,6 +50,10 @@ function SingleProductCard({ product }) {
   //   console.log('editing now true');
   // }
   
+  const handleEditToggle = () => {
+    setShowEditForm(!showEditForm);
+  };
+
   // Function to handle form submission for editing
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -221,9 +227,10 @@ function SingleProductCard({ product }) {
         </div>
 <ProtectedRoute>
         <div className="edit-listing">
-          <h4>Edit listing</h4>
+          <h4 onClick={handleEditToggle} style={{ cursor: "pointer" }}
+          >Edit listing</h4>
         {/* Render an edit form here */}
-      
+        {showEditForm && (
       <form className="product-form" onSubmit={handleFormSubmit}>
       <div className="form-group">
             <label htmlFor="type">Type: </label>
@@ -271,6 +278,7 @@ function SingleProductCard({ product }) {
             {/* Submit button */}
             <button type="submit">Submit changes</button>
           </form>
+          )}
       </div>
       </ProtectedRoute>
 
