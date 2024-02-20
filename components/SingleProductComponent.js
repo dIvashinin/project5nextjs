@@ -65,46 +65,46 @@ function SingleProductCard({ product }) {
 
   // If editing mode is enabled, render an edit form
   //it's a common approach for conditionally rendering different parts of a component based on its state
-  if (editing) {
-    return (
-      <div>
-        {/* Render an edit form here */}
+  // if (editing) {
+  //   return (
+  //     <div>
+  //       {/* Render an edit form here */}
       
-      <form className="product-form" onSubmit={handleFormSubmit}>
-            <label> Type
-              <select
-              onChange={handleTypeChange} 
-              >
-                <option value="ring">ring</option>
-                <option value="earring">earring</option>
-                <option value="bracelet">bracelet</option>
-                <option value="necklace">necklace</option>
-                <option value="option 5">option 5</option>
-                <option value="option 6">option 6</option>
-              </select>
-            </label>
+  //     <form className="product-form" onSubmit={handleFormSubmit}>
+  //           <label> Type
+  //             <select
+  //             onChange={handleTypeChange} 
+  //             >
+  //               <option value="ring">ring</option>
+  //               <option value="earring">earring</option>
+  //               <option value="bracelet">bracelet</option>
+  //               <option value="necklace">necklace</option>
+  //               <option value="option 5">option 5</option>
+  //               <option value="option 6">option 6</option>
+  //             </select>
+  //           </label>
 
-            <input
-              type="text"
-              value={price}
-              onChange={handlePriceChange}
-              placeholder="Price"
-            />
-            <textarea
-              value={description}
-              onChange={handleDescriptionChange}
-              placeholder="Description"
-            />
-            <input type="file" 
-            onChange={handleImageChange}
-             />
-            {/* Additional fields if needed */}
-            {/* Submit button */}
-            <button type="submit">Submit changes</button>
-          </form>
-      </div>
-    );
-  }
+  //           <input
+  //             type="text"
+  //             value={price}
+  //             onChange={handlePriceChange}
+  //             placeholder="Price"
+  //           />
+  //           <textarea
+  //             value={description}
+  //             onChange={handleDescriptionChange}
+  //             placeholder="Description"
+  //           />
+  //           <input type="file" 
+  //           onChange={handleImageChange}
+  //            />
+  //           {/* Additional fields if needed */}
+  //           {/* Submit button */}
+  //           <button type="submit">Submit changes</button>
+  //         </form>
+  //     </div>
+  //   );
+  // }
 
   
 
@@ -219,6 +219,44 @@ function SingleProductCard({ product }) {
           - remove
         </button> */}
         </div>
+<ProtectedRoute>
+        <div>
+        {/* Render an edit form here */}
+      
+      <form className="product-form" onSubmit={handleFormSubmit}>
+            <label> Type
+              <select
+              onChange={handleTypeChange} 
+              >
+                <option value="ring">ring</option>
+                <option value="earring">earring</option>
+                <option value="bracelet">bracelet</option>
+                <option value="necklace">necklace</option>
+                <option value="option 5">option 5</option>
+                <option value="option 6">option 6</option>
+              </select>
+            </label>
+
+            <input
+              type="text"
+              value={price}
+              onChange={handlePriceChange}
+              placeholder="Price"
+            />
+            <textarea
+              value={description}
+              onChange={handleDescriptionChange}
+              placeholder="Description"
+            />
+            <input type="file" 
+            onChange={handleImageChange}
+             />
+            {/* Additional fields if needed */}
+            {/* Submit button */}
+            <button type="submit">Submit changes</button>
+          </form>
+      </div>
+      </ProtectedRoute>
 
         {/* Display additional images */}
         {product.additionalImages && (
