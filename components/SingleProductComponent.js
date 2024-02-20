@@ -46,7 +46,7 @@ function SingleProductCard({ product }) {
     setEditing(true);
     console.log('editing now true');
   }
-
+  
   // Function to handle form submission for editing
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -59,6 +59,7 @@ function SingleProductCard({ product }) {
     // Handle error
   }
 };
+  
   
   
 
@@ -98,13 +99,14 @@ function SingleProductCard({ product }) {
             onChange={handleImageChange}
              />
             {/* Additional fields if needed */}
-            
+            {/* Submit button */}
+            <button type="submit">Submit changes</button>
           </form>
       </div>
     );
   }
 
-
+  
 
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
