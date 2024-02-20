@@ -13,7 +13,7 @@ function SingleProductCard({ product }) {
   } = useShoppingCart();
 
   //adding EDIT state here
-  const [editing, setEditing] = useState(false);
+  // const [editing, setEditing] = useState(false);
   //i reuse state variables from dashboard (type, price, descr, image etc.)
   const [type, setType] = useState("");
   const [price, setPrice] = useState("");
@@ -41,11 +41,12 @@ function SingleProductCard({ product }) {
     setImageFile(e.target.files[0]);
   };
 
+  // i put edit form under protected route, so no need in this
   // function to handle editing
-  const handleEdit = () => {
-    setEditing(true);
-    console.log('editing now true');
-  }
+  // const handleEdit = () => {
+  //   setEditing(true);
+  //   console.log('editing now true');
+  // }
   
   // Function to handle form submission for editing
   const handleFormSubmit = async (e) => {
@@ -59,9 +60,9 @@ function SingleProductCard({ product }) {
     // Handle error
   }
 };
-  
-  
-  
+   
+  //i simplified my code by simply putting edit form under protected route
+  //so no need in condition check which caused issues!!
 
   // If editing mode is enabled, render an edit form
   //it's a common approach for conditionally rendering different parts of a component based on its state
@@ -107,7 +108,6 @@ function SingleProductCard({ product }) {
   // }
 
   
-
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
     // console.log('e.target.value :>> ', e.target.value);
@@ -208,10 +208,10 @@ function SingleProductCard({ product }) {
           >
             + add to cart
           </button>
-          <ProtectedRoute>
+          {/* <ProtectedRoute>
         <button onClick={handleEdit}>edit</button>
         <button>delete</button>
-      </ProtectedRoute>
+      </ProtectedRoute> */}
           {/* <button
           className="minus-to-cart-button"
           onClick={() => decreaseCartQuantity(product.id, product, selectedColor, selectedSize)}
@@ -220,12 +220,14 @@ function SingleProductCard({ product }) {
         </button> */}
         </div>
 <ProtectedRoute>
-        <div>
+        <div className="edit-listing">
+          <h4>Edit listing</h4>
         {/* Render an edit form here */}
       
       <form className="product-form" onSubmit={handleFormSubmit}>
-            <label> Type
-              <select
+      <div className="form-group">
+            <label htmlFor="type">Type: </label>
+              <select id="type"
               onChange={handleTypeChange} 
               >
                 <option value="ring">ring</option>
@@ -235,22 +237,36 @@ function SingleProductCard({ product }) {
                 <option value="option 5">option 5</option>
                 <option value="option 6">option 6</option>
               </select>
-            </label>
+            {/* </label> */}
+            </div>
 
+            <div className="form-group">
+            <label htmlFor="price">Price: </label>
             <input
+            id="price"
               type="text"
               value={price}
               onChange={handlePriceChange}
               placeholder="Price"
             />
+            </div>
+            <div className="form-group">
+            <label htmlFor="description">Description:</label>
             <textarea
+            id="description"
               value={description}
               onChange={handleDescriptionChange}
               placeholder="Description"
             />
-            <input type="file" 
+            </div>
+            <div className="form-group">
+      <label htmlFor="image">Image:</label>
+            <input 
+            id="image"
+            type="file" 
             onChange={handleImageChange}
              />
+             </div>
             {/* Additional fields if needed */}
             {/* Submit button */}
             <button type="submit">Submit changes</button>
