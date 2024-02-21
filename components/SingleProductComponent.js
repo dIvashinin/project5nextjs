@@ -95,10 +95,17 @@ function SingleProductCard({ product }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        type,
-        price,
-        description,
+        //without any state check, here we need to add everything
+        // type,
+        // price,
+        // description,
         // image: updatedImage,
+         // Include updated type only if it has been modified
+    type: type !== "" ? type : product.type,
+    // Include updated price only if it has been modified
+    price: price !== "" ? price : product.price,
+    // Include updated description only if it has been modified
+    description: description !== "" ? description : product.description,
          // Include updated image URL only if it has been modified
          image: imageFile ? updatedImage : product.image,
       }),
