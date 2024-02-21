@@ -88,11 +88,33 @@ function SingleProductCard({ product }) {
     }
 
 
+     // Step 2: Submit form data to backend
+     const productResponse = await fetch(`/api/${product.id}`, {
+      method: "PUT", // Use PUT method for updating
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        type,
+        price,
+        description,
+        image: updatedImage,
+      }),
+    });
+
+    if (!productResponse.ok) {
+      throw new Error("Failed to update product");
+    }
+
+    console.log('successfully updated');
+
     }catch (error) {
     console.error("Error editing product:", error);
     // Handle error
   }
 };
+
+
    
   //i simplified my code by simply putting edit form under protected route
   //so no need in condition check which caused issues!!
