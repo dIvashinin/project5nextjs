@@ -15,7 +15,7 @@ function SingleProductCard({ product }) {
   //adding EDIT state here
   // const [editing, setEditing] = useState(false);
   //i reuse state variables from dashboard (type, price, descr, image etc.)
-  const [type, setType] = useState("");
+  const [type, setType] = useState("ring");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   //this one is file itself
