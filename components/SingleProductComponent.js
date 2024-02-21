@@ -87,7 +87,6 @@ function SingleProductCard({ product }) {
       updatedImage = imageData.secure_url;
     }
 
-
      // Step 2: Submit form data to backend
      const productResponse = await fetch(`/api/${product.id}`, {
       method: "PUT", // Use PUT method for updating
@@ -100,6 +99,9 @@ function SingleProductCard({ product }) {
         // price,
         // description,
         // image: updatedImage,
+        // The type, price, and description fields are set to their new values only if their 
+        //corresponding state variables are not empty (!== ""). 
+        //This ensures that only modified values are included in the request body.
          // Include updated type only if it has been modified
     type: type !== "" ? type : product.type,
     // Include updated price only if it has been modified
@@ -117,14 +119,12 @@ function SingleProductCard({ product }) {
 
     console.log('successfully updated');
 
-    }catch (error) {
+    } catch (error) {
     console.error("Error editing product:", error);
     // Handle error
   }
 };
-
-
-   
+ 
   //i simplified my code by simply putting edit form under protected route
   //so no need in condition check which caused issues!!
 
@@ -170,8 +170,7 @@ function SingleProductCard({ product }) {
   //     </div>
   //   );
   // }
-
-  
+ 
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
     // console.log('e.target.value :>> ', e.target.value);
