@@ -98,7 +98,9 @@ function SingleProductCard({ product }) {
         type,
         price,
         description,
-        image: updatedImage,
+        // image: updatedImage,
+         // Include updated image URL only if it has been modified
+         image: imageFile ? updatedImage : product.image,
       }),
     });
 
