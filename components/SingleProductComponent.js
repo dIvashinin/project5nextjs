@@ -63,6 +63,31 @@ function SingleProductCard({ product }) {
     // You can navigate to the edit page or display an edit form directly in this component
     try {
 
+      let updatedImage = image; // Assume image URL remains the same by default
+
+    if (imageFile) {
+      const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+      const formData = new FormData();
+      formData.append("file", imageFile);
+      formData.append("upload_preset", "my-moonrubyshop-2");
+
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to upload image to Cloudinary");
+      }
+
+      const imageData = await response.json();
+      updatedImage = imageData.secure_url;
+    }
+
+
     }catch (error) {
     console.error("Error editing product:", error);
     // Handle error
@@ -227,7 +252,7 @@ function SingleProductCard({ product }) {
           - remove
         </button> */}
         </div>
-<ProtectedRoute>
+     <ProtectedRoute>
         <div className="edit-listing">
           {/* We apply handleEditToggle as an onClick event handler to the "Edit listing" header (<h4> element) */}
           <h4 onClick={handleEditToggle} style={{ cursor: "pointer" }}
@@ -236,7 +261,7 @@ function SingleProductCard({ product }) {
         {/* We conditionally render the edit form (<form>) based on the value of showEditForm. It will only be rendered if showEditForm is true. */}
         {showEditForm && (
       <form className="product-form" onSubmit={handleFormSubmit}>
-      <div className="form-group">
+        <div className="form-group">
             <label htmlFor="type">Type: </label>
               <select id="type"
               onChange={handleTypeChange} 
@@ -271,7 +296,7 @@ function SingleProductCard({ product }) {
             />
             </div>
             <div className="form-group">
-      <label htmlFor="image">Image:</label>
+           <label htmlFor="image">Image:</label>
             <input 
             id="image"
             type="file" 
