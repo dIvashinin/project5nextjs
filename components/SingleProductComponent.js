@@ -124,6 +124,17 @@ function SingleProductCard({ product }) {
     }
   };
 
+  const handleDelete = async () => {
+    try {
+      const response = await fetch (`/api/${product.id}`,{
+      method: 'DELETE',
+    });
+
+    
+
+    }
+  }
+
   //i simplified my code by simply putting edit form under protected route
   //so no need in condition check which caused issues!!
 
@@ -330,6 +341,7 @@ function SingleProductCard({ product }) {
                 {/* Additional fields if needed */}
                 {/* Submit button */}
                 <button type="submit">Submit changes</button>
+                <button onClick={handleDelete}>Delete listing</button>
               </form>
             )}
           </div>
