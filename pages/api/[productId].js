@@ -27,7 +27,10 @@ export default async function handler(req, res) {
         console.error('Error updating product:', error);
         res.status(500).json({ error: 'Failed to update product' });
       }
-    } else if (req.method === 'DELETE') {
+    
+    } 
+    //it's a common practice to have multiple handler fuctions within one file for different types of requests
+    else if (req.method === 'DELETE') {
 
     try {
         //creating reference to the specific doc using doc() function
@@ -35,6 +38,7 @@ export default async function handler(req, res) {
         //deleting doc
         await deleteDoc(productDocRef);
         res.status(200).json({message: 'Product deleted'});
+        console.log('deleted!!!!');
     } catch (error) {
         console.error('Error deleting product:', error);
         res.status(500).json({error: 'Failed to delete product'});

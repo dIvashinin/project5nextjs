@@ -129,6 +129,7 @@ function SingleProductCard({ product }) {
       const response = await fetch (`/api/${product.id}`,{
       method: 'DELETE',
     });
+    console.log('deleted!!');
 
     if (!response.ok) {
       throw new Error('failed to delete product');
