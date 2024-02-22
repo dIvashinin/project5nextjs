@@ -50,7 +50,7 @@ function SingleProductCard({ product }) {
   //   setEditing(true);
   //   console.log('editing now true');
   // }
-  
+
   //We define a function handleEditToggle that toggles the value of showEditForm between true and false when called.
   const handleEditToggle = () => {
     setShowEditForm(!showEditForm);
@@ -59,72 +59,71 @@ function SingleProductCard({ product }) {
   // Function to handle form submission for editing
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log('editing form');
+    console.log("editing form");
     // You can navigate to the edit page or display an edit form directly in this component
     try {
-
       let updatedImage = image; // Assume image URL remains the same by default
 
-    if (imageFile) {
-      const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-      const formData = new FormData();
-      formData.append("file", imageFile);
-      formData.append("upload_preset", "my-moonrubyshop-2");
+      if (imageFile) {
+        const cloudinaryCloudName =
+          process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+        const formData = new FormData();
+        formData.append("file", imageFile);
+        formData.append("upload_preset", "my-moonrubyshop-2");
 
-      const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`,
-        {
-          method: "POST",
-          body: formData,
+        const response = await fetch(
+          `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to upload image to Cloudinary");
         }
-      );
 
-      if (!response.ok) {
-        throw new Error("Failed to upload image to Cloudinary");
+        const imageData = await response.json();
+        updatedImage = imageData.secure_url;
       }
 
-      const imageData = await response.json();
-      updatedImage = imageData.secure_url;
-    }
+      // Step 2: Submit form data to backend
+      const productResponse = await fetch(`/api/${product.id}`, {
+        method: "PUT", // Use PUT method for updating
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          //without any state check, here we need to add everything
+          // type,
+          // price,
+          // description,
+          // image: updatedImage,
+          // The type, price, and description fields are set to their new values only if their
+          //corresponding state variables are not empty (!== "").
+          //This ensures that only modified values are included in the request body.
+          // Include updated type only if it has been modified
+          type: type !== "" ? type : product.type,
+          // Include updated price only if it has been modified
+          price: price !== "" ? price : product.price,
+          // Include updated description only if it has been modified
+          description: description !== "" ? description : product.description,
+          // Include updated image URL only if it has been modified
+          image: imageFile ? updatedImage : product.image,
+        }),
+      });
 
-     // Step 2: Submit form data to backend
-     const productResponse = await fetch(`/api/${product.id}`, {
-      method: "PUT", // Use PUT method for updating
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        //without any state check, here we need to add everything
-        // type,
-        // price,
-        // description,
-        // image: updatedImage,
-        // The type, price, and description fields are set to their new values only if their 
-        //corresponding state variables are not empty (!== ""). 
-        //This ensures that only modified values are included in the request body.
-         // Include updated type only if it has been modified
-    type: type !== "" ? type : product.type,
-    // Include updated price only if it has been modified
-    price: price !== "" ? price : product.price,
-    // Include updated description only if it has been modified
-    description: description !== "" ? description : product.description,
-         // Include updated image URL only if it has been modified
-         image: imageFile ? updatedImage : product.image,
-      }),
-    });
+      if (!productResponse.ok) {
+        throw new Error("Failed to update product");
+      }
 
-    if (!productResponse.ok) {
-      throw new Error("Failed to update product");
-    }
-
-    console.log('successfully updated');
-
+      console.log("successfully updated");
     } catch (error) {
-    console.error("Error editing product:", error);
-    // Handle error
-  }
-};
- 
+      console.error("Error editing product:", error);
+      // Handle error
+    }
+  };
+
   //i simplified my code by simply putting edit form under protected route
   //so no need in condition check which caused issues!!
 
@@ -134,11 +133,11 @@ function SingleProductCard({ product }) {
   //   return (
   //     <div>
   //       {/* Render an edit form here */}
-      
+
   //     <form className="product-form" onSubmit={handleFormSubmit}>
   //           <label> Type
   //             <select
-  //             onChange={handleTypeChange} 
+  //             onChange={handleTypeChange}
   //             >
   //               <option value="ring">ring</option>
   //               <option value="earring">earring</option>
@@ -160,7 +159,7 @@ function SingleProductCard({ product }) {
   //             onChange={handleDescriptionChange}
   //             placeholder="Description"
   //           />
-  //           <input type="file" 
+  //           <input type="file"
   //           onChange={handleImageChange}
   //            />
   //           {/* Additional fields if needed */}
@@ -170,7 +169,7 @@ function SingleProductCard({ product }) {
   //     </div>
   //   );
   // }
- 
+
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
     // console.log('e.target.value :>> ', e.target.value);
@@ -282,64 +281,59 @@ function SingleProductCard({ product }) {
           - remove
         </button> */}
         </div>
-     <ProtectedRoute>
-        <div className="edit-listing">
-          {/* We apply handleEditToggle as an onClick event handler to the "Edit listing" header (<h4> element) */}
-          <h4 onClick={handleEditToggle} style={{ cursor: "pointer" }}
-          >Edit listing</h4>
-        {/* Render an edit form here */}
-        {/* We conditionally render the edit form (<form>) based on the value of showEditForm. It will only be rendered if showEditForm is true. */}
-        {showEditForm && (
-      <form className="product-form" onSubmit={handleFormSubmit}>
-        <div className="form-group">
-            <label htmlFor="type">Type: </label>
-              <select id="type"
-              onChange={handleTypeChange} 
-              >
-                <option value="ring">ring</option>
-                <option value="earring">earring</option>
-                <option value="bracelet">bracelet</option>
-                <option value="necklace">necklace</option>
-                <option value="option 5">option 5</option>
-                <option value="option 6">option 6</option>
-              </select>
-            {/* </label> */}
-            </div>
+        <ProtectedRoute>
+          <div className="edit-listing">
+            {/* We apply handleEditToggle as an onClick event handler to the "Edit listing" header (<h4> element) */}
+            <h4 onClick={handleEditToggle} style={{ cursor: "pointer" }}>
+              Edit listing
+            </h4>
+            {/* Render an edit form here */}
+            {/* We conditionally render the edit form (<form>) based on the value of showEditForm. It will only be rendered if showEditForm is true. */}
+            {showEditForm && (
+              <form className="product-form" onSubmit={handleFormSubmit}>
+                <div className="form-group">
+                  <label htmlFor="type">Type: </label>
+                  <select id="type" onChange={handleTypeChange}>
+                    <option value="ring">ring</option>
+                    <option value="earring">earring</option>
+                    <option value="bracelet">bracelet</option>
+                    <option value="necklace">necklace</option>
+                    <option value="option 5">option 5</option>
+                    <option value="option 6">option 6</option>
+                  </select>
+                  {/* </label> */}
+                </div>
 
-            <div className="form-group">
-            <label htmlFor="price">Price: </label>
-            <input
-            id="price"
-              type="text"
-              value={price}
-              onChange={handlePriceChange}
-              placeholder="Price"
-            />
-            </div>
-            <div className="form-group">
-            <label htmlFor="description">Description:</label>
-            <textarea
-            id="description"
-              value={description}
-              onChange={handleDescriptionChange}
-              placeholder="Description"
-            />
-            </div>
-            <div className="form-group">
-           <label htmlFor="image">Image:</label>
-            <input 
-            id="image"
-            type="file" 
-            onChange={handleImageChange}
-             />
-             </div>
-            {/* Additional fields if needed */}
-            {/* Submit button */}
-            <button type="submit">Submit changes</button>
-          </form>
-          )}
-      </div>
-      </ProtectedRoute>
+                <div className="form-group">
+                  <label htmlFor="price">Price: </label>
+                  <input
+                    id="price"
+                    type="text"
+                    value={price}
+                    onChange={handlePriceChange}
+                    placeholder="Price"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="description">Description:</label>
+                  <textarea
+                    id="description"
+                    value={description}
+                    onChange={handleDescriptionChange}
+                    placeholder="Description"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="image">Image:</label>
+                  <input id="image" type="file" onChange={handleImageChange} />
+                </div>
+                {/* Additional fields if needed */}
+                {/* Submit button */}
+                <button type="submit">Submit changes</button>
+              </form>
+            )}
+          </div>
+        </ProtectedRoute>
 
         {/* Display additional images */}
         {product.additionalImages && (
