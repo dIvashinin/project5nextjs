@@ -130,10 +130,17 @@ function SingleProductCard({ product }) {
       method: 'DELETE',
     });
 
-    
-
+    if (!response.ok) {
+      throw new Error('failed to delete product');
     }
-  }
+
+    //in case this product is in shopping cart, delete it
+    removeFromCart(product.id);
+    
+    } catch (error) {
+      console.error('Error deleting product:', error);
+    }
+  };
 
   //i simplified my code by simply putting edit form under protected route
   //so no need in condition check which caused issues!!
