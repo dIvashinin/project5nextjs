@@ -7,12 +7,15 @@ import {
   signOut
 } from "firebase/auth";
 import { app, auth } from "../config/firebaseConfig";
+import Alert from "react-bootstrap/Alert";
 const shopBanner = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg"
 
 function Login() {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
+  const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -44,7 +47,7 @@ function Login() {
   const handleLogin = async (e) => {
     //never forgetting to prevent this refresh default behaviour!
     e.preventDefault();
-    console.log("email, password :>> ", email, password);
+    // console.log("email, password :>> ", email, password);
 
     const auth = getAuth();
     // console.log('auth :>> ', auth);
@@ -57,7 +60,8 @@ function Login() {
           );
           // Signed in
           const user = userCredential.user;
-          alert("successfully logged in!");
+          // alert("successfully logged in!");
+          setShowAlert1(true);
           // Reset input fields
             setEmail(() => "");
             setPassword(() => "");
@@ -92,7 +96,8 @@ signOut(auth).then(() => {
     setPassword(() => "");
     // setEmail("");
     // setPassword("");
-    alert("you are logged out");
+    // alert("you are logged out");
+    setShowAlert2(true);
   // Sign-out successful.
 }).catch((error) => {
     console.log('error signing out :>> ', error);
@@ -110,6 +115,25 @@ signOut(auth).then(() => {
       </div>
     <div className="login-container">
       <h2 data-tag="login">Login</h2>
+
+      <Alert
+            variant="success" 
+            show={showAlert1}
+            onClose={() => setShowAlert1(false)}
+            dismissible
+          >
+            Congrats! You are logged in!
+          </Alert>
+
+          <Alert
+            variant="success" 
+            show={showAlert2}
+            onClose={() => setShowAlert2(false)}
+            dismissible
+          >
+            You are now logged out!
+          </Alert>
+
       <form data-tag="submit-login-form" onSubmit={handleLogin}>
         <input data-tag="input-email"
           type="text"
