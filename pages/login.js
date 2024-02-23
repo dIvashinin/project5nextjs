@@ -117,9 +117,6 @@ signOut(auth).then(() => {
 });
 }
 
-
-  
-
   return (
     <div>
       <h3 data-tag="top-about-empty-space"></h3>
