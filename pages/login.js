@@ -105,6 +105,15 @@ signOut(auth).then(() => {
 });
 }
 
+// Function to show the alert and automatically hide it after a few seconds
+const showAlertAndHide = (setShowAlert) => {
+  setShowAlert(true); // Show the alert
+
+   // Automatically hide the alert after 3000 milliseconds (3 seconds)
+   setTimeout(() => {
+    setShowAlert(false);
+  }, 3000);
+};
   
 
   return (
