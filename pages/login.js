@@ -17,6 +17,16 @@ function Login() {
   const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
+  // Function to show the alert and automatically hide it after a few seconds
+const showAlertAndHide = (setShowAlert1) => {
+  setShowAlert1(true); // Show the alert
+
+   // Automatically hide the alert after 3000 milliseconds (3 seconds)
+   setTimeout(() => {
+    setShowAlert1(false);
+  }, 3000);
+};
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
     // console.log('email :>> ', email);
@@ -98,6 +108,7 @@ signOut(auth).then(() => {
     // setPassword("");
     // alert("you are logged out");
     setShowAlert2(true);
+    showAlertAndHide(setShowAlert1); // For showAlert1
   // Sign-out successful.
 }).catch((error) => {
     console.log('error signing out :>> ', error);
@@ -105,15 +116,7 @@ signOut(auth).then(() => {
 });
 }
 
-// Function to show the alert and automatically hide it after a few seconds
-const showAlertAndHide = (setShowAlert) => {
-  setShowAlert(true); // Show the alert
 
-   // Automatically hide the alert after 3000 milliseconds (3 seconds)
-   setTimeout(() => {
-    setShowAlert(false);
-  }, 3000);
-};
   
 
   return (
