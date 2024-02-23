@@ -18,12 +18,12 @@ function Login() {
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
   // Function to show the alert and automatically hide it after a few seconds
-const showAlertAndHide = (setShowAlert1) => {
-  setShowAlert1(true); // Show the alert
+const showAlertAndHide = (setShowAlert) => {
+  setShowAlert(true); // Show the alert
 
    // Automatically hide the alert after 3000 milliseconds (3 seconds)
    setTimeout(() => {
-    setShowAlert1(false);
+    setShowAlert(false);
   }, 3000);
 };
 
@@ -72,6 +72,7 @@ const showAlertAndHide = (setShowAlert1) => {
           const user = userCredential.user;
           // alert("successfully logged in!");
           setShowAlert1(true);
+          showAlertAndHide(setShowAlert1); // For showAlert1
           // Reset input fields
             setEmail(() => "");
             setPassword(() => "");
@@ -108,7 +109,7 @@ signOut(auth).then(() => {
     // setPassword("");
     // alert("you are logged out");
     setShowAlert2(true);
-    showAlertAndHide(setShowAlert1); // For showAlert1
+    showAlertAndHide(setShowAlert2); // For showAlert2
   // Sign-out successful.
 }).catch((error) => {
     console.log('error signing out :>> ', error);
