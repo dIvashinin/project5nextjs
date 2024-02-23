@@ -319,6 +319,15 @@ function SingleProductCard({ product }) {
             Congrats! Product edited successfully!
           </Alert>
 
+          <Alert
+            variant="success" 
+            show={showAlert2}
+            onClose={() => setShowAlert2(false)}
+            dismissible
+          >
+            Congrats! Product deleted successfully!
+          </Alert>
+
           <div className="edit-listing">
             {/* We apply handleEditToggle as an onClick event handler to the "Edit listing" header (<h4> element) */}
             <h4 onClick={handleEditToggle} style={{ cursor: "pointer" }}>
