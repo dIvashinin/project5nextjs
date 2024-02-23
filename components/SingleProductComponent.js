@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useShoppingCart } from "../context/shoppingCartContext";
 import { useRouter } from "next/router";
 import ProtectedRoute from "./ProtectedRoute";
+import Alert from "react-bootstrap/Alert";
 
 function SingleProductCard({ product }) {
   const {
@@ -29,6 +30,9 @@ function SingleProductCard({ product }) {
   //pls select smth is going to be by default
   const [selectedColor, setSelectedColor] = useState("option 1");
   const [selectedSize, setSelectedSize] = useState("small");
+  
+  const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
+  const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
   //reuse from dashboard
   const handleTypeChange = (e) => {
@@ -112,14 +116,15 @@ function SingleProductCard({ product }) {
           image: imageFile ? updatedImage : product.image,
         }),
       });
-
+      console.log("successfully updated");
+      setShowAlert1(true);
       if (!productResponse.ok) {
         throw new Error("Failed to update product");
       }
-
-      console.log("successfully updated");
+      
     } catch (error) {
       console.error("Error editing product:", error);
+      setShowAlert1(false);
       // Handle error
     }
   };
@@ -130,9 +135,11 @@ function SingleProductCard({ product }) {
       method: 'DELETE',
     });
     console.log('deleted!!');
+    setShowAlert2(true);
 
     if (!response.ok) {
       throw new Error('failed to delete product');
+      
     }
 
     //in case this product is in shopping cart, delete it
@@ -140,6 +147,7 @@ function SingleProductCard({ product }) {
     
     } catch (error) {
       console.error('Error deleting product:', error);
+      setShowAlert2(false);
     }
   };
 
