@@ -6,8 +6,6 @@ import ProtectedRoute from './ProtectedRoute';
 
 const cartIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
 
-
-
 function NavBar() {
   const {openCart, cartQuantity} = useShoppingCart()
   return (
@@ -25,16 +23,13 @@ function NavBar() {
             <Link href='/dashboard'>dashboard</Link> {}
             </ProtectedRoute>
             <button className="product-cart" onClick={openCart}>
-            
             <img className="cart-icon-svg" src={cartIconLink} alt="Cart" />
             <div className="inside-cart-number-products">
               {cartQuantity}
               </div>
-            </button>
-            
+            </button>   
         </nav>
     </div>
   )
 }
-
-export default NavBar
+export default NavBar;
