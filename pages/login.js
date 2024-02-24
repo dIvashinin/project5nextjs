@@ -140,7 +140,7 @@ function Login() {
         </Alert>
 
         <Alert
-          variant="success"
+          variant="info"
           show={showAlert2}
           onClose={() => setShowAlert2(false)}
           dismissible

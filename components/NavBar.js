@@ -2,6 +2,7 @@ import React from 'react';
 import Link from "next/link";
 import Search from "../components/Search";
 import { useShoppingCart } from '../context/shoppingCartContext';
+import ProtectedRoute from './ProtectedRoute';
 
 const cartIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
 
@@ -20,6 +21,9 @@ function NavBar() {
             <Link href='/'>home</Link> {} 
             <Link href='/about'>about</Link> {} 
             <Link href='/login'>login</Link> {}
+            <ProtectedRoute>
+            <Link href='/dashboard'>dashboard</Link> {}
+            </ProtectedRoute>
             <button className="product-cart" onClick={openCart}>
             
             <img className="cart-icon-svg" src={cartIconLink} alt="Cart" />
