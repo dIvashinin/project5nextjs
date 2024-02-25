@@ -8,7 +8,8 @@
   margin: 2px;
   padding: 2px;
 }
-.dashboard-add-new-container, .dashboard-inner-separate-order-container{
+.dashboard-add-new-container, 
+.dashboard-inner-separate-order-container{
   border: 1px solid #c88888;
   margin: 2px;
   padding: 8px;

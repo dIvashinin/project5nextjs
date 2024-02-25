@@ -3,7 +3,6 @@ import ProtectedRoute from "../components/ProtectedRoute";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import Alert from "react-bootstrap/Alert";
-
 // import handleUpload from './api/upload';
 // import handleAddProduct from './api/products';
 
@@ -359,7 +358,7 @@ show={showAlert1}
             </div>
 
             <div className="form-group">
-      <label htmlFor="description">Description:</label>
+            <label htmlFor="description">Description:</label>
             <textarea
             id="description"
               value={description}
@@ -369,7 +368,7 @@ show={showAlert1}
             </div>
 
             <div className="form-group">
-      <label htmlFor="image">Image:</label>
+            <label htmlFor="image">Image:</label>
             <input 
             id="image"
             type="file" 
