@@ -41,7 +41,12 @@ function Dashboard() {
   //no need to use the handleUpload function in the client-side code.
   //Instead, -directly set the image state with the selected file.
   const handleImageChange = (e) => {
-    setImageFile(e.target.files[0]);
+    // setImageFile(e.target.files[0]);
+
+    //let's try to to capture multiple selected files
+    const selectedFiles = Array.from(e.target.files);  // Convert FileList to array
+    setImageFile(selectedFiles);  // Store selected files in state
+
     // console.log('e.target.files[0] :>> ', e.target.files[0]);
   };
 
@@ -373,6 +378,7 @@ show={showAlert1}
             id="image"
             type="file" 
             onChange={handleImageChange} 
+            multiple  // Allow multiple file selection
             />
             </div>
 
