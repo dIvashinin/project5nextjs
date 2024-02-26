@@ -8,10 +8,12 @@ export default async function handleAddProduct(req, res) {
   if (req.method === "POST") {
     try {
       // Extract product data from the request body
-      const { type, price, description, image } = req.body;
+      const { type, price, description, 
+        // image,
+      images } = req.body;
       console.log("type :>> ", type);
       // Validate that required fields are present
-      if (!type || !price || !description || !image) {
+      if (!type || !price || !description || !images) {
         console.log("u need to fill in all :>> ");
         // return res
         //   .status(400)
@@ -20,11 +22,12 @@ export default async function handleAddProduct(req, res) {
         //   });
       }
       // Add the product to Firestore
-      const docRef = await addDoc(collection(db, "products"), {
+      const docRef = await addDoc(collection(db, "products2"), {
         type,
         price,
         description,
-        image,
+        // image,
+        images: uploadedImageURLs,
         // Add other fields as needed
       });
 
