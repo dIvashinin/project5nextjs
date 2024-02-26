@@ -31,7 +31,7 @@ function ProductCard({ product }) {
     <div>
       <Link href={`/product/${product.id}`}>
         <a>
-          <img src={product.image}></img>
+          <img src={product.image[0]}/> 
         </a>
       </Link>
       <p data-tag="type">

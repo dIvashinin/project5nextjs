@@ -229,7 +229,7 @@ function Dashboard() {
           price,
           description,
           // image: imageData.secure_url, // Use the image URL from Cloudinary
-          images: imageUrls, // Use the URLs of uploaded images
+          image: imageUrls, // Use the URLs of uploaded images
         }),
       });
 

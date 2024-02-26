@@ -11,16 +11,18 @@ const shopBanner =
 
 export const getStaticProps = async () => {
   try {
-    const productsSnapshot = await getDocs(collection(db, "products"));
+    const productsSnapshot = await getDocs(collection(db, "products2"));
     const products = [];
     productsSnapshot.forEach((doc) => {
       // console.log(`${doc.id} => ${doc.data().description}`);
+      const imageUrls = doc.data().image;
+      // || [];
       products.push({
         id: doc.id,
         type: doc.data().type,
         price: doc.data().price,
         description: doc.data().description,
-        image: doc.data().image,
+        image: imageUrls,
       });
       // console.log('products :>> ', products);
     });
