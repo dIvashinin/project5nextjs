@@ -189,9 +189,17 @@ function Dashboard() {
     try {
       // Upload image to Cloudinary
       const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-      const formData = new FormData();
-      formData.append("file", imageFile);
-      console.log("imageFile :>> ", imageFile);
+      // We create a FormData object to store multiple files.
+      const formData = new FormData(); //same for single
+      // formData.append("file", imageFile);//this was for single
+
+      // here modification for multiple upload
+      // Append each selected file to the FormData object using a loop
+  imageFile.forEach((file) => {
+    formData.append("file", file);
+  });
+
+      // console.log("imageFile :>> ", imageFile);
       formData.append("upload_preset", "my-moonrubyshop-2");
 
       const response = await fetch(
@@ -202,10 +210,13 @@ function Dashboard() {
         }
       );
       if (!response.ok) {
-        throw new Error("Failed to upload image to Cloudinary");
+        throw new Error("Failed to upload image (-s) to Cloudinary");
       }
       const imageData = await response.json();
-      setImage(imageData.secure_url);
+      // setImage(imageData.secure_url);
+
+      // Extract URLs of uploaded images
+  const imageUrls = imageFile.map((file) => imageData.secure_url);
 
       // Submit form data to backend
       const productResponse = await fetch("/api/products", {
@@ -217,7 +228,8 @@ function Dashboard() {
           type,
           price,
           description,
-          image: imageData.secure_url, // Use the image URL from Cloudinary
+          // image: imageData.secure_url, // Use the image URL from Cloudinary
+          images: imageUrls, // Use the URLs of uploaded images
         }),
       });
 

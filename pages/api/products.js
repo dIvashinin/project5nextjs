@@ -27,7 +27,7 @@ export default async function handleAddProduct(req, res) {
         price,
         description,
         // image,
-        images: uploadedImageURLs,
+        images: images,
         // Add other fields as needed
       });
 
