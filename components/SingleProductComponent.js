@@ -253,10 +253,15 @@ function SingleProductCard({ product }) {
             </Link>
           </div>
           {/* 
-          The main image is displayed in a column that occupies half of the width on medium and larger screens (col-md-6).
-The smaller images are displayed in a separate column, each occupying one-third of the width on medium and larger screens (col-md-4).
-The slice(0, 5) method is used to select the first 5 images from the product.image array, excluding the main image.
-The map function is used to iterate over the selected images and render them as <img> elements within Bootstrap columns. Each image is assigned the class gallery-image.
+          The main image is displayed in a column that occupies half of the width 
+            on medium and larger screens (col-md-6).
+          The smaller images are displayed in a separate column, each occupying 
+           one-third of the width on medium and larger screens (col-md-4).
+          The slice(0, 5) method is used to select the first 5 images 
+           from the product.image array, excluding the main image.
+          The map function is used to iterate over the selected images 
+           and render them as <img> elements within Bootstrap columns. 
+          Each image is assigned the class gallery-image.
           */}
           <div className="col-md-6">
             <div className="row">
@@ -274,8 +279,6 @@ The map function is used to iterate over the selected images and render them as 
       {/* </div> */}
     {/* </div> */}
 
-
-
 {/* this on was old only for one image */}
          {/* <Link href={`/product/${product.id}`}> */}
            {/* <a> */}
@@ -288,8 +291,8 @@ The map function is used to iterate over the selected images and render them as 
          {/* <h5>{product.type}</h5> */}
         {/* <p>{product.description}</p> */}
          {/* <p>price: {product.price}&euro;</p> */}
-
         {/* Additional options for the single product page */}
+
         <div>
           <label>
             Color option:
