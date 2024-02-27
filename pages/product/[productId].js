@@ -198,8 +198,10 @@ function SingleProduct({ product }) {
         type: productData.type,
         price: productData.price,
         description: productData.description,
-        image: productData.image[1],
+        //in this case image contains an array
+        image: productData.image,
       };
+      console.log('product :>> ', product);
   
       return {
         props: { product },

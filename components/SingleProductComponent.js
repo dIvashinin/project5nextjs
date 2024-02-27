@@ -243,7 +243,10 @@ function SingleProductCard({ product }) {
         </div>
         <Link href={`/product/${product.id}`}>
           <a>
-            <img src={product.image} alt={product.type} />
+            {/* so when i changed how i treat 'image' inside [productId] - 
+            as an array, product now contains 'image' field as an array of urls!
+            */}
+            <img src={product.image[5]} alt={product.type} />
           </a>
         </Link>
         <h5>{product.type}</h5>
