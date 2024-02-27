@@ -252,6 +252,12 @@ function SingleProductCard({ product }) {
               </a>
             </Link>
           </div>
+          {/* 
+          The main image is displayed in a column that occupies half of the width on medium and larger screens (col-md-6).
+The smaller images are displayed in a separate column, each occupying one-third of the width on medium and larger screens (col-md-4).
+The slice(0, 5) method is used to select the first 5 images from the product.image array, excluding the main image.
+The map function is used to iterate over the selected images and render them as <img> elements within Bootstrap columns. Each image is assigned the class gallery-image.
+          */}
           <div className="col-md-6">
             <div className="row">
               {product.image.slice(0, 5).map((imageUrl, index) => (
