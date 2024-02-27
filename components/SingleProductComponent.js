@@ -47,6 +47,11 @@ function SingleProductCard({ product }) {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? product.image.length - 1 : prevIndex - 1));
   };
 
+  // Function to handle click on thumbnail images
+  const handleThumbnailClick = (index) => {
+    setCurrentIndex(index);
+  };
+
   //reuse from dashboard
   const handleTypeChange = (e) => {
     setType(e.target.value);
@@ -263,14 +268,29 @@ function SingleProductCard({ product }) {
           <div className="carousel-controls">
             {/* Previous button */}
             <button className="prev-btn" onClick={handlePrevClick}>
-              Previous
+              previous
             </button>
             {/* Next button */}
             <button className="next-btn" onClick={handleNextClick}>
-              Next
+              next
             </button>
           </div>
         </div>
+
+        {/* here the part of clickable thumbnails */}
+        <div className="thumbnail-container">
+          {/* Display thumbnail images */}
+          {product.image.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={product.type}
+              className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
+              onClick={() => handleThumbnailClick(index)}
+            />
+          ))}
+        </div>
+
 
         {/* here goes a new part of rendering 6 images */}
         {/* <div className="row">
