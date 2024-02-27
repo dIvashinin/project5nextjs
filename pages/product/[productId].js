@@ -183,7 +183,7 @@ function SingleProduct({ product }) {
   export const getServerSideProps = async (context) => {
     try {
       const productId = context.params.productId;
-      const productDoc = await getDoc(doc(db, "products", productId));
+      const productDoc = await getDoc(doc(db, "products2", productId));
       const productData = productDoc.data();
   
       // Check if the product exists
@@ -198,7 +198,7 @@ function SingleProduct({ product }) {
         type: productData.type,
         price: productData.price,
         description: productData.description,
-        image: productData.image,
+        image: productData.image[1],
       };
   
       return {
