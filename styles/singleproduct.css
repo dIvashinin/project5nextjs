@@ -24,6 +24,8 @@
 }
 .thumbnail-image{
   border: 1px solid #f8a3e8;
+  padding: 1px;
+  margin: 10px;
 }
 
 .outer-container-for-single-product {

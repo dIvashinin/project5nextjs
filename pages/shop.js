@@ -18,6 +18,7 @@ export const getStaticProps = async () => {
       // const imageUrls = doc.data().image;
       const imageUrls = Array.isArray(doc.data().image) ? doc.data().image : [doc.data().image];
       console.log('doc.data().image :>> ', doc.data().image);
+      console.log('imageUrls inside shop.js :>> ', imageUrls);
       // || [];
       products.push({
         id: doc.id,
@@ -26,7 +27,8 @@ export const getStaticProps = async () => {
         description: doc.data().description,
         image: imageUrls,
       });
-      console.log('products :>> ', products);
+      // console.log('image inside shop.js :>> ', image);
+      // console.log('products :>> ', products);
     });
 
     const reviewsSnapshot = await getDocs(collection(db, "reviews"));

@@ -30,7 +30,7 @@ export default async function handleAddProduct(req, res) {
         image: image,
         // Add other fields as needed
       });
-
+      console.log('image inside products.js :>> ', image);
       // Respond with the ID of the added product
       res.status(201).json({ productId: docRef.id });
     } catch (error) {

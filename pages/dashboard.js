@@ -12,7 +12,7 @@ function Dashboard() {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   //this one is file itself
-  const [imageFile, setImageFile] = useState("");
+  const [imageFile, setImageFile] = useState([]);
   //this one is URL of the file
   const [image, setImage] = useState("");
   const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
@@ -45,8 +45,8 @@ function Dashboard() {
 
     //let's try to to capture multiple selected files
     const selectedFiles = Array.from(e.target.files);  // Convert FileList to array
-    setImageFile(selectedFiles);  // Store selected files in state
-
+    // setImageFile(selectedFiles);  // Store selected files in state
+    setImageFile(prevFiles => [...prevFiles, ...selectedFiles]); // Concatenate with existing files
     // console.log('e.target.files[0] :>> ', e.target.files[0]);
   };
 
@@ -195,28 +195,32 @@ function Dashboard() {
 
       // here modification for multiple upload
       // Append each selected file to the FormData object using a loop
-  imageFile.forEach((file) => {
-    formData.append("file", file);
+  imageFile.forEach((file, index) => {
+    formData.append(`file${index}`, file); // Append each file with a unique key
   });
-
+  // console.log('file :>> ', file);
       // console.log("imageFile :>> ", imageFile);
       formData.append("upload_preset", "my-moonrubyshop-2");
 
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`,
+        // let's try 'auto' instead of 'image': this will utomatically check what is being uploaded
+        `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/auto/upload`,
         {
           method: "POST",
           body: formData,
         }
+        
       );
       if (!response.ok) {
         throw new Error("Failed to upload image (-s) to Cloudinary");
       }
       const imageData = await response.json();
       // setImage(imageData.secure_url);
+      console.log('formData :>> ', formData);
+      console.log('imageData :>> ', imageData);
 
       // Extract URLs of uploaded images
-  const imageUrls = imageFile.map((file) => imageData.secure_url);
+      const imageUrls = Object.keys(imageData).map((key) => imageData[key].secure_url);
 
       // Submit form data to backend
       const productResponse = await fetch("/api/products", {
