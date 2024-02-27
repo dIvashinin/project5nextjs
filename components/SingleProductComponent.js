@@ -34,6 +34,19 @@ function SingleProductCard({ product }) {
   const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
+  // State to track the index of the currently displayed image
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Function to handle click on "next" button
+  const handleNextClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === product.image.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  // Function to handle click on "previous" button
+  const handlePrevClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? product.image.length - 1 : prevIndex - 1));
+  };
+
   //reuse from dashboard
   const handleTypeChange = (e) => {
     setType(e.target.value);
@@ -242,16 +255,32 @@ function SingleProductCard({ product }) {
           </Link>
         </div>
 
+        {/* carousel instead of rendering 6 images */}
+
+        <div className="carousel-container">
+          {/* Display the current image */}
+          <img src={product.image[currentIndex]} alt={product.type} className="main-image" />
+          <div className="carousel-controls">
+            {/* Previous button */}
+            <button className="prev-btn" onClick={handlePrevClick}>
+              Previous
+            </button>
+            {/* Next button */}
+            <button className="next-btn" onClick={handleNextClick}>
+              Next
+            </button>
+          </div>
+        </div>
 
         {/* here goes a new part of rendering 6 images */}
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-6">
             <Link href={`/product/${product.id}`}>
               <a>
                 <img src={product.image[5]} alt={product.type} className="main-image" />
               </a>
             </Link>
-          </div>
+          </div> */}
           {/* 
           The main image is displayed in a column that occupies half of the width 
             on medium and larger screens (col-md-6).
@@ -263,16 +292,16 @@ function SingleProductCard({ product }) {
            and render them as <img> elements within Bootstrap columns. 
           Each image is assigned the class gallery-image.
           */}
-          <div className="col-md-6">
+          {/* <div className="col-md-6">
             <div className="row">
               {product.image.slice(0, 5).map((imageUrl, index) => (
                 <div className="col-md-4" key={index}>
                   <img src={imageUrl} alt={product.type} className="gallery-image" />
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
+              ))} */}
+            {/* </div> */}
+          {/* </div> */}
+        {/* </div> */}
         <h5>{product.type}</h5>
         <p>{product.description}</p>
         <p>Price: {product.price}&euro;</p>
