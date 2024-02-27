@@ -14,6 +14,7 @@ function ProductCard({ product }) {
   } = useShoppingCart();
   const products = useProduct();
   console.log("products :>> ", products);
+  // console.log('product :>> ', product);
   // Check if product is defined
   if (!product) {
     return <p></p>; // or handle the case where product is not available
@@ -31,7 +32,8 @@ function ProductCard({ product }) {
     <div>
       <Link href={`/product/${product.id}`}>
         <a>
-          <img src={product.image[0]}/> 
+          {/* here we select which image is gonna be rendered on main shop page */}
+          <img src={product.image[5]}/> 
         </a>
       </Link>
       <p data-tag="type">

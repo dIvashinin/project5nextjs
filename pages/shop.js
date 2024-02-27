@@ -15,7 +15,9 @@ export const getStaticProps = async () => {
     const products = [];
     productsSnapshot.forEach((doc) => {
       // console.log(`${doc.id} => ${doc.data().description}`);
-      const imageUrls = doc.data().image;
+      // const imageUrls = doc.data().image;
+      const imageUrls = Array.isArray(doc.data().image) ? doc.data().image : [doc.data().image];
+      console.log('doc.data().image :>> ', doc.data().image);
       // || [];
       products.push({
         id: doc.id,
@@ -24,7 +26,7 @@ export const getStaticProps = async () => {
         description: doc.data().description,
         image: imageUrls,
       });
-      // console.log('products :>> ', products);
+      console.log('products :>> ', products);
     });
 
     const reviewsSnapshot = await getDocs(collection(db, "reviews"));

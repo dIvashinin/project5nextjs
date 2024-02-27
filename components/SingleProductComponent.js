@@ -243,7 +243,7 @@ function SingleProductCard({ product }) {
         </div>
         <Link href={`/product/${product.id}`}>
           <a>
-            <img src={product.image[2]} alt={product.type} />
+            <img src={product.image} alt={product.type} />
           </a>
         </Link>
         <h5>{product.type}</h5>
