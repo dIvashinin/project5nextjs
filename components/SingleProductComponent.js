@@ -285,12 +285,12 @@ function SingleProductCard({ product }) {
               key={index}
               src={image}
               alt={product.type}
-              className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
+              className="thumbnail-image"
+              // className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
               onClick={() => handleThumbnailClick(index)}
             />
           ))}
         </div>
-
 
         {/* here goes a new part of rendering 6 images */}
         {/* <div className="row">

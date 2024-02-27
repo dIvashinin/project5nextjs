@@ -9,6 +9,23 @@
   margin-bottom: 50px;
   margin-right: 5px;
 }
+
+.thumbnail-container{
+  /* border: 1px solid #f8a3e8; */
+  padding: 2px;
+  /* margin: 2px; */
+  max-width: 100px;
+  display: inline-flex;
+  /* width: 100%; */
+  /* margin-top: 40px; */
+  /* margin-bottom: 50px; */
+  /* margin-right: 5px; */
+  cursor: pointer;
+}
+.thumbnail-image{
+  border: 1px solid #f8a3e8;
+}
+
 .outer-container-for-single-product {
   width: 100%;
 }
