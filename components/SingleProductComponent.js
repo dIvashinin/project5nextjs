@@ -241,17 +241,47 @@ function SingleProductCard({ product }) {
             </a>
           </Link>
         </div>
-        <Link href={`/product/${product.id}`}>
-          <a>
-            {/* so when i changed how i treat 'image' inside [productId] - 
-            as an array, product now contains 'image' field as an array of urls!
-            */}
-            <img src={product.image[5]} alt={product.type} />
-          </a>
-        </Link>
+
+
+        {/* here goes a new part of rendering 6 images */}
+        <div className="row">
+          <div className="col-md-6">
+            <Link href={`/product/${product.id}`}>
+              <a>
+                <img src={product.image[5]} alt={product.type} className="main-image" />
+              </a>
+            </Link>
+          </div>
+          <div className="col-md-6">
+            <div className="row">
+              {product.image.slice(0, 5).map((imageUrl, index) => (
+                <div className="col-md-4" key={index}>
+                  <img src={imageUrl} alt={product.type} className="gallery-image" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         <h5>{product.type}</h5>
         <p>{product.description}</p>
-        <p>price: {product.price}&euro;</p>
+        <p>Price: {product.price}&euro;</p>
+      {/* </div> */}
+    {/* </div> */}
+
+
+
+{/* this on was old only for one image */}
+         {/* <Link href={`/product/${product.id}`}> */}
+           {/* <a> */}
+             {/* so when i changed how i treat 'image' inside [productId] - 
+             as an array, product now contains 'image' field as an array of urls!
+             */}
+             {/* <img src={product.image[5]} alt={product.type} /> */}
+           {/* </a> */}
+         {/* </Link> */}
+         {/* <h5>{product.type}</h5> */}
+        {/* <p>{product.description}</p> */}
+         {/* <p>price: {product.price}&euro;</p> */}
 
         {/* Additional options for the single product page */}
         <div>
