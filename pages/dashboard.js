@@ -44,9 +44,9 @@ function Dashboard() {
     // setImageFile(e.target.files[0]);
 
     //let's try to to capture multiple selected files
-    const selectedFiles = Array.from(e.target.files);  // Convert FileList to array
+    const selectedFiles = Array.from(e.target.files); // Convert FileList to array
     // setImageFile(selectedFiles);  // Store selected files in state
-    setImageFile(prevFiles => [...prevFiles, ...selectedFiles]); // Concatenate with existing files
+    setImageFile((prevFiles) => [...prevFiles, ...selectedFiles]); // Concatenate with existing files
     // console.log('e.target.files[0] :>> ', e.target.files[0]);
   };
 
@@ -195,10 +195,10 @@ function Dashboard() {
 
       // here modification for multiple upload
       // Append each selected file to the FormData object using a loop
-  imageFile.forEach((file, index) => {
-    formData.append(`file${index}`, file); // Append each file with a unique key
-  });
-  // console.log('file :>> ', file);
+      imageFile.forEach((file, index) => {
+        formData.append(`file${index}`, file); // Append each file with a unique key
+      });
+      // console.log('file :>> ', file);
       // console.log("imageFile :>> ", imageFile);
       formData.append("upload_preset", "my-moonrubyshop-2");
 
@@ -209,18 +209,19 @@ function Dashboard() {
           method: "POST",
           body: formData,
         }
-        
       );
       if (!response.ok) {
         throw new Error("Failed to upload image (-s) to Cloudinary");
       }
       const imageData = await response.json();
       // setImage(imageData.secure_url);
-      console.log('formData :>> ', formData);
-      console.log('imageData :>> ', imageData);
+      console.log("formData :>> ", formData);
+      console.log("imageData :>> ", imageData);
 
       // Extract URLs of uploaded images
-      const imageUrls = Object.keys(imageData).map((key) => imageData[key].secure_url);
+      const imageUrls = Object.keys(imageData).map(
+        (key) => imageData[key].secure_url
+      );
 
       // Submit form data to backend
       const productResponse = await fetch("/api/products", {
@@ -296,7 +297,7 @@ function Dashboard() {
             {/* displaying paid orders */}
             {orders.map((order) => (
               <li key={order.id} className="order-item">
-                   <div className="dashboard-inner-separate-order-container">
+                <div className="dashboard-inner-separate-order-container">
                   <p>Order ID: {order.id}</p>
                   <p>Timestamp: {order.timestamp.toDate().toString()}</p>
                   <p>Email: {order.email}</p>
@@ -309,13 +310,13 @@ function Dashboard() {
                   <p>Comment: {order.comment}</p>
                   <p>Total: {order.totalSum}&euro;</p>
                   {/* <p>Status: {order.paid}</p> */}
-               </div>
-                </li>
+                </div>
+              </li>
             ))}
           </ul>
         </div>
         {/* Form for adding a new product */}
-        
+
         <h3>Add new listing</h3>
         <div className="dashboard-add-new-container">
           {/* <Alert 
@@ -348,12 +349,11 @@ show={showAlert1}
               placeholder="Type"
             /> */}
             <div className="form-group">
-            <label htmlFor="type">
-              Type: </label>
+              <label htmlFor="type">Type: </label>
               <select
-              id="type"
-              onChange={handleTypeChange} 
-              // value={type}
+                id="type"
+                onChange={handleTypeChange}
+                // value={type}
               >
                 {/* disabled value doesn't count as value! */}
                 {/* <option disabled value="pls select color">pls select color</option> */}
@@ -365,37 +365,37 @@ show={showAlert1}
                 <option value="option 5">option 5</option>
                 <option value="option 6">option 6</option>
               </select>
-              </div>
-            
-              <div className="form-group">
+            </div>
+
+            <div className="form-group">
               <label htmlFor="price">Price:</label>
-            <input
-            id="price"
-              type="text"
-              value={price}
-              onChange={handlePriceChange}
-              placeholder="Price"
-            />
+              <input
+                id="price"
+                type="text"
+                value={price}
+                onChange={handlePriceChange}
+                placeholder="Price"
+              />
             </div>
 
             <div className="form-group">
-            <label htmlFor="description">Description:</label>
-            <textarea
-            id="description"
-              value={description}
-              onChange={handleDescriptionChange}
-              placeholder="Description"
-            />
+              <label htmlFor="description">Description:</label>
+              <textarea
+                id="description"
+                value={description}
+                onChange={handleDescriptionChange}
+                placeholder="Description"
+              />
             </div>
 
             <div className="form-group">
-            <label htmlFor="image">Image:</label>
-            <input 
-            id="image"
-            type="file" 
-            onChange={handleImageChange} 
-            multiple  // Allow multiple file selection
-            />
+              <label htmlFor="image">Image:</label>
+              <input
+                id="image"
+                type="file"
+                onChange={handleImageChange}
+                multiple // Allow multiple file selection
+              />
             </div>
 
             <div id="data"></div>
