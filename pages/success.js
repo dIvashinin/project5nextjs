@@ -1,6 +1,6 @@
-import { doc, updateDoc } from 'firebase/firestore';
+// import { doc, updateDoc } from 'firebase/firestore';
 import React, { useEffect }from 'react';
-import { db } from '../config/firebaseConfig';
+// import { db } from '../config/firebaseConfig';
 // import { useShoppingCart } from '../context/shoppingCartContext';
 // Import necessary dependencies and the sendConfirmationEmail function
 // import { useEffect } from 'react';
@@ -56,7 +56,7 @@ function Success() {
   return (
     <div className='success-container'>
       <div className="success-background-container">
-        <img src={successBackground} alt="Etsy" className="success-image" />
+        <img src={successBackground} alt="Success" className="success-image" />
       </div>
         <h2 className="moon-ruby-shop">Thanks and hugs from Moon Ruby Shop</h2>
         <h2>You did it</h2>
@@ -65,5 +65,4 @@ function Success() {
         </div>
   );
 }
-
 export default Success;
