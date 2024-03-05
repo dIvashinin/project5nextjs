@@ -3,7 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import ProductCard from "../components/ProductCard";
 import Search from "../components/Search";
-import { useShoppingCart } from "../context/shoppingCartContext";
+// import { useShoppingCart } from "../context/shoppingCartContext";
 import { useRouter } from "next/router";
 
 const shopBanner =
@@ -16,9 +16,11 @@ export const getStaticProps = async () => {
     productsSnapshot.forEach((doc) => {
       // console.log(`${doc.id} => ${doc.data().description}`);
       // const imageUrls = doc.data().image;
-      const imageUrls = Array.isArray(doc.data().image) ? doc.data().image : [doc.data().image];
-      console.log('doc.data().image :>> ', doc.data().image);
-      console.log('imageUrls inside shop.js :>> ', imageUrls);
+      const imageUrls = Array.isArray(doc.data().image)
+        ? doc.data().image
+        : [doc.data().image];
+      console.log("doc.data().image :>> ", doc.data().image);
+      console.log("imageUrls inside shop.js :>> ", imageUrls);
       // || [];
       products.push({
         id: doc.id,
@@ -67,8 +69,8 @@ function Shop({ products, reviews }) {
   const handleFilterChange = (filteredProducts) => {
     setFilteredProducts(filteredProducts);
   };
-  const router =useRouter();
-  const {cancel} = router.query;
+  const router = useRouter();
+  const { cancel } = router.query;
   return (
     <div>
       {/* we pass products we need to have access to via props */}
@@ -76,7 +78,8 @@ function Shop({ products, reviews }) {
       {/* an alert when user goes back during Stripe session */}
       {cancel && (
         <div className="alert alert-danger" role="alert">
-          Don't worry. You can come back to payment session anytime you are ready
+          Don't worry. You can come back to payment session anytime you are
+          ready
         </div>
       )}
       <div className="banner-container">

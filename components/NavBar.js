@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Search from "../components/Search";
+// import Search from "../components/Search";
 import { useShoppingCart } from "../context/shoppingCartContext";
 import ProtectedRoute from "./ProtectedRoute";
 
