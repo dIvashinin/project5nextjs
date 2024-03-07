@@ -1,9 +1,9 @@
 import React from 'react';
 import { collection, getDoc, getDocs, doc } from "firebase/firestore";
 import { db } from "../../config/firebaseConfig";
-import { useProduct } from "../../context/productContext";
-import {useRouter} from "next/router";
-import ProductCard from '../../components/ProductCard';
+// import { useProduct } from "../../context/productContext";
+// import {useRouter} from "next/router";
+// import ProductCard from '../../components/ProductCard';
 import SingleProductComponent from '../../components/SingleProductComponent';
 
 //in order to be able to understand what i mean by 'id' in my dynamic route
@@ -109,8 +109,7 @@ import SingleProductComponent from '../../components/SingleProductComponent';
 //         return {
 //           notFound: true,
 //         };
-//       }
-  
+//       }  
 //       const product = {
 //         id: productId,
 //         type: productData.type,
@@ -213,5 +212,4 @@ function SingleProduct({ product }) {
       };
     }
   };
-  
   export default SingleProduct;

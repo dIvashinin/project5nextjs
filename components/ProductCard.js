@@ -27,7 +27,6 @@ function ProductCard({ product }) {
     //     {product.title}
     //     {product.description}
     // </div>
-
     <div>
       <Link href={`/product/${product.id}`}>
         <a>
