@@ -252,45 +252,45 @@ function SingleProductCard({ product }) {
     <div className="outer-container-for-single-product">
       <div className="single-product-card">
         {/* <img src={goBack} alt="go back"/> */}
-        <div className="goback-icon">
-          <Link href="/shop">
-            <a>
-              <img src={goBack} alt="go back" />
-            </a>
-          </Link>
-        </div>
+          <div className="goback-icon">
+            <Link href="/shop">
+              <a>
+                <img src={goBack} alt="go back" />
+              </a>
+            </Link>
+          </div>
 
         {/* carousel instead of rendering 6 images */}
 
-        <div className="carousel-container">
-          {/* Display the current image */}
-          <img src={product.image[currentIndex]} alt={product.type} className="main-image" />
-          <div className="carousel-controls">
-            {/* Previous button */}
-            <button className="prev-btn" onClick={handlePrevClick}>
-              previous
-            </button>
-            {/* Next button */}
-            <button className="next-btn" onClick={handleNextClick}>
-              next
-            </button>
+          <div className="carousel-container">
+            {/* Display the current image */}
+            <img src={product.image[currentIndex]} alt={product.type} className="main-image" />
+            <div className="carousel-controls">
+              {/* Previous button */}
+              <button className="prev-btn" onClick={handlePrevClick}>
+                previous
+              </button>
+              {/* Next button */}
+              <button className="next-btn" onClick={handleNextClick}>
+                next
+              </button>
+            </div>
           </div>
-        </div>
 
         {/* here the part of clickable thumbnails */}
-        <div className="thumbnail-container">
-          {/* Display thumbnail images */}
-          {product.image.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={product.type}
-              className="thumbnail-image"
-              // className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
-              onClick={() => handleThumbnailClick(index)}
-            />
-          ))}
-        </div>
+          <div className="thumbnail-container">
+            {/* Display thumbnail images */}
+            {product.image.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={product.type}
+                className="thumbnail-image"
+                // className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
+                onClick={() => handleThumbnailClick(index)}
+              />
+            ))}
+          </div>
 
         {/* here goes a new part of rendering 6 images */}
         {/* <div className="row">
@@ -322,9 +322,11 @@ function SingleProductCard({ product }) {
             {/* </div> */}
           {/* </div> */}
         {/* </div> */}
-        <h5>{product.type}</h5>
-        <p>{product.description}</p>
-        <p>Price: {product.price}&euro;</p>
+          <div>
+            <h5>{product.type}</h5>
+            <p>{product.description}</p>
+            <p>Price: {product.price}&euro;</p>
+          </div>
       {/* </div> */}
     {/* </div> */}
 
@@ -371,8 +373,7 @@ function SingleProductCard({ product }) {
         </div>
 
         {/* - also an option to leave comment to the order 
-    - an option to send a message to shop owner
-*/}
+         - an option to send a message to shop owner */}
         <div>
           <button
             className="add-to-cart-button"
@@ -444,26 +445,26 @@ function SingleProductCard({ product }) {
 
                 <div className="form-group">
                   <label htmlFor="price">Price: </label>
-                  <input
-                    id="price"
-                    type="text"
-                    value={price}
-                    onChange={handlePriceChange}
-                    placeholder="Price"
-                  />
+                    <input
+                      id="price"
+                      type="text"
+                      value={price}
+                      onChange={handlePriceChange}
+                      placeholder="Price"
+                    />
                 </div>
                 <div className="form-group">
                   <label htmlFor="description">Description:</label>
-                  <textarea
-                    id="description"
-                    value={description}
-                    onChange={handleDescriptionChange}
-                    placeholder="Description"
-                  />
+                    <textarea
+                      id="description"
+                      value={description}
+                      onChange={handleDescriptionChange}
+                      placeholder="Description"
+                    />
                 </div>
                 <div className="form-group">
                   <label htmlFor="image">Image:</label>
-                  <input id="image" type="file" onChange={handleImageChange} />
+                   <input id="image" type="file" onChange={handleImageChange} />
                 </div>
                 {/* Additional fields if needed */}
                 {/* Submit button */}
@@ -475,13 +476,13 @@ function SingleProductCard({ product }) {
         </ProtectedRoute>
 
         {/* Display additional images */}
-        {product.additionalImages && (
+        {/* {product.additionalImages && (
           <div>
             {product.additionalImages.map((image, index) => (
               <img key={index} src={image} alt={`Product ${index + 2}`} />
             ))}
           </div>
-        )}
+        )} */}
 
         {/* Additional product information */}
         <div>
@@ -663,16 +664,15 @@ function SingleProductCard({ product }) {
             </ul>
           </div>
         </div>
-        <div className="goback-icon">
-          <Link href="/shop">
-            <a>
-              <img src={goBack} alt="go back" />
-            </a>
-          </Link>
-        </div>
+              <div className="goback-icon">
+                <Link href="/shop">
+                  <a>
+                    <img src={goBack} alt="go back" />
+                  </a>
+                </Link>
+              </div>
       </div>
     </div>
   );
 }
-
 export default SingleProductCard;
