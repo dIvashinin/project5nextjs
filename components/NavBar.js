@@ -15,7 +15,7 @@ function NavBar() {
         {/* <Link href='/clientSideRender'>clientSideRender</Link> {}  */}
         {/* <Link href='/serverSideRender'>serverSideRender</Link> {}  */}
         {/* <Link href='/staticSiteGeneration'>staticSiteGeneration</Link> {} */}
-        <Link href="/shop">shop</Link>
+        <Link href="/shop">shop</Link> {}
         {/* <Link href='/product'>products</Link> */}
         <Link href="/">home</Link> {}
         <Link href="/about">about</Link> {}

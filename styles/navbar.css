@@ -64,3 +64,16 @@
   transform: translate(-55%, -35%);
   font-size: 15px;
 }
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .navigation-bar {
+    max-width: 100%;
+    font-size: 30px;
+  }
+  .navigation-bar a {
+    /* max-width: 80%; */
+    padding: 0px;
+    margin-right: 0px;
+  }
+}
