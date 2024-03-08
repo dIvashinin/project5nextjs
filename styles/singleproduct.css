@@ -9,7 +9,6 @@
   margin-bottom: 50px;
   margin-left: 5px;
 }
-
 .thumbnail-container{
   /* border: 1px solid #f8a3e8; */
   /* padding: 1px; */
@@ -27,7 +26,6 @@
   padding: 1px;
   margin: 10px;
 }
-
 .outer-container-for-single-product {
   width: 100%;
 }
@@ -108,7 +106,7 @@ label {
 input[type="text"],
 textarea,
 select {
-  width: 100%;
+  /* width: 100%; */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -125,8 +123,6 @@ select {
 button:hover {
   background-color: #0056b3;
 } */
-
-
 
 /* Additional styles for the additional images */
 /* .single-product-card .additional-images { */
@@ -155,7 +151,6 @@ button:hover {
 .minus-to-cart-button:hover{
   background-color: rgb(255, 133, 208);
 } */
-
 
 /* Responsive styling */
 @media (max-width: 768px) {
