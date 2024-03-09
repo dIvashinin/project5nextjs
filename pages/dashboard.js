@@ -195,10 +195,15 @@ function Dashboard() {
       // here modification for multiple upload
       // Append each selected file to the FormData object using a loop
       console.log('imageFile :>> ', imageFile);
-      imageFile.forEach((file) => {
-        formData.append('file', file); // Append each file with a unique key
+      // for (const file of imageFile) {
+        imageFile.forEach((file, index) => {
+          formData.append(`file${index}`, file);
+      // imageFile.forEach((file) => {
+        // formData.append('file', file); // Append each file with a unique key
         console.log('file :>> ', file);
-      });
+      }
+      )
+      ;
       // console.log("imageFile :>> ", imageFile);
       formData.append("upload_preset", "my-moonrubyshop-2");
       console.log('formData :>> ', formData);
