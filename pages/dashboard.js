@@ -46,7 +46,7 @@ function Dashboard() {
     //let's try to to capture multiple selected files
     const selectedFiles = Array.from(e.target.files); // Convert FileList to array
     // setImageFile(selectedFiles);  // Store selected files in state
-    setImageFile((prevFiles) => [...prevFiles, ...selectedFiles]); // Concatenate with existing files
+    setImageFile((prevFiles) => [...prevFiles, ...selectedFiles]); //Concatenate with existing files
     // console.log('e.target.files[0] :>> ', e.target.files[0]);
   };
 
@@ -194,12 +194,14 @@ function Dashboard() {
 
       // here modification for multiple upload
       // Append each selected file to the FormData object using a loop
-      imageFile.forEach((file, index) => {
-        formData.append(`file${index}`, file); // Append each file with a unique key
+      console.log('imageFile :>> ', imageFile);
+      imageFile.forEach((file) => {
+        formData.append('file', file); // Append each file with a unique key
+        console.log('file :>> ', file);
       });
-      // console.log('file :>> ', file);
       // console.log("imageFile :>> ", imageFile);
       formData.append("upload_preset", "my-moonrubyshop-2");
+      console.log('formData :>> ', formData);
 
       const response = await fetch(
         // let's try 'auto' instead of 'image': this will utomatically check what is being uploaded
