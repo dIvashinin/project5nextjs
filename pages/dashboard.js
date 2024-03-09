@@ -173,6 +173,33 @@ function Dashboard() {
   // Function to handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+
+    const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const url = `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`;
+  const formData = new FormData();
+
+  imageFile.forEach((file) => {
+    formData.append("file", file);
+    formData.append("upload_preset", "my-moonrubyshop-2");
+
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        return response.text();
+      })
+      .then((data) => {
+        console.log(data); // Log the response data
+      })
+      .catch((error) => {
+        console.error("Error uploading image:", error);
+      });
+  });
+};
+
+
+
     // Call addNewProduct function when the form is submitted
     // addNewProduct();
 
@@ -185,83 +212,83 @@ function Dashboard() {
     // }
     // in order to have only one correct submit i put upload to cloudinary function
     // inside handleFormSubmit function. As it was causing issues.
-    try {
+    // try {
       // Upload image to Cloudinary
-      const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+      // const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
       // We create a FormData object to store multiple files.
-      const formData = new FormData(); //same for single
+      // const formData = new FormData(); //same for single
       // formData.append("file", imageFile);//this was for single
 
       // here modification for multiple upload
       // Append each selected file to the FormData object using a loop
-      console.log('imageFile :>> ', imageFile);
+      // console.log('imageFile :>> ', imageFile);
       // for (const file of imageFile) {
-        imageFile.forEach((file, index) => {
-          formData.append(`file${index}`, file);
+        // imageFile.forEach((file, index) => {
+          // formData.append(`file${index}`, file);
       // imageFile.forEach((file) => {
         // formData.append('file', file); // Append each file with a unique key
-        console.log('file :>> ', file);
-      }
-      )
-      ;
+        // formData.append("upload_preset", "my-moonrubyshop-2");
+        // console.log('file :>> ', file);
+      // }
+      // )
+      // ;
       // console.log("imageFile :>> ", imageFile);
-      formData.append("upload_preset", "my-moonrubyshop-2");
-      console.log('formData :>> ', formData);
+      // console.log('formData :>> ', formData);
 
-      const response = await fetch(
+      // const response = await fetch(
         // let's try 'auto' instead of 'image': this will utomatically check what is being uploaded
-        `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/auto/upload`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-      if (!response.ok) {
-        throw new Error("Failed to upload image (-s) to Cloudinary");
-      }
-      const imageData = await response.json();
+        // `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`,
+        // {
+          // method: "POST",
+          // body: formData,
+        // }
+      // );
+      // if (!response.ok) {
+        // throw new Error("Failed to upload image (-s) to Cloudinary");
+      // }
+      // const imageData = await response.json();
       // setImage(imageData.secure_url);
-      console.log("formData :>> ", formData);
-      console.log("imageData :>> ", imageData);
+      // console.log("formData :>> ", formData);
+      // console.log("imageData :>> ", imageData);
 
       // Extract URLs of uploaded images
-      const imageUrls = Object.keys(imageData).map(
-        (key) => imageData[key].secure_url
-      );
+      // const imageUrls = Object.keys(imageData).map(
+      //   (key) => imageData[key].secure_url
+      // );
 
       // Submit form data to backend
-      const productResponse = await fetch("/api/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          type,
-          price,
-          description,
-          // image: imageData.secure_url, // Use the image URL from Cloudinary
-          image: imageUrls, // Use the URLs of uploaded images
-        }),
-      });
+      // const productResponse = await fetch("/api/products", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     type,
+      //     price,
+      //     description,
+      //     // image: imageData.secure_url, // Use the image URL from Cloudinary
+      //     image: imageUrls, // Use the URLs of uploaded images
+      //   }),
+      // });
 
-      if (!productResponse.ok) {
-        throw new Error("Failed to add new product");
-      }
+      // if (!productResponse.ok) {
+      //   throw new Error("Failed to add new product");
+      // }
 
-      // Reset form fields
-      setType("");
-      setPrice("");
-      setDescription("");
-      setImage("");
+      // // Reset form fields
+      // // setType("");
+      // // setPrice("");
+      // // setDescription("");
+      // // setImage("");
 
       // Optionally, update UI or take other actions
-      console.log("New product added successfully");
-      setShowAlert2(true);
-    } catch (error) {
-      console.error("Error adding new product:", error);
-      setShowAlert2(false);
-    }
-  };
+    //   console.log("New product added successfully");
+    //   setShowAlert2(true);
+    // // } catch (error) {
+    //   console.error("Error adding new product:", error);
+    //   setShowAlert2(false);
+    // }
+  // };
 
   //     //sending data to /products endpoint in backend
   //     const response = await fetch ("/api/products", {
