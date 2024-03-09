@@ -174,6 +174,7 @@ function Dashboard() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    //here a modification of cloudinary docs for multiple upload
     const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const url = `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`;
   const formData = new FormData();
@@ -197,8 +198,6 @@ function Dashboard() {
       });
   });
 };
-
-
 
     // Call addNewProduct function when the form is submitted
     // addNewProduct();
