@@ -224,9 +224,17 @@ function Dashboard() {
       throw new Error("Failed to add product to database");
     }
 
+    // Reset form fields
+      setType("");
+      setPrice("");
+      setDescription("");
+      setImage([]);
+
     console.log("Product added successfully");
+    setShowAlert2(true);
   } catch (error) {
     console.error("Error adding product:", error);
+    setShowAlert2(false);
   }
 };
 
@@ -316,10 +324,10 @@ function Dashboard() {
       // }
 
       // // Reset form fields
-      // // setType("");
-      // // setPrice("");
-      // // setDescription("");
-      // // setImage("");
+      // setType("");
+      // setPrice("");
+      // setDescription("");
+      // setImage("");
 
       // Optionally, update UI or take other actions
     //   console.log("New product added successfully");
