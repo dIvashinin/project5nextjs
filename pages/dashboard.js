@@ -187,7 +187,7 @@ function Dashboard() {
       method: "POST",
       body: formData,
     })
-      .then((response) => {
+    .then((response) => {
         return response.text();
       })
       .then((data) => {
@@ -228,9 +228,7 @@ function Dashboard() {
         // formData.append('file', file); // Append each file with a unique key
         // formData.append("upload_preset", "my-moonrubyshop-2");
         // console.log('file :>> ', file);
-      // }
-      // )
-      // ;
+      // });
       // console.log("imageFile :>> ", imageFile);
       // console.log('formData :>> ', formData);
 
