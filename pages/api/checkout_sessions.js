@@ -29,8 +29,8 @@ export default async function handler(req, res) {
       const postcode = req.body.postcode;
       const city = req.body.city;
       const comment = req.body.comment;
-      console.log("email :>> ", email);
-      console.log("totalSum :>> ", totalSum);
+      // console.log("email :>> ", email);
+      // console.log("totalSum :>> ", totalSum);
       // const deliveryDetails = req.body.deliveryDetails;
       // const totalSum = req.body.totalSum;
       console.log("items checkout session :>> ", items);
@@ -73,14 +73,12 @@ export default async function handler(req, res) {
         comment,
         // need to check what's wrong with 'where'
         // paid: true, // This is where you mark the order as paid
-
         //   checkoutDetails: checkoutDetails,
         //  totalSum:checkoutDetails.totalSum,
         // body: req.body,
         timestamp: serverTimestamp(),
         // Add more details as needed
       });
-
       // try {
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create({
@@ -96,13 +94,7 @@ export default async function handler(req, res) {
         cancel_url: `${req.headers.origin}/shop?cancel=true`,
         // we don't include sensitive info in metadata. we have customer_details for that
         // metadata: {
-        //   email,
-        //   name,
-        //   country,
-        //   street,
-        //   apartment,
-        //   postcode,
-        //   city,
+        //   email,name,country,street,apartment,postcode,city,
         // },
       });
       //   res.redirect(303, session.url);
@@ -116,7 +108,6 @@ export default async function handler(req, res) {
     res.status(405).end("Method Not Allowed");
   }
 }
-
 // api/checkout_sessions.js
 // to test - hardcoded values
 // export default async function handler(req, res) {
