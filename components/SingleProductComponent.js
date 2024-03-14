@@ -467,14 +467,19 @@ function SingleProductCard({ product }) {
                     placeholder="Description"
                   />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="image">Image:</label>
-                  <input id="image" type="file" onChange={handleImageChange} />
-                </div>
                 {/* Additional fields if needed */}
                 {/* Submit button */}
                 <button type="submit">Submit changes</button>
                 <button onClick={handleDelete}>Delete listing</button>
+                <div 
+                // className="form-group"
+                >
+                  <label htmlFor="image">Image:</label>
+                  <input id="image" type="file" onChange={handleImageChange} />
+                </div>
+                <button
+                //  onClick={handleImageAdd}
+                 >Add image</button>
               </form>
             )}
           </div>
