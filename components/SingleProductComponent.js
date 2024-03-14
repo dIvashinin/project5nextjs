@@ -83,9 +83,39 @@ function SingleProductCard({ product }) {
   };
 
   //separate function for adding 1 image to existing array of images in db
-  const handleImageAdd = (e) => {
+  const handleImageAdd = async (e) => {
     e.preventDefault();
     console.log('adding image');
+    //here a modification of cloudinary docs for multiple upload
+    const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const url = `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`;
+  const formData = new FormData();
+
+  const imageUrls = []; // Array to store uploaded image URLs
+
+  // imageFile.forEach( (file) => {
+    // Using for...of loop allows you to use await inside the loop, 
+    // ensuring that each fetch operation completes before moving on to the next iteration.
+    for (const file of imageFile) {
+    formData.append("file", file);
+    formData.append("upload_preset", "my-moonrubyshop-2");
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to upload image to Cloudinary");
+      }
+      const imageData = await response.json();
+      imageUrls.push(imageData.secure_url); // Add the uploaded image URL to imageUrls array
+      
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  }
   };
 
   // Function to handle form submission for editing
@@ -120,6 +150,7 @@ function SingleProductCard({ product }) {
       // }
 
       // Step 2: Submit form data to backend
+      // in my new case i send request right away because there's no image involved inside submit
       const productResponse = await fetch(`/api/${product.id}`, {
         method: "PUT", // Use PUT method for updating
         headers: {

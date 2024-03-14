@@ -1,3 +1,5 @@
+//this is for this: fetch(`/api/${product.id}`
+//id of each product listing
 import { doc, updateDoc, deleteDoc, collection } from "firebase/firestore";
 import { db } from "../../config/firebaseConfig";
 
