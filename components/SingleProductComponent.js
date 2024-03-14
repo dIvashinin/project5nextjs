@@ -66,12 +66,8 @@ function SingleProductCard({ product }) {
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
   };
-  // const handleImageChange = (e) => {
-  //   setImageFile(e.target.files[0]);
-  // };
   const handleImageChange = (e) => {
-    const selectedFiles = Array.from(e.target.files); // Convert FileList to array
-    setImageFile((prevFiles) => [...prevFiles, ...selectedFiles]); //Concatenate with existing files
+    setImageFile(e.target.files[0]);
   };
 
   // i put edit form under protected route, so no need in this
@@ -429,6 +425,7 @@ function SingleProductCard({ product }) {
             Congrats! Product deleted successfully!
           </Alert>
 
+          {/* i make 2 functions separate - add image and update descr, price etc */}
           <div className="edit-listing">
             {/* We apply handleEditToggle as an onClick event handler to the "Edit listing" header (<h4> element) */}
             <h4 onClick={handleEditToggle} style={{ cursor: "pointer" }}>
