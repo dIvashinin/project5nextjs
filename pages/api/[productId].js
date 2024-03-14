@@ -6,18 +6,21 @@ export default async function handler(req, res) {
   
     if (req.method === 'PUT') {
       try {
-        const { type, price, description, image } = req.body;
+        const { type, price, description
+          // i exclude image because i do add image separately
+          // , image
+         } = req.body;
       console.log("type :>> ", type);
 
         // Create a reference to the specific document using doc() function
-        const productDocRef = doc(db, "products", productId);
+        const productDocRef = doc(db, "products2", productId);
 
       // Update the document with the specified data using updateDoc() function
       await updateDoc(productDocRef, {
         type,
         price,
         description,
-        image,
+        // image,
         // Add other fields as needed
     });
 
