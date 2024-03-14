@@ -66,8 +66,12 @@ function SingleProductCard({ product }) {
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
   };
+  // const handleImageChange = (e) => {
+  //   setImageFile(e.target.files[0]);
+  // };
   const handleImageChange = (e) => {
-    setImageFile(e.target.files[0]);
+    const selectedFiles = Array.from(e.target.files); // Convert FileList to array
+    setImageFile((prevFiles) => [...prevFiles, ...selectedFiles]); //Concatenate with existing files
   };
 
   // i put edit form under protected route, so no need in this
