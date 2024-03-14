@@ -82,36 +82,42 @@ function SingleProductCard({ product }) {
     setShowEditForm(!showEditForm);
   };
 
+  //separate function for adding 1 image to existing array of images in db
+  const handleImageAdd = (e) => {
+    e.preventDefault();
+    console.log('adding image');
+  };
+
   // Function to handle form submission for editing
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     console.log("editing form");
     // You can navigate to the edit page or display an edit form directly in this component
     try {
-      let updatedImage = image; //Assume image URL remains the same by default
+      // let updatedImage = image; //Assume image URL remains the same by default
 
-      if (imageFile) {
-        const cloudinaryCloudName =
-          process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-        const formData = new FormData();
-        formData.append("file", imageFile);
-        formData.append("upload_preset", "my-moonrubyshop-2");
+      // if (imageFile) {
+        // const cloudinaryCloudName =
+          // process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+        // const formData = new FormData();
+        // formData.append("file", imageFile);
+        // formData.append("upload_preset", "my-moonrubyshop-2");
 
-        const response = await fetch(
-          `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`,
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
+        // const response = await fetch(
+          // `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`,
+          // {
+            // method: "POST",
+            // body: formData,
+          // }
+        // );
 
-        if (!response.ok) {
-          throw new Error("Failed to upload image to Cloudinary");
-        }
+      //   if (!response.ok) {
+      //     throw new Error("Failed to upload image to Cloudinary");
+      //   }
 
-        const imageData = await response.json();
-        updatedImage = imageData.secure_url;
-      }
+      //   const imageData = await response.json();
+      //   updatedImage = imageData.secure_url;
+      // }
 
       // Step 2: Submit form data to backend
       const productResponse = await fetch(`/api/${product.id}`, {
@@ -135,7 +141,7 @@ function SingleProductCard({ product }) {
           // Include updated description only if it has been modified
           description: description !== "" ? description : product.description,
           // Include updated image URL only if it has been modified
-          image: imageFile ? updatedImage : product.image,
+          // image: imageFile ? updatedImage : product.image,
         }),
       });
       console.log("successfully updated");
@@ -478,7 +484,8 @@ function SingleProductCard({ product }) {
                   <input id="image" type="file" onChange={handleImageChange} />
                 </div>
                 <button
-                //  onClick={handleImageAdd}
+                // need to create function first
+                 onClick={handleImageAdd}
                  >Add image</button>
               </form>
             )}
