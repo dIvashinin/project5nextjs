@@ -69,6 +69,7 @@ function SingleProductCard({ product }) {
   };
   const handleImageChange = (e) => {
     setImageFile(e.target.files[0]);
+    console.log('e.target.files[0] :>> ', e.target.files[0]);
   };
 
   // i put edit form under protected route, so no need in this
@@ -86,16 +87,17 @@ function SingleProductCard({ product }) {
   //separate function for adding 1 image to existing array of images in db
   // we take productId as an argument to identify the product to which the image should be added.
   // and we take imageFile as an argument, representing the image to be uploaded.
-  const handleImageAdd = async (productId, imageFile) => { 
+  const handleImageAdd = async (e) => { 
+    e.preventDefault();
     // console.log('adding image');
-    console.log('productId :>> ', productId);
-    console.log('imageFile :>> ', imageFile);
+    // console.log('productId :>> ', product.id);
+    // console.log('imageFile :>> ', imageFile);
     try {
     // Upload image to Cloudinary
     const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const url = `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`;
   const formData = new FormData();
-
+     
     formData.append("file", imageFile);
     formData.append("upload_preset", "my-moonrubyshop-2");
 
@@ -103,6 +105,8 @@ function SingleProductCard({ product }) {
         method: "POST",
         body: formData,
       });
+    
+      console.log('response :>> ', response);
 
       if (!response.ok) {
         throw new Error("Failed to upload image to Cloudinary");
@@ -112,7 +116,7 @@ function SingleProductCard({ product }) {
       const imageUrl = imageData.secure_url;
 
       // Update the product in the database
-      const productRef = db.collection('products2').doc(productId);
+      const productRef = db.collection('products2').doc(product.id);
       const productDoc = await productRef.get();
 
       if (!productDoc.exists) {
@@ -120,6 +124,7 @@ function SingleProductCard({ product }) {
       }
 
       const productData = productDoc.data();
+      console.log('productData :>> ', productData);
       const updatedImages = [...productData.image, imageUrl];
 
       await productRef.update({
