@@ -88,6 +88,8 @@ function SingleProductCard({ product }) {
   // and we take imageFile as an argument, representing the image to be uploaded.
   const handleImageAdd = async (productId, imageFile) => { 
     // console.log('adding image');
+    console.log('productId :>> ', productId);
+    console.log('imageFile :>> ', imageFile);
     try {
     // Upload image to Cloudinary
     const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
