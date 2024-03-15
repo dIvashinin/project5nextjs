@@ -83,24 +83,18 @@ function SingleProductCard({ product }) {
   };
 
   //separate function for adding 1 image to existing array of images in db
-  const handleImageAdd = async (e) => {
-    e.preventDefault();
-    console.log('adding image');
-    //here a modification of cloudinary docs for multiple upload
+  const handleImageAdd = async (productId, imageFile) => {
+    // e.preventDefault();
+    // console.log('adding image');
+    try {
+    // Upload image to Cloudinary
     const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const url = `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`;
   const formData = new FormData();
 
-  const imageUrls = []; // Array to store uploaded image URLs
-
-  // imageFile.forEach( (file) => {
-    // Using for...of loop allows you to use await inside the loop, 
-    // ensuring that each fetch operation completes before moving on to the next iteration.
-    for (const file of imageFile) {
-    formData.append("file", file);
+    formData.append("file", imageFile);
     formData.append("upload_preset", "my-moonrubyshop-2");
 
-    try {
       const response = await fetch(url, {
         method: "POST",
         body: formData,
@@ -110,7 +104,13 @@ function SingleProductCard({ product }) {
         throw new Error("Failed to upload image to Cloudinary");
       }
       const imageData = await response.json();
-      imageUrls.push(imageData.secure_url); // Add the uploaded image URL to imageUrls array
+      const imageUrl = imageData.secure_url;
+
+      
+
+
+
+
       
     } catch (error) {
       console.error("Error uploading image:", error);
