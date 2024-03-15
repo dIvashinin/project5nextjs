@@ -86,8 +86,7 @@ function SingleProductCard({ product }) {
   //separate function for adding 1 image to existing array of images in db
   // we take productId as an argument to identify the product to which the image should be added.
   // and we take imageFile as an argument, representing the image to be uploaded.
-  const handleImageAdd = async (productId, imageFile) => {
-    // e.preventDefault();
+  const handleImageAdd = async (productId, imageFile) => { 
     // console.log('adding image');
     try {
     // Upload image to Cloudinary
@@ -107,6 +106,7 @@ function SingleProductCard({ product }) {
         throw new Error("Failed to upload image to Cloudinary");
       }
       const imageData = await response.json();
+      // Once the upload is successful, the image URL is obtained
       const imageUrl = imageData.secure_url;
 
       // Update the product in the database
@@ -128,7 +128,6 @@ function SingleProductCard({ product }) {
     } catch (error) {
       console.error("Error adding image:", error);
     }
-  
   };
 
   // Function to handle form submission for editing
