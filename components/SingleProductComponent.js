@@ -4,6 +4,7 @@ import { useShoppingCart } from "../context/shoppingCartContext";
 // import { useRouter } from "next/router";
 import ProtectedRoute from "./ProtectedRoute";
 import Alert from "react-bootstrap/Alert";
+import { db } from "../config/firebaseConfig";
 
 function SingleProductCard({ product }) {
   const {
@@ -83,6 +84,8 @@ function SingleProductCard({ product }) {
   };
 
   //separate function for adding 1 image to existing array of images in db
+  // we take productId as an argument to identify the product to which the image should be added.
+  // and we take imageFile as an argument, representing the image to be uploaded.
   const handleImageAdd = async (productId, imageFile) => {
     // e.preventDefault();
     // console.log('adding image');
@@ -106,16 +109,26 @@ function SingleProductCard({ product }) {
       const imageData = await response.json();
       const imageUrl = imageData.secure_url;
 
-      
+      // Update the product in the database
+      const productRef = db.collection('products2').doc(productId);
+      const productDoc = await productRef.get();
 
+      if (!productDoc.exists) {
+        throw new Error ('Product does not exist'); 
+      }
 
+      const productData = productDoc.data();
+      const updatedImages = [...productData.image, imageUrl];
 
-
-      
+      await productRef.update({
+        image: updatedImages,
+      });
+      console.log('image added successfully');
+   
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("Error adding image:", error);
     }
-  }
+  
   };
 
   // Function to handle form submission for editing
