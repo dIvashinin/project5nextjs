@@ -5,6 +5,7 @@ import { useShoppingCart } from "../context/shoppingCartContext";
 import ProtectedRoute from "./ProtectedRoute";
 import Alert from "react-bootstrap/Alert";
 import { db } from "../config/firebaseConfig";
+import { collection, doc , get, update } from "firebase/firestore";
 
 function SingleProductCard({ product }) {
   const {
