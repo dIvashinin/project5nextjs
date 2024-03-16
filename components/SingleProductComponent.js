@@ -4,9 +4,10 @@ import { useShoppingCart } from "../context/shoppingCartContext";
 // import { useRouter } from "next/router";
 import ProtectedRoute from "./ProtectedRoute";
 import Alert from "react-bootstrap/Alert";
-import { db } from "../config/firebaseConfig";
+
 // import { collection, doc , get, update } from 'firebase/firestore';
 import { getFirestore, collection, doc, updateDoc } from 'firebase/firestore';
+import { db } from "../config/firebaseConfig";
 
 function SingleProductCard({ product }) {
   const {
@@ -117,27 +118,38 @@ function SingleProductCard({ product }) {
       // Once the upload is successful, the image URL is obtained
       const imageUrl = imageData.secure_url;
 
-      const firestore = getFirestore();
+      // const firestore = getFirestore();
 
       // Then use firestore to access Firestore collections and documents
-      const productRef = doc(firestore, 'products2', product.id);
-      console.log('firestore :>> ', firestore);
+      // const productRef = doc(firestore, 'products2', product.id);
+      const productRef = doc(db, "products2", product.id); // Ensure `productId` is the correct ID of the product document
+
+      // console.log('firestore :>> ', firestore);
       console.log('productRef :>> ', productRef);
       // Update the product in the database
       // const productRef = db.collection('products2').doc(product.id);
-      const productDoc = await productRef.get();
+      // const productDoc = await productRef.get();
+      // It's enough to have one try for all and 1 catch, and not nested try/catch try/catch
+      // try {
+        // Update the document with the specified data using updateDoc() function
+        await updateDoc(productRef, {
+          // Update the fields you want to change
+          // For example, if you want to update the image field, you would do something like:
+          image: imageUrl,
+          // Add other fields as needed
+        });
 
-      if (!productDoc.exists) {
-        throw new Error ('Product does not exist'); 
-      }
+      // if (!productDoc.exists) {
+      //   throw new Error ('Product does not exist'); 
+      // }
 
-      const productData = productDoc.data();
-      console.log('productData :>> ', productData);
-      const updatedImages = [...productData.image, imageUrl];
+      // const productData = productDoc.data();
+      // console.log('productData :>> ', productData);
+      // const updatedImages = [...productData.image, imageUrl];
 
-      await productRef.update({
-        image: updatedImages,
-      });
+      // await productRef.update({
+      //   image: updatedImages,
+      // });
       console.log('image added successfully');
    
     } catch (error) {
