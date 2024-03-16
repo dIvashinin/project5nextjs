@@ -5,7 +5,8 @@ import { useShoppingCart } from "../context/shoppingCartContext";
 import ProtectedRoute from "./ProtectedRoute";
 import Alert from "react-bootstrap/Alert";
 import { db } from "../config/firebaseConfig";
-import { collection, doc , get, update } from "firebase/firestore";
+// import { collection, doc , get, update } from 'firebase/firestore';
+import { getFirestore, collection, doc, updateDoc } from 'firebase/firestore';
 
 function SingleProductCard({ product }) {
   const {
@@ -116,8 +117,14 @@ function SingleProductCard({ product }) {
       // Once the upload is successful, the image URL is obtained
       const imageUrl = imageData.secure_url;
 
+      const firestore = getFirestore();
+
+      // Then use firestore to access Firestore collections and documents
+      const productRef = doc(firestore, 'products2', product.id);
+      console.log('firestore :>> ', firestore);
+      console.log('productRef :>> ', productRef);
       // Update the product in the database
-      const productRef = db.collection('products2').doc(product.id);
+      // const productRef = db.collection('products2').doc(product.id);
       const productDoc = await productRef.get();
 
       if (!productDoc.exists) {
