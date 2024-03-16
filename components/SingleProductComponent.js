@@ -6,7 +6,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Alert from "react-bootstrap/Alert";
 
 // import { collection, doc , get, update } from 'firebase/firestore';
-import { getFirestore, collection, doc, updateDoc } from 'firebase/firestore';
+import { getFirestore, collection, doc, updateDoc, getDoc } from 'firebase/firestore';
 import { db } from "../config/firebaseConfig";
 
 function SingleProductCard({ product }) {
@@ -132,10 +132,21 @@ function SingleProductCard({ product }) {
       // It's enough to have one try for all and 1 catch, and not nested try/catch try/catch
       // try {
         // Update the document with the specified data using updateDoc() function
+
+        // Get the current data of the product
+        const productDocSnap = await getDoc(productRef);
+        const productData = productDocSnap.data();
+
+        // Ensure that the product has an 'image' field that is an array
+        const updatedImages = [...(productData.image || []), imageUrl];
+
         await updateDoc(productRef, {
           // Update the fields you want to change
           // For example, if you want to update the image field, you would do something like:
-          image: imageUrl,
+          //next line overwrites all images by 1 image
+          // image: imageUrl,
+        // this must be right
+          image: updatedImages,
           // Add other fields as needed
         });
 
