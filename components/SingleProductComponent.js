@@ -90,9 +90,11 @@ function SingleProductCard({ product }) {
   //separate function for adding 1 image to existing array of images in db
   // we take productId as an argument to identify the product to which the image should be added.
   // and we take imageFile as an argument, representing the image to be uploaded.
+  //well i returned to (e) instead of other params
   const handleImageAdd = async (e) => { 
     e.preventDefault();
     // console.log('adding image');
+    // productId was undefined, but product.id was fine
     // console.log('productId :>> ', product.id);
     // console.log('imageFile :>> ', imageFile);
     try {
@@ -100,7 +102,7 @@ function SingleProductCard({ product }) {
     const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const url = `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`;
   const formData = new FormData();
-     
+    // we upload a single file! 
     formData.append("file", imageFile);
     formData.append("upload_preset", "my-moonrubyshop-2");
 
@@ -109,7 +111,7 @@ function SingleProductCard({ product }) {
         body: formData,
       });
     
-      console.log('response :>> ', response);
+      // console.log('response :>> ', response);
 
       if (!response.ok) {
         throw new Error("Failed to upload image to Cloudinary");
@@ -119,13 +121,12 @@ function SingleProductCard({ product }) {
       const imageUrl = imageData.secure_url;
 
       // const firestore = getFirestore();
-
       // Then use firestore to access Firestore collections and documents
       // const productRef = doc(firestore, 'products2', product.id);
       const productRef = doc(db, "products2", product.id); // Ensure `productId` is the correct ID of the product document
 
       // console.log('firestore :>> ', firestore);
-      console.log('productRef :>> ', productRef);
+      // console.log('productRef :>> ', productRef);
       // Update the product in the database
       // const productRef = db.collection('products2').doc(product.id);
       // const productDoc = await productRef.get();
@@ -137,7 +138,7 @@ function SingleProductCard({ product }) {
         const productDocSnap = await getDoc(productRef);
         const productData = productDocSnap.data();
 
-        // Ensure that the product has an 'image' field that is an array
+        //product has an 'image' field that is an array
         const updatedImages = [...(productData.image || []), imageUrl];
 
         await updateDoc(productRef, {
@@ -145,7 +146,7 @@ function SingleProductCard({ product }) {
           // For example, if you want to update the image field, you would do something like:
           //next line overwrites all images by 1 image
           // image: imageUrl,
-        // this must be right
+        // this is correctly adding 1 url to the existing array
           image: updatedImages,
           // Add other fields as needed
         });
