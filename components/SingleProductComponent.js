@@ -38,6 +38,9 @@ function SingleProductCard({ product }) {
   const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
+  const { isAuthenticated, user } = useAuth(); // Get authentication state
+  const [showDeleteButtons, setShowDeleteButtons] = useState(false);
+
   // State to track the index of the currently displayed image
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -143,9 +146,6 @@ function SingleProductCard({ product }) {
 
         await updateDoc(productRef, {
           // Update the fields you want to change
-          // For example, if you want to update the image field, you would do something like:
-          //next line overwrites all images by 1 image
-          // image: imageUrl,
         // this is correctly adding 1 url to the existing array
           image: updatedImages,
           // Add other fields as needed
@@ -569,7 +569,14 @@ function SingleProductCard({ product }) {
                 // need to create function first
                  onClick={handleImageAdd}
                  >Add image</button>
+              {/* i double thumbnails here with delete button */}
+              <div className="protected-thumbnails"> 
+
+
+              </div> 
               </form>
+
+
             )}
           </div>
         </ProtectedRoute>
