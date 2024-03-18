@@ -14,7 +14,7 @@
   /* padding: 1px; */
   /* margin: 2px; */
   max-width: 12%;
-  display: flex;
+  display: inline-flex;
   /* width: 100%; */
   /* margin-top: 40px; */
   /* margin-bottom: 50px; */
@@ -29,23 +29,26 @@
 
 .protected-thumbnail-container {
   position: relative;
-  display: flex;
-  width: 200px;
+  display: inline-flex;
+  width: 80px;
+  height: 80px;
 }
 
 .protected-thumbnail-image {
   width: 10px; /* Adjust the width of the thumbnail image as needed */
-  /* height: auto; Maintain aspect ratio */
-  
-  /* display: block; */
+  /* Maintain aspect ratio */
+  height: auto; 
+  display: block;
 }
 
 .delete-button {
   position: absolute;
   top: 1px; /* Adjust the top position of the delete button */
   right: 1px; /* Adjust the right position of the delete button */
-  width: 20px; /*Adjust the width of the delete button as needed */
-  height: 40px; /*Adjust the height of the delete button as needed */
+  width: 1px; /*Adjust the width of the delete button as needed */
+  padding: 14px;
+  height: 34px; /*Adjust the height of the delete button as needed */
+  font-size: 10px;
   background-color: rgb(247, 0, 255); /*Customize the background color of the delete button */
   color: white; /*Customize the text color of the delete button */
   border: none;
