@@ -255,6 +255,21 @@ function SingleProductCard({ product }) {
     }
   };
 
+  const handleDeleteImage = async (index) => {
+    // Remove the image from the product's image array
+    const updatedImages = [...product.image.slice(0, index), ...product.image.slice(index + 1)];
+  
+    // Update the product in the database with the updated images array
+    try {
+      const productRef = doc(db, "products2", product.id);
+      await updateDoc(productRef, { image: updatedImages });
+      console.log('Image deleted successfully');
+    } catch (error) {
+      console.error("Error deleting image:", error);
+    }
+  };
+  
+
   //i simplified my code by simply putting edit form under protected route
   //so no need in condition check which caused issues!!
 
@@ -580,7 +595,7 @@ function SingleProductCard({ product }) {
                 onClick={() => handleThumbnailClick(index)}
                 />
                 <button className="delete-button" 
-                // onClick={() => handleDeleteImage(index)}
+                onClick={() => handleDeleteImage(index)}
                 >X</button>
                 </div>
                 ))}

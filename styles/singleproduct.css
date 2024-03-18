@@ -35,7 +35,7 @@
 }
 
 .protected-thumbnail-image {
-  width: 10px; /* Adjust the width of the thumbnail image as needed */
+  width: 10px; /* Adjust the width of the thumbnail image */
   /* Maintain aspect ratio */
   height: auto; 
   display: block;
@@ -43,14 +43,14 @@
 
 .delete-button {
   position: absolute;
-  top: 1px; /* Adjust the top position of the delete button */
-  right: 1px; /* Adjust the right position of the delete button */
-  width: 1px; /*Adjust the width of the delete button as needed */
+  top: 1px; /* Adjust the top position of button */
+  right: 1px; /* Adjust the right position of button */
+  width: 1px; /*Adjust the width */
   padding: 14px;
-  height: 34px; /*Adjust the height of the delete button as needed */
+  height: 34px; /*Adjust the height*/
   font-size: 10px;
-  background-color: rgb(247, 0, 255); /*Customize the background color of the delete button */
-  color: white; /*Customize the text color of the delete button */
+  background-color: rgb(247, 0, 255); /*Customize the background color */
+  color: white; /*Customize the text color */
   border: none;
   border-radius: 50%;
   cursor: pointer;
