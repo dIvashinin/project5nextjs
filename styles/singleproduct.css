@@ -29,13 +29,29 @@
 
 .protected-thumbnail-container {
   position: relative;
-  display: inline-block;
+  display: flex;
+  width: 200px;
 }
 
 .protected-thumbnail-image {
-  width: 100px; /* Adjust the width of the thumbnail image as needed */
-  height: auto; /* Maintain aspect ratio */
-  display: block;
+  width: 10px; /* Adjust the width of the thumbnail image as needed */
+  /* height: auto; Maintain aspect ratio */
+  
+  /* display: block; */
+}
+
+.delete-button {
+  position: absolute;
+  top: 1px; /* Adjust the top position of the delete button */
+  right: 1px; /* Adjust the right position of the delete button */
+  width: 20px; /*Adjust the width of the delete button as needed */
+  height: 40px; /*Adjust the height of the delete button as needed */
+  background-color: rgb(247, 0, 255); /*Customize the background color of the delete button */
+  color: white; /*Customize the text color of the delete button */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1; /* Ensure the delete button appears above the thumbnail image */
 }
 
 .outer-container-for-single-product {
@@ -52,10 +68,12 @@
   text-align: justify;
   margin: 1px;
 }
-.single-product-card button {
-  /* background-color: #4caf50; */
-  /* color: white; */
-  /* border: none; */
+
+.prev-btn, .next-btn, .add-to-cart-button, .submit-changes, .delete-listing, .image-add, .show-more, .show-less{
+/* .single-product-card button { */
+  /* background-color: #4caf50;  */
+  color: white;
+  border: none;
   padding: 4px 12px;
   text-align: center;
   text-decoration: none;
@@ -68,7 +86,7 @@
   border-style: solid;
   border-width: 1px;
   border-color: rgb(247, 0, 255);
-  /* margin: 6px; */
+  margin: 6px;
   background-color: rgb(255, 223, 240);
   color: blue;
 }

@@ -554,15 +554,15 @@ function SingleProductCard({ product }) {
                 </div>
                 {/* Additional fields if needed */}
                 {/* Submit button */}
-                <button type="submit">Submit changes</button>
-                <button onClick={handleDelete}>Delete listing</button>
+                <button className="submit-changes" type="submit">Submit changes</button>
+                <button className="delete-listing" onClick={handleDelete}>Delete listing</button>
                 <div 
                 // className="form-group"
                 >
                   <label htmlFor="image">Image:</label>
                   <input id="image" type="file" onChange={handleImageChange} />
                 </div>
-                <button
+                <button className="image-add"
                 // need to create function first
                  onClick={handleImageAdd}
                  >Add image</button>
@@ -581,7 +581,7 @@ function SingleProductCard({ product }) {
                 />
                 <button className="delete-button" 
                 // onClick={() => handleDeleteImage(index)}
-                >x</button>
+                >X</button>
                 </div>
                 ))}
 
@@ -614,7 +614,7 @@ function SingleProductCard({ product }) {
               {showFAQ ? (
                 <>
                   {/* Show less button */}
-                  <button onClick={() => setShowFAQ(false)}>Show more</button>
+                  <button className="show-more" onClick={() => setShowFAQ(false)}>Show more</button>
                 </>
               ) : (
                 // Render a limited number of FAQ items
@@ -776,7 +776,7 @@ function SingleProductCard({ product }) {
                   {/* ... Render other limited FAQ items ... */}
 
                   {/* Show more button */}
-                  <button onClick={() => setShowFAQ(true)}>Show less</button>
+                  <button className="show-less" onClick={() => setShowFAQ(true)}>Show less</button>
                 </>
               )}
             </ul>
