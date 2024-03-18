@@ -9,7 +9,7 @@
   margin-bottom: 50px;
   margin-left: 5px;
 }
-.thumbnail-container, .protected-thumbnails{
+.thumbnail-container{
   /* border: 1px solid #f8a3e8; */
   /* padding: 1px; */
   /* margin: 2px; */
@@ -26,6 +26,18 @@
   padding: 1px;
   margin: 10px;
 }
+
+.protected-thumbnail-container {
+  position: relative;
+  display: inline-block;
+}
+
+.protected-thumbnail-image {
+  width: 100px; /* Adjust the width of the thumbnail image as needed */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+}
+
 .outer-container-for-single-product {
   width: 100%;
 }

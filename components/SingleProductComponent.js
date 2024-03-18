@@ -570,16 +570,16 @@ function SingleProductCard({ product }) {
               <div className="protected-thumbnails"> 
               
               {product.image.map((image, index) => (
-                <div key={index} className="thumbnail-container">
+                <div key={index} className="protected-thumbnail-container">
               <img
                 key={index}
                 src={image}
                 alt={product.type}
-                className="thumbnail-image"
-                // className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
+                className="protected-thumbnail-image"
+                //className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
                 onClick={() => handleThumbnailClick(index)}
                 />
-                <button 
+                <button className="delete-button" 
                 // onClick={() => handleDeleteImage(index)}
                 >x</button>
                 </div>
