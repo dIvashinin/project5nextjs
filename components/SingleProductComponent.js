@@ -568,7 +568,9 @@ function SingleProductCard({ product }) {
                  >Add image</button>
               {/* i double thumbnails here with delete button */}
               <div className="protected-thumbnails"> 
+              
               {product.image.map((image, index) => (
+                <div key={index} className="thumbnail-container">
               <img
                 key={index}
                 src={image}
@@ -576,8 +578,12 @@ function SingleProductCard({ product }) {
                 className="thumbnail-image"
                 // className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
                 onClick={() => handleThumbnailClick(index)}
-            />
-          ))}
+                />
+                <button 
+                // onClick={() => handleDeleteImage(index)}
+                >x</button>
+                </div>
+                ))}
 
               </div> 
               </form>
