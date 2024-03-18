@@ -38,9 +38,6 @@ function SingleProductCard({ product }) {
   const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
-  const { isAuthenticated, user } = useAuth(); // Get authentication state
-  const [showDeleteButtons, setShowDeleteButtons] = useState(false);
-
   // State to track the index of the currently displayed image
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -571,7 +568,16 @@ function SingleProductCard({ product }) {
                  >Add image</button>
               {/* i double thumbnails here with delete button */}
               <div className="protected-thumbnails"> 
-
+              {product.image.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={product.type}
+                className="thumbnail-image"
+                // className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
+                onClick={() => handleThumbnailClick(index)}
+            />
+          ))}
 
               </div> 
               </form>

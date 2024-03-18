@@ -9,7 +9,7 @@
   margin-bottom: 50px;
   margin-left: 5px;
 }
-.thumbnail-container{
+.thumbnail-container, .protected-thumbnails{
   /* border: 1px solid #f8a3e8; */
   /* padding: 1px; */
   /* margin: 2px; */
