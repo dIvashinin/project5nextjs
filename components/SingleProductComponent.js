@@ -637,12 +637,12 @@ function SingleProductCard({ product }) {
                   <li>
                     <h4>Custom and personalised orders and returns</h4>
                     <p>
-                      I love our little collaborations! Don't hesitate to
+                      I love our little collaborations! Don&apos;t hesitate to
                       contact me with your ideas. But please please please try
                       to avoid requesting mass market replicas or copies of
-                      someone else's work! Since the standard worldwide delivery
+                      someone else&apos;s work! Since the standard worldwide delivery
                       is free, if you want to return your item, that is not
-                      damaged, you are the one to cover the shipping. I don't
+                      damaged, you are the one to cover the shipping. I don&apos;t
                       offer covering shipping expenses in this case. I recommend
                       choosing the most simple option available in your country,
                       no tracking and insurance need (for Germany BUEWA or 1
@@ -665,8 +665,8 @@ function SingleProductCard({ product }) {
                       stones. But all of them are unique, cold to touch and
                       pretty (I make sure of that). All the stones have their
                       character too, most of the colors are not homogenous. E.g.
-                      it's normal for lapis lazuli to have white parts - it's
-                      calcit working it's magic in the mineral. Apatite can also
+                      it&apos;s normal for lapis lazuli to have white parts - it&apos;s
+                      calcit working it&apos;s magic in the mineral. Apatite can also
                       have white and/or brown spots and so on. All of these are
                       signs of their natural origin and uniqueness, not flaws.
                       The crystals in my anti-anxiety faceted gem rings are
@@ -697,15 +697,15 @@ function SingleProductCard({ product }) {
                       use piece of thread. Wrap it around your finger and then
                       measure where the ends meet. This method can be used for
                       bracelets and necklaces too. I can always help you with
-                      sizing. Please don't forget to consult the description of
-                      an item for it's size.
+                      sizing. Please don&apos;t forget to consult the description of
+                      an item for it&apos;s size.
                     </p>
                   </li>
                   <li>
-                    <h4>I haven't received my order.</h4>
+                    <h4>I haven&apos;t received my order.</h4>
                     <p>
                       Sorry you have to wait so long! Please do get in touch
-                      with me and we will figure something out. Don't forget to
+                      with me and we will figure something out. Don&apos;t forget to
                       check the average delivery time for your location in shop
                       info.
                     </p>
@@ -716,7 +716,7 @@ function SingleProductCard({ product }) {
                       Oh no! Please contact me for replacement. I pack
                       everything as securely as possible in bubble wrap (I
                       mostly re-use it to avoid new plastic), but sometimes
-                      stones can break during shipping. Don't hesitate to reach
+                      stones can break during shipping. Don&apos;t hesitate to reach
                       out! If the item was broken within a month after the
                       purchase I can also offer a free replacement. Please
                       kindly describe what has happened to it and include
@@ -732,26 +732,26 @@ function SingleProductCard({ product }) {
                       some gems can be brittle and chip, this can affect
                       durability and comfort. - You can get the pieces wet, but
                       please avoid chemicals and frequent exposure to soaps,
-                      especially when there's a metal element present. Silver
+                      especially when there&apos;s a metal element present. Silver
                       will tarnish in time, but can easily be cleaned. - Please
-                      avoid heat and open fire. It's better to take the jewelry
+                      avoid heat and open fire. It&apos;s better to take the jewelry
                       off when cooking.
                     </p>
                   </li>
                   <li>
                     <h4>Care Instructions - Elastics</h4>
                     <p>
-                      Elastic thread that I use is a tiny miracle. It's so comfy
+                      Elastic thread that I use is a tiny miracle. It&apos;s so comfy
                       to wear and easy to work with - but as with any elastics
                       with really active wear it can stretch out. But no
-                      worries, it's really easy to avoid this. - Please avoid
+                      worries, it&apos;s really easy to avoid this. - Please avoid
                       unnecessary stretching - the pieces are meant to be played
                       with but excessive pulling will thin the tread out. - Make
                       sure you choose the right size of the piece. If it fits
-                      right, it's less likely to stretch. - It's helpful to
+                      right, it&apos;s less likely to stretch. - It&apos;s helpful to
                       leave your jewelry to lay around for couple days, so the
-                      thread can relieve the stress and come back to it's normal
-                      state (works for me too haha). Let the physics do it's
+                      thread can relieve the stress and come back to it&apos;s normal
+                      state (works for me too haha). Let the physics do its
                       work.
                     </p>
 
@@ -764,9 +764,9 @@ function SingleProductCard({ product }) {
                     <h4>Important! Children Safety 👼</h4>
                     <p>
                       The jewellery is designed for adults. However I can make
-                      any design in children’s sizes. The parent/buyer then is
+                      any design in children&apos;s sizes. The parent/buyer then is
                       the one to decide whether the jewellery is suitable and
-                      appropriate for the child. The shop doesn’t carry any
+                      appropriate for the child. The shop doesn&apos;t carry any
                       responsibility in case when the jewellery is damaged
                       or/and afflicts any injury while in use by a child. Please
                       be aware of small parts and/or breakable parts. Please use

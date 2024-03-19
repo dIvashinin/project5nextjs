@@ -78,7 +78,7 @@ function Shop({ products, reviews }) {
       {/* an alert when user goes back during Stripe session */}
       {cancel && (
         <div className="alert alert-danger" role="alert">
-          Don't worry. You can come back to payment session anytime you are
+          Don&apos;t worry. You can come back to payment session anytime you are
           ready
         </div>
       )}

@@ -18,16 +18,16 @@ function about() {
       </p>
 
       <p>
-        Hi! I've been living with anxiety for quite a long time, but founding my
+        Hi! I&apos;ve been living with anxiety for quite a long time, but founding my
         new passion in jewelry making helped me so much ever since. Working with
         the natural stones, hearing them clacking, seeing the light playing
         through them on my skin and doing some breathing exercises while I am at
         it - I found it super soothing. I wear my jewelry 24/7 and noticed, that
         fidgeting and playing with it really helps me against anxiety symptoms
-        and raises my concentration. I hope you' feel the same and will love
+        and raises my concentration. I hope you&apos;ll feel the same and will love
         your new pieces! I came up with my first anti-anxiety fidget ring back
         in 2019 and since then I am constantly trying to invent and create new
-        designs - that are helpful and cute! As my craftsmanship grows, I'm
+        designs - that are helpful and cute! As my craftsmanship grows, I&apos;m
         becoming able to create more elaborate jewelry types, but the idea
         behind this is always the same - helping people with anxiety (like
         myself) to feel better through playful and pretty jewelry designs. Oh,
@@ -56,7 +56,7 @@ function about() {
       </p>
 
       <p data-tag="last-p">
-        🤗 Speaking of vibes, making jewelry helps me a lot as well. It’s a bit
+        🤗 Speaking of vibes, making jewelry helps me a lot as well. It&apos;s a bit
         like meditation, helps me to look inwards and to feel calmer generally.
         So I make my pieces with very positive energy, trying to keep the
         process stress free.
