@@ -1,5 +1,5 @@
 import { db } from "../../config/firebaseConfig";
-import { onAuthStateChanged } from "firebase/auth";
+// import { onAuthStateChanged } from "firebase/auth";
 import {
   getFirestore,
   collection,
