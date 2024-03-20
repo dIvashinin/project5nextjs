@@ -9,8 +9,8 @@ function NotFoundPage() {
       <div className="not-found-background-container">
       <img src={notFoundPageBackground} alt=" " className="not-found-image" />
       </div>
-    <h2>it seems like there's an oops happening</h2>
-    <h2>probably this page doesn't exist at all</h2>
+    <h2>it seems like there&apos;s an oops happening</h2>
+    <h2>probably this page doesn&apos;t exist at all</h2>
     </div>
     )
 };
