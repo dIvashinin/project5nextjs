@@ -12,9 +12,10 @@ import { db } from "../config/firebaseConfig";
 function SingleProductCard({ product }) {
 
     // Check if product is defined
-    // if (!product) {
-    //   return <p></p>; // or handle the case where product is not available
-    // }
+    if (!product) {
+      return <p></p>; 
+      // or handle the case where product is not available
+    }
 
   const {
     getItemQuantity,
