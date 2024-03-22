@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useShoppingCart } from "../context/shoppingCartContext";
+
 // import { useRouter } from "next/router";
 import ProtectedRoute from "./ProtectedRoute";
 import Alert from "react-bootstrap/Alert";
@@ -8,6 +8,7 @@ import Alert from "react-bootstrap/Alert";
 // import { collection, doc , get, update } from 'firebase/firestore';
 import { getFirestore, collection, doc, updateDoc, getDoc } from 'firebase/firestore';
 import { db } from "../config/firebaseConfig";
+import { useShoppingCart } from "../context/shoppingCartContext";
 
 function SingleProductCard({ product }) {
   const {

@@ -31,7 +31,7 @@ function ProductCard({ product }) {
       <Link href={`/product/${product.id}`}>
         <a>
           {/* here we select which image is gonna be rendered on main shop page */}
-          <img src={product.image[5]} />
+          <img src={product.image[5]} alt="" />
         </a>
       </Link>
       <p data-tag="type">
