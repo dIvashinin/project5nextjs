@@ -10,9 +10,6 @@ import { getFirestore, collection, doc, updateDoc, getDoc } from 'firebase/fires
 import { db } from "../config/firebaseConfig";
 
 function SingleProductCard({ product }) {
-
-   
-
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -271,7 +268,6 @@ function SingleProductCard({ product }) {
       console.error("Error deleting image:", error);
     }
   };
-  
 
   //i simplified my code by simply putting edit form under protected route
   //so no need in condition check which caused issues!!
@@ -353,7 +349,6 @@ function SingleProductCard({ product }) {
 
   const quantity = getItemQuantity(product.id);
   // State to manage the visibility of the FAQ section
-
 
   return (
     <div className="outer-container-for-single-product">
