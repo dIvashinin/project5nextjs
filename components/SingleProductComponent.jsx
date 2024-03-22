@@ -11,11 +11,7 @@ import { db } from "../config/firebaseConfig";
 
 function SingleProductCard({ product }) {
 
-    // Check if product is defined
-    if (!product) {
-      return <p></p>; 
-      // or handle the case where product is not available
-    }
+   
 
   const {
     getItemQuantity,
@@ -346,12 +342,18 @@ function SingleProductCard({ product }) {
   const goBack =
     "https://res.cloudinary.com/dzghua4dz/image/upload/v1702383208/moonrubyshop/aprr0iiz9cofqotmk7gp.svg";
 
+    const [showFAQ, setShowFAQ] = useState(true);
+    // console.log('product :>> ', product);
 
+    // Check if product is defined
+    if (!product) {
+     return <p></p>; 
+     // or handle the case where product is not available
+   }
 
   const quantity = getItemQuantity(product.id);
   // State to manage the visibility of the FAQ section
-  const [showFAQ, setShowFAQ] = useState(true);
-  // console.log('product :>> ', product);
+
 
   return (
     <div className="outer-container-for-single-product">
