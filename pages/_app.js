@@ -5,7 +5,7 @@ import "../styles/styles.css";
 import NavBar from "../components/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 //don't know why but shoppingCartContext needed to start with small letter so i changed the name of the file as well
-import { ShoppingCartProvider } from "../context/shoppingCartContext";
+import { ShoppingCartProvider } from "../context/ShoppingCartContext";
 import { ProductProvider } from "../context/productContext";
 import { CheckoutProvider } from "../context/checkoutContext";
 import Footer from "../components/Footer";

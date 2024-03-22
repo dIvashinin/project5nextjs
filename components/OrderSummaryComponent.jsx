@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
-import { useShoppingCart } from "../context/shoppingCartContext";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 // import { useRouter } from 'next/router';
 import { useCheckout } from "../context/checkoutContext";
 

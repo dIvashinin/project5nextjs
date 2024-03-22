@@ -4,7 +4,7 @@ import { db } from "../config/firebaseConfig";
 // import { Offcanvas, Stack } from "react-bootstrap";
 // import { useShoppingCart } from "../context/shoppingCartContext";
 import Alert from "react-bootstrap/Alert";
-import { useShoppingCart } from "../context/shoppingCartContext";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 import { useCheckout } from "../context/checkoutContext";
 import OrderSummaryComponent from "./OrderSummaryComponent";
 

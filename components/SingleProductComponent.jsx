@@ -8,7 +8,7 @@ import Alert from "react-bootstrap/Alert";
 // import { collection, doc , get, update } from 'firebase/firestore';
 import { getFirestore, collection, doc, updateDoc, getDoc } from 'firebase/firestore';
 import { db } from "../config/firebaseConfig";
-import { useShoppingCart } from "../context/shoppingCartContext";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 function SingleProductCard({ product }) {
   const {

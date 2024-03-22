@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 // import Search from "../components/Search";
-import { useShoppingCart } from "../context/shoppingCartContext";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 import ProtectedRoute from "./ProtectedRoute";
 
 const cartIconLink =

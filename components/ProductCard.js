@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { useShoppingCart } from "../context/shoppingCartContext";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 // const cartIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
 import { useProduct } from "../context/productContext";
 // import ProtectedRoute from "./ProtectedRoute";

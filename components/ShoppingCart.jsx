@@ -1,5 +1,5 @@
 import { Offcanvas, Stack } from "react-bootstrap";
-import { useShoppingCart } from "../context/shoppingCartContext";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 // import CartItem from "./CartItem";
 import { useProduct } from "../context/productContext";
 import Checkout from "./Checkout";
