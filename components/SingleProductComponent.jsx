@@ -356,7 +356,7 @@ function SingleProductCard({ product }) {
       <div className="single-product-card">
         {/* <img src={goBack} alt="go back"/> */}
         <div className="goback-icon">
-          <Link href="/shop">
+          <Link href="/">
             <a>
               <img src={goBack} alt="go back" />
             </a>
@@ -800,7 +800,7 @@ function SingleProductCard({ product }) {
           </div>
         </div>
         <div className="goback-icon">
-          <Link href="/shop">
+          <Link href="/">
             <a>
               <img src={goBack} alt="go back" />
             </a>
