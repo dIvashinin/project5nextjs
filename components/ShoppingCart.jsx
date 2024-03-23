@@ -99,7 +99,8 @@ export function ShoppingCart({ isOpen }) {
               key={`${item.id}-${item.color}-${item.size}`}
             >
               <img
-                src={item.image}
+              //as i have an array, i need one of the images now
+                src={item.image[1]}
                 style={{ width: "125px", height: "75px", objectFit: "cover" }}
                 alt={item.type}
               ></img>

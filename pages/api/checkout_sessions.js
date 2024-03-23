@@ -50,6 +50,7 @@ export default async function handler(req, res) {
           product_data: {
             name: item.type,
             description: `${item.color} ${item.size}`,
+            // as it's an array now, i need one of the images now
             images: [item.image[1]],
           },
 
