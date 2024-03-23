@@ -50,7 +50,7 @@ export default async function handler(req, res) {
           product_data: {
             name: item.type,
             description: `${item.color} ${item.size}`,
-            images: [item.image],
+            images: [item.image[1]],
           },
 
           unit_amount: item.price * 100, // Convert to cents

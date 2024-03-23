@@ -7,7 +7,7 @@ import React, { useEffect } from "react";
 // import { useRouter } from 'next/router';
 // import { sendConfirmationEmail } from '/utils/emailUtil';
 const successBackground =
-  "https://res.cloudinary.com/dzghua4dz/image/upload/v1705325724/moonrubyshop/nygvgkwzp5zvfijgvmbo.jpg";
+  "https://res.cloudinary.com/dzghua4dz/image/upload/v1710535223/moonrubyshop/jwzf53h0t3l2hzldbteo.jpg";
 
 function Success() {
   //   const Success = ({ orderId, totalSum }) => {
