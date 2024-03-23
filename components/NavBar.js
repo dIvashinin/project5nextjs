@@ -21,7 +21,7 @@ function NavBar() {
         <Link href="/about">about</Link> {}
         <Link href="/login">login</Link> {}
         <ProtectedRoute>
-          <Link href="/dashboard">dashboard</Link> {}
+          <Link href="/dashboard">dash</Link> {}
         </ProtectedRoute>
         <button className="product-cart" onClick={openCart}>
           <img className="cart-icon-svg" src={cartIconLink} alt="Cart" />
