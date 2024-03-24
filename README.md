@@ -1,3 +1,16 @@
+Hi,
+
+This is a jewellery online shop 'Moon Ruby Shop' for an existing amazing Etsy shop "https://www.etsy.com/shop/MoonRubyShop". Go check it! 
+
+To build it I used new tools for me like Next.js and Stripe Payment API (it's now in test mode), and also utilised Firebase/ Firestore for creating collections in db and 'store-owner' authentication, Cloudinary API to upload images and store them, Bootstrap and CSS to style.
+
+Features available to all users: shopping, adding to cart, modifying cart, proceeding to checkout, buying. 
+
+Extra features available only to shop-owner: dashboard with paid orders, possibility to add listing, modify fields, add/ delete images, delete listing, register new users. 
+
+Features and everything to be updated.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
