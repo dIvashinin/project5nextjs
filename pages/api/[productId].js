@@ -58,7 +58,7 @@ export default async function handler(req, res) {
   } else if (req.method === "DELETE") {
     try {
       //creating reference to the specific doc using doc() function
-      const productDocRef = doc(db, "products", productId);
+      const productDocRef = doc(db, "products2", productId);
       //deleting doc
       await deleteDoc(productDocRef);
       res.status(200).json({ message: "Product deleted" });

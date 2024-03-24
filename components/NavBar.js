@@ -17,6 +17,7 @@ function NavBar() {
         {/* <Link href='/staticSiteGeneration'>staticSiteGeneration</Link> {} */}
         {/* <Link href="/shop">shop</Link> {} */}
         {/* <Link href='/product'>products</Link> */}
+        {/* now shop is index */}
         <Link href="/">shop</Link> {}
         <Link href="/about">about</Link> {}
         <Link href="/login">login</Link> {}
