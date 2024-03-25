@@ -4,7 +4,7 @@ import Link from "next/link";
 // import { useRouter } from "next/router";
 import ProtectedRoute from "./ProtectedRoute";
 import Alert from "react-bootstrap/Alert";
-import Spinner from "./Spinner";
+
 
 // import { collection, doc , get, update } from 'firebase/firestore';
 import { getFirestore, collection, doc, updateDoc, getDoc } from 'firebase/firestore';
@@ -246,6 +246,7 @@ function SingleProductCard({ product }) {
 
   // deleting of the whole listing
   const handleDelete = async () => {
+    setDeleteLoading(true); // Set loading state to true when delete action starts
     try {
       const response = await fetch(`/api/${product.id}`, {
         method: "DELETE",
@@ -262,6 +263,14 @@ function SingleProductCard({ product }) {
     } catch (error) {
       console.error("Error deleting product:", error);
       setShowAlert2(false);
+
+      // The finally block is part of the try-catch-finally statement in JavaScript. 
+      //It's executed regardless of whether an error occurred or not in the try block. 
+      //The main purpose of the finally block is to provide cleanup code that 
+      //should be executed regardless of the outcome of the try block.
+
+    } finally {
+      setDeleteLoading (false); // Set loading state to false when delete action completes
     }
   };
 
@@ -584,7 +593,20 @@ function SingleProductCard({ product }) {
                 {/* Additional fields if needed */}
                 {/* Submit button */}
                 <button className="submit-changes" type="submit">Submit changes</button>
-                <button className="delete-listing" onClick={handleDelete}>Delete listing</button>
+
+                <button 
+                className="btn btn-primary" 
+                type="button" disabled={deleteLoading} // Disable the button when deleteLoading is true
+                // className="delete-listing" 
+                onClick={handleDelete}>
+                  {deleteLoading && ( // Conditionally render the spinner if deleteLoading is true
+                  <>
+                   <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                   <span className="visually-hidden" role="status">Loading...</span>
+                  </>
+                  )}
+                  {!deleteLoading && "Delete listing"} {/* Render the button text if deleteLoading is false */}
+                  </button>
                 <div 
                 // className="form-group"
                 >
