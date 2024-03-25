@@ -161,9 +161,11 @@ function SingleProductCard({ product }) {
       //   image: updatedImages,
       // });
       console.log('image added successfully');
+      setShowAlert1 (true);
    
     } catch (error) {
       console.error("Error adding image:", error);
+      setShowAlert1 (false);
     }
   };
 
@@ -236,6 +238,7 @@ function SingleProductCard({ product }) {
     }
   };
 
+  // deleting of the whole listing
   const handleDelete = async () => {
     try {
       const response = await fetch(`/api/${product.id}`, {
@@ -256,6 +259,7 @@ function SingleProductCard({ product }) {
     }
   };
 
+  // deleting of 1 image inside listing
   const handleDeleteImage = async (index) => {
     // Remove the image from the product's image array
     const updatedImages = [...product.image.slice(0, index), ...product.image.slice(index + 1)];
@@ -265,8 +269,10 @@ function SingleProductCard({ product }) {
       const productRef = doc(db, "products2", product.id);
       await updateDoc(productRef, { image: updatedImages });
       console.log('Image deleted successfully');
+      setShowAlert2(true);
     } catch (error) {
       console.error("Error deleting image:", error);
+      setShowAlert2(false);
     }
   };
 
