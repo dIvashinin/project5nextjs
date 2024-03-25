@@ -595,17 +595,17 @@ function SingleProductCard({ product }) {
                 <button className="submit-changes" type="submit">Submit changes</button>
 
                 <button 
-                className="btn btn-primary" 
-                type="button" disabled={deleteLoading} // Disable the button when deleteLoading is true
-                // className="delete-listing" 
-                onClick={handleDelete}>
-                  {deleteLoading && ( // Conditionally render the spinner if deleteLoading is true
+                // className="btn btn-primary" 
+                // type="button" disabled={deleteLoading} // Disable the button when deleteLoading is true
+                className="delete-listing" 
+                onClick={handleDelete}>Delete listing
+                  {/* {deleteLoading && ( // Conditionally render the spinner if deleteLoading is true
                   <>
                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
                    <span className="visually-hidden" role="status">Loading...</span>
                   </>
                   )}
-                  {!deleteLoading && "Delete listing"} {/* Render the button text if deleteLoading is false */}
+                  {!deleteLoading && "Delete listing"} Render the button text if deleteLoading is false */}
                   </button>
                 <div 
                 // className="form-group"
