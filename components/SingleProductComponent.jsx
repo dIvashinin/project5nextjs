@@ -4,6 +4,7 @@ import Link from "next/link";
 // import { useRouter } from "next/router";
 import ProtectedRoute from "./ProtectedRoute";
 import Alert from "react-bootstrap/Alert";
+import Spinner from "./Spinner";
 
 // import { collection, doc , get, update } from 'firebase/firestore';
 import { getFirestore, collection, doc, updateDoc, getDoc } from 'firebase/firestore';
@@ -38,6 +39,11 @@ function SingleProductCard({ product }) {
 
   const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
+
+  // states to track loading
+  const [deleteLoading, setDeleteLoading] = useState(false);
+  const [submitLoading, setSubmitLoading] = useState(false);
+  const [imageAddLoading, setImageAddLoading] = useState(false);
 
   // State to track the index of the currently displayed image
   const [currentIndex, setCurrentIndex] = useState(0);
