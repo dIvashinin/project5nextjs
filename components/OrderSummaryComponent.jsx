@@ -10,6 +10,7 @@ const OrderSummaryComponent = ({ orderId, totalSum }) => {
   const {createCheckoutSession} = useShoppingCart();
   const {checkoutDetails, setDetails} = useCheckout();
   // const router = useRouter();
+  const [continueToPaymentLoading, setContinueToPaymentLoading] = useState(false);
 
   useEffect(() => {
     // Fetch 1 order from Firestore
@@ -36,6 +37,7 @@ const OrderSummaryComponent = ({ orderId, totalSum }) => {
   // console.log('orderData :>> ', orderData.email);
 
   const handleContinueToPayment = async () => {
+    setContinueToPaymentLoading (true);
     try {
       // Create the Stripe Checkout session
       await createCheckoutSession(
@@ -50,6 +52,8 @@ const OrderSummaryComponent = ({ orderId, totalSum }) => {
       // You might also want to close the order summary component or do other UI changes
     } catch (error) {
       console.error("Error creating Stripe Checkout session: ", error);
+    } finally {
+      setContinueToPaymentLoading(false);
     }
   };
 
@@ -83,9 +87,25 @@ const OrderSummaryComponent = ({ orderId, totalSum }) => {
       <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
         Total sum: {totalSum}&euro;
       </div>
-      <button className="continue-to-payment-button" type="submit" onClick={handleContinueToPayment}>
+      {/* <button className="continue-to-payment-button" type="submit" onClick={handleContinueToPayment}>
         continue to payment
-      </button>
+      </button> */}
+
+      <button 
+                className="btn btn-primary" 
+                type="button" disabled={continueToPaymentLoading} // Disable the button when deleteLoading is true
+                onClick={handleContinueToPayment}
+                >
+                  {continueToPaymentLoading && ( // Conditionally render the spinner if continueToPaymentLoading is true
+                  <>
+                   <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                   <span className="visually-hidden" role="status">Loading...</span>
+                  </>
+                  )}
+                  {!continueToPaymentLoading && "continue to payment"} {/*Render the button text if continueToPaymentLoading is false */}
+                  </button>
+
+
 
       {/* {orderPlaced && (
         <OrderSummaryComponent handleCheckoutClose={handleCheckoutClose} />

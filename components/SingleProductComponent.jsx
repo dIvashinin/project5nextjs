@@ -41,9 +41,9 @@ function SingleProductCard({ product }) {
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
   // states to track loading
-  const [deleteLoading, setDeleteLoading] = useState(false);
-  const [submitLoading, setSubmitLoading] = useState(false);
-  const [imageAddLoading, setImageAddLoading] = useState(false);
+  // const [deleteLoading, setDeleteLoading] = useState(false);
+  // const [submitLoading, setSubmitLoading] = useState(false);
+  // const [imageAddLoading, setImageAddLoading] = useState(false);
 
   // State to track the index of the currently displayed image
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -246,7 +246,7 @@ function SingleProductCard({ product }) {
 
   // deleting of the whole listing
   const handleDelete = async () => {
-    setDeleteLoading(true); // Set loading state to true when delete action starts
+    // setDeleteLoading(true); // Set loading state to true when delete action starts
     try {
       const response = await fetch(`/api/${product.id}`, {
         method: "DELETE",
@@ -269,9 +269,10 @@ function SingleProductCard({ product }) {
       //The main purpose of the finally block is to provide cleanup code that 
       //should be executed regardless of the outcome of the try block.
 
-    } finally {
-      setDeleteLoading (false); // Set loading state to false when delete action completes
-    }
+    } 
+    // finally {
+      // setDeleteLoading (false); // Set loading state to false when delete action completes
+    
   };
 
   // deleting of 1 image inside listing
