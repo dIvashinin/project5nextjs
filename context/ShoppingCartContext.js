@@ -52,6 +52,7 @@ export function ShoppingCartProvider({ children }) {
   const router = useRouter();
 
   const createCheckoutSession = async () => {
+    
     try {
       const { email, name, country, street, apartment, postcode, city, comment } = checkoutDetails;
       const response = await fetch("api/checkout_sessions", {
