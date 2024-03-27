@@ -5,7 +5,6 @@ import Link from "next/link";
 import ProtectedRoute from "./ProtectedRoute";
 import Alert from "react-bootstrap/Alert";
 
-
 // import { collection, doc , get, update } from 'firebase/firestore';
 import { getFirestore, collection, doc, updateDoc, getDoc } from 'firebase/firestore';
 import { db } from "../config/firebaseConfig";
@@ -119,7 +118,6 @@ function SingleProductCard({ product }) {
       });
     
       // console.log('response :>> ', response);
-
       if (!response.ok) {
         throw new Error("Failed to upload image to Cloudinary");
       }
@@ -639,8 +637,6 @@ function SingleProductCard({ product }) {
 
               </div> 
               </form>
-
-
             )}
           </div>
         </ProtectedRoute>
