@@ -10,7 +10,7 @@ const cartIconLink =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
 
 function NavBar() {
-  const { openCart, cartQuantity } = useShoppingCart();
+  const { openCart, cartQuantity, openDropdownCategory } = useShoppingCart();
   return (
     <div>
       <nav className="navigation-bar">
@@ -22,7 +22,7 @@ function NavBar() {
         {/* now shop is index */}
         <div>
         <button className="filter-category-dropdown" 
-        // onClick={openCart}
+        onClick={openDropdownCategory}
         >
           <img className="ruby-svg" src={rubyIconLink} alt="Ruby" />
           {/* <div className="inside-cart-number-products">{cartQuantity}</div> */}
