@@ -368,7 +368,7 @@ function Dashboard() {
   //   setShowAlert2(false);
   // }
   // };
-
+  console.log('orders :>> ', orders);
   return (
     <ProtectedRoute>
       <div className="dashboard-container">

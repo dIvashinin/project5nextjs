@@ -1,18 +1,21 @@
 import { Offcanvas, Stack } from "react-bootstrap";
-import React from 'react'
-import { useState } from "react";
+import React, { useState } from 'react'
 import { useShoppingCart } from "../context/ShoppingCartContext";
 
 function DropdownCategoryMenu({isOpen2}) {
     // const [isOpen2, setIsOpen2] = useState(false);
     // const openDropdownCategory = () => setIsOpen2(true);
     // const closeDropdownCategory = () => setIsOpen2(false);
-    console.log('isOpen2 :>> ', isOpen2);
+    // console.log('isOpen2 :>> ', isOpen2);
     
-        const {
+    const {
             openDropdownCategory,
             closeDropdownCategory,
         } = useShoppingCart();
+    // trying to retrieve all the types/categories i have
+    const [categories, setCategories] = useState([]);
+
+
 
   return (
     <div>
@@ -20,7 +23,7 @@ function DropdownCategoryMenu({isOpen2}) {
     <Offcanvas show={isOpen2} onHide={closeDropdownCategory} placement="start">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>
-            <p>Choose</p>
+            <p>Look what we have:</p>
           {/* {cartMessage} {}
           {cartItems.length > 0
             ? "You can modify your order here. And then proceed to checkout"

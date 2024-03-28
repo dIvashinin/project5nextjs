@@ -46,6 +46,7 @@ export function ShoppingCartProvider({ children }) {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+  console.log('cartItems :>> ', cartItems);
   // Calculate total quantity
   const totalQuantity = cartItems.reduce(
     (quantity, item) => quantity + item.quantity,
@@ -94,10 +95,11 @@ export function ShoppingCartProvider({ children }) {
     }
   }
 
+  // that's for offcanvas top-left category
   const openDropdownCategory = () => setIsOpen2(true);
   const closeDropdownCategory = () => setIsOpen2(false);
 
-  // console.log('cartItems :>> ', cartItems);
+  // that's for offcanvas shopping cart
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
   function getItemQuantity(id) {

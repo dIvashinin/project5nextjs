@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
 import "../styles/globals.css";
 import "../styles/Home.module.css";
@@ -10,7 +10,7 @@ import { ShoppingCartProvider } from "../context/ShoppingCartContext";
 import { ProductProvider } from "../context/productContext";
 import { CheckoutProvider } from "../context/checkoutContext";
 import Footer from "../components/Footer";
-import DropdownCategoryMenu from "../components/DropdownCategoryMenu";
+
 
 function MyApp({ Component, pageProps, products }) {
   //here we console.log our 'app', 'db' variable when checking if any env variables are ok
