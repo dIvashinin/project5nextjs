@@ -4,6 +4,7 @@ import { ShoppingCart } from "../components/ShoppingCart";
 import SingleProductCard from "../components/SingleProductComponent";
 import {useRouter} from "next/router";
 import { useCheckout } from "./checkoutContext";
+import DropdownCategoryMenu from "../components/DropdownCategoryMenu";
 
 const ShoppingCartContext = createContext({});
 
@@ -13,6 +14,7 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const {checkoutDetails} = useCheckout();
   
@@ -91,6 +93,9 @@ export function ShoppingCartProvider({ children }) {
       throw error; // Rethrow the error to be caught by the caller
     }
   }
+
+  const openDropdownCategory = () => setIsOpen2(true);
+  const closeDropdownCategory = () => setIsOpen2(false);
 
   // console.log('cartItems :>> ', cartItems);
   const openCart = () => setIsOpen(true);
@@ -203,6 +208,8 @@ export function ShoppingCartProvider({ children }) {
         removeFromCart,
         openCart,
         closeCart,
+        openDropdownCategory,
+        closeDropdownCategory,
         createCheckoutSession,
         setCartItems,
         cartItems,
@@ -213,6 +220,7 @@ export function ShoppingCartProvider({ children }) {
     >
       {children}
       <SingleProductCard />
+      <DropdownCategoryMenu isOpen2={isOpen2} />
       <ShoppingCart isOpen={isOpen} />
     </ShoppingCartContext.Provider>
   );

@@ -10,6 +10,7 @@ import { ShoppingCartProvider } from "../context/ShoppingCartContext";
 import { ProductProvider } from "../context/productContext";
 import { CheckoutProvider } from "../context/checkoutContext";
 import Footer from "../components/Footer";
+import DropdownCategoryMenu from "../components/DropdownCategoryMenu";
 
 function MyApp({ Component, pageProps, products }) {
   //here we console.log our 'app', 'db' variable when checking if any env variables are ok
@@ -17,11 +18,13 @@ function MyApp({ Component, pageProps, products }) {
   // console.log('pageProps :>> ', pageProps.products);
   // console.log('Component :>> ', Component);
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const openDropdownCategory = () => {
-    setIsDropdownOpen(true);
-    console.log("drop");
-  };
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // const openDropdownCategory = () => {
+  //   setIsDropdownOpen(true);
+    
+  //   console.log("drop");
+  //   console.log('isDropdownOpen :>> ', isDropdownOpen);
+  // };
 
   return (
     <div>
@@ -40,7 +43,7 @@ function MyApp({ Component, pageProps, products }) {
           {/* the order is important to have right things available in right place */}
           <ShoppingCartProvider>
             {/* <p>this p tag should appear everywhere</p> */}
-            <NavBar openDropdownCategory={openDropdownCategory}/>
+            <NavBar/>
             <Component {...pageProps} />
             <Footer />
           </ShoppingCartProvider>
