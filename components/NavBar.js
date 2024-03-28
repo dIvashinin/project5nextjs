@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import ProtectedRoute from "./ProtectedRoute";
 
+const rubyIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1711641682/moonrubyshop/psesrg9faps669tssbvv.svg";
+
 const cartIconLink =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
 
@@ -18,6 +20,15 @@ function NavBar() {
         {/* <Link href="/shop">shop</Link> {} */}
         {/* <Link href='/product'>products</Link> */}
         {/* now shop is index */}
+        <div>
+        <button className="filter-category-dropdown" 
+        // onClick={openCart}
+        >
+          <img className="ruby-svg" src={rubyIconLink} alt="Ruby" />
+          {/* <div className="inside-cart-number-products">{cartQuantity}</div> */}
+        </button>
+        </div>
+
         <Link href="/">shop</Link> {}
         <Link href="/about">about</Link> {}
         <Link href="/login">login</Link> {}

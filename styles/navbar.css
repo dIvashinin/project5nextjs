@@ -5,11 +5,14 @@
   /* padding: 4px; */
   /* padding-right: 20px; */
   position: fixed;
-  top: 0px;
-  z-index: 100;
-  font-size: 36px;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  font-size: 34px;
   font-weight: bold;
   width: 100%; /* Take up the full width */
+  display: flex;
+  justify-content:flex-start;
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 .navigation-bar a {
@@ -23,7 +26,7 @@
   color: rgb(255, 255, 255);
   /* opacity: 70%; */
 }
-.navigation-bar button {
+.product-cart {
   position: absolute;
   top: 0;
   right: 0;
@@ -36,7 +39,7 @@
   border-style: none;
   border-radius: 30px;
 }
-.navigation-bar button:hover {
+.product-cart:hover {
   background-color: rgb(200, 236, 255);
 }
 .cart-icon-svg {
@@ -49,8 +52,23 @@
   padding-bottom: 2px;
   /* for cart location */
   transform: translate(-35%, 5%);
-
 }
+
+.filter-category-dropdown {
+  display: inline-block;
+  padding: 5px;
+  cursor: pointer;
+  background-color: #ff9494;
+  
+}
+
+.ruby-svg {
+  width: 36px;
+  height: 42px;
+  /* background-color: #ff9494; */
+  /* Add any additional styling for the icon */
+}
+
 .inside-cart-number-products {
   position: relative;
   top: 3;
@@ -76,4 +94,5 @@
     padding: 0px;
     margin-right: 0px;
   }
+  
 }
