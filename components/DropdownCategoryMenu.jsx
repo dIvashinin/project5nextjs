@@ -44,7 +44,7 @@ function DropdownCategoryMenu({isOpen2}) {
     <Offcanvas show={isOpen2} onHide={closeDropdownCategory} placement="start">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>
-            <p>Look what we have:</p>
+            <h2>Look what we have:</h2>
           {/* {cartMessage} {}
           {cartItems.length > 0
             ? "You can modify your order here. And then proceed to checkout"
@@ -55,7 +55,7 @@ function DropdownCategoryMenu({isOpen2}) {
       <Offcanvas.Body>
         <Stack gap={1}>
         {categories.map((category) => (
-              <div key={category}>{category}</div>
+              <div className="category-unique-dropdown" key={category}>{category}</div>
             ))}
         </Stack>
       </Offcanvas.Body>
