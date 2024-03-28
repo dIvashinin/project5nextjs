@@ -9,8 +9,8 @@ const rubyIconLink = "https://res.cloudinary.com/dzghua4dz/image/upload/v1711641
 const cartIconLink =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701695929/moonrubyshop/gh5xolsqgqhccxhb3fyt.svg";
 
-function NavBar() {
-  const { openCart, cartQuantity, openDropdownCategory } = useShoppingCart();
+function NavBar( { openDropdownCategory }) {
+  const { openCart, cartQuantity } = useShoppingCart();
   return (
     <div>
       <nav className="navigation-bar">

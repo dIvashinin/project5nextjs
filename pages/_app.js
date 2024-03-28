@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Head from "next/head";
 import "../styles/globals.css";
 import "../styles/Home.module.css";
@@ -16,6 +17,12 @@ function MyApp({ Component, pageProps, products }) {
   // console.log('pageProps :>> ', pageProps.products);
   // console.log('Component :>> ', Component);
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const openDropdownCategory = () => {
+    setIsDropdownOpen(true);
+    console.log("drop");
+  };
+
   return (
     <div>
       <Head>
@@ -33,7 +40,7 @@ function MyApp({ Component, pageProps, products }) {
           {/* the order is important to have right things available in right place */}
           <ShoppingCartProvider>
             {/* <p>this p tag should appear everywhere</p> */}
-            <NavBar />
+            <NavBar openDropdownCategory={openDropdownCategory}/>
             <Component {...pageProps} />
             <Footer />
           </ShoppingCartProvider>

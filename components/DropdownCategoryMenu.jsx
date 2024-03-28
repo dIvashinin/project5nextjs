@@ -10,6 +10,7 @@ function DropdownCategoryMenu() {
 
   return (
     <div>
+        
     <Offcanvas show={isOpen} onHide={closeDropdownCategory} placement="start">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>
