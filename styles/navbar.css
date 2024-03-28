@@ -26,6 +26,7 @@
   color: rgb(255, 255, 255);
   /* opacity: 70%; */
 }
+/* top-right icon */
 .product-cart {
   position: absolute;
   top: 0;
@@ -53,20 +54,20 @@
   /* for cart location */
   transform: translate(-35%, 5%);
 }
-
+/* this is top-left icon */
 .filter-category-dropdown {
   display: inline-block;
   padding: 5px;
   cursor: pointer;
-  background-color: #ff9494;
-  
+  background-color: #ff9494; 
 }
-
 .ruby-svg {
   width: 36px;
   height: 42px;
-  /* background-color: #ff9494; */
-  /* Add any additional styling for the icon */
+}
+.filter-category-dropdown:hover{
+  background-color: #fa464f;
+  width: 60px;
 }
 
 .inside-cart-number-products {
