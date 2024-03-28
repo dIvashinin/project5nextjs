@@ -1,6 +1,7 @@
 import { Offcanvas, Stack } from "react-bootstrap";
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { db } from "../config/firebaseConfig";
 
 function DropdownCategoryMenu({isOpen2}) {
     // const [isOpen2, setIsOpen2] = useState(false);
@@ -14,6 +15,26 @@ function DropdownCategoryMenu({isOpen2}) {
         } = useShoppingCart();
     // trying to retrieve all the types/categories i have
     const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+      first
+    
+        const fetchCategories = async () => {
+            try {
+                const querySnapshot = await db.collection('products2').get();
+                const uniqueCategories = new Set();
+                querySnapshot.forEach((doc) => {
+                    const productData = doc.data();
+                    uniqueCategories.add(productData.type);
+                });
+                setCategories(Array.from(uniqueCategories));
+            } catch (error) {
+                console.error('error fetching categories:', error);  
+            }
+        };
+        fetchCategories(); 
+    }, [])
+    
 
 
 
