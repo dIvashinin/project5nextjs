@@ -52,7 +52,7 @@ export function ShoppingCartProvider({ children }) {
   const router = useRouter();
 
   const createCheckoutSession = async () => {
-    
+
     try {
       const { email, name, country, street, apartment, postcode, city, comment } = checkoutDetails;
       const response = await fetch("api/checkout_sessions", {
@@ -100,14 +100,14 @@ export function ShoppingCartProvider({ children }) {
   }
   //add to cart function
   function increaseCartQuantity(id, productInfo, color, size) {
-    console.log("id incr:", id);
-    console.log("productInfo incr :>> ", productInfo);
-    console.log("color incr:", color);
-    console.log("size incr:", size);
+    // console.log("id incr:", id);
+    // console.log("productInfo incr :>> ", productInfo);
+    // console.log("color incr:", color);
+    // console.log("size incr:", size);
     //current items are whatever our list of current items is
     setCartItems((currItems) => {
       //however i see prev state because it's async
-      console.log("currItems increase:", currItems);
+      // console.log("currItems increase:", currItems);
       // console.log('currItems :>> ', currItems);
       // Check if the item is already in the cart
       const existingItem = currItems.find(
@@ -136,16 +136,16 @@ export function ShoppingCartProvider({ children }) {
   }
 
   function decreaseCartQuantity(id, color, size) {
-    console.log("id decr:", id);
-    console.log("color decr:", color);
-    console.log("size decr:", size);
+    // console.log("id decr:", id);
+    // console.log("color decr:", color);
+    // console.log("size decr:", size);
     setCartItems((currItems) => {
       //however i see prev state because it's async
-      console.log("currItems decr:", currItems);
+      // console.log("currItems decr:", currItems);
       const existingItem = currItems.find(
         (item) => item.id === id && item.color === color && item.size === size
       );
-      console.log("existingItem :>> ", existingItem);
+      // console.log("existingItem :>> ", existingItem);
       // const existingItem = currItems.find((item) => item.id === id);
 
       if (existingItem && existingItem.quantity === 1) {
@@ -181,9 +181,9 @@ export function ShoppingCartProvider({ children }) {
   //     })
   // }
   function removeFromCart(id, color, size) {
-    console.log("id rem:", id);
-    console.log("color rem:", color);
-    console.log("size rem:", size);
+    // console.log("id rem:", id);
+    // console.log("color rem:", color);
+    // console.log("size rem:", size);
     setCartItems((currItems) => {
       console.log("currItems rem:", currItems);
       //however i see prev state because it's async
