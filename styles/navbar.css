@@ -88,12 +88,16 @@
 @media (max-width: 768px) {
   .navigation-bar {
     max-width: 100%;
-    font-size: 29px;
+    font-size: 32px;
   }
   .navigation-bar a {
     /* max-width: 80%; */
-    padding: 0px;
-    margin-right: 0px;
+    padding: 2px;
+    margin: 2px;
+  }
+  .ruby-svg {
+    width: 32px;
+    height: 34px;
   }
   
 }

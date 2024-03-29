@@ -8,3 +8,6 @@
 .offcanvas-itself{
     background: linear-gradient(to right, rgb(178, 187, 184), rgb(151, 223, 201));
 }
+.x-button{
+    background-color: blue;
+}

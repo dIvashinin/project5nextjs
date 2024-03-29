@@ -3,8 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { db } from "../config/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
+import ProductCard from './ProductCard';
 
-function DropdownCategoryMenu({isOpen2}) {
+function DropdownCategoryMenu({isOpen2, products}) {
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(null);
     // const [isOpen2, setIsOpen2] = useState(false);
     // const openDropdownCategory = () => setIsOpen2(true);
     // const closeDropdownCategory = () => setIsOpen2(false);
@@ -16,6 +19,19 @@ function DropdownCategoryMenu({isOpen2}) {
         } = useShoppingCart();
     // trying to retrieve all the types/categories i have
     const [categories, setCategories] = useState([]);
+    // console.log('categories :>> ', categories);
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory (category);
+        console.log('category :>> ', category);
+        closeDropdownCategory();
+        // Filter the products based on the selected category
+        const filteredProducts = products.filter((product) =>
+            
+            product.type === category
+            );
+            setFilteredProducts(filteredProducts);
+        };
 
     useEffect(() => {
     
@@ -35,9 +51,6 @@ function DropdownCategoryMenu({isOpen2}) {
         fetchCategories(); 
     }, [])
     
-
-
-
   return (
     <div>
 
@@ -55,7 +68,10 @@ function DropdownCategoryMenu({isOpen2}) {
       <Offcanvas.Body>
         <Stack gap={1}>
         {categories.map((category) => (
-              <div className="category-unique-dropdown" key={category}>{category}</div>
+              <div className="category-unique-dropdown" 
+              key={category}
+              onClick={() => handleCategoryClick(category)}
+              >{category}</div>
             ))}
         </Stack>
       </Offcanvas.Body>
