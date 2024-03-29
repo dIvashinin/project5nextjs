@@ -4,8 +4,9 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 import { db } from "../config/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import ProductCard from './ProductCard';
+import { useProduct } from "../context/productContext";
 
-function DropdownCategoryMenu({isOpen2, products}) {
+function DropdownCategoryMenu({isOpen2}) {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
     // const [isOpen2, setIsOpen2] = useState(false);
@@ -20,6 +21,8 @@ function DropdownCategoryMenu({isOpen2, products}) {
     // trying to retrieve all the types/categories i have
     const [categories, setCategories] = useState([]);
     // console.log('categories :>> ', categories);
+    const products = useProduct();
+    console.log('products :>> ', products);
 
     const handleCategoryClick = (category) => {
         setSelectedCategory (category);
@@ -50,6 +53,9 @@ function DropdownCategoryMenu({isOpen2, products}) {
         };
         fetchCategories(); 
     }, [])
+    if (!products) {
+        return <p></p>; // or handle the case where product is not available
+      }
     
   return (
     <div>

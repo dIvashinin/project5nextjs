@@ -26,6 +26,7 @@ const inputChangeHandler =  (e) => {
     // querySnapshot.forEach((doc) => {
     //     const product = doc.data();
     //     if (
+      console.log('products search :>> ', products);
         const filteredProducts = products.filter((product) =>
             product.description.toLowerCase().includes(text.toLowerCase()) ||
             product.price.toLowerCase().includes(text.toLowerCase()) ||
