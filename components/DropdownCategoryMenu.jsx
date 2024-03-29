@@ -41,10 +41,10 @@ function DropdownCategoryMenu({isOpen2}) {
   return (
     <div>
 
-    <Offcanvas show={isOpen2} onHide={closeDropdownCategory} placement="start">
+    <Offcanvas className="offcanvas-itself" show={isOpen2} onHide={closeDropdownCategory} placement="start">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>
-            <h2>Look what we have:</h2>
+            <h2>Hey you! Look what we have:</h2>
           {/* {cartMessage} {}
           {cartItems.length > 0
             ? "You can modify your order here. And then proceed to checkout"

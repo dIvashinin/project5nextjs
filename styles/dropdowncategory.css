@@ -1,7 +1,10 @@
 .category-unique-dropdown{
-    font-size: 64px;
+    font-size: 2.5rem;
     background-color: rgb(255, 165, 237);
     border-radius: 40px;
     padding: 20px;
     margin: 10px;
+}
+.offcanvas-itself{
+    background: linear-gradient(to right, rgb(178, 187, 184), rgb(151, 223, 201));
 }
