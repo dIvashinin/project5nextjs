@@ -5,10 +5,10 @@ import ProductCard from './ProductCard';
 
 
 // we pass products as props
-function Search({products, onFilterChange}) {
+function Search({products, onSearchChange}) {
     // State to track user input
   const [inputText, setInputText] = useState("");
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchedProducts, setSearchedProducts] = useState([]);
   // console.log('inputText :>> ', inputText);
   // console.log('products search :>> ', products);
 //   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -27,13 +27,13 @@ const inputChangeHandler =  (e) => {
     //     const product = doc.data();
     //     if (
       console.log('products search :>> ', products);
-        const filteredProducts = products.filter((product) =>
+        const searchedProducts = products.filter((product) =>
             product.description.toLowerCase().includes(text.toLowerCase()) ||
             product.price.toLowerCase().includes(text.toLowerCase()) ||
             product.type.toLowerCase().includes(text.toLowerCase())
             );
             // Update the parent component (Shop) with the filtered products
-            onFilterChange(filteredProducts);
+            onSearchChange(searchedProducts);
             // console.log('filteredProducts :>> ', filteredProducts);
 
         // ){
@@ -64,7 +64,7 @@ const inputChangeHandler =  (e) => {
         {/* <button onSubmit={handleSearchSubmit}>go</button> */}
 
         <div className="filtered-products">
-            {filteredProducts.map((product) => (
+            {searchedProducts.map((product) => (
                 <div key = {product.id} className="stuff-inside-products-div">
                 <ProductCard product={product} />
 

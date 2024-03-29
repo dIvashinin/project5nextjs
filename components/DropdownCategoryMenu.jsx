@@ -27,13 +27,16 @@ function DropdownCategoryMenu({isOpen2}) {
     const handleCategoryClick = (category) => {
         setSelectedCategory (category);
         console.log('category :>> ', category);
-        closeDropdownCategory();
+        // console.log('selectedCategory :>> ', selectedCategory);
+        // Pass filtered products to the parent component
+        // onFilterChange(filteredProducts);
         // Filter the products based on the selected category
         const filteredProducts = products.filter((product) =>
-            
-            product.type === category
-            );
-            setFilteredProducts(filteredProducts);
+        product.type === category
+        );
+        setFilteredProducts(filteredProducts);
+        console.log('filteredProducts :>> ', filteredProducts);
+        closeDropdownCategory();
         };
 
     useEffect(() => {
@@ -74,11 +77,12 @@ function DropdownCategoryMenu({isOpen2}) {
       <Offcanvas.Body>
         <Stack gap={1}>
         {categories.map((category) => (
-              <div className="category-unique-dropdown" 
-              key={category}
-              onClick={() => handleCategoryClick(category)}
-              >{category}</div>
+            <div className="category-unique-dropdown" 
+            key={category}
+            onClick={() => handleCategoryClick(category)}
+            >{category}</div>
             ))}
+            
         </Stack>
       </Offcanvas.Body>
       </Offcanvas>

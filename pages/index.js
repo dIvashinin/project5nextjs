@@ -5,6 +5,8 @@ import ProductCard from "../components/ProductCard";
 import Search from "../components/Search";
 // import { useShoppingCart } from "../context/shoppingCartContext";
 import { useRouter } from "next/router";
+import DropdownCategoryMenu from "../components/DropdownCategoryMenu";
+import { Navbar } from "react-bootstrap";
 
 const shopBanner =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg";
@@ -65,16 +67,45 @@ export const getStaticProps = async () => {
 function Shop({ products, reviews }) {
   // const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
   // const quantity = getItemQuantity(id)
+  
+  // const [selectedCategory, setSelectedCategory] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const handleFilterChange = (filteredProducts) => {
-    setFilteredProducts(filteredProducts);
+  console.log('filteredProducts :>> ', filteredProducts);
+  // const handleFilterChange = (filteredProducts) => {
+  //   setFilteredProducts(filteredProducts);
+  //   console.log('filteredProducts :>> ', filteredProducts);
+  // }
+
+  const [searchedProducts, setSearchedProducts] = useState([]);
+  const handleSearchChange = (searchedProducts) => {
+    setSearchedProducts(searchedProducts);
   };
   const router = useRouter();
   const { cancel } = router.query;
+
+  // const handleCategoryClick = (category) => {
+  //   setSelectedCategory(category);
+  //   console.log('category :>> ', category);
+  //   console.log('selectedCategory :>> ', selectedCategory);
+  //   // Filter products based on the selected category
+  //   const filteredProducts = /* Filter products based on category */
+  //   setFilteredProducts(filteredProducts);
+  //   console.log('filteredProducts :>> ', filteredProducts);
+  // };
+
   return (
     <div>
       {/* we pass products we need to have access to via props */}
-      <Search products={products} onFilterChange={handleFilterChange} />
+      <Search products={products} onSearchChange={handleSearchChange} />
+
+      {/* Navbar with button to open dropdown menu */}
+      {/* <Navbar setFilteredProducts={setFilteredProducts} /> */}
+      {/* <DropdownCategoryMenu setFilteredProducts={setFilteredProducts} /> */}
+      {/* <DropdownCategoryMenu 
+                filteredProducts={filteredProducts}
+                onFilterChange={handleFilterChange}
+            /> */}
+
       {/* an alert when user goes back during Stripe session */}
       {cancel && (
         <div className="alert alert-danger" role="alert">
@@ -86,9 +117,29 @@ function Shop({ products, reviews }) {
         <img src={shopBanner} alt="Etsy" className="banner-image" />
       </div>
       <h2 className="moon-ruby-shop">Moon Ruby Shop</h2>
+        
+      <div>
+      {/* <DropdownCategoryMenu handleCategoryClick={handleCategoryClick} /> */}
+
+      {/* <div className="product-list">
+        {filteredProducts.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>*/}
+    </div> 
+      
+      
       {/* here we display products */}
+
+      <div className="products-shop2">
+               {/* Render filtered products */}
+            {filteredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+            ))}
+            </div>
+
       <div className="products-shop">
-        {(filteredProducts.length > 0 ? filteredProducts : products).map(
+        {(searchedProducts.length > 0 ? searchedProducts : products).map(
           (product) => (
             <div key={product.id} className="stuff-inside-products-div">
               <ProductCard product={product} />

@@ -46,7 +46,7 @@ export function ShoppingCartProvider({ children }) {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-  console.log('cartItems :>> ', cartItems);
+  // console.log('cartItems :>> ', cartItems);
   // Calculate total quantity
   const totalQuantity = cartItems.reduce(
     (quantity, item) => quantity + item.quantity,
