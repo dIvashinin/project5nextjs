@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import ProductCard from "../components/ProductCard";
@@ -7,6 +7,7 @@ import Search from "../components/Search";
 import { useRouter } from "next/router";
 import DropdownCategoryMenu from "../components/DropdownCategoryMenu";
 import { Navbar } from "react-bootstrap";
+import {FilteredProductsContext} from "../context/FilteredProductsContext"
 
 const shopBanner =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg";
@@ -64,13 +65,14 @@ export const getStaticProps = async () => {
   }
 };
 
-function Shop({ products, reviews }) {
+function Shop({ products, reviews, filteredProducts }) {
   // const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
   // const quantity = getItemQuantity(id)
-  
+  // const { filteredProducts } = useContext(FilteredProductsContext);
+  // const { filteredProducts, setFilteredProducts } = useContext(FilteredProductsContext);
   // const [selectedCategory, setSelectedCategory] = useState(null);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  console.log('filteredProducts :>> ', filteredProducts);
+  // const [filteredProducts, setFilteredProducts] = useState([]);
+  // console.log('filteredProducts :>> ', filteredProducts);
   // const handleFilterChange = (filteredProducts) => {
   //   setFilteredProducts(filteredProducts);
   //   console.log('filteredProducts :>> ', filteredProducts);

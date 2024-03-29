@@ -10,6 +10,7 @@ import { ShoppingCartProvider } from "../context/ShoppingCartContext";
 import { ProductProvider } from "../context/productContext";
 import { CheckoutProvider } from "../context/checkoutContext";
 import Footer from "../components/Footer";
+import { FilteredProductsProvider } from "../context/FilteredProductsContext";
 
 
 function MyApp({ Component, pageProps, products }) {
@@ -38,6 +39,7 @@ function MyApp({ Component, pageProps, products }) {
       </Head>
       {/* first productProvider */}
       <ProductProvider products={pageProps.products}>
+      <FilteredProductsProvider>
         {/* then ShoppingCartProvider */}
         <CheckoutProvider>
           {/* the order is important to have right things available in right place */}
@@ -48,6 +50,7 @@ function MyApp({ Component, pageProps, products }) {
             <Footer />
           </ShoppingCartProvider>
         </CheckoutProvider>
+        </FilteredProductsProvider>
       </ProductProvider>
     </div>
   );

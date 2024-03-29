@@ -1,14 +1,15 @@
 import { Offcanvas, Stack } from "react-bootstrap";
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { db } from "../config/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import ProductCard from './ProductCard';
 import { useProduct } from "../context/productContext";
+import {FilteredProductsContext} from "../context/FilteredProductsContext"
 
 function DropdownCategoryMenu({isOpen2}) {
-    const [filteredProducts, setFilteredProducts] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    // const [filteredProducts, setFilteredProducts] = useState([]);
+    // const [selectedCategory, setSelectedCategory] = useState(null);
     // const [isOpen2, setIsOpen2] = useState(false);
     // const openDropdownCategory = () => setIsOpen2(true);
     // const closeDropdownCategory = () => setIsOpen2(false);
@@ -24,20 +25,27 @@ function DropdownCategoryMenu({isOpen2}) {
     const products = useProduct();
     console.log('products :>> ', products);
 
-    const handleCategoryClick = (category) => {
-        setSelectedCategory (category);
-        console.log('category :>> ', category);
-        // console.log('selectedCategory :>> ', selectedCategory);
-        // Pass filtered products to the parent component
-        // onFilterChange(filteredProducts);
-        // Filter the products based on the selected category
-        const filteredProducts = products.filter((product) =>
-        product.type === category
-        );
-        setFilteredProducts(filteredProducts);
-        console.log('filteredProducts :>> ', filteredProducts);
-        closeDropdownCategory();
-        };
+    //here we go using context
+    const { setFilteredProducts } = useContext(FilteredProductsContext);
+
+    const handleUpdateFilteredProducts = (newFilteredProducts) => {
+        setFilteredProducts(newFilteredProducts);
+      };
+
+    // const handleCategoryClick = (category) => {
+    //     setSelectedCategory (category);
+    //     console.log('category :>> ', category);
+    //     // console.log('selectedCategory :>> ', selectedCategory);
+    //     // Pass filtered products to the parent component
+    //     // onFilterChange(filteredProducts);
+    //     // Filter the products based on the selected category
+    //     const filteredProducts = products.filter((product) =>
+    //     product.type === category
+    //     );
+    //     setFilteredProducts(filteredProducts);
+    //     console.log('filteredProducts :>> ', filteredProducts);
+    //     closeDropdownCategory();
+    //     };
 
     useEffect(() => {
     
@@ -79,7 +87,8 @@ function DropdownCategoryMenu({isOpen2}) {
         {categories.map((category) => (
             <div className="category-unique-dropdown" 
             key={category}
-            onClick={() => handleCategoryClick(category)}
+            onClick={handleUpdateFilteredProducts}
+            // onClick={() => handleCategoryClick(category)}
             >{category}</div>
             ))}
             
