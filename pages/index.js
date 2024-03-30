@@ -7,7 +7,7 @@ import Search from "../components/Search";
 import { useRouter } from "next/router";
 import DropdownCategoryMenu from "../components/DropdownCategoryMenu";
 import { Navbar } from "react-bootstrap";
-import {FilteredProductsContext} from "../context/FilteredProductsContext"
+import {FilteredProductsContext, useFilteredProducts} from "../context/FilteredProductsContext"
 
 const shopBanner =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg";
@@ -65,10 +65,10 @@ export const getStaticProps = async () => {
   }
 };
 
-function Shop({ products, reviews, filteredProducts }) {
+function Shop({ products, reviews }) {
   // const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
   // const quantity = getItemQuantity(id)
-  // const { filteredProducts } = useContext(FilteredProductsContext);
+  const { filteredProducts, setFilteredProducts } = useFilteredProducts();
   // const { filteredProducts, setFilteredProducts } = useContext(FilteredProductsContext);
   // const [selectedCategory, setSelectedCategory] = useState(null);
   // const [filteredProducts, setFilteredProducts] = useState([]);

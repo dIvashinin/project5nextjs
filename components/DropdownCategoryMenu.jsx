@@ -5,7 +5,7 @@ import { db } from "../config/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import ProductCard from './ProductCard';
 import { useProduct } from "../context/productContext";
-import {FilteredProductsContext} from "../context/FilteredProductsContext"
+import {useFilteredProducts} from "../context/FilteredProductsContext"
 
 function DropdownCategoryMenu({isOpen2}) {
     // const [filteredProducts, setFilteredProducts] = useState([]);
@@ -26,10 +26,10 @@ function DropdownCategoryMenu({isOpen2}) {
     console.log('products :>> ', products);
 
     //here we go using context
-    const { setFilteredProducts } = useContext(FilteredProductsContext);
+    const { setFilteredProducts } = useFilteredProducts();
 
-    const handleUpdateFilteredProducts = (newFilteredProducts) => {
-        setFilteredProducts(newFilteredProducts);
+    const handleUpdateFilteredProducts = (filteredProducts) => {
+        setFilteredProducts(filteredProducts);
       };
 
     // const handleCategoryClick = (category) => {
@@ -87,7 +87,7 @@ function DropdownCategoryMenu({isOpen2}) {
         {categories.map((category) => (
             <div className="category-unique-dropdown" 
             key={category}
-            onClick={handleUpdateFilteredProducts}
+            onClick={() => handleUpdateFilteredProducts(category)}
             // onClick={() => handleCategoryClick(category)}
             >{category}</div>
             ))}
