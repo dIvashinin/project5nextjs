@@ -81,10 +81,11 @@ function Shop({ products, reviews }) {
   const [searchedProducts, setSearchedProducts] = useState([]);
   const handleSearchChange = (searchedProducts) => {
     setSearchedProducts(searchedProducts);
+    console.log('searchedProducts :>> ', searchedProducts);
   };
   const router = useRouter();
   const { cancel } = router.query;
-
+  console.log('searchedProducts :>> ', searchedProducts);
   // const handleCategoryClick = (category) => {
   //   setSelectedCategory(category);
   //   console.log('category :>> ', category);
@@ -94,6 +95,22 @@ function Shop({ products, reviews }) {
   //   setFilteredProducts(filteredProducts);
   //   console.log('filteredProducts :>> ', filteredProducts);
   // };
+
+
+  // Assuming filteredProducts, searchedProducts, and products are available in the component's state or props
+let displayedProducts = [];
+
+// Check if either filteredProducts or searchedProducts has items
+if (filteredProducts.length > 0) {
+    // Display filtered products if available
+    displayedProducts = filteredProducts;
+} else if (searchedProducts.length > 0) {
+    // Display searched products if available
+    displayedProducts = searchedProducts;
+} else {
+    // Otherwise, display all products
+    displayedProducts = products;
+}
 
   return (
     <div>
@@ -133,26 +150,32 @@ function Shop({ products, reviews }) {
       
       {/* here we display products */}
 
-      <div className="products-shop2">
-               {/* Render filtered products */}
-            {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-            ))}
-            </div>
-
       <div className="products-shop">
-        {(searchedProducts.length > 0 ? searchedProducts : products).map(
-          (product) => (
-            <div key={product.id} className="stuff-inside-products-div">
-              <ProductCard product={product} />
+            {/* Render the products based on the condition */}
+            {displayedProducts.map((product) => (
+               <div key={product.id} className="stuff-inside-products-div">
+                <ProductCard product={product} />
               {/* <img className="product-image" src={product.image}></img>
                     <p>{product.type}</p>
                     <p>{product.price}</p>
                     <p>{product.description}</p> */}
             </div>
-          )
-        )}
-      </div>
+            ))}
+            </div>
+
+      {/* <div className="products-shop"> */}
+        {/* {(searchedProducts.length > 0 ? searchedProducts : products).map( */}
+          {/* // (product) => ( */}
+            {/* // <div key={product.id} className="stuff-inside-products-div"> */}
+              {/* <ProductCard product={product} /> */}
+              {/* <img className="product-image" src={product.image}></img>
+                    <p>{product.type}</p>
+                    <p>{product.price}</p>
+                    <p>{product.description}</p> */}
+            {/* </div> */}
+          {/* // ) */}
+        {/* // )} */}
+      {/* </div> */}
       <hr />
       <div className="reviews-shop">
         {/* here go reviews */}
