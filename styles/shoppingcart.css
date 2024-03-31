@@ -44,3 +44,6 @@ p[data-tag="total"] {
   font-style: italic;
   margin-bottom: 0px;
 }
+.offcanvas-shopping-itself{
+  background: linear-gradient(to left, rgb(178, 187, 184), rgb(151, 223, 201));
+}

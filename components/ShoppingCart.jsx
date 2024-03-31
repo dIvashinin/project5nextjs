@@ -78,7 +78,7 @@ export function ShoppingCart({ isOpen }) {
   // }, [checkoutOpen]);
   // console.log("Total Sum in ShoppingCart Component: ", totalSum);
   return (
-    <Offcanvas show={isOpen} onHide={closeCart} placement="end">
+    <Offcanvas className="offcanvas-shopping-itself" show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>
           {cartMessage} {}

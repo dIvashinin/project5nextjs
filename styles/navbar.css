@@ -83,7 +83,6 @@
 }
 
 /* Responsive styling */
-
 @media (max-width: 400px) {
   .navigation-bar {
     font-size: 20px; /* Adjusted font size */
@@ -116,7 +115,6 @@
     font-size: 12px; /* Adjusted font size */
   }
 }
-
 
 @media (min-width: 401px) and (max-width: 500px) {
   .navigation-bar {
@@ -181,5 +179,4 @@
     height: 1rem; /* Adjusted height */
     font-size: 12px; /* Adjusted font size */
   }
-
 }
