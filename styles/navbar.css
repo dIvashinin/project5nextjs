@@ -2,102 +2,184 @@
 .navigation-bar {
   background-color: #ff9494;
   opacity: 75%;
-  /* padding: 4px; */
-  /* padding-right: 20px; */
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
   font-size: 34px;
   font-weight: bold;
-  width: 100%; /* Take up the full width */
+  width: 100%;
   display: flex;
-  justify-content:flex-start;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  justify-content: space-between; /* Adjusted alignment */
+  align-items: center; /* Center vertically */
+  box-sizing: border-box;
+  padding: 0 20px;   /* Added horizontal padding */
 }
+
 .navigation-bar a {
   color: rgb(73, 0, 64);
-  margin-right: 10px;
   text-decoration: none;
-  font: 20px;
-  padding: 5px;
+  font-size: 40px; /* Adjusted font size */
+  /* padding: 5px; */
 }
+
 .navigation-bar a:hover {
   color: rgb(255, 255, 255);
-  /* opacity: 70%; */
 }
+
 /* top-right icon */
 .product-cart {
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: relative; /* Changed to relative */
   width: 2.5rem;
   height: 2.5rem;
-  margin: 4px;
-  margin-right: 20px;
   background-color: rgb(220, 236, 255);
   text-decoration: none;
-  border-style: none;
   border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .product-cart:hover {
   background-color: rgb(200, 236, 255);
 }
+
 .cart-icon-svg {
   width: 2rem;
   height: 1.8rem;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  margin-bottom: 5px;
-  padding-bottom: 2px;
-  /* for cart location */
-  transform: translate(-35%, 5%);
 }
+
 /* this is top-left icon */
 .filter-category-dropdown {
   display: inline-block;
   padding: 5px;
   cursor: pointer;
-  background-color: #ff9494; 
+  background-color: #ff9494;
 }
+
 .ruby-svg {
   width: 36px;
   height: 42px;
 }
-.filter-category-dropdown:hover{
+
+.filter-category-dropdown:hover {
   background-color: #fa464f;
-  width: 60px;
 }
 
 .inside-cart-number-products {
-  position: relative;
-  top: 3;
-  /* left: 0; */
-  /* border-style: solid  1px; */
-  border-radius: 20px;
+  position: absolute;
+  top: -5px; /* Adjusted positioning */
+  right: -5px; /* Adjusted positioning */
+  border-radius: 50%;
   background-color: red;
   opacity: 95%;
   width: 1.3rem;
   height: 1.3rem;
-  transform: translate(-55%, -35%);
   font-size: 15px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Responsive styling */
-@media (max-width: 768px) {
+
+@media (max-width: 400px) {
   .navigation-bar {
-    max-width: 100%;
-    font-size: 32px;
+    font-size: 20px; /* Adjusted font size */
+    padding: 0 6px; /* Adjusted horizontal padding */
   }
   .navigation-bar a {
-    /* max-width: 80%; */
+    font-size: 26px;
     padding: 2px;
-    margin: 2px;
+    
   }
+
   .ruby-svg {
     width: 32px;
     height: 34px;
   }
-  
+
+  .product-cart {
+    width: 2rem; /* Adjusted width */
+    height: 2rem; /* Adjusted height */
+  }
+
+  .cart-icon-svg {
+    width: 1.6rem; /* Adjusted width */
+    height: 1.5rem; /* Adjusted height */
+  }
+
+  .inside-cart-number-products {
+    width: 1rem; /* Adjusted width */
+    height: 1rem; /* Adjusted height */
+    font-size: 12px; /* Adjusted font size */
+  }
+}
+
+
+@media (min-width: 401px) and (max-width: 500px) {
+  .navigation-bar {
+    font-size: 20px; /* Adjusted font size */
+    padding: 0 6px; /* Adjusted horizontal padding */
+  }
+  .navigation-bar a {
+    font-size: 30px;
+    padding: 2px;
+    
+  }
+
+  .ruby-svg {
+    width: 32px;
+    height: 34px;
+  }
+
+  .product-cart {
+    width: 2rem; /* Adjusted width */
+    height: 2rem; /* Adjusted height */
+  }
+
+  .cart-icon-svg {
+    width: 1.6rem; /* Adjusted width */
+    height: 1.5rem; /* Adjusted height */
+  }
+
+  .inside-cart-number-products {
+    width: 1rem; /* Adjusted width */
+    height: 1rem; /* Adjusted height */
+    font-size: 12px; /* Adjusted font size */
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  .navigation-bar {
+    font-size: 20px; /* Adjusted font size */
+    padding: 0 10px; /* Adjusted horizontal padding */
+  }
+  .navigation-bar a {
+    font-size: 36px;
+    /* padding: 5px; */
+  }
+
+  .ruby-svg {
+    width: 36px;
+    height: 40px;
+  }
+
+  .product-cart {
+    width: 2rem; /* Adjusted width */
+    height: 2rem; /* Adjusted height */
+  }
+
+  .cart-icon-svg {
+    width: 1.6rem; /* Adjusted width */
+    height: 1.5rem; /* Adjusted height */
+  }
+
+  .inside-cart-number-products {
+    width: 1rem; /* Adjusted width */
+    height: 1rem; /* Adjusted height */
+    font-size: 12px; /* Adjusted font size */
+  }
+
 }
