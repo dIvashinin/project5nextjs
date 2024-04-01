@@ -3,10 +3,15 @@ import ProtectedRoute from "../components/ProtectedRoute";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import Alert from "react-bootstrap/Alert";
+import { useProduct } from "../context/productContext";
 // import handleUpload from './api/upload';
 // import handleAddProduct from './api/products';
 
 function Dashboard() {
+  
+  const products = useProduct();
+  // const products = pageProps.products;
+  console.log('products :>> ', products);
   const [orders, setOrders] = useState([]);
   const [type, setType] = useState("");
   const [price, setPrice] = useState("");
@@ -17,6 +22,7 @@ function Dashboard() {
   const [image, setImage] = useState("");
   const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
+
 
   const handleTypeChange = (e) => {
     setType(e.target.value);
@@ -368,6 +374,8 @@ function Dashboard() {
   //   setShowAlert2(false);
   // }
   // };
+
+
   console.log('orders :>> ', orders);
   return (
     <ProtectedRoute>

@@ -22,8 +22,8 @@ export const getStaticProps = async () => {
       const imageUrls = Array.isArray(doc.data().image)
         ? doc.data().image
         : [doc.data().image];
-      console.log("doc.data().image :>> ", doc.data().image);
-      console.log("imageUrls inside shop.js :>> ", imageUrls);
+      // console.log("doc.data().image :>> ", doc.data().image);
+      // console.log("imageUrls inside shop.js :>> ", imageUrls);
       // || [];
       products.push({
         id: doc.id,
@@ -81,11 +81,11 @@ function Shop({ products, reviews }) {
   const [searchedProducts, setSearchedProducts] = useState([]);
   const handleSearchChange = (searchedProducts) => {
     setSearchedProducts(searchedProducts);
-    console.log('searchedProducts :>> ', searchedProducts);
+    // console.log('searchedProducts :>> ', searchedProducts);
   };
   const router = useRouter();
   const { cancel } = router.query;
-  console.log('searchedProducts :>> ', searchedProducts);
+  // console.log('searchedProducts :>> ', searchedProducts);
   // const handleCategoryClick = (category) => {
   //   setSelectedCategory(category);
   //   console.log('category :>> ', category);

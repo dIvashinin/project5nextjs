@@ -13,10 +13,13 @@ import Footer from "../components/Footer";
 import { FilteredProductsProvider } from "../context/FilteredProductsContext";
 
 
+
 function MyApp({ Component, pageProps, products }) {
   //here we console.log our 'app', 'db' variable when checking if any env variables are ok
-  // console.log('products myApp :>> ', products);
-  // console.log('pageProps :>> ', pageProps.products);
+  console.log('products myApp :>> ', products);
+  console.log('pageProps.products :>> ', pageProps.products);
+  console.log('pageProps :>> ', pageProps);
+  console.log('Component :>> ', Component);
   // console.log('Component :>> ', Component);
 
   // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
