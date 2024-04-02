@@ -90,13 +90,12 @@
   }
   .navigation-bar a {
     font-size: 26px;
-    padding: 2px;
-    
+    padding: 2px; 
   }
 
   .ruby-svg {
-    width: 32px;
-    height: 34px;
+    width: 26px;
+    height: 26px;
   }
 
   .product-cart {
@@ -128,8 +127,8 @@
   }
 
   .ruby-svg {
-    width: 32px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
   }
 
   .product-cart {
@@ -161,7 +160,7 @@
 
   .ruby-svg {
     width: 36px;
-    height: 40px;
+    height: 36px;
   }
 
   .product-cart {
