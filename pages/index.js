@@ -69,7 +69,7 @@ export const getStaticProps = async () => {
 function Shop({ initialProducts, reviews }) {
   // const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
   // const quantity = getItemQuantity(id)
-  console.log('initialProducts :>> ', initialProducts);
+  // console.log('initialProducts :>> ', initialProducts);
   const { filteredProducts, setFilteredProducts } = useFilteredProducts();
   // const { filteredProducts, setFilteredProducts } = useContext(FilteredProductsContext);
   // const [selectedCategory, setSelectedCategory] = useState(null);

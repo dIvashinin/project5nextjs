@@ -24,8 +24,8 @@ function DropdownCategoryMenu({isOpen2}) {
     // console.log('categories :>> ', categories);
     // const products = useProduct();
     const {products , setProducts}  = useProduct();
-    console.log('setProducts :>> ', setProducts);
-    console.log('products :>> ', products);
+    // console.log('setProducts :>> ', setProducts);
+    // console.log('products :>> ', products);
 
     //here we go using context
     const { setFilteredProducts } = useFilteredProducts();
@@ -33,7 +33,7 @@ function DropdownCategoryMenu({isOpen2}) {
     const handleUpdateFilteredProducts = (selectedCategory) => {
         const filteredProducts = products.filter((product) => product.type === selectedCategory);
         setFilteredProducts(filteredProducts);
-        console.log('filteredProducts :>> ', filteredProducts);
+        // console.log('filteredProducts :>> ', filteredProducts);
         closeDropdownCategory();
       };
 

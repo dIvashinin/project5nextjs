@@ -17,12 +17,13 @@ import { FilteredProductsProvider } from "../context/FilteredProductsContext";
 function MyApp({ Component, pageProps }) {
   //here we console.log our 'app', 'db' variable when checking if any env variables are ok
   // console.log('products myApp :>> ', products);
-  console.log('pageProps.products :>> ', pageProps.products);
-  console.log('pageProps :>> ', pageProps);
+  // console.log('pageProps.products :>> ', pageProps.products);
+  // console.log('pageProps :>> ', pageProps);
   // console.log('Component :>> ', Component);
   // console.log('Component :>> ', Component);
+  // this is the structure to get products:
   const products  = pageProps.initialProducts;
-  console.log('products :>> ', products);
+  // console.log('products :>> ', products);
 
   // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   // const openDropdownCategory = () => {

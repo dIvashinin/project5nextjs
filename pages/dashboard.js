@@ -11,7 +11,7 @@ function Dashboard() {
   
   const products = useProduct();
   // const products = pageProps.products;
-  console.log('products :>> ', products);
+  // console.log('products :>> ', products);
   const [orders, setOrders] = useState([]);
   const [type, setType] = useState("");
   const [price, setPrice] = useState("");
