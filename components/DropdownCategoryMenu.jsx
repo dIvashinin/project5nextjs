@@ -22,7 +22,9 @@ function DropdownCategoryMenu({isOpen2}) {
     // trying to retrieve all the types/categories i have
     const [categories, setCategories] = useState([]);
     // console.log('categories :>> ', categories);
-    const products = useProduct();
+    // const products = useProduct();
+    const {products , setProducts}  = useProduct();
+    console.log('setProducts :>> ', setProducts);
     console.log('products :>> ', products);
 
     //here we go using context

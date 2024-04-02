@@ -14,13 +14,15 @@ import { FilteredProductsProvider } from "../context/FilteredProductsContext";
 
 
 
-function MyApp({ Component, pageProps, products }) {
+function MyApp({ Component, pageProps }) {
   //here we console.log our 'app', 'db' variable when checking if any env variables are ok
-  console.log('products myApp :>> ', products);
+  // console.log('products myApp :>> ', products);
   console.log('pageProps.products :>> ', pageProps.products);
   console.log('pageProps :>> ', pageProps);
-  console.log('Component :>> ', Component);
   // console.log('Component :>> ', Component);
+  // console.log('Component :>> ', Component);
+  const products  = pageProps.initialProducts;
+  console.log('products :>> ', products);
 
   // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   // const openDropdownCategory = () => {
@@ -41,7 +43,9 @@ function MyApp({ Component, pageProps, products }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
       </Head>
       {/* first productProvider */}
-      <ProductProvider products={pageProps.products}>
+      <ProductProvider initialProducts={products}
+      // products={pageProps.products}
+      >
       <FilteredProductsProvider>
         {/* then ShoppingCartProvider */}
         <CheckoutProvider>

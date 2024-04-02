@@ -52,7 +52,7 @@ export const getStaticProps = async () => {
     });
 
     return {
-      props: { products, reviews },
+      props: { initialProducts: products, reviews },
       //will change this later, now it's 60 sec
       revalidate: 60,
     };
@@ -65,9 +65,11 @@ export const getStaticProps = async () => {
   }
 };
 
-function Shop({ products, reviews }) {
+
+function Shop({ initialProducts, reviews }) {
   // const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
   // const quantity = getItemQuantity(id)
+  console.log('initialProducts :>> ', initialProducts);
   const { filteredProducts, setFilteredProducts } = useFilteredProducts();
   // const { filteredProducts, setFilteredProducts } = useContext(FilteredProductsContext);
   // const [selectedCategory, setSelectedCategory] = useState(null);
@@ -109,13 +111,13 @@ if (filteredProducts.length > 0) {
     displayedProducts = searchedProducts;
 } else {
     // Otherwise, display all products
-    displayedProducts = products;
+    displayedProducts = initialProducts;
 }
 
   return (
     <div>
       {/* we pass products we need to have access to via props */}
-      <Search products={products} onSearchChange={handleSearchChange} />
+      <Search products={initialProducts} onSearchChange={handleSearchChange} />
 
       {/* Navbar with button to open dropdown menu */}
       {/* <Navbar setFilteredProducts={setFilteredProducts} /> */}
