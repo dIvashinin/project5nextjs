@@ -4,6 +4,8 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import Alert from "react-bootstrap/Alert";
 import { useProduct } from "../context/productContext";
+import { useFilteredProducts } from "../context/FilteredProductsContext";
+import { useRedirectOnCondition } from "../hooks/useRedirectOnCondition";
 // import handleUpload from './api/upload';
 // import handleAddProduct from './api/products';
 
@@ -22,6 +24,12 @@ function Dashboard() {
   const [image, setImage] = useState("");
   const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
+
+  const {filteredProducts} = useFilteredProducts();
+  useRedirectOnCondition(filteredProducts.length > 0, '/');
+
+  console.log('filteredProducts in dashboard :>> ', filteredProducts);
+  
 
 
   const handleTypeChange = (e) => {
@@ -171,7 +179,7 @@ function Dashboard() {
         ...doc.data(),
       }));
       setOrders(ordersData);
-      console.log("ordersData :>> ", ordersData);
+      // console.log("ordersData :>> ", ordersData);
     };
     fetchOrders();
   }, []);
@@ -376,7 +384,7 @@ function Dashboard() {
   // };
 
 
-  console.log('orders :>> ', orders);
+  // console.log('orders :>> ', orders);
   return (
     <ProtectedRoute>
       <div className="dashboard-container">

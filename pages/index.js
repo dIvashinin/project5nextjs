@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import ProductCard from "../components/ProductCard";
@@ -98,6 +98,9 @@ function Shop({ initialProducts, reviews }) {
   //   console.log('filteredProducts :>> ', filteredProducts);
   // };
 
+ 
+  
+
 
   // Assuming filteredProducts, searchedProducts, and products are available in the component's state or props
 let displayedProducts = [];
@@ -113,6 +116,19 @@ if (filteredProducts.length > 0) {
     // Otherwise, display all products
     displayedProducts = initialProducts;
 }
+
+
+ //i had an issue after implementing useRedirectOnCondition: in dashboard for ex.
+  //when i choose category from offcanvas, filteredProducts are >0, redirect to shop/index
+  //but filteredProducts stay >0, that's why if i want to get back to dashboard, i can't,
+  //because the condition is still 'filteredProducts >0'
+  useEffect(() => {
+    // Reset filteredProducts state when navigating away from the shop page
+  return () => {
+    // The cleanup function's purpose is to clean up any resources or side effects created by the effect
+    setFilteredProducts([]);
+  };
+  }, []);
 
   return (
     <div>
