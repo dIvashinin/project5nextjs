@@ -2,3 +2,18 @@
 // dropdown offcanvas when inside other than shop/index page
 // this approach helps me keep my code DRY = DON'T REPEAT YOURSELF
 
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+
+// we use 2 parameters - "condition" and "redirectTo". 
+//for ex. we gonna use it like: "useRedirectOnCondition(filteredProducts.length > 0, '/shop');"
+export function useRedirectOnCondition (condition, redirectTo) {
+    const router = useRouter();
+
+    useEffect(() => {
+     if (condition) {
+        router.push(redirectTo);
+     }
+    }, [condition, redirectTo, router])
+    
+}
