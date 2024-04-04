@@ -12,11 +12,14 @@ export function useRedirectOnCondition (condition, redirectTo) {
 
     useEffect(() => {
      if (condition) {
-        setTimeout(() => {
-
+        // let's try to use callback function which is gonna be executed after state update
+        const redirectCallback = () => {
             router.push(redirectTo);
-        }, 100);
-     }
+        
+     };
+     //and call callback here
+     redirectCallback();
+    }
     }, [condition, redirectTo, router])
     
 }

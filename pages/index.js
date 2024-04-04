@@ -7,7 +7,9 @@ import Search from "../components/Search";
 import { useRouter } from "next/router";
 import DropdownCategoryMenu from "../components/DropdownCategoryMenu";
 import { Navbar } from "react-bootstrap";
-import {FilteredProductsContext, useFilteredProducts} from "../context/FilteredProductsContext"
+import { useFilteredProducts } from "../context/FilteredProductsContext";
+
+
 
 const shopBanner =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg";
@@ -67,10 +69,49 @@ export const getStaticProps = async () => {
 
 
 function Shop({ initialProducts, reviews }) {
+  const router = useRouter();
+  const { filteredProducts, setFilteredProducts } = useFilteredProducts();
+  console.log('filteredProducts in shop before :>> ', filteredProducts);
+  // const router = useRouter();
+  useEffect(() => {
+    const handleCleanup = () => {
+setFilteredProducts([]);
+console.log('filteredProducts in shop after :>> ', filteredProducts);
+    };
+
+    // Listen for route changes
+  const handleRouteChange = (url) => {
+    if (url !== '/') {
+      // Execute cleanup function when navigating away from the shop page
+      handleCleanup();
+    }
+  };
+
+  // Subscribe to route changes
+  router.events.on('routeChangeStart', handleRouteChange);
+
+  // Cleanup subscription
+  return () => {
+    router.events.off('routeChangeStart', handleRouteChange);
+  };
+}, [router.events, setFilteredProducts]);
+
+//    // Reset filteredProducts state when navigating away from the shop page
+//    if (router.pathname !== '/') {
+//     handleCleanup();
+//    } 
+//    return () => {
+//     // cleanup function
+//     if (router.pathname !== '/') {
+//       handleCleanup();
+//    }
+//   };
+// }, [router.pathname, setFilteredProducts]);
+
   // const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
   // const quantity = getItemQuantity(id)
   // console.log('initialProducts :>> ', initialProducts);
-  const { filteredProducts, setFilteredProducts } = useFilteredProducts();
+  // const { filteredProducts, setFilteredProducts } = useFilteredProducts();
   // const { filteredProducts, setFilteredProducts } = useContext(FilteredProductsContext);
   // const [selectedCategory, setSelectedCategory] = useState(null);
   // const [filteredProducts, setFilteredProducts] = useState([]);
@@ -85,7 +126,7 @@ function Shop({ initialProducts, reviews }) {
     setSearchedProducts(searchedProducts);
     // console.log('searchedProducts :>> ', searchedProducts);
   };
-  const router = useRouter();
+  // const router = useRouter();
   const { cancel } = router.query;
   // console.log('searchedProducts :>> ', searchedProducts);
   // const handleCategoryClick = (category) => {
@@ -122,13 +163,14 @@ if (filteredProducts.length > 0) {
   //when i choose category from offcanvas, filteredProducts are >0, redirect to shop/index
   //but filteredProducts stay >0, that's why if i want to get back to dashboard, i can't,
   //because the condition is still 'filteredProducts >0'
-  useEffect(() => {
+  
+
     // Reset filteredProducts state when navigating away from the shop page
-  return () => {
+  // return () => {
     // The cleanup function's purpose is to clean up any resources or side effects created by the effect
-    setFilteredProducts([]);
-  };
-  }, []);
+    // setFilteredProducts([]);
+  // };
+  // }, []);
 
   return (
     <div>

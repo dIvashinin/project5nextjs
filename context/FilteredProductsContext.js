@@ -7,7 +7,7 @@ export const useFilteredProducts = () => useContext(FilteredProductsContext);
 // 2. Provider component
 export const FilteredProductsProvider = ({ children }) => {
   const [filteredProducts, setFilteredProducts] = useState([]);
-// console.log('filteredProducts :>> ', filteredProducts);
+console.log('filteredProducts in context :>> ', filteredProducts);
   return (
     <FilteredProductsContext.Provider value={{ filteredProducts, setFilteredProducts }}>
       {children}

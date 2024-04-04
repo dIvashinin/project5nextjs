@@ -25,7 +25,8 @@ function Dashboard() {
   const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
-  const {filteredProducts} = useFilteredProducts();
+  const {filteredProducts , setFilteredProducts} = useFilteredProducts();
+
   useRedirectOnCondition(filteredProducts.length > 0, '/');
   console.log('filteredProducts in dashboard :>> ', filteredProducts);
 

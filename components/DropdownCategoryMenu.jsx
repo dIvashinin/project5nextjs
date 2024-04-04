@@ -33,7 +33,7 @@ function DropdownCategoryMenu({isOpen2}) {
     const handleUpdateFilteredProducts = (selectedCategory) => {
         const filteredProducts = products.filter((product) => product.type === selectedCategory);
         setFilteredProducts(filteredProducts);
-        // console.log('filteredProducts :>> ', filteredProducts);
+        console.log('filteredProducts in offcanvas :>> ', filteredProducts);
         closeDropdownCategory();
       };
 

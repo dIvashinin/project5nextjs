@@ -78,7 +78,7 @@ function SingleProductCard({ product }) {
   };
   const handleImageChange = (e) => {
     setImageFile(e.target.files[0]);
-    console.log('e.target.files[0] :>> ', e.target.files[0]);
+    // console.log('e.target.files[0] :>> ', e.target.files[0]);
   };
 
   // i put edit form under protected route, so no need in this
@@ -176,7 +176,7 @@ function SingleProductCard({ product }) {
   // Function to handle form submission for editing
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log("editing form");
+    // console.log("editing form");
     // You can navigate to the edit page or display an edit form directly in this component
     try {
       // let updatedImage = image; //Assume image URL remains the same by default
@@ -350,8 +350,8 @@ function SingleProductCard({ product }) {
   };
   // Use useEffect to log the updated values
   useEffect(() => {
-    console.log("selectedColor :>> ", selectedColor);
-    console.log("selectedSize :>> ", selectedSize);
+    // console.log("selectedColor :>> ", selectedColor);
+    // console.log("selectedSize :>> ", selectedSize);
   }, [selectedColor, selectedSize]);
 
   // const router = useRouter();
