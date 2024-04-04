@@ -12,7 +12,10 @@ export function useRedirectOnCondition (condition, redirectTo) {
 
     useEffect(() => {
      if (condition) {
-        router.push(redirectTo);
+        setTimeout(() => {
+
+            router.push(redirectTo);
+        }, 100);
      }
     }, [condition, redirectTo, router])
     

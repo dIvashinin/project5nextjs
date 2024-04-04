@@ -27,9 +27,7 @@ function Dashboard() {
 
   const {filteredProducts} = useFilteredProducts();
   useRedirectOnCondition(filteredProducts.length > 0, '/');
-
   console.log('filteredProducts in dashboard :>> ', filteredProducts);
-  
 
 
   const handleTypeChange = (e) => {
