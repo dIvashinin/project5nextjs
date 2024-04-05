@@ -18,8 +18,8 @@ function about() {
       </div>
       {/* <h2 className="moon-ruby-shop">Moon Ruby Shop</h2> */}
       <div className="about-main-container">
-      <h2>About this shop</h2>
-        <h3>Jewelry winning over anxiety</h3>
+      <h2 data-tag="about">About this shop</h2>
+        <h3 data-tag="title">Jewelry winning over anxiety</h3>
       <p>
         Handmade anti-anxiety jewelry made in
         Berlin from natural stones and noble metals.

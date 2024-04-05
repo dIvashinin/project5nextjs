@@ -2,3 +2,14 @@
 h3[data-tag="top-about-empty-space"] {
   margin-bottom: 34px;
 }
+.about-main-container {
+  text-align: justify;
+}
+
+.about-main-container p{
+padding: 20px;
+/* font-size: 20px; */
+}
+h2[data-tag="about"], h3[data-tag="title"] {
+  text-align: center; /* Center the heading */
+}

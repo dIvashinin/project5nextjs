@@ -1,6 +1,6 @@
 /* SEARCH */
 .searchbar {
-  margin-top: 44px;
+  margin-top: 46px;
   margin-left: 2px;
   font-family: "Courier New", Courier, monospace;
 }
@@ -14,4 +14,23 @@
   border-width: 2px;
   background-color: rgb(252, 224, 252);
   margin-bottom: 3px;
+}
+
+/* Responsive styling */
+@media (max-width: 400px) {
+  .searchbar {
+    margin-top: 25px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 500px) {
+  .searchbar {
+    margin-top: 31px;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  .searchbar {
+    margin-top: 36px;
+  }
 }
