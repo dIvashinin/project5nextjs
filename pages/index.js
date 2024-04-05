@@ -76,9 +76,12 @@ function Shop({ initialProducts, reviews }) {
       console.log("filteredProducts in shop after :>> ", filteredProducts);
     };
 
+    // here i define an array of destinations where to trigger cleanup
+    const destinations = ["/", "/about", "/login", "/dashboard"];
+
     // Listen for route changes
     const handleRouteChange = (url) => {
-      if (url !== "/") {
+      if (destinations.includes(url)) {
         // Execute cleanup function when navigating away from the shop page
         handleCleanup();
       }
