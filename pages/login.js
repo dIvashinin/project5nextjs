@@ -8,6 +8,8 @@ import {
 } from "firebase/auth";
 import { app, auth } from "../config/firebaseConfig";
 import Alert from "react-bootstrap/Alert";
+import { useFilteredProducts } from "../context/FilteredProductsContext";
+import { useRedirectOnCondition } from "../hooks/useRedirectOnCondition";
 const shopBanner =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg";
 
@@ -17,6 +19,11 @@ function Login() {
   const [password, setPassword] = useState("");
   const [showAlert1, setShowAlert1] = useState(false); // State to manage the alert
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
+
+  const {filteredProducts , setFilteredProducts} = useFilteredProducts();
+
+  useRedirectOnCondition(filteredProducts.length > 0, '/');
+  console.log('filteredProducts in login :>> ', filteredProducts);
 
   // Function to show the alert and automatically hide it after a few seconds
   const showAlertAndHide = (setShowAlert) => {
