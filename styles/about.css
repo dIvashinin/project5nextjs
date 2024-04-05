@@ -10,6 +10,6 @@ h3[data-tag="top-about-empty-space"] {
 padding: 20px;
 /* font-size: 20px; */
 }
-h2[data-tag="about"], h3[data-tag="title"] {
+h2[data-tag="about"], h3[data-tag="title"], h6[data-tag="title"] {
   text-align: center; /* Center the heading */
 }
