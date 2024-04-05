@@ -1,7 +1,15 @@
 import React from "react";
+import { useFilteredProducts } from "../context/FilteredProductsContext";
+import { useRedirectOnCondition } from "../hooks/useRedirectOnCondition";
 const shopBanner = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg"
 
 function about() {
+
+  const {filteredProducts , setFilteredProducts} = useFilteredProducts();
+
+  useRedirectOnCondition(filteredProducts.length > 0, '/');
+  console.log('filteredProducts in about :>> ', filteredProducts);
+
   return (
     <div >
         <h3 data-tag="top-about-empty-space"></h3>
