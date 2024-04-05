@@ -15,11 +15,4 @@
   object-fit: cover; /* Make sure the image covers the entire container */
   object-position: center; /* Center the image */
 }
-.about-main-container {
-  text-align: justify;
-}
 
-.about-main-container p{
-padding: 20px;
-/* font-size: 20px; */
-}

@@ -3,7 +3,7 @@ import { useFilteredProducts } from "../context/FilteredProductsContext";
 import { useRedirectOnCondition } from "../hooks/useRedirectOnCondition";
 const shopBanner = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg"
 
-function about() {
+function About() {
 
   const {filteredProducts , setFilteredProducts} = useFilteredProducts();
 
@@ -74,4 +74,4 @@ function about() {
   );
 }
 
-export default about;
+export default About;
