@@ -9,8 +9,6 @@ import DropdownCategoryMenu from "../components/DropdownCategoryMenu";
 import { Navbar } from "react-bootstrap";
 import { useFilteredProducts } from "../context/FilteredProductsContext";
 
-
-
 const shopBanner =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg";
 
@@ -67,46 +65,45 @@ export const getStaticProps = async () => {
   }
 };
 
-
 function Shop({ initialProducts, reviews }) {
   const router = useRouter();
   const { filteredProducts, setFilteredProducts } = useFilteredProducts();
-  console.log('filteredProducts in shop before :>> ', filteredProducts);
+  console.log("filteredProducts in shop before :>> ", filteredProducts);
   // const router = useRouter();
   useEffect(() => {
     const handleCleanup = () => {
-setFilteredProducts([]);
-console.log('filteredProducts in shop after :>> ', filteredProducts);
+      setFilteredProducts([]);
+      console.log("filteredProducts in shop after :>> ", filteredProducts);
     };
 
     // Listen for route changes
-  const handleRouteChange = (url) => {
-    if (url !== '/') {
-      // Execute cleanup function when navigating away from the shop page
-      handleCleanup();
-    }
-  };
+    const handleRouteChange = (url) => {
+      if (url !== "/") {
+        // Execute cleanup function when navigating away from the shop page
+        handleCleanup();
+      }
+    };
 
-  // Subscribe to route changes
-  router.events.on('routeChangeStart', handleRouteChange);
+    // Subscribe to route changes
+    router.events.on("routeChangeStart", handleRouteChange);
 
-  // Cleanup subscription
-  return () => {
-    router.events.off('routeChangeStart', handleRouteChange);
-  };
-}, [router.events, setFilteredProducts]);
+    // Cleanup subscription
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, [router.events, setFilteredProducts]);
 
-//    // Reset filteredProducts state when navigating away from the shop page
-//    if (router.pathname !== '/') {
-//     handleCleanup();
-//    } 
-//    return () => {
-//     // cleanup function
-//     if (router.pathname !== '/') {
-//       handleCleanup();
-//    }
-//   };
-// }, [router.pathname, setFilteredProducts]);
+  //    // Reset filteredProducts state when navigating away from the shop page
+  //    if (router.pathname !== '/') {
+  //     handleCleanup();
+  //    }
+  //    return () => {
+  //     // cleanup function
+  //     if (router.pathname !== '/') {
+  //       handleCleanup();
+  //    }
+  //   };
+  // }, [router.pathname, setFilteredProducts]);
 
   // const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
   // const quantity = getItemQuantity(id)
@@ -139,36 +136,30 @@ console.log('filteredProducts in shop after :>> ', filteredProducts);
   //   console.log('filteredProducts :>> ', filteredProducts);
   // };
 
- 
-  
-
-
   // Assuming filteredProducts, searchedProducts, and products are available in the component's state or props
-let displayedProducts = [];
+  let displayedProducts = [];
 
-// Check if either filteredProducts or searchedProducts has items
-if (filteredProducts.length > 0) {
+  // Check if either filteredProducts or searchedProducts has items
+  if (filteredProducts.length > 0) {
     // Display filtered products if available
     displayedProducts = filteredProducts;
-} else if (searchedProducts.length > 0) {
+  } else if (searchedProducts.length > 0) {
     // Display searched products if available
     displayedProducts = searchedProducts;
-} else {
+  } else {
     // Otherwise, display all products
     displayedProducts = initialProducts;
-}
+  }
 
-
- //i had an issue after implementing useRedirectOnCondition: in dashboard for ex.
+  //i had an issue after implementing useRedirectOnCondition: in dashboard for ex.
   //when i choose category from offcanvas, filteredProducts are >0, redirect to shop/index
   //but filteredProducts stay >0, that's why if i want to get back to dashboard, i can't,
   //because the condition is still 'filteredProducts >0'
-  
 
-    // Reset filteredProducts state when navigating away from the shop page
+  // Reset filteredProducts state when navigating away from the shop page
   // return () => {
-    // The cleanup function's purpose is to clean up any resources or side effects created by the effect
-    // setFilteredProducts([]);
+  // The cleanup function's purpose is to clean up any resources or side effects created by the effect
+  // setFilteredProducts([]);
   // };
   // }, []);
 
@@ -196,45 +187,44 @@ if (filteredProducts.length > 0) {
         <img src={shopBanner} alt="Etsy" className="banner-image" />
       </div>
       <h2 className="moon-ruby-shop">Moon Ruby Shop</h2>
-        
-      <div>
-      {/* <DropdownCategoryMenu handleCategoryClick={handleCategoryClick} /> */}
 
-      {/* <div className="product-list">
+      <div>
+        {/* <DropdownCategoryMenu handleCategoryClick={handleCategoryClick} /> */}
+
+        {/* <div className="product-list">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>*/}
-    </div> 
-      
-      
+      </div>
+
       {/* here we display products */}
 
       <div className="products-shop">
-            {/* Render the products based on the condition */}
-            {displayedProducts.map((product) => (
-               <div key={product.id} className="stuff-inside-products-div">
-                <ProductCard product={product} />
-              {/* <img className="product-image" src={product.image}></img>
+        {/* Render the products based on the condition */}
+        {displayedProducts.map((product) => (
+          <div key={product.id} className="stuff-inside-products-div">
+            <ProductCard product={product} />
+            {/* <img className="product-image" src={product.image}></img>
                     <p>{product.type}</p>
                     <p>{product.price}</p>
                     <p>{product.description}</p> */}
-            </div>
-            ))}
-            </div>
+          </div>
+        ))}
+      </div>
 
       {/* <div className="products-shop"> */}
-        {/* {(searchedProducts.length > 0 ? searchedProducts : products).map( */}
-          {/* // (product) => ( */}
-            {/* // <div key={product.id} className="stuff-inside-products-div"> */}
-              {/* <ProductCard product={product} /> */}
-              {/* <img className="product-image" src={product.image}></img>
+      {/* {(searchedProducts.length > 0 ? searchedProducts : products).map( */}
+      {/* // (product) => ( */}
+      {/* // <div key={product.id} className="stuff-inside-products-div"> */}
+      {/* <ProductCard product={product} /> */}
+      {/* <img className="product-image" src={product.image}></img>
                     <p>{product.type}</p>
                     <p>{product.price}</p>
                     <p>{product.description}</p> */}
-            {/* </div> */}
-          {/* // ) */}
-        {/* // )} */}
+      {/* </div> */}
+      {/* // ) */}
+      {/* // )} */}
       {/* </div> */}
       <hr />
       <div className="reviews-shop">
