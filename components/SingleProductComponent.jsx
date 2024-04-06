@@ -6,7 +6,13 @@ import ProtectedRoute from "./ProtectedRoute";
 import Alert from "react-bootstrap/Alert";
 
 // import { collection, doc , get, update } from 'firebase/firestore';
-import { getFirestore, collection, doc, updateDoc, getDoc } from 'firebase/firestore';
+import {
+  getFirestore,
+  collection,
+  doc,
+  updateDoc,
+  getDoc,
+} from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 
@@ -97,26 +103,26 @@ function SingleProductCard({ product }) {
   // we take productId as an argument to identify the product to which the image should be added.
   // and we take imageFile as an argument, representing the image to be uploaded.
   //well i returned to (e) instead of other params
-  const handleImageAdd = async (e) => { 
+  const handleImageAdd = async (e) => {
     e.preventDefault();
     // console.log('adding image');
     // productId was undefined, but product.id was fine
     // console.log('productId :>> ', product.id);
     // console.log('imageFile :>> ', imageFile);
     try {
-    // Upload image to Cloudinary
-    const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-  const url = `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`;
-  const formData = new FormData();
-    // we upload a single file! 
-    formData.append("file", imageFile);
-    formData.append("upload_preset", "my-moonrubyshop-2");
+      // Upload image to Cloudinary
+      const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+      const url = `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`;
+      const formData = new FormData();
+      // we upload a single file!
+      formData.append("file", imageFile);
+      formData.append("upload_preset", "my-moonrubyshop-2");
 
       const response = await fetch(url, {
         method: "POST",
         body: formData,
       });
-    
+
       // console.log('response :>> ', response);
       if (!response.ok) {
         throw new Error("Failed to upload image to Cloudinary");
@@ -137,24 +143,24 @@ function SingleProductCard({ product }) {
       // const productDoc = await productRef.get();
       // It's enough to have one try for all and 1 catch, and not nested try/catch try/catch
       // try {
-        // Update the document with the specified data using updateDoc() function
+      // Update the document with the specified data using updateDoc() function
 
-        // Get the current data of the product
-        const productDocSnap = await getDoc(productRef);
-        const productData = productDocSnap.data();
+      // Get the current data of the product
+      const productDocSnap = await getDoc(productRef);
+      const productData = productDocSnap.data();
 
-        //product has an 'image' field that is an array
-        const updatedImages = [...(productData.image || []), imageUrl];
+      //product has an 'image' field that is an array
+      const updatedImages = [...(productData.image || []), imageUrl];
 
-        await updateDoc(productRef, {
-          // Update the fields you want to change
+      await updateDoc(productRef, {
+        // Update the fields you want to change
         // this is correctly adding 1 url to the existing array
-          image: updatedImages,
-          // Add other fields as needed
-        });
+        image: updatedImages,
+        // Add other fields as needed
+      });
 
       // if (!productDoc.exists) {
-      //   throw new Error ('Product does not exist'); 
+      //   throw new Error ('Product does not exist');
       // }
 
       // const productData = productDoc.data();
@@ -164,12 +170,11 @@ function SingleProductCard({ product }) {
       // await productRef.update({
       //   image: updatedImages,
       // });
-      console.log('image added successfully');
-      setShowAlert1 (true);
-   
+      console.log("image added successfully");
+      setShowAlert1(true);
     } catch (error) {
       console.error("Error adding image:", error);
-      setShowAlert1 (false);
+      setShowAlert1(false);
     }
   };
 
@@ -182,19 +187,19 @@ function SingleProductCard({ product }) {
       // let updatedImage = image; //Assume image URL remains the same by default
 
       // if (imageFile) {
-        // const cloudinaryCloudName =
-          // process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-        // const formData = new FormData();
-        // formData.append("file", imageFile);
-        // formData.append("upload_preset", "my-moonrubyshop-2");
+      // const cloudinaryCloudName =
+      // process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+      // const formData = new FormData();
+      // formData.append("file", imageFile);
+      // formData.append("upload_preset", "my-moonrubyshop-2");
 
-        // const response = await fetch(
-          // `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`,
-          // {
-            // method: "POST",
-            // body: formData,
-          // }
-        // );
+      // const response = await fetch(
+      // `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`,
+      // {
+      // method: "POST",
+      // body: formData,
+      // }
+      // );
 
       //   if (!response.ok) {
       //     throw new Error("Failed to upload image to Cloudinary");
@@ -262,27 +267,28 @@ function SingleProductCard({ product }) {
       console.error("Error deleting product:", error);
       setShowAlert2(false);
 
-      // The finally block is part of the try-catch-finally statement in JavaScript. 
-      //It's executed regardless of whether an error occurred or not in the try block. 
-      //The main purpose of the finally block is to provide cleanup code that 
+      // The finally block is part of the try-catch-finally statement in JavaScript.
+      //It's executed regardless of whether an error occurred or not in the try block.
+      //The main purpose of the finally block is to provide cleanup code that
       //should be executed regardless of the outcome of the try block.
-
-    } 
+    }
     // finally {
-      // setDeleteLoading (false); // Set loading state to false when delete action completes
-    
+    // setDeleteLoading (false); // Set loading state to false when delete action completes
   };
 
   // deleting of 1 image inside listing
   const handleDeleteImage = async (index) => {
     // Remove the image from the product's image array
-    const updatedImages = [...product.image.slice(0, index), ...product.image.slice(index + 1)];
-  
+    const updatedImages = [
+      ...product.image.slice(0, index),
+      ...product.image.slice(index + 1),
+    ];
+
     // Update the product in the database with the updated images array
     try {
       const productRef = doc(db, "products2", product.id);
       await updateDoc(productRef, { image: updatedImages });
-      console.log('Image deleted successfully');
+      console.log("Image deleted successfully");
       setShowAlert2(true);
     } catch (error) {
       console.error("Error deleting image:", error);
@@ -359,14 +365,14 @@ function SingleProductCard({ product }) {
   const goBack =
     "https://res.cloudinary.com/dzghua4dz/image/upload/v1702383208/moonrubyshop/aprr0iiz9cofqotmk7gp.svg";
 
-    const [showFAQ, setShowFAQ] = useState(true);
-    // console.log('product :>> ', product);
+  const [showFAQ, setShowFAQ] = useState(true);
+  // console.log('product :>> ', product);
 
-    // Check if product is defined
-    if (!product) {
-     return <p></p>; 
-     // or handle the case where product is not available
-   }
+  // Check if product is defined
+  if (!product) {
+    return <p></p>;
+    // or handle the case where product is not available
+  }
 
   const quantity = getItemQuantity(product.id);
   // State to manage the visibility of the FAQ section
@@ -591,13 +597,17 @@ function SingleProductCard({ product }) {
                 </div>
                 {/* Additional fields if needed */}
                 {/* Submit button */}
-                <button className="submit-changes" type="submit">Submit changes</button>
+                <button className="submit-changes" type="submit">
+                  Submit changes
+                </button>
 
-                <button 
-                // className="btn btn-primary" 
-                // type="button" disabled={deleteLoading} // Disable the button when deleteLoading is true
-                className="delete-listing" 
-                onClick={handleDelete}>Delete listing
+                <button
+                  // className="btn btn-primary"
+                  // type="button" disabled={deleteLoading} // Disable the button when deleteLoading is true
+                  className="delete-listing"
+                  onClick={handleDelete}
+                >
+                  Delete listing
                   {/* {deleteLoading && ( // Conditionally render the spinner if deleteLoading is true
                   <>
                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
@@ -605,37 +615,41 @@ function SingleProductCard({ product }) {
                   </>
                   )}
                   {!deleteLoading && "Delete listing"} Render the button text if deleteLoading is false */}
-                  </button>
-                <div 
+                </button>
+                <div
                 // className="form-group"
                 >
                   <label htmlFor="image">Image:</label>
                   <input id="image" type="file" onChange={handleImageChange} />
                 </div>
-                <button className="image-add"
-                // need to create function first
-                 onClick={handleImageAdd}
-                 >Add image</button>
-              {/* i double thumbnails here with delete button */}
-              <div className="protected-thumbnails"> 
-              
-              {product.image.map((image, index) => (
-                <div key={index} className="protected-thumbnail-container">
-              <img
-                key={index}
-                src={image}
-                alt={product.type}
-                className="protected-thumbnail-image"
-                //className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
-                onClick={() => handleThumbnailClick(index)}
-                />
-                <button className="delete-button" 
-                onClick={() => handleDeleteImage(index)}
-                >X</button>
+                <button
+                  className="image-add"
+                  // need to create function first
+                  onClick={handleImageAdd}
+                >
+                  Add image
+                </button>
+                {/* i double thumbnails here with delete button */}
+                <div className="protected-thumbnails">
+                  {product.image.map((image, index) => (
+                    <div key={index} className="protected-thumbnail-container">
+                      <img
+                        key={index}
+                        src={image}
+                        alt={product.type}
+                        className="protected-thumbnail-image"
+                        //className={index === currentIndex ? "thumbnail-image active" : "thumbnail-image"}
+                        onClick={() => handleThumbnailClick(index)}
+                      />
+                      <button
+                        className="delete-button"
+                        onClick={() => handleDeleteImage(index)}
+                      >
+                        X
+                      </button>
+                    </div>
+                  ))}
                 </div>
-                ))}
-
-              </div> 
               </form>
             )}
           </div>
@@ -662,7 +676,12 @@ function SingleProductCard({ product }) {
               {showFAQ ? (
                 <>
                   {/* Show less button */}
-                  <button className="show-more" onClick={() => setShowFAQ(false)}>Show more</button>
+                  <button
+                    className="show-more"
+                    onClick={() => setShowFAQ(false)}
+                  >
+                    Show more
+                  </button>
                 </>
               ) : (
                 // Render a limited number of FAQ items
@@ -673,14 +692,14 @@ function SingleProductCard({ product }) {
                       I love our little collaborations! Don&apos;t hesitate to
                       contact me with your ideas. But please please please try
                       to avoid requesting mass market replicas or copies of
-                      someone else&apos;s work! Since the standard worldwide delivery
-                      is free, if you want to return your item, that is not
-                      damaged, you are the one to cover the shipping. I don&apos;t
-                      offer covering shipping expenses in this case. I recommend
-                      choosing the most simple option available in your country,
-                      no tracking and insurance need (for Germany BUEWA or 1
-                      euro letter works best). For damaged item please see the
-                      info below.
+                      someone else&apos;s work! Since the standard worldwide
+                      delivery is free, if you want to return your item, that is
+                      not damaged, you are the one to cover the shipping. I
+                      don&apos;t offer covering shipping expenses in this case.
+                      I recommend choosing the most simple option available in
+                      your country, no tracking and insurance need (for Germany
+                      BUEWA or 1 euro letter works best). For damaged item
+                      please see the info below.
                     </p>
                   </li>
 
@@ -698,12 +717,12 @@ function SingleProductCard({ product }) {
                       stones. But all of them are unique, cold to touch and
                       pretty (I make sure of that). All the stones have their
                       character too, most of the colors are not homogenous. E.g.
-                      it&apos;s normal for lapis lazuli to have white parts - it&apos;s
-                      calcit working it&apos;s magic in the mineral. Apatite can also
-                      have white and/or brown spots and so on. All of these are
-                      signs of their natural origin and uniqueness, not flaws.
-                      The crystals in my anti-anxiety faceted gem rings are
-                      always natural.
+                      it&apos;s normal for lapis lazuli to have white parts -
+                      it&apos;s calcit working it&apos;s magic in the mineral.
+                      Apatite can also have white and/or brown spots and so on.
+                      All of these are signs of their natural origin and
+                      uniqueness, not flaws. The crystals in my anti-anxiety
+                      faceted gem rings are always natural.
                     </p>
                   </li>
 
@@ -730,17 +749,17 @@ function SingleProductCard({ product }) {
                       use piece of thread. Wrap it around your finger and then
                       measure where the ends meet. This method can be used for
                       bracelets and necklaces too. I can always help you with
-                      sizing. Please don&apos;t forget to consult the description of
-                      an item for it&apos;s size.
+                      sizing. Please don&apos;t forget to consult the
+                      description of an item for it&apos;s size.
                     </p>
                   </li>
                   <li>
                     <h4>I haven&apos;t received my order.</h4>
                     <p>
                       Sorry you have to wait so long! Please do get in touch
-                      with me and we will figure something out. Don&apos;t forget to
-                      check the average delivery time for your location in shop
-                      info.
+                      with me and we will figure something out. Don&apos;t
+                      forget to check the average delivery time for your
+                      location in shop info.
                     </p>
                   </li>
                   <li>
@@ -749,8 +768,8 @@ function SingleProductCard({ product }) {
                       Oh no! Please contact me for replacement. I pack
                       everything as securely as possible in bubble wrap (I
                       mostly re-use it to avoid new plastic), but sometimes
-                      stones can break during shipping. Don&apos;t hesitate to reach
-                      out! If the item was broken within a month after the
+                      stones can break during shipping. Don&apos;t hesitate to
+                      reach out! If the item was broken within a month after the
                       purchase I can also offer a free replacement. Please
                       kindly describe what has happened to it and include
                       pictures. No need to send the item back.
@@ -765,27 +784,27 @@ function SingleProductCard({ product }) {
                       some gems can be brittle and chip, this can affect
                       durability and comfort. - You can get the pieces wet, but
                       please avoid chemicals and frequent exposure to soaps,
-                      especially when there&apos;s a metal element present. Silver
-                      will tarnish in time, but can easily be cleaned. - Please
-                      avoid heat and open fire. It&apos;s better to take the jewelry
-                      off when cooking.
+                      especially when there&apos;s a metal element present.
+                      Silver will tarnish in time, but can easily be cleaned. -
+                      Please avoid heat and open fire. It&apos;s better to take
+                      the jewelry off when cooking.
                     </p>
                   </li>
                   <li>
                     <h4>Care Instructions - Elastics</h4>
                     <p>
-                      Elastic thread that I use is a tiny miracle. It&apos;s so comfy
-                      to wear and easy to work with - but as with any elastics
-                      with really active wear it can stretch out. But no
-                      worries, it&apos;s really easy to avoid this. - Please avoid
-                      unnecessary stretching - the pieces are meant to be played
-                      with but excessive pulling will thin the tread out. - Make
-                      sure you choose the right size of the piece. If it fits
-                      right, it&apos;s less likely to stretch. - It&apos;s helpful to
-                      leave your jewelry to lay around for couple days, so the
-                      thread can relieve the stress and come back to it&apos;s normal
-                      state (works for me too haha). Let the physics do its
-                      work.
+                      Elastic thread that I use is a tiny miracle. It&apos;s so
+                      comfy to wear and easy to work with - but as with any
+                      elastics with really active wear it can stretch out. But
+                      no worries, it&apos;s really easy to avoid this. - Please
+                      avoid unnecessary stretching - the pieces are meant to be
+                      played with but excessive pulling will thin the tread out.
+                      - Make sure you choose the right size of the piece. If it
+                      fits right, it&apos;s less likely to stretch. - It&apos;s
+                      helpful to leave your jewelry to lay around for couple
+                      days, so the thread can relieve the stress and come back
+                      to it&apos;s normal state (works for me too haha). Let the
+                      physics do its work.
                     </p>
 
                     <p>
@@ -797,8 +816,8 @@ function SingleProductCard({ product }) {
                     <h4>Important! Children Safety 👼</h4>
                     <p>
                       The jewellery is designed for adults. However I can make
-                      any design in children&apos;s sizes. The parent/buyer then is
-                      the one to decide whether the jewellery is suitable and
+                      any design in children&apos;s sizes. The parent/buyer then
+                      is the one to decide whether the jewellery is suitable and
                       appropriate for the child. The shop doesn&apos;t carry any
                       responsibility in case when the jewellery is damaged
                       or/and afflicts any injury while in use by a child. Please
@@ -824,7 +843,12 @@ function SingleProductCard({ product }) {
                   {/* ... Render other limited FAQ items ... */}
 
                   {/* Show more button */}
-                  <button className="show-less" onClick={() => setShowFAQ(true)}>Show less</button>
+                  <button
+                    className="show-less"
+                    onClick={() => setShowFAQ(true)}
+                  >
+                    Show less
+                  </button>
                 </>
               )}
             </ul>
