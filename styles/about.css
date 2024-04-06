@@ -4,10 +4,13 @@ h3[data-tag="top-about-empty-space"] {
 }
 .about-main-container {
   text-align: justify;
+  
 }
 
 .about-main-container p{
 padding: 20px;
+border: 1px solid #ff00f2;
+border-radius: 5px;
 /* font-size: 20px; */
 }
 h2[data-tag="about"], h3[data-tag="title"], h6[data-tag="title"] {

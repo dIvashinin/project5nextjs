@@ -6,7 +6,7 @@
 }
 .search-input {
   height: 35px;
-  width: 300px;
+  width: 50%;
   border-radius: 5px;
   text-decoration: none;
   border-style: solid;
@@ -21,16 +21,25 @@
   .searchbar {
     margin-top: 25px;
   }
+  .search-input{
+    width: 100%;
+  }
 }
 
 @media (min-width: 401px) and (max-width: 500px) {
   .searchbar {
     margin-top: 31px;
   }
+  .search-input{
+    width: 75%;
+  }
 }
 
 @media (min-width: 501px) and (max-width: 768px) {
   .searchbar {
     margin-top: 36px;
+  }
+  .search-input{
+    width: 50%;
   }
 }
