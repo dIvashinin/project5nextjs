@@ -33,9 +33,14 @@ function DropdownCategoryMenu({isOpen2}) {
     const handleUpdateFilteredProducts = (selectedCategory) => {
         const filteredProducts = products.filter((product) => product.type === selectedCategory);
         setFilteredProducts(filteredProducts);
-        console.log('filteredProducts in offcanvas :>> ', filteredProducts);
+        console.log('filteredProducts in offcanvas (category) :>> ', filteredProducts);
         closeDropdownCategory();
       };
+    
+    const handleShowAllProducts = () => {
+        setFilteredProducts([]);
+        closeDropdownCategory();
+    }
 
     // const handleCategoryClick = (category) => {
     //     setSelectedCategory (category);
@@ -89,6 +94,13 @@ function DropdownCategoryMenu({isOpen2}) {
       {/* in order to have our added to cart items visible */}
       <Offcanvas.Body>
         <Stack gap={1}>
+        
+        <div>
+            <button className="show-all-button" onClick={()=> handleShowAllProducts()}>
+            show all
+        </button>
+        </div>
+        
         {categories.map((category) => (
             <div className="category-unique-dropdown" 
             key={category}
