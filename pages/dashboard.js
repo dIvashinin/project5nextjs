@@ -30,7 +30,6 @@ function Dashboard() {
   useRedirectOnCondition(filteredProducts.length > 0, '/');
   console.log('filteredProducts in dashboard :>> ', filteredProducts);
 
-
   const handleTypeChange = (e) => {
     setType(e.target.value);
   };

@@ -13,8 +13,13 @@
 .dashboard-add-new-container,
 .dashboard-inner-separate-order-container {
   border: 2px solid #c88888;
-  margin: 2px;
+  /* margin: 2px; */
   padding: 8px;
+}
+.dashboard-inner-separate-order-container p{
+   /*space between paragraph lines  */
+  margin: 0px;
+  font-size: 0.7rem;
 }
 
 h1 {
