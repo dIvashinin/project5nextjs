@@ -14,8 +14,7 @@ export function useRedirectOnCondition (condition, redirectTo) {
      if (condition) {
         // let's try to use callback function which is gonna be executed after state update
         const redirectCallback = () => {
-            router.push(redirectTo);
-        
+            router.push(redirectTo);  
      };
      //and call callback here
      redirectCallback();

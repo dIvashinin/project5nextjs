@@ -6,6 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import ProductCard from './ProductCard';
 import { useProduct } from "../context/productContext";
 import {useFilteredProducts} from "../context/FilteredProductsContext"
+import { useRouter } from "next/router";
 
 function DropdownCategoryMenu({isOpen2}) {
     // const [filteredProducts, setFilteredProducts] = useState([]);
@@ -27,6 +28,7 @@ function DropdownCategoryMenu({isOpen2}) {
     // console.log('setProducts :>> ', setProducts);
     // console.log('products :>> ', products);
 
+    const router = useRouter();
     //here we go using context
     const { setFilteredProducts } = useFilteredProducts();
 
@@ -38,7 +40,8 @@ function DropdownCategoryMenu({isOpen2}) {
       };
     
     const handleShowAllProducts = () => {
-        setFilteredProducts([]);
+        // setFilteredProducts([]);
+        router.push ('/');
         closeDropdownCategory();
     }
 
