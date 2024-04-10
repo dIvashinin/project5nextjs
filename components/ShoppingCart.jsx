@@ -171,6 +171,8 @@ export function ShoppingCart({ isOpen }) {
           {/* Checkout button */}
           <div>
             {/* <button onClick={handleCheckout} className="checkout-shopping-cart"> */}
+            {/* adding condition to checkout */}
+            {totalQuantity > 0 && (
             <Link href="/checkout">
               <a
                 className="checkout-shopping-cart"
@@ -182,6 +184,7 @@ export function ShoppingCart({ isOpen }) {
                 checkout
               </a>
             </Link>
+            )}
             {/* </button> */}
           </div>
         </Stack>
