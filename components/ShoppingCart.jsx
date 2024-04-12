@@ -53,16 +53,13 @@ export function ShoppingCart({ isOpen }) {
     cartMessage = `You have ${totalQuantity} items in your cart. Amazing!`;
   }
 
-  const handleCheckout =  () => {
+  const handleCheckout = () => {
     setCheckoutOpen(false);
-   
   };
   const handleCheckoutClose = () => {
     setCheckoutOpen(false);
     // closeCart();
   };
-
-  
 
   // if (cartItems.length < 1) {
   //   setShowAlert(true);
@@ -78,7 +75,12 @@ export function ShoppingCart({ isOpen }) {
   // }, [checkoutOpen]);
   // console.log("Total Sum in ShoppingCart Component: ", totalSum);
   return (
-    <Offcanvas className="offcanvas-shopping-itself" show={isOpen} onHide={closeCart} placement="end">
+    <Offcanvas
+      className="offcanvas-shopping-itself"
+      show={isOpen}
+      onHide={closeCart}
+      placement="end"
+    >
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>
           {cartMessage} {}
@@ -99,7 +101,7 @@ export function ShoppingCart({ isOpen }) {
               key={`${item.id}-${item.color}-${item.size}`}
             >
               <img
-              //as i have an array, i need one of the images now
+                //as i have an array, i need one of the images now
                 src={item.image[1]}
                 style={{ width: "125px", height: "75px", objectFit: "cover" }}
                 alt={item.type}
@@ -173,17 +175,17 @@ export function ShoppingCart({ isOpen }) {
             {/* <button onClick={handleCheckout} className="checkout-shopping-cart"> */}
             {/* adding condition to checkout */}
             {totalQuantity > 0 && (
-            <Link href="/checkout">
-              <a
-                className="checkout-shopping-cart"
-                onClick={() => {
-                  // handleCheckout();
-                  closeCart(); // Close the Offcanvas modal
-                }}
-              >
-                checkout
-              </a>
-            </Link>
+              <Link href="/checkout">
+                <a
+                  className="checkout-shopping-cart"
+                  onClick={() => {
+                    // handleCheckout();
+                    closeCart(); // Close the Offcanvas modal
+                  }}
+                >
+                  checkout
+                </a>
+              </Link>
             )}
             {/* </button> */}
           </div>
