@@ -1,14 +1,15 @@
-.category-unique-dropdown, .show-all-button {
-    font-size: 2.2rem;
-    background-color: rgb(255, 165, 237);
-    border-radius: 40px;
-    padding: 6px;
-    margin: 4px;
-    cursor: pointer;
+.category-unique-dropdown,
+.show-all-button {
+  font-size: 2.2rem;
+  background-color: rgb(255, 165, 237);
+  border-radius: 40px;
+  padding: 6px;
+  margin: 4px;
+  cursor: pointer;
 }
-.offcanvas-itself{
-    background: linear-gradient(to right, rgb(178, 187, 184), rgb(151, 223, 201));
+.offcanvas-itself {
+  background: linear-gradient(to right, rgb(178, 187, 184), rgb(151, 223, 201));
 }
-.x-button{
-    background-color: blue;
+.x-button {
+  background-color: blue;
 }
