@@ -5,20 +5,19 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-// we use 2 parameters - "condition" and "redirectTo". 
+// we use 2 parameters - "condition" and "redirectTo".
 //for ex. we gonna use it like: "useRedirectOnCondition(filteredProducts.length > 0, '/shop');"
-export function useRedirectOnCondition (condition, redirectTo) {
-    const router = useRouter();
+export function useRedirectOnCondition(condition, redirectTo) {
+  const router = useRouter();
 
-    useEffect(() => {
-     if (condition) {
-        // let's try to use callback function which is gonna be executed after state update
-        const redirectCallback = () => {
-            router.push(redirectTo);  
-     };
-     //and call callback here
-     redirectCallback();
+  useEffect(() => {
+    if (condition) {
+      // let's try to use callback function which is gonna be executed after state update
+      const redirectCallback = () => {
+        router.push(redirectTo);
+      };
+      //and call callback here
+      redirectCallback();
     }
-    }, [condition, redirectTo, router])
-    
+  }, [condition, redirectTo, router]);
 }

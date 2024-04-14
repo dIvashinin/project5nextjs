@@ -124,11 +124,8 @@ function Shop({ initialProducts, reviews }) {
   const [searchedProducts, setSearchedProducts] = useState([]);
   const handleSearchChange = (searchedProducts) => {
     setSearchedProducts(searchedProducts);
-    // console.log('searchedProducts :>> ', searchedProducts);
   };
-  // const router = useRouter();
   const { cancel } = router.query;
-  // console.log('searchedProducts :>> ', searchedProducts);
   // const handleCategoryClick = (category) => {
   //   setSelectedCategory(category);
   //   console.log('category :>> ', category);
