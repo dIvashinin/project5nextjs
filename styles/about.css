@@ -4,12 +4,18 @@ h3[data-tag="top-about-empty-space"] {
 }
 .about-main-container {
   text-align: justify;
+  background-color: rgb(234, 228, 220);
 }
 
 .about-main-container p {
   padding: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 40px;
   border: 1px solid #ff00f2;
   border-radius: 5px;
+  font-family: monospace;
+  
   /* font-size: 20px; */
 }
 h2[data-tag="about"],
