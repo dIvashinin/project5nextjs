@@ -5,3 +5,10 @@ p[data-tag="price"] {
   font-style: italic;
   margin-bottom: 0px;
 }
+p[data-tag="type"] {
+  font-size: 20px;
+  font-family: monospace;
+}
+p[data-tag="price"] {
+  font-size: 14px;
+}
