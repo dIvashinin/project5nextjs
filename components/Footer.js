@@ -34,12 +34,15 @@ function Footer() {
           {/* <FontAwesomeIcon icon={faInstagram} size="2x" /> */}
         </a>
       </Link>
-      <Link
-        href="#"
+      <Link href="/faq"
+        // href="#"
         // href="/about#last-p"
-        passHref
+        // passHref
       >
-        <a target="_blank" rel="noopener noreferrer">
+        <a 
+        // target="_blank"
+        //  rel="noopener noreferrer"
+         >
           <img src={FAQ} alt="FAQ" style={{ width: "30px", height: "30px" }} />
         </a>
       </Link>

@@ -16,7 +16,7 @@ function DropdownCategoryMenu({ isOpen2 }) {
   // const closeDropdownCategory = () => setIsOpen2(false);
   // console.log('isOpen2 :>> ', isOpen2);
 
-  const { openDropdownCategory, closeDropdownCategory } = useShoppingCart();
+  const { closeDropdownCategory } = useShoppingCart();
   // trying to retrieve all the types/categories i have
   const [categories, setCategories] = useState([]);
   // console.log('categories :>> ', categories);

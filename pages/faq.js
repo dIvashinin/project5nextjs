@@ -1,6 +1,12 @@
 import React from 'react'
+import { useRedirectOnCondition } from '../hooks/useRedirectOnCondition';
+import { useFilteredProducts } from '../context/FilteredProductsContext';
 
 function Faq() {
+    const {filteredProducts , setFilteredProducts} = useFilteredProducts();
+    useRedirectOnCondition(filteredProducts.length > 0, '/');
+  console.log('filteredProducts in faq :>> ', filteredProducts);
+
   return (
     
     <div>
@@ -8,7 +14,6 @@ function Faq() {
             <h2>Frequently asked questions</h2>
             <ul>
              
-                // Render a limited number of FAQ items
                 <>
                   <li>
                     <h4>Custom and personalised orders and returns</h4>

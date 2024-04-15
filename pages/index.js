@@ -77,7 +77,7 @@ function Shop({ initialProducts, reviews }) {
     };
 
     // here i define an array of destinations where to trigger cleanup
-    const destinations = ["/", "/about", "/login", "/dashboard"];
+    const destinations = ["/", "/about", "/login", "/dashboard", "/faq"];
 
     // Listen for route changes
     const handleRouteChange = (url) => {
