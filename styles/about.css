@@ -23,24 +23,29 @@ h3[data-tag="title"],
 h6[data-tag="title"] {
   text-align: center; /* Center the heading */
 }
-.handmade::selection{
-
+.handmade{
+  font-size: larger;
 }
-.anti-anxiety::selection{
-
-}
-
-.jewelry::selection{
-
+.anti-anxiety{
+font-style: italic;
+font-size: 18px;
 }
 
-.made-in::selection{
-
+.jewelry{
+color: rgb(0, 0, 68);
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-.from-natural::selection{
-
+.made-in{
+font-family: monospace;
+font-size: 18px;
+font-weight: bold;
 }
-.noble-metals::selection{
-  
+
+.from-natural{
+  font-style: italic;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+  .noble-metals{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

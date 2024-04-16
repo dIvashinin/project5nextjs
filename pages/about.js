@@ -21,11 +21,11 @@ function About() {
       {/* <h2 data-tag="about">About this shop</h2> */}
         <h3 data-tag="title">Jewelry winning over anxiety</h3>
       <h6 data-tag="title">
-        <span className="handmade">Handmade</span>  
+        <span className="handmade">Handmade </span> 
         <span className="anti-anxiety">anti-anxiety </span> 
-        <span className="jewelry">jewelry</span> 
-        <span className="made-in">made in Berlin</span> 
-        <span className="from-natural">from natural stones</span> 
+        <span className="jewelry">jewelry </span> 
+        <span className="made-in">made in Berlin </span> 
+        <span className="from-natural">from natural stones </span> 
         <span className="noble-metals">and noble metals</span>
       </h6>
       <p>
