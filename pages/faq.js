@@ -16,7 +16,7 @@ function Faq() {
              
                 <>
                   <li>
-                    <h4>Custom and personalised orders and returns</h4>
+                    <h3>Custom and personalised orders and returns</h3>
                     <p>
                       I love our little collaborations! Don&apos;t hesitate to
                       contact me with your ideas. But please please please try
@@ -33,7 +33,7 @@ function Faq() {
                   </li>
 
                   <li>
-                    <h4>Are the stones you use real?</h4>
+                    <h3>Are the stones you use real?</h3>
                     <p>
                       Yes! Most of them are natural, otherwise it says so. For
                       example some of the beads can be synthetically produced
@@ -50,7 +50,7 @@ function Faq() {
                   </li>
 
                   <li>
-                    <h4>Why do you call your jewelry anti-anxiety?</h4>
+                    <h3>Why do you call your jewelry anti-anxiety?</h3>
                     <p>
                       All of it is perfect for fidgeting, especially the rings
                       and bracelets. I found that playing with the stone beads
@@ -66,7 +66,7 @@ function Faq() {
                   </li>
 
                   <li>
-                    <h4>Sizing details</h4>
+                    <h3>Sizing details</h3>
                     <p>
                       The best way to measure your fingers for the rings is to
                       use piece of thread. Wrap it around your finger and then
@@ -77,7 +77,7 @@ function Faq() {
                     </p>
                   </li>
                   <li>
-                    <h4>I haven&apos;t received my order.</h4>
+                    <h3>I haven&apos;t received my order</h3>
                     <p>
                       Sorry you have to wait so long! Please do get in touch
                       with me and we will figure something out. Don&apos;t
@@ -86,7 +86,7 @@ function Faq() {
                     </p>
                   </li>
                   <li>
-                    <h4>My order came in broken.</h4>
+                    <h3>My order came in broken</h3>
                     <p>
                       Oh no! Please contact me for replacement. I pack
                       everything as securely as possible in bubble wrap (I
@@ -99,7 +99,7 @@ function Faq() {
                     </p>
                   </li>
                   <li>
-                    <h4>Care instructions - Stones</h4>
+                    <h3>Care instructions - Stones</h3>
                     <p>
                       Here are some care instructions. All the pieces are sturdy
                       and securely made and with right care they can last so
@@ -114,7 +114,7 @@ function Faq() {
                     </p>
                   </li>
                   <li>
-                    <h4>Care Instructions - Elastics</h4>
+                    <h3>Care Instructions - Elastics</h3>
                     <p>
                       Elastic thread that I use is a tiny miracle. It&apos;s so
                       comfy to wear and easy to work with - but as with any
@@ -136,7 +136,7 @@ function Faq() {
                     </p>
                   </li>
                   <li>
-                    <h4>Important! Children Safety 👼</h4>
+                    <h3>Important! Children Safety 👼</h3>
                     <p>
                       The jewellery is designed for adults. However I can make
                       any design in children&apos;s sizes. The parent/buyer then
@@ -149,7 +149,7 @@ function Faq() {
                     </p>
                   </li>
                   <li>
-                    <h4>Important! Metal Allergy!</h4>
+                    <h3>Important! Metal Allergy!</h3>
                     <p>
                       The crimp beads I use in almost all the jewelry are made
                       of safe non-ferrous non-precious metal. They are totally

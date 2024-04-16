@@ -4,16 +4,17 @@ h3[data-tag="top-about-empty-space"] {
 }
 .about-main-container {
   text-align: justify;
-  background-color: rgb(234, 228, 220);
+  background: linear-gradient(to bottom , rgb(178, 187, 184), rgb(123, 207, 182));
 }
 
 .about-main-container p {
   padding: 20px;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 15%;
+  margin-right: 15%;
   margin-bottom: 40px;
+  background-color: rgb(219, 205, 218);
   border: 1px solid #ff00f2;
-  border-radius: 5px;
+  border-radius: 15px;
   font-family: monospace;
   /* font-size: 20px; */
 }

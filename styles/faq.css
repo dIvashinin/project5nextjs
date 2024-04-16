@@ -1,6 +1,6 @@
 .faq-main-container{
     text-align: justify;
-  background-color: rgb(234, 228, 220);
+  background: linear-gradient(to bottom , rgb(178, 187, 184), rgb(123, 207, 182));
   margin-top: 30px;
   margin-bottom: 40px;
 }
@@ -8,8 +8,11 @@
 padding: 10px;
   margin-left: 5%;
   margin-right: 10%;
-  background-color: rgb(205, 205, 219);
+  background-color: rgb(219, 205, 218);
   border: 1px solid #ff00f2;
-  border-radius: 5px;
+  border-radius: 15px;
   font-family: monospace;
+}
+.faq-main-container h2{
+    text-align: center; 
 }
