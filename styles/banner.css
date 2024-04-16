@@ -1,7 +1,14 @@
 /* BANNER */
 .moon-ruby-shop {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%); /* Center the text */
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 60px;
+  color: rgb(0, 0, 144);
+  z-index: 1; /* Ensure the text is on top of the image */
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); Add a shadow to the text */
   /* font-style: italic; */
 }
 .banner-container {
@@ -16,3 +23,24 @@
   object-position: center; /* Center the image */
 }
 
+@media (min-width: 560px) 
+/* and (max-width: 768px) */
+{ 
+  .moon-ruby-shop {
+    font-size: 70px; 
+  }
+}
+@media (min-width: 760px) 
+/* and (max-width: 768px) */
+{ 
+  .moon-ruby-shop {
+    font-size: 80px; 
+  }
+}
+@media (min-width: 1160px) 
+/* and (max-width: 768px) */
+{ 
+  .moon-ruby-shop {
+    font-size: 100px; 
+  }
+}

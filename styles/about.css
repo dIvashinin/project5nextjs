@@ -25,27 +25,33 @@ h6[data-tag="title"] {
 }
 .handmade{
   font-size: larger;
+  padding: 3px;
 }
 .anti-anxiety{
 font-style: italic;
 font-size: 18px;
+padding: 3px;
 }
 
 .jewelry{
 color: rgb(0, 0, 68);
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+padding: 3px;
 }
 
 .made-in{
 font-family: monospace;
 font-size: 18px;
 font-weight: bold;
+padding: 3px;
 }
 
 .from-natural{
   font-style: italic;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 3px;
 }
   .noble-metals{
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+padding: 3px;
 }

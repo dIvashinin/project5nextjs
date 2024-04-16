@@ -10,7 +10,8 @@ import { Navbar } from "react-bootstrap";
 import { useFilteredProducts } from "../context/FilteredProductsContext";
 
 const shopBanner =
-  "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg";
+  // "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg";
+  "https://res.cloudinary.com/dzghua4dz/image/upload/v1711134633/moonrubyshop/xqkxmaljehv9a8ecxn0t.jpg";
 
 export const getStaticProps = async () => {
   try {
@@ -185,8 +186,9 @@ function Shop({ initialProducts, reviews }) {
       )}
       <div className="banner-container">
         <img src={shopBanner} alt="Etsy" className="banner-image" />
+        <h2 className="moon-ruby-shop">Moon Ruby Shop</h2>
       </div>
-      <h2 className="moon-ruby-shop">Moon Ruby Shop</h2>
+      {/* <h2 className="moon-ruby-shop">Moon Ruby Shop</h2> */}
 
       <div>
         {/* <DropdownCategoryMenu handleCategoryClick={handleCategoryClick} /> */}

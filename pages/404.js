@@ -1,7 +1,8 @@
 import React from 'react'
 
 //we can create for every error this kind of pages
-const notFoundPageBackground =  "https://res.cloudinary.com/dzghua4dz/image/upload/v1710535223/moonrubyshop/jwzf53h0t3l2hzldbteo.jpg";
+const notFoundPageBackground =  "https://res.cloudinary.com/dzghua4dz/image/upload/v1711134633/moonrubyshop/xqkxmaljehv9a8ecxn0t.jpg";
+
 
 function NotFoundPage() {
   return (
