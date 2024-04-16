@@ -9,7 +9,7 @@ function Faq() {
 
   return (
     
-    <div>
+    <div className='faq-main-container'>
             {/* FAQ section */}
             <h2>Frequently asked questions</h2>
             <ul>

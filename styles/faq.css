@@ -1,0 +1,15 @@
+.faq-main-container{
+    text-align: justify;
+  background-color: rgb(234, 228, 220);
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.faq-main-container p{
+padding: 10px;
+  margin-left: 5%;
+  margin-right: 10%;
+  background-color: rgb(205, 205, 219);
+  border: 1px solid #ff00f2;
+  border-radius: 5px;
+  font-family: monospace;
+}
