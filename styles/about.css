@@ -1,9 +1,9 @@
 /* ABOUT PAGE */
-/* h3[data-tag="top-about-empty-space"] {
+h3[data-tag="top-about-empty-space"] {
   margin-bottom: 34px;
-} */
+}
 .banner-container-about{
-  margin-top: 34px;
+  /* margin-top: 34px; */
   position: relative;
   height: 200px; /* Set the desired height of your banner */
   overflow: hidden;
@@ -11,26 +11,29 @@
 
  h3[data-tag="title"] {
   position: absolute;
-  top: 20%;
+  top: 45%;
   left: 45%;
   transform: translate(-50%, -50%); /* Center the text */
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 30px;
+  font-size: 40px;
   color: rgb(0, 0, 144);
   z-index: 1; /* Ensure the text is on top of the image */
 }
 h6[data-tag="title"] {
-  position: absolute;
-  top: 70%;
-  left: 45%;
-  transform: translate(-50%, -50%); /* Center the text */
+  /* position: absolute; */
+  /* top: 70%; */
+  /* left: 45%; */
+  /* transform: translate(-50%, -50%); Center the text */
+ 
   font-size: 20px;
-  color: rgb(130, 0, 144);
+  color: rgb(0, 0, 144);
   z-index: 1; /* Ensure the text is on top of the image */
 }
 
 .about-main-container {
   text-align: justify;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background: linear-gradient(to bottom , rgb(178, 187, 184), rgb(123, 207, 182));
 }
 
@@ -83,3 +86,25 @@ padding: 3px;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 padding: 3px;
 } */
+
+@media (min-width: 500px) 
+/* and (max-width: 768px) */
+{ 
+  h3[data-tag="title"]  {
+    font-size: 50px; 
+  }
+}
+@media (min-width: 760px) 
+/* and (max-width: 768px) */
+{ 
+  h3[data-tag="title"]  {
+    font-size: 60px; 
+  }
+}
+@media (min-width: 1160px) 
+/* and (max-width: 768px) */
+{ 
+  h3[data-tag="title"]  {
+    font-size: 70px; 
+  }
+}

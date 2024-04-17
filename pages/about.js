@@ -14,10 +14,12 @@ function About() {
 
   return (
     <div >
-        {/* <h3 data-tag="top-about-empty-space"></h3> */}
+        <h3 data-tag="top-about-empty-space"></h3>
         <div className="banner-container-about">
         <img src={shopBanner} alt="Etsy" className="banner-image" />
         <h3 data-tag="title">Jewelry winning over anxiety</h3>
+      
+      </div>
       <h6 data-tag="title">
         <span className="handmade">Handmade </span> 
         <span className="anti-anxiety">anti-anxiety </span> 
@@ -26,9 +28,9 @@ function About() {
         <span className="from-natural">from natural stones </span> 
         <span className="noble-metals">and noble metals</span>
       </h6>
-      </div>
       {/* <h2 className="moon-ruby-shop">Moon Ruby Shop</h2> */}
       <div className="about-main-container">
+        
       {/* <h2 data-tag="about">About this shop</h2> */}
         {/* <h3 data-tag="title">Jewelry winning over anxiety</h3>
       <h6 data-tag="title">
