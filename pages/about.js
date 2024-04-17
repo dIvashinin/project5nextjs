@@ -1,7 +1,9 @@
 import React from "react";
 import { useFilteredProducts } from "../context/FilteredProductsContext";
 import { useRedirectOnCondition } from "../hooks/useRedirectOnCondition";
-const shopBanner = "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg"
+const shopBanner = 
+// "https://res.cloudinary.com/dzghua4dz/image/upload/v1701986735/moonrubyshop/cgfdekd8afqoxuygrrgb.jpg"
+"https://res.cloudinary.com/dzghua4dz/image/upload/v1711134633/moonrubyshop/xqkxmaljehv9a8ecxn0t.jpg";
 
 function About() {
 
@@ -12,13 +14,9 @@ function About() {
 
   return (
     <div >
-        <h3 data-tag="top-about-empty-space"></h3>
-        <div className="banner-container">
+        {/* <h3 data-tag="top-about-empty-space"></h3> */}
+        <div className="banner-container-about">
         <img src={shopBanner} alt="Etsy" className="banner-image" />
-      </div>
-      {/* <h2 className="moon-ruby-shop">Moon Ruby Shop</h2> */}
-      <div className="about-main-container">
-      {/* <h2 data-tag="about">About this shop</h2> */}
         <h3 data-tag="title">Jewelry winning over anxiety</h3>
       <h6 data-tag="title">
         <span className="handmade">Handmade </span> 
@@ -28,6 +26,19 @@ function About() {
         <span className="from-natural">from natural stones </span> 
         <span className="noble-metals">and noble metals</span>
       </h6>
+      </div>
+      {/* <h2 className="moon-ruby-shop">Moon Ruby Shop</h2> */}
+      <div className="about-main-container">
+      {/* <h2 data-tag="about">About this shop</h2> */}
+        {/* <h3 data-tag="title">Jewelry winning over anxiety</h3>
+      <h6 data-tag="title">
+        <span className="handmade">Handmade </span> 
+        <span className="anti-anxiety">anti-anxiety </span> 
+        <span className="jewelry">jewelry </span> 
+        <span className="made-in">made in Berlin </span> 
+        <span className="from-natural">from natural stones </span> 
+        <span className="noble-metals">and noble metals</span>
+      </h6> */}
       <p>
         Hi! I&apos;ve been living with anxiety for quite a long time, but founding my
         new passion in jewelry making helped me so much ever since. Working with
