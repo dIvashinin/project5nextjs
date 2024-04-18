@@ -24,7 +24,8 @@ p[data-tag="review"] {
   padding: 0.5px;
   margin: 0.5px;
   border-radius: 5px;
-  flex: 1 0 calc(25% - 20px); /* Four columns on larger screens */
+  flex: 1 0 calc(25% - 20px); /* Four columns on larger screens /*
+  /* flex: 1 0 calc(33% - 20px); 3 columns on larger screens */
 }
 
 .stuff-inside-products-div img {
@@ -51,8 +52,21 @@ p[data-tag="review"] {
   width: 100%;
 }
 
+@media (min-width: 375px) {
+  .product-card {
+    /* Adjust styles for smaller screens */
+    /* For example, reduce padding or margin */
+    padding: 5px;
+    margin: 5px;
+    flex: 1 0 100%; /* 1 columns on smaller screens */
+}
+.stuff-inside-products-div {
+  flex: 1 0 100%; /* 1 columns on smaller screens */
+}
+}
+
 /* Add media queries for responsiveness */
-@media (max-width: 768px) {
+@media (min-width: 376px) and (max-width: 900px) {
   .product-card {
     /* Adjust styles for smaller screens */
     /* For example, reduce padding or margin */
@@ -62,5 +76,20 @@ p[data-tag="review"] {
   }
   .stuff-inside-products-div {
     flex: 1 0 calc(50% - 20px); /* Two columns on smaller screens */
+  }
+}
+
+@media (min-width: 901px) 
+and (max-width: 1160px) 
+{
+  .product-card {
+    /* Adjust styles for smaller screens */
+    /* For example, reduce padding or margin */
+    padding: 5px;
+    margin: 5px;
+    flex: 1 0 calc(33% - 20px); /* 3 columns on smaller screens */
+  }
+  .stuff-inside-products-div {
+    flex: 1 0 calc(33% - 20px); /* 3 columns on smaller screens */
   }
 }
