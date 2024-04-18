@@ -7,7 +7,8 @@ import React, { useEffect } from "react";
 // import { useRouter } from 'next/router';
 // import { sendConfirmationEmail } from '/utils/emailUtil';
 const successBackground =
-  "https://res.cloudinary.com/dzghua4dz/image/upload/v1710535223/moonrubyshop/jwzf53h0t3l2hzldbteo.jpg";
+  // "https://res.cloudinary.com/dzghua4dz/image/upload/v1710535223/moonrubyshop/jwzf53h0t3l2hzldbteo.jpg";
+  "https://res.cloudinary.com/dzghua4dz/image/upload/v1711134633/moonrubyshop/xqkxmaljehv9a8ecxn0t.jpg";
 
 function Success() {
   //   const Success = ({ orderId, totalSum }) => {
@@ -60,8 +61,8 @@ function Success() {
         <img src={successBackground} alt="Success" className="success-image" />
       </div>
       <h2 className="moon-ruby-shop">Thanks and hugs from Moon Ruby Shop</h2>
-      <h2>You did it</h2>
-      <h2>successfull success!</h2>
+      {/* <h2>You did it</h2> */}
+      {/* <h2>successfull success!</h2> */}
       <h4>check your e-mail with order details</h4>
     </div>
   );
