@@ -16,7 +16,7 @@ function Faq() {
              
                 <>
                   <li>
-                    <h3>Custom and personalised orders and returns</h3>
+                    <h3>Hi! Can you make custom and personalised orders? What about returns?</h3>
                     <p>
                       I love our little collaborations! Don&apos;t hesitate to
                       contact me with your ideas. But please please please try
@@ -66,7 +66,7 @@ function Faq() {
                   </li>
 
                   <li>
-                    <h3>Sizing details</h3>
+                    <h3>I don&apos;t know my size. What should I do?</h3>
                     <p>
                       The best way to measure your fingers for the rings is to
                       use piece of thread. Wrap it around your finger and then
@@ -77,7 +77,7 @@ function Faq() {
                     </p>
                   </li>
                   <li>
-                    <h3>I haven&apos;t received my order</h3>
+                    <h3>I haven&apos;t received my order. What now?</h3>
                     <p>
                       Sorry you have to wait so long! Please do get in touch
                       with me and we will figure something out. Don&apos;t
@@ -86,7 +86,7 @@ function Faq() {
                     </p>
                   </li>
                   <li>
-                    <h3>My order came in broken</h3>
+                    <h3>My order came in broken. How so?</h3>
                     <p>
                       Oh no! Please contact me for replacement. I pack
                       everything as securely as possible in bubble wrap (I
@@ -98,6 +98,7 @@ function Faq() {
                       pictures. No need to send the item back.
                     </p>
                   </li>
+                  <h2>Care instructions guide</h2>
                   <li>
                     <h3>Care instructions - Stones</h3>
                     <p>

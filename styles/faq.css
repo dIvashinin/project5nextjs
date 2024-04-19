@@ -12,7 +12,12 @@ padding: 10px;
   border: 1px solid #ff00f2;
   border-radius: 15px;
   font-family: monospace;
+  font-size: 20px;
 }
 .faq-main-container h2{
     text-align: center; 
+    padding: 8px;
+}
+.faq-main-container h3{
+    padding: 5px;
 }
