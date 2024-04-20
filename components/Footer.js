@@ -7,7 +7,8 @@ import React from "react";
 const etsyIcon =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1701980006/moonrubyshop/h8z81huv3zccge5a5gks.svg";
 const instagramIcon =
-  "https://res.cloudinary.com/dzghua4dz/image/upload/v1701979993/moonrubyshop/waqgyccu5yktbke9tm6a.svg";
+  // "https://res.cloudinary.com/dzghua4dz/image/upload/v1701979993/moonrubyshop/waqgyccu5yktbke9tm6a.svg";
+  "https://res.cloudinary.com/dzghua4dz/image/upload/v1713624092/moonrubyshop/efubmcvbkyrntuzzkfdn.svg";
 const FAQ =
   "https://res.cloudinary.com/dzghua4dz/image/upload/v1702062726/moonrubyshop/iaiimnkwoj5kuzckba0v.svg";
 
@@ -29,7 +30,7 @@ function Footer() {
           <img
             src={instagramIcon}
             alt="Instagram"
-            style={{ width: "30px", height: "30px" }}
+            style={{ width: "36px", height: "36px" }}
           />
           {/* <FontAwesomeIcon icon={faInstagram} size="2x" /> */}
         </a>
