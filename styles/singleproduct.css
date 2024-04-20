@@ -94,6 +94,18 @@
   background-color: rgb(255, 223, 240);
   color: blue;
 }
+/* targetting add to cart */
+.add-to-cart-button{
+  font-size: 24px;
+  width: 180px; 
+  font-weight: bold;
+  border-width: 3px;
+  padding: 8px 12px;
+}
+.prev-btn, .next-btn{
+  font-size: 12px;
+  width: 100px;   
+}
 .single-product-card button:hover {
   background-color: rgb(255, 133, 208);
 }
