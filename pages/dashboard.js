@@ -26,6 +26,8 @@ function Dashboard() {
   const [showAlert2, setShowAlert2] = useState(false); // State to manage the alert
 
   const {filteredProducts , setFilteredProducts} = useFilteredProducts();
+  //loading state
+  const [addProductLoading, setAddProductLoading] = useState(false);
 
   useRedirectOnCondition(filteredProducts.length > 0, '/');
   console.log('filteredProducts in dashboard :>> ', filteredProducts);
@@ -184,6 +186,7 @@ function Dashboard() {
 
   // Function to handle form submission
   const handleFormSubmit = async (e) => {
+    setAddProductLoading(true);
     e.preventDefault();
 
     //here a modification of cloudinary docs for multiple upload
@@ -247,6 +250,8 @@ function Dashboard() {
   } catch (error) {
     console.error("Error adding product:", error);
     setShowAlert2(false);
+  } finally {
+    setAddProductLoading(false);
   }
 };
 
@@ -496,7 +501,33 @@ show={showAlert1}
             <div id="data"></div>
             {/* Additional fields if needed */}
             {/* Submit button */}
-            <button type="submit">Add Product</button>
+            <button className="btn btn-primary"
+            type="submit" 
+            {/* prevents user from submitting the form multiple times while the product is being added */}
+            disabled={addProductLoading}> 
+              {addProductLoading && (
+              <>
+              <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+              <span className="visually-hidden" role="status">Loading...</span>
+             </>
+             )}
+             {!addProductLoading && "Add Product"}
+              </button>
+
+            {/* className="btn btn-primary"  */}
+                {/* type="button" disabled={continueToPaymentLoading} // Disable the button when deleteLoading is true */}
+                {/* onClick={handleContinueToPayment} */}
+                {/* > */}
+                  {/* {continueToPaymentLoading && ( // Conditionally render the spinner if continueToPaymentLoading is true */}
+                  {/* <> */}
+                   {/* <span className="spinner-border spinner-border-sm" aria-hidden="true"></span> */}
+                   {/* <span className="visually-hidden" role="status">Loading...</span> */}
+                  {/* </> */}
+                  {/* )} */}
+                  {/* {!continueToPaymentLoading && "continue to payment"} Render the button text if continueToPaymentLoading is false */}
+
+
+
           </form>
         </div>
       </div>
