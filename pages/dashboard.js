@@ -458,6 +458,7 @@ show={showAlert1}
                 {/* disabled value doesn't count as value! */}
                 {/* <option disabled value="pls select color">pls select color</option> */}
                 {/* i decided to hardcode the types and its values to easily choose from the list */}
+                <option value="empty">choose type</option>
                 <option value="ring">ring</option>
                 <option value="earring">earring</option>
                 <option value="bracelet">bracelet</option>
@@ -503,7 +504,7 @@ show={showAlert1}
             {/* Submit button */}
             <button className="btn btn-primary"
             type="submit" 
-            {/* prevents user from submitting the form multiple times while the product is being added */}
+            /* prevents user from submitting the form multiple times while the product is being added */
             disabled={addProductLoading}> 
               {addProductLoading && (
               <>
