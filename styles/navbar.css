@@ -180,3 +180,36 @@
   }
 
 }
+
+/* Small devices (phones, 320px and up) */
+@media (min-width: 320px) {
+ 
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) 
+/* and (max-width: 900px)  */
+{
+  
+
+  
+}
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) 
+/* and (max-width: 1160px)  */
+{
+
+  
+ 
+}
+/* Extra large devices (large desktops, 1440px and up) */
+@media (min-width: 1440px) { 
+  
+
+ }
+
+/* Extra large devices (wider screens, 1920px and up) */
+@media (min-width: 1920px) { 
+  
+
+  
+ }
