@@ -114,17 +114,14 @@
     height: 1rem; /* Adjusted height */
     font-size: 10px; /* Adjusted font size */
   }
- 
 }
 
 @media (min-width: 500px) {
-  
   .navigation-bar a {
     font-size: 26px;
     padding: 2px;
   }
 }
-
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) 
@@ -134,8 +131,6 @@
     font-size: 30px;
     padding: 0px;
   }
-
-  
 }
 /* Large devices (desktops, 1024px and up) */
 @media (min-width: 1024px) 
@@ -145,13 +140,9 @@
     font-size: 38px;
     padding: 0px;
   }
-  
- 
 }
 /* Extra large devices (large desktops, 1440px and up) */
 @media (min-width: 1440px) { 
-  
-
  }
 
 /* Extra large devices (wider screens, 1920px and up) */
