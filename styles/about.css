@@ -88,24 +88,58 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 padding: 3px;
 } */
 
-@media (min-width: 500px) 
+/* @media (min-width: 500px)  */
 /* and (max-width: 768px) */
-{ 
-  h3[data-tag="title"]  {
-    font-size: 50px; 
-  }
-}
+/* {  */
+  
+/* } */
 @media (min-width: 760px) 
 /* and (max-width: 768px) */
 { 
-  h3[data-tag="title"]  {
-    font-size: 60px; 
-  }
+  
 }
 @media (min-width: 1160px) 
 /* and (max-width: 768px) */
 { 
+  
+}
+
+/* Small devices (phones, 320px and up) */
+@media (min-width: 320px) {
+  h3[data-tag="top-about-empty-space"] {
+    margin-bottom: 24px;
+  }
   h3[data-tag="title"]  {
-    font-size: 70px; 
+    font-size: 50px; 
   }
 }
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) 
+/* and (max-width: 900px)  */
+{
+  
+
+  h3[data-tag="title"]  {
+    font-size: 60px; 
+  }
+ 
+}
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) 
+/* and (max-width: 1160px)  */
+{
+
+  h3[data-tag="title"]  {
+    font-size: 67px; 
+  }
+ 
+}
+/* Extra large devices (large desktops, 1440px and up) */
+@media (min-width: 1440px) { 
+  
+ }
+
+/* Extra large devices (wider screens, 1920px and up) */
+@media (min-width: 1920px) { 
+  
+ }
