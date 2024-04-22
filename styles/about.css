@@ -1,9 +1,9 @@
 /* ABOUT PAGE */
 h3[data-tag="top-about-empty-space"] {
-  margin-bottom: 34px;
+  /* margin-bottom: 34px; */
 }
 .banner-container-about{
-  /* margin-top: 34px; */
+  margin-top: 30px;
   position: relative;
   height: 200px; /* Set the desired height of your banner */
   overflow: hidden;
@@ -92,17 +92,30 @@ padding: 3px;
 
 /* Small devices (phones, 320px and up) */
 @media (min-width: 320px) {
-  h3[data-tag="top-about-empty-space"] {
-    margin-bottom: 24px;
+  /* h3[data-tag="top-about-empty-space"] { */
+    /* margin-bottom: 24px; */
+  /* } */
+  .banner-container-about{
+    margin-top: 22px;
   }
   h3[data-tag="title"]  {
     font-size: 40px; 
   }
 }
+@media (min-width: 500px) {
+  .banner-container-about{
+    margin-top: 22px;
+  }
+  
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) 
 /* and (max-width: 900px)  */
 {
+  .banner-container-about{
+    margin-top: 24px;
+  }
   
 
   h3[data-tag="title"]  {
@@ -114,6 +127,9 @@ padding: 3px;
 @media (min-width: 1024px) 
 /* and (max-width: 1160px)  */
 {
+  .banner-container-about{
+    margin-top: 36px;
+  }
 
   h3[data-tag="title"]  {
     font-size: 67px; 
