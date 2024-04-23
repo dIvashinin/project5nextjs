@@ -21,3 +21,43 @@ padding: 10px;
 .faq-main-container h3{
     padding: 5px;
 }
+/* Responsive styling */
+/* Small devices (phones, 320px and up) */
+@media (min-width: 320px) {
+  .faq-main-container{
+    margin-top: 22px;
+  }
+}
+
+/* @media (min-width: 500px) { */
+/* } */
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) 
+/* and (max-width: 900px)  */{
+  .faq-main-container{
+    margin-top: 24px;
+  }
+}
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) 
+/* and (max-width: 1160px)  */{
+  .faq-main-container{
+    margin-top: 36px;
+  }
+}
+/* Extra large devices (large desktops, 1440px and up) */
+@media (min-width: 1440px) { 
+  .faq-main-container{
+    margin-top: 48px;
+    /* margin-bottom: 50px; */
+  }
+}
+
+/* Extra large devices (wider screens, 1920px and up) */
+@media (min-width: 1920px) { 
+  .faq-main-container{
+    margin-top: 57px;
+    /* margin-bottom: 50px; */
+  }
+ }
