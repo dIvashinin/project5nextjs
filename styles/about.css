@@ -136,11 +136,17 @@ padding: 3px;
   h3[data-tag="title"]  {
     font-size: 75px; 
   }
+  .banner-container-about{
+    margin-top: 48px;
+  }
  }
 
 /* Extra large devices (wider screens, 1920px and up) */
 @media (min-width: 1920px) { 
   h3[data-tag="title"]  {
     font-size: 86px; 
+  }
+  .banner-container-about{
+    margin-top: 57px;
   }
  }
