@@ -17,7 +17,8 @@
 }
 
 /* Responsive styling */
-@media (max-width: 400px) {
+/* Small devices (phones, 320px and up) */
+@media (min-width: 320px) {
   .searchbar {
     margin-top: 25px;
   }
@@ -26,20 +27,45 @@
   }
 }
 
-@media (min-width: 401px) and (max-width: 500px) {
+/* @media (min-width: 500px) { */
+/* } */
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) 
+/* and (max-width: 900px)  */{
   .searchbar {
-    margin-top: 31px;
+    margin-top: 28px;
   }
   .search-input {
-    width: 75%;
+    width: 100%;
   }
 }
-
-@media (min-width: 501px) and (max-width: 768px) {
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) 
+/* and (max-width: 1160px)  */{
   .searchbar {
-    margin-top: 36px;
+    margin-top: 40px;
   }
   .search-input {
     width: 50%;
   }
 }
+/* Extra large devices (large desktops, 1440px and up) */
+@media (min-width: 1440px) { 
+  .searchbar {
+    margin-top: 52px;
+  }
+  .search-input {
+    width: 50%;
+  }
+}
+
+/* Extra large devices (wider screens, 1920px and up) */
+@media (min-width: 1920px) { 
+  .searchbar {
+    margin-top: 62px;
+  }
+  .search-input {
+    width: 25%;
+  } 
+ }
