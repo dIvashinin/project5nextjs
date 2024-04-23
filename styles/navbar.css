@@ -121,6 +121,10 @@
     font-size: 26px;
     padding: 2px;
   }
+  .ruby-svg {
+    width: 27px;
+    height: 27px;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -131,6 +135,10 @@
     font-size: 30px;
     padding: 0px;
   }
+  .ruby-svg {
+    width: 31px;
+    height: 31px;
+  }
 }
 /* Large devices (desktops, 1024px and up) */
 @media (min-width: 1024px) 
@@ -140,14 +148,80 @@
     font-size: 38px;
     padding: 0px;
   }
+  .ruby-svg {
+    width: 38px;
+    height: 38px;
+  }
+  .product-cart {
+    width: 2.2rem; /* Adjusted width */
+    height: 2.3rem; /* Adjusted height */
+  }
+
+  .cart-icon-svg {
+    width: 2.0rem; /* Adjusted width */
+    height: 2.1rem; /* Adjusted height */
+  }
+
+  .inside-cart-number-products {
+    width: 1.3rem; /* Adjusted width */
+    height: 1.3rem; /* Adjusted height */
+    font-size: 13px; /* Adjusted font size */
+  }
 }
 /* Extra large devices (large desktops, 1440px and up) */
 @media (min-width: 1440px) { 
- }
+  .navigation-bar a {
+    font-size: 46px;
+    padding: 0px;
+  }
+  .ruby-svg {
+    width: 46px;
+    height: 46px;
+  } 
+  .product-cart {
+    width: 3.1rem; /* Adjusted width */
+    height: 3.2rem; /* Adjusted height */
+  }
+
+  .cart-icon-svg {
+    width: 2.6rem; /* Adjusted width */
+    height: 2.7rem; /* Adjusted height */
+  }
+
+  .inside-cart-number-products {
+    width: 1.5rem; /* Adjusted width */
+    height: 1.5rem; /* Adjusted height */
+    font-size: 19px; /* Adjusted font size */
+  }
+
+}
+
 
 /* Extra large devices (wider screens, 1920px and up) */
 @media (min-width: 1920px) { 
-  
+  .navigation-bar a {
+    font-size: 52px;
+    padding: 0px;
+  }
+  .ruby-svg {
+    width: 55px;
+    height: 55px;
+  } 
+  .product-cart {
+    width: 3.9rem; /* Adjusted width */
+    height: 4rem; /* Adjusted height */
+  }
+
+  .cart-icon-svg {
+    width: 3.3rem; /* Adjusted width */
+    height: 3.4rem; /* Adjusted height */
+  }
+
+  .inside-cart-number-products {
+    width: 2rem; /* Adjusted width */
+    height: 2rem; /* Adjusted height */
+    font-size: 24px; /* Adjusted font size */
+  }
 
   
  }
