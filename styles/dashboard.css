@@ -1,5 +1,5 @@
 .dashboard-container {
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 0 auto;
   padding: 20px;
   background: linear-gradient(to bottom , rgb(178, 187, 184), rgb(123, 207, 182));
@@ -7,6 +7,7 @@
 
 .dashboard-order-container {
   /* border: 1px solid #c88888; */
+  max-width: 400px;
   margin: 2px;
   padding: 2px;
 }
@@ -18,6 +19,7 @@
   padding: 8px;
   background-color: rgb(219, 205, 218);
   border-radius: 15px;
+  max-width: 600px;
 }
 .dashboard-add-new-container{
   margin-bottom: 20px;

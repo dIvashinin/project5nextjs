@@ -24,7 +24,8 @@ h6[data-tag="title"] {
   /* top: 70%; */
   /* left: 45%; */
   /* transform: translate(-50%, -50%); Center the text */
- 
+  font-style: italic;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
   color: rgb(0, 0, 144);
   z-index: 1; /* Ensure the text is on top of the image */
