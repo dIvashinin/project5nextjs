@@ -2,7 +2,11 @@
   /* max-width: 800px; */
   margin: 0 auto;
   padding: 20px;
-  background: linear-gradient(to bottom , rgb(178, 187, 184), rgb(123, 207, 182));
+  background: linear-gradient(
+    to bottom,
+    rgb(178, 187, 184),
+    rgb(123, 207, 182)
+  );
 }
 
 .dashboard-order-container {
@@ -21,11 +25,11 @@
   border-radius: 15px;
   max-width: 600px;
 }
-.dashboard-add-new-container{
+.dashboard-add-new-container {
   margin-bottom: 20px;
 }
-.dashboard-inner-separate-order-container p{
-   /*space between paragraph lines  */
+.dashboard-inner-separate-order-container p {
+  /*space between paragraph lines  */
   margin: 0px;
   font-size: 0.7rem;
 }
