@@ -8,9 +8,8 @@
   margin-top: 40px;
   margin-bottom: 50px;
   margin-left: 5px;
-  
 }
-.thumbnail-container{
+.thumbnail-container {
   /* border: 1px solid #f8a3e8; */
   /* padding: 1px; */
   /* margin: 2px; */
@@ -22,7 +21,7 @@
   /* margin-right: 5px; */
   cursor: pointer;
 }
-.thumbnail-image{
+.thumbnail-image {
   border: 1px solid #f8a3e8;
   padding: 1px;
   margin: 10px;
@@ -38,7 +37,7 @@
 .protected-thumbnail-image {
   width: 10px; /* Adjust the width of the thumbnail image */
   /* Maintain aspect ratio */
-  height: auto; 
+  height: auto;
   display: block;
 }
 
@@ -71,8 +70,15 @@
   text-align: justify;
   margin: 1px;
 }
-.prev-btn, .next-btn, .add-to-cart-button, .submit-changes, .delete-listing, .image-add, .show-more, .show-less{
-/* .single-product-card button { */
+.prev-btn,
+.next-btn,
+.add-to-cart-button,
+.submit-changes,
+.delete-listing,
+.image-add,
+.show-more,
+.show-less {
+  /* .single-product-card button { */
   /* background-color: #4caf50;  */
   color: white;
   border: none;
@@ -93,16 +99,17 @@
   color: blue;
 }
 /* targetting add to cart */
-.add-to-cart-button{
+.add-to-cart-button {
   font-size: 24px;
-  width: 180px; 
+  width: 180px;
   font-weight: bold;
   border-width: 3px;
   padding: 8px 12px;
 }
-.prev-btn, .next-btn{
+.prev-btn,
+.next-btn {
   font-size: 12px;
-  width: 100px;   
+  width: 100px;
 }
 .single-product-card button:hover {
   background-color: rgb(255, 133, 208);
@@ -170,18 +177,18 @@ button:hover {
 
 /* Additional styles for the additional images */
 /* .single-product-card .additional-images { */
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* margin-bottom: 20px; */
+/* display: flex; */
+/* justify-content: space-between; */
+/* margin-bottom: 20px; */
 /* } */
 
 /* .single-product-card .additional-images img { */
-  /* max-width: 30%; */
+/* max-width: 30%; */
 /* } */
 
 /* Additional styles for the product information section */
 /* .single-product-card .product-information { */
-  /* margin-top: 20px; */
+/* margin-top: 20px; */
 /* } */
 /* .add-to-cart-button,
 .minus-to-cart-button {
