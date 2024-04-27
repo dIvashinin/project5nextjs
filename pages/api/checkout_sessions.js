@@ -131,7 +131,6 @@ export default async function handler(req, res) {
 //           success_url: `${req.headers.origin}/success`,
 //           cancel_url: 'https://example.com/cancel',
 //         });
-
 //         res.status(200).json({ sessionURL: session.url });
 //       } catch (error) {
 //         console.error('Error creating Checkout session:', error);
