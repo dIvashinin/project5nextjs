@@ -24,7 +24,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 // i am exporting these variables to be able to use them outside of this file
-export const app = initializeApp(firebaseConfig);
+
+export const app = initializeApp(firebaseConfig, "MOON_APP_NAME");
 // export const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 
