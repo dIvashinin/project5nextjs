@@ -1,7 +1,7 @@
 import { db } from "../../config/firebaseConfig";
 // import { onAuthStateChanged } from "firebase/auth";
 import {
-  getFirestore,
+  // getFirestore,
   collection,
   addDoc,
   serverTimestamp,
