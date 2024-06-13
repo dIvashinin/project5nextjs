@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { app, auth } from "../config/firebaseConfig";
+import { auth } from "../config/firebaseConfig";
 import Alert from "react-bootstrap/Alert";
 import { useFilteredProducts } from "../context/FilteredProductsContext";
 import { useRedirectOnCondition } from "../hooks/useRedirectOnCondition";

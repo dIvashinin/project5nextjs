@@ -21,13 +21,17 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_APP_ID,
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID
 };
+// console.log("Firebase Config: ", firebaseConfig);
 
 // Initialize Firebase
 // i am exporting these variables to be able to use them outside of this file
 
-export const app = initializeApp(firebaseConfig, "MOON_APP_NAME");
+export const app = initializeApp(firebaseConfig);
+// console.log("Firebase App: ", app);
 // export const analytics = getAnalytics(app);
 export const auth = getAuth(app);
+// console.log("Firebase Auth: ", auth);
 
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
+// console.log('db', db)
